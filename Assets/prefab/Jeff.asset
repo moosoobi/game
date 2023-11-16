@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0a87af1332168b439e4f312aac7a2d8, type: 3}
+  m_Name: Jeff
+  m_EditorClassIdentifier: 
+  name: Jeff
+  dialogue:
+  - "\uC548\uB155? \uB09C \uC774\uB9C8\uC744\uC5D0 Jeff\uB77C\uACE0\uD574"
+  - "\uD639\uC2DC \uAD81\uAE08\uD55C\uAC70\uB098 \uBAA8\uB974\uB294\uAC8C \uC788\uC73C\uBA74
+    \uB9D0\uD574\uC918"
+  - "\uB09C \uC774 \uB9C8\uC744\uC758 \uCD0C\uC7A5\uC774\uAC70\uB4E0"
+  - "\uADF8\uB7FC \uD544\uC694\uD55C\uAC8C \uC788\uC73C\uBA74 \uB9D0\uD574\uC918"
+  playerDialogue: []
