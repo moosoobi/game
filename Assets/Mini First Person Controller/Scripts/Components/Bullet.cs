@@ -15,4 +15,11 @@ public class Bullet : MonoBehaviour
         // 일정 시간 후에 총알 제거 (예: 10초 후)
         Destroy(gameObject, 10f);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject); //물체에 충돌시 총알 제거
+    }
+
+
 }
