@@ -15,13 +15,18 @@ public class BulletScript : MonoBehaviour {
 	[Tooltip("Put Weapon layer and Player layer to ignore bullet raycast.")]
 	public LayerMask ignoreLayer;
 
+	private Rigidbody characterRigidbody;
 	/*
 	* Uppon bullet creation with this script attatched,
 	* bullet creates a raycast which searches for corresponding tags.
 	* If raycast finds somethig it will create a decal of corresponding tag.
 	*/
+	void Start(){
+		characterRigidbody=GetComponent<Rigidbody>();
+	}
 	void Update () {
 
+		/*
 		if(Physics.Raycast(transform.position, transform.forward,out hit, maxDistance, ~ignoreLayer)){
 			if(decalHitWall){
 				if(hit.transform.tag == "LevelPart"){
@@ -35,7 +40,9 @@ public class BulletScript : MonoBehaviour {
 			}		
 			Destroy(gameObject);
 		}
-		Destroy(gameObject, 0.1f);
+		*/
+		characterRigidbody.AddForce(1, 0, 0);
+		Destroy(gameObject, 10f);
 	}
 
 }
