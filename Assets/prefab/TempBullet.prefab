@@ -85,20 +85,20 @@ TrailRenderer:
       - serializedVersion: 3
         time: 0
         value: 0.10824472
-        inSlope: -0.23251122
-        outSlope: -0.23251122
+        inSlope: -0.3715772
+        outSlope: -0.3715772
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.22222224
+        outWeight: 0.5237249
       - serializedVersion: 3
-        time: 0.55988026
+        time: 0.26347306
         value: 0
-        inSlope: -0.17477758
-        outSlope: -0.17477758
+        inSlope: -0.35476568
+        outSlope: -0.35476568
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.20855618
+        inWeight: 0.6095112
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -292,4 +292,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3eec5faef9e96e46a01e684df40b035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 10
+  bulletSpeed: 50

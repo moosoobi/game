@@ -48,7 +48,7 @@ MonoBehaviour:
     m_Value: 88.5
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 300
+    m_Value: 200
   enableVolumetricFog:
     m_OverrideState: 1
     m_Value: 1
@@ -106,9 +106,9 @@ MonoBehaviour:
     m_Value: 3
   cloudType:
     m_OverrideState: 0
-    m_Value: 1
+    m_Value: 0
   skyAmbientMode:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   windOrientation:
     m_OverrideState: 1
@@ -305,7 +305,7 @@ MonoBehaviour:
     m_Value: {r: 0.013171948, g: 0.013171948, b: 0.0754717, a: 1}
   middle:
     m_OverrideState: 1
-    m_Value: {r: 0.26032397, g: 0.3579717, b: 0.8490566, a: 1}
+    m_Value: {r: 0.06694998, g: 0.079653256, b: 0.2783019, a: 1}
   bottom:
     m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
