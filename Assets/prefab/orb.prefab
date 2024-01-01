@@ -9838,9 +9838,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e3d39d01a5946499fa8b6b5dc1b00f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 30
+  maxDistance: 50
   bloodEffect: {fileID: 1013274939826982, guid: ffbf169ab9dcfdc45ae14010bc82a6b2, type: 3}
-  hit_sound_source: {fileID: 6504084053838343541}
 --- !u!114 &-2432893762211228943
 MonoBehaviour:
   m_ObjectHideFlags: 0
