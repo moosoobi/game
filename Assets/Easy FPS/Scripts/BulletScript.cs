@@ -15,27 +15,37 @@ public class BulletScript : MonoBehaviour {
 	[Tooltip("Put Weapon layer and Player layer to ignore bullet raycast.")]
 	public LayerMask ignoreLayer;
 
-	/*
-	* Uppon bullet creation with this script attatched,
-	* bullet creates a raycast which searches for corresponding tags.
-	* If raycast finds somethig it will create a decal of corresponding tag.
-	*/
-	void Update () {
+	void Start()
+    {
+        // 총알을 시작할 때 바로 움직이도록 추가
+        MoveBullet();
+    }
 
-		if(Physics.Raycast(transform.position, transform.forward,out hit, maxDistance, ~ignoreLayer)){
-			if(decalHitWall){
-				if(hit.transform.tag == "LevelPart"){
-					Instantiate(decalHitWall, hit.point + hit.normal * floatInfrontOfWall, Quaternion.LookRotation(hit.normal));
-					Destroy(gameObject);
-				}
-				if(hit.transform.tag == "Dummie"){
-					Instantiate(bloodEffect, hit.point, Quaternion.LookRotation(hit.normal));
-					Destroy(gameObject);
-				}
-			}		
-			Destroy(gameObject);
-		}
-		Destroy(gameObject, 0.1f);
-	}
+    // 총알을 움직이는 속도
+    private float maxSpeed = 10.0f;
+
+    // 총알이 움직이는 방향으로 이동하는 함수
+    private void MoveBullet()
+    {
+        GetComponent<Rigidbody>().velocity = transform.forward * maxSpeed;
+    }
+
+    // 이하 코드는 변경되지 않았습니다.
+    private void OnTriggerEnter(Collider other)
+    {
+        if (decalHitWall)
+        {
+            if (other.CompareTag("LevelPart"))
+            {
+                Instantiate(decalHitWall, transform.position + transform.forward * floatInfrontOfWall, Quaternion.LookRotation(transform.forward));
+                Destroy(gameObject);
+            }
+            else if (other.CompareTag("Dummie"))
+            {
+                Instantiate(bloodEffect, transform.position, Quaternion.LookRotation(transform.forward));
+                Destroy(gameObject);
+            }
+        }
+    }
 
 }

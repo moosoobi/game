@@ -1168,9 +1168,10 @@ Transform:
   - {fileID: 428670}
   - {fileID: 421096}
   - {fileID: 467724}
+  - {fileID: 7240484082604412312}
   - {fileID: 488024}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11400676
 MonoBehaviour:
@@ -1205,7 +1206,7 @@ MonoBehaviour:
   rotationLagTime: 0
   forwardRotationAmount: {x: 1, y: 1}
   bulletSpawnPlace: {fileID: 0}
-  bullet: {fileID: 128836, guid: c9e619a669d974fd28b5c89e43f2bce2, type: 3}
+  bullet: {fileID: 4526418526604946858, guid: c2596c121af7f5346b4bd725b1e73688, type: 3}
   roundsPerSecond: 100
   recoilAmount_z: 0.04
   recoilAmount_x: 0.04
@@ -3370,4 +3371,35 @@ Transform:
   - {fileID: 482464}
   m_Father: {fileID: 411968}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7469768494751083831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7240484082604412312}
+  m_Layer: 9
+  m_Name: BulletSpawn
+  m_TagString: BulletSpawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7240484082604412312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7469768494751083831}
+  m_LocalRotation: {x: -0.000000020077913, y: 0.00000003716542, z: 0.00000007111886, w: 1}
+  m_LocalPosition: {x: 0, y: -0.087, z: 0.267}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 469018}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -16,10 +16,12 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, 10f);
     }
 
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject); //물체에 충돌시 총알 제거
     }
+    */
 
 
 }
