@@ -5,15 +5,10 @@ public class BulletScript : MonoBehaviour {
 
 	[Tooltip("Furthest distance bullet will look for target")]
 	public float maxDistance = 1000000;
-	RaycastHit hit;
-	[Tooltip("Prefab of wall damange hit. The object needs 'LevelPart' tag to create decal on it.")]
-	public GameObject decalHitWall;
-	[Tooltip("Decal will need to be sligtly infront of the wall so it doesnt cause rendeing problems so for best feel put from 0.01-0.1.")]
-	public float floatInfrontOfWall;
+	
 	[Tooltip("Blood prefab particle this bullet will create upoon hitting enemy")]
 	public GameObject bloodEffect;
 	[Tooltip("Put Weapon layer and Player layer to ignore bullet raycast.")]
-	public LayerMask ignoreLayer;
 
 	void Start()
     {
@@ -30,22 +25,15 @@ public class BulletScript : MonoBehaviour {
         GetComponent<Rigidbody>().velocity = transform.forward * maxSpeed;
     }
 
-    // 이하 코드는 변경되지 않았습니다.
     private void OnTriggerEnter(Collider other)
     {
-        if (decalHitWall)
-        {
-            if (other.CompareTag("LevelPart"))
-            {
-                Instantiate(decalHitWall, transform.position + transform.forward * floatInfrontOfWall, Quaternion.LookRotation(transform.forward));
-                Destroy(gameObject);
-            }
-            else if (other.CompareTag("Dummie"))
+        
+            if(other.CompareTag("Dummie"))
             {
                 Instantiate(bloodEffect, transform.position, Quaternion.LookRotation(transform.forward));
                 Destroy(gameObject);
             }
-        }
+        
     }
 
 }
