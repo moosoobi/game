@@ -12169,7 +12169,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990743000}
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.04998768, y: 9.659988, z: 1.2485353}
+  m_LocalPosition: {x: 0.04998768, y: 9.79, z: 1.2485353}
   m_LocalScale: {x: 2.2638996, y: 2.2639, z: 2.2638996}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12194,7 +12194,7 @@ MonoBehaviour:
   m_InnerSpotPercent: 0
   m_SpotIESCutoffPercent: 100
   m_LightDimmer: 1
-  m_VolumetricDimmer: 1
+  m_VolumetricDimmer: 1.57
   m_LightUnit: 0
   m_FadeDistance: 10000
   m_VolumetricFadeDistance: 10000
@@ -12311,7 +12311,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1011.3044
-  m_Range: 10
+  m_Range: 12.39
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
