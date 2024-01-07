@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
 
     bool isTalking=false;
 
-    float distance;
+    
     int curResponseTracker=0;
     
     public GameObject player;
@@ -19,17 +19,19 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI npcName;
     public TextMeshProUGUI npcDialogueBox;
     public TextMeshProUGUI playerResponse;
-
+    
+    private bool zzz=false;
+    
 
     void Start()
     {
         dialogueUI.SetActive(false);
     }
 
-    void OnMouseOver()
+    
+    void Update()
     {
-        distance=Vector3.Distance(player.transform.position,this.transform.position);
-        if(distance <=2.5f){
+        if(zzz){
             if(Input.GetKeyDown(KeyCode.Z)&&isTalking==true){
                 curResponseTracker++;
                 if(curResponseTracker>=npc.dialogue.Length-1){
@@ -44,22 +46,17 @@ public class DialogueManager : MonoBehaviour
             else if(Input.GetKeyDown(KeyCode.Z)&&curResponseTracker==npc.dialogue.Length-1){
                 EndDialogue();
             }
-            /*
-            if(curResponseTracker==0&&npc.playerDialogue.Length>=0){
-                playerResponse.text=npc.playerDialogue[0];
-                if(Input.GetKeyDown(KeyCode.Return)){
-                    npcDialogueBox.text=npc.dialogue[1];
-                }
-            }
-            else if(curResponseTracker==1&&npc.playerDialogue.Length>=1){
-                playerResponse.text=npc.playerDialogue[1];
-                if(Input.GetKeyDown(KeyCode.Return)){
-                    npcDialogueBox.text=npc.dialogue[2];
-                }
-            }
-            */
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {    
+            zzz=true;
+    }
+    private void OnTriggerExit(Collider other)
+    {    
+            zzz=false;
+    }
+    
 
     void StartConversation(){
         isTalking=true;
