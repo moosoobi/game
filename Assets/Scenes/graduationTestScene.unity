@@ -18692,6 +18692,9 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653363449166}
   - component: {fileID: 919132149357934581}
+  - component: {fileID: 919132149357934583}
+  - component: {fileID: 919132149357934582}
+  - component: {fileID: 919132149357934584}
   m_Layer: 0
   m_Name: door_uv
   m_TagString: Untagged
@@ -18709,7 +18712,7 @@ Animator:
   m_GameObject: {fileID: 919132149357934580}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c33ed79b63b0d474f89caac36b162f02, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5ca07184b59a2144e9bae34cb0b4547e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -18720,6 +18723,59 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &919132149357934582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149357934580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba7993681b5d444bbafad2a263e6341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zz: {fileID: 458281355}
+--- !u!114 &919132149357934583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149357934580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f41095a74f281742bb3837b882c5218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myDoor: {fileID: 919132149357934581}
+  openTrigger: 1
+  closeTrigger: 0
+  DrawerOpen: {fileID: 1433768890}
+  DrawerClose: {fileID: 1634746867}
+  dooropen: DoorOpen
+  doorclose: DoorClose
+--- !u!65 &919132149357934584
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149357934580}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5815816, y: 3.1799648, z: 1.4065198}
+  m_Center: {x: 0.005206396, y: 1.2057346, z: -0.13733879}
 --- !u!1 &1076485574421849725
 GameObject:
   m_ObjectHideFlags: 0

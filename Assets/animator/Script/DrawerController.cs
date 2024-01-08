@@ -42,7 +42,7 @@ public class DrawerController : MonoBehaviour
             }
         }
     }
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         
         zzzz=true;
