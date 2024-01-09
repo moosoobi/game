@@ -34,7 +34,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DrawerController
+  m_Name: DrawerController2
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -96,7 +96,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 76cdbd044bcc2a9469c83aa53f8ef02f, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1bff46dff5c03c14e8e62496647ab589, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -122,7 +122,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6470766e98fd3d94f86825b79c5a3a08, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5977de7e166954d49bc74bddc6ba9fd6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

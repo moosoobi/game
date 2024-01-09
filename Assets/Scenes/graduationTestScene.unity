@@ -3423,8 +3423,8 @@ MonoBehaviour:
   closeTrigger: 0
   DrawerOpen: {fileID: 1634746867}
   DrawerClose: {fileID: 1433768890}
-  dooropen: DrawerClose
-  doorclose: DrawerOpen
+  dooropen: DrawerOpen
+  doorclose: DrawerClose
 --- !u!65 &331921415
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3445,7 +3445,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.74964267, y: 1.4311178, z: 1.840267}
-  m_Center: {x: -0.83088475, y: 0.39014885, z: 0.42013323}
+  m_Center: {x: -1.05, y: 0.39014885, z: 0.42013323}
 --- !u!114 &331921416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11418,6 +11418,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 980ada5cc35383749be20fe034719aeb, type: 2}
     - target: {fileID: 6747895743011011391, guid: 61040cbc4a34cb841bdca8567cf55f97, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.000000003277822
+      objectReference: {fileID: 0}
+    - target: {fileID: 6747895743011011391, guid: 61040cbc4a34cb841bdca8567cf55f97, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.382
       objectReference: {fileID: 0}
@@ -11432,6 +11436,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 61040cbc4a34cb841bdca8567cf55f97, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1751168999}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 61040cbc4a34cb841bdca8567cf55f97, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1751169003}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 61040cbc4a34cb841bdca8567cf55f97, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1751169002}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 61040cbc4a34cb841bdca8567cf55f97, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1751169001}
     - targetCorrespondingSourceObject: {fileID: 2743476565689403107, guid: 61040cbc4a34cb841bdca8567cf55f97, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2121985969}
@@ -15286,7 +15299,7 @@ Animator:
   m_GameObject: {fileID: 1751168998}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fdec591f920108e419a350fe87925755, type: 2}
+  m_Controller: {fileID: 9100000, guid: fa50843a33f3c7b4f8251269af1bce2d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -15297,6 +15310,59 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1751169001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751168998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba7993681b5d444bbafad2a263e6341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zz: {fileID: 458281355}
+--- !u!65 &1751169002
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751168998}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.74964267, y: 1.4311178, z: 1.89}
+  m_Center: {x: -0.01, y: 0.14, z: 0.66}
+--- !u!114 &1751169003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751168998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f41095a74f281742bb3837b882c5218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myDoor: {fileID: 1751168999}
+  openTrigger: 1
+  closeTrigger: 0
+  DrawerOpen: {fileID: 1634746867}
+  DrawerClose: {fileID: 1433768890}
+  dooropen: DrawerOpen
+  doorclose: DrawerClose
 --- !u!1001 &1756398417
 PrefabInstance:
   m_ObjectHideFlags: 0
