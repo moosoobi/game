@@ -33,7 +33,9 @@ public class BulletScript : MonoBehaviour {
                 Instantiate(bloodEffect, transform.position, Quaternion.LookRotation(transform.forward));
                 Destroy(gameObject);
             }
-        
+            else{
+                Destroy(gameObject);
+            }
     }
 
 }

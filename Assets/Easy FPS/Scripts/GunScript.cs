@@ -45,7 +45,7 @@ public class GunScript : MonoBehaviour {
 		cameraComponent = mainCamera.GetComponent<Camera>();
 		pmS = player.GetComponent<PlayerMovementScript>();
 
-		bulletSpawnPlace = GameObject.FindGameObjectWithTag("BulletSpawn");
+		
 		hitMarker = transform.Find ("hitMarkerSound").GetComponent<AudioSource> ();
 
 		startLook = mouseSensitvity_notAiming;
@@ -418,6 +418,7 @@ public class GunScript : MonoBehaviour {
 	 * Creates bullets and muzzle flashes and calls for Recoil.
 	 */
 	private void ShootMethod(){
+		bulletSpawnPlace = GameObject.FindGameObjectWithTag("BulletSpawn");
 		if(waitTillNextFire <= 0 && !reloading && pmS.maxSpeed < 5){
 
 			if(bulletsInTheGun > 0){
