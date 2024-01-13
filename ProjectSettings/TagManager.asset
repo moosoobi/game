@@ -9,6 +9,7 @@ TagManager:
   - SecondCamera
   - Dummie
   - Z
+  - QuestManager
   layers:
   - Default
   - TransparentFX
