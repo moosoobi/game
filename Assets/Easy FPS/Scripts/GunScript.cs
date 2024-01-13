@@ -31,6 +31,7 @@ public class GunScript : MonoBehaviour {
 	private Transform gunPlaceHolder;
 
 	private PlayerMovementScript pmS;
+	public Tutorial Tutorial;
 
 	/*
 	 * Collection the variables upon awake that we need.
@@ -44,7 +45,7 @@ public class GunScript : MonoBehaviour {
 		secondCamera = GameObject.FindGameObjectWithTag("SecondCamera").GetComponent<Camera>();
 		cameraComponent = mainCamera.GetComponent<Camera>();
 		pmS = player.GetComponent<PlayerMovementScript>();
-
+		
 		
 		hitMarker = transform.Find ("hitMarkerSound").GetComponent<AudioSource> ();
 
@@ -341,11 +342,23 @@ public class GunScript : MonoBehaviour {
 			if (currentStyle == GunStyles.nonautomatic) {
 				if (Input.GetButtonDown ("Fire1")) {
 					ShootMethod ();
+					Debug.Log("0");
+					if (Tutorial != null){
+            			Tutorial.BulletHitTarget();
+						Debug.Log("2");
+        			}
 				}
+				
+
 			}
 			if (currentStyle == GunStyles.automatic) {
 				if (Input.GetButton ("Fire1")) {
 					ShootMethod ();
+					
+            		if (Tutorial != null){
+            			Tutorial.BulletHitTarget();
+						Debug.Log("2");
+        			}
 				}
 			}
 		}
