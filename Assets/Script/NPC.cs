@@ -13,4 +13,16 @@ public class NPC : ScriptableObject
     [TextArea(3,15)]
     public string[] playerDialogue;
 
+    
+    public enum QuestState { Inactive, Active, Completed, TurnedIn }
+    public QuestState currentState = QuestState.Inactive;
+
+    
+    void Update()
+    {
+        if(currentState==QuestState.Active){
+            
+        }
+    }
+
 }

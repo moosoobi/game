@@ -10,7 +10,6 @@ public class DialogueManager : MonoBehaviour
 
     bool isTalking=false;
 
-    
     int curResponseTracker=0;
     
     public GameObject player;
@@ -64,7 +63,7 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.SetActive(true);
         npcName.text=npc.name;
         npcDialogueBox.text=npc.dialogue[0];
-        
+        npc.currentState=NPC.QuestState.Active;
     }
 
     void EndDialogue(){
