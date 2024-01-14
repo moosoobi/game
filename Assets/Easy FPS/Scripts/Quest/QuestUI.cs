@@ -12,9 +12,12 @@ public class QuestUI : MonoBehaviour
 
     void Start()
     {
+        
         dialogueUI.SetActive(false);
     }
-    
+    public void ShowQuest(){
+
+    }
 
     
 }

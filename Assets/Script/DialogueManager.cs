@@ -63,7 +63,7 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.SetActive(true);
         npcName.text=npc.name;
         npcDialogueBox.text=npc.dialogue[0];
-        npc.currentState=NPC.QuestState.Active;
+        npc.Quest.AcceptQuest();
     }
 
     void EndDialogue(){
