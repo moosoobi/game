@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Quest : MonoBehaviour
+public class QuestGiver : MonoBehaviour
 {
-    public enum QuestState { Inactive, Active, Completed, TurnedIn }
-    public QuestState currentState = QuestState.Inactive;
-    public TextMeshProUGUI Text;
-    public string Description;
     public Quest Quest;
+    public TextMeshProUGUI Text;
+    string description;
     public bool zzz=false;
+    private void Awake() {
+        description=Quest.Description;
+    }
     private void OnTriggerEnter(Collider other)
     {    
             zzz=true;
@@ -22,18 +23,9 @@ public class Quest : MonoBehaviour
     private void Update() {
         if(zzz){
             if(Input.GetKeyDown(KeyCode.Z)){
+                Quest.AcceptQuest();
+                Text.text=description;
             }
     }
-    }
-    
-    public void AcceptQuest()
-    {
-        currentState=QuestState.Active;
-        Text=Quest.Description;
-
-    }
-    public void CompleteQuest()
-    {
-        currentState=QuestState.Completed;
     }
 }

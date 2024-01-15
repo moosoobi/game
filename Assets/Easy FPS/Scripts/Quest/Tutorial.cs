@@ -2,12 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tutorial : MonoBehaviour
+[System.Serializable]
+public class Tutorial : Quest
 {
-    public int requiredShots = 5;  // 목표 발사 횟수
-    private int currentShots = 0;  // 현재 발사 횟수
 
-    
+    public string Description{get;set;}
+    public int requiredShots{get;set;} // 목표 발사 횟수
+    private int currentShots {get;set;}  // 현재 발사 횟수
+    // 총알이 목표에 맞았을 때 호출되는 메서드
+    public Tutorial(QuestState currentState, string description)
+    {
+        
+        requiredShots=5;
+        currentShots=0;
+        QuestState CurrentState=currentState;
+        string Description=description;
+    }
     // 총알이 목표에 맞았을 때 호출되는 메서드
     public void BulletHitTarget()
     {
@@ -18,5 +28,8 @@ public class Tutorial : MonoBehaviour
         {
             
         }
+    }
+    private void Update() {
+        
     }
 }

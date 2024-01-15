@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI npcName;
     public TextMeshProUGUI npcDialogueBox;
     public TextMeshProUGUI playerResponse;
+
     
     private bool zzz=false;
     
@@ -41,6 +42,7 @@ public class DialogueManager : MonoBehaviour
             }
             if(Input.GetKeyDown(KeyCode.Z)&&isTalking==false){
                 StartConversation();
+                npc.Quest.CompleteQuest();
             }
             else if(Input.GetKeyDown(KeyCode.Z)&&curResponseTracker==npc.dialogue.Length-1){
                 EndDialogue();

@@ -1474,7 +1474,10 @@ PrefabInstance:
       addedObject: {fileID: 1421801224}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 7aea2d469d67de44f9dd680a5088c739, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1421801237}
+      addedObject: {fileID: 1421801241}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 7aea2d469d67de44f9dd680a5088c739, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1421801240}
   m_SourcePrefab: {fileID: 100100000, guid: 7aea2d469d67de44f9dd680a5088c739, type: 3}
 --- !u!1001 &133713339
 PrefabInstance:
@@ -8111,6 +8114,53 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6074576, y: 0.4549923, z: 1.2406796}
   m_Center: {x: 0, y: 0.007107334, z: 0.77970994}
+--- !u!1 &813320783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 813320785}
+  - component: {fileID: 813320784}
+  m_Layer: 0
+  m_Name: Tutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &813320784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813320783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c76daf120ca904fa7489954b7586ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  quests: []
+  dialogue: {fileID: 0}
+--- !u!4 &813320785
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813320783}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 533.099, y: 2.469, z: 475.63498}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 107
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &814481724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7637387315671992374, guid: d607a8866399fa247ada259d3cdab5c7, type: 3}
@@ -13540,7 +13590,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 107
+  m_RootOrder: 108
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1401550015
 MonoBehaviour:
@@ -13787,7 +13837,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 7aea2d469d67de44f9dd680a5088c739, type: 3}
   m_PrefabInstance: {fileID: 120498783}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1421801237
+--- !u!114 &1421801240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421801219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba9c9ae2c1ce610478338b5f54edd4dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  quests:
+  - {fileID: 813320784}
+  dialogue: {fileID: 0}
+--- !u!114 &1421801241
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13799,7 +13865,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c76daf120ca904fa7489954b7586ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredShots: 5
+  currentState: 0
+  quests: []
+  dialogue: {fileID: 0}
 --- !u!82 &1433768890 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 7187274748320284202, guid: 7444c0cbf33ab0f4d9822ae07519372b, type: 3}
@@ -15301,8 +15369,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD29C\uD1A0\uB9AC\uC5BC:\nNPC\uC5D0\uAC8C \uB9D0\uC744 \uAC78\uC5B4\uB77C
-    \n(0/3)"
+  m_text: "\uD29C\uD1A0\uB9AC\uC5BC:\nNPC\uC5D0\uAC8C \uB9D0\uC744 \uAC78\uC5B4\uB77C "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c8b7caaae1626044ba9e6a77739d3500, type: 2}
   m_sharedMaterial: {fileID: 5011011950455596646, guid: c8b7caaae1626044ba9e6a77739d3500, type: 2}
