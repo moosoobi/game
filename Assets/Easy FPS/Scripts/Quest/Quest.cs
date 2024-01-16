@@ -9,7 +9,6 @@ public class Quest : MonoBehaviour
     public QuestState currentState = QuestState.Inactive;
     public TextMeshProUGUI Text;
     public string Description;
-    public Quest Quest;
     public bool zzz=false;
     private void OnTriggerEnter(Collider other)
     {    
@@ -29,7 +28,7 @@ public class Quest : MonoBehaviour
     public void AcceptQuest()
     {
         currentState=QuestState.Active;
-        Text=Quest.Description;
+        
 
     }
     public void CompleteQuest()
