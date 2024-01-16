@@ -28,8 +28,6 @@ public class Quest : MonoBehaviour
     public void AcceptQuest()
     {
         currentState=QuestState.Active;
-        
-
     }
     public void CompleteQuest()
     {
