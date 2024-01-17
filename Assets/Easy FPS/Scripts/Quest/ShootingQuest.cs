@@ -12,13 +12,20 @@ public class ShootingQuest : Quest
     public TextMeshProUGUI Text;
     QuestState CurrentState;
 
+    
     public ShootingQuest(QuestState currentState)
     {
         
+    
+        CurrentState=currentState;
+        
+    }
+    
+    void Awake()
+    {
+        Description="신규퀘스트:\n총 3발을 쏴라:";
         requiredShots=3;
         currentShots=0;
-        CurrentState=currentState;
-        Description="shoot 3 bullet";
     }
     // 총알이 목표에 맞았을 때 호출되는 메서드
     public void BulletHitTarget()

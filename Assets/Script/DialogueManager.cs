@@ -18,7 +18,6 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI npcName;
     public TextMeshProUGUI npcDialogueBox;
     public TextMeshProUGUI playerResponse;
-
     
     private bool zzz=false;
     
@@ -33,22 +32,35 @@ public class DialogueManager : MonoBehaviour
     {
         if(zzz){
             if(Input.GetKeyDown(KeyCode.Z)&&isTalking==true){
+                
+                
                 curResponseTracker++;
-                if(curResponseTracker>=npc.dialogue.Length-1){
-                    curResponseTracker=npc.dialogue.Length-1;
+                if(curResponseTracker>npc.dialogue.Length){
+                    curResponseTracker=npc.dialogue.Length;
                 }
-                npcDialogueBox.text=npc.dialogue[curResponseTracker];
-               
+                else if(curResponseTracker<npc.dialogue.Length)
+                {
+                    npcDialogueBox.text=npc.dialogue[curResponseTracker];
+                }
             }
+                
+               
+        
             if(Input.GetKeyDown(KeyCode.Z)&&isTalking==false){
                 StartConversation();
                 
             }
-            else if(Input.GetKeyDown(KeyCode.Z)&&curResponseTracker==npc.dialogue.Length-1){
-                EndDialogue();
+            else if(Input.GetKeyDown(KeyCode.Z)){
+                if(curResponseTracker==npc.dialogue.Length){
+                    EndDialogue();
+                    
+                }
+                
+                
             }
         }
     }
+    
     private void OnTriggerEnter(Collider other)
     {    
             zzz=true;
@@ -60,11 +72,15 @@ public class DialogueManager : MonoBehaviour
     
 
     void StartConversation(){
+        
+        
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
         npcName.text=npc.name;
         npcDialogueBox.text=npc.dialogue[0];
+        
+        
         
     }
 
@@ -72,5 +88,6 @@ public class DialogueManager : MonoBehaviour
         isTalking=false;
         dialogueUI.SetActive(false);
     }
- 
+    
 }
+

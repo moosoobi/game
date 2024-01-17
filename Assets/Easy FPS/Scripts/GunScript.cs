@@ -454,7 +454,7 @@ public class GunScript : MonoBehaviour {
             			ShootingQuest.BulletHitTarget();
 						
         		}
-				Debug.Log(1);
+				
 			}
 				
 			else{
