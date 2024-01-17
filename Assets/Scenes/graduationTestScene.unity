@@ -1472,9 +1472,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 7aea2d469d67de44f9dd680a5088c739, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1421801224}
-    - targetCorrespondingSourceObject: {fileID: 100000, guid: 7aea2d469d67de44f9dd680a5088c739, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1421801241}
   m_SourcePrefab: {fileID: 100100000, guid: 7aea2d469d67de44f9dd680a5088c739, type: 3}
 --- !u!1001 &133713339
 PrefabInstance:
@@ -8141,9 +8138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  Text: {fileID: 0}
-  Description: 
-  zzz: 0
+  zz: {fileID: 0}
 --- !u!4 &813320785
 Transform:
   m_ObjectHideFlags: 0
@@ -13570,7 +13565,7 @@ GameObject:
   - component: {fileID: 1401550015}
   m_Layer: 0
   m_Name: QuestManager
-  m_TagString: QuestManager
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13835,22 +13830,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 7aea2d469d67de44f9dd680a5088c739, type: 3}
   m_PrefabInstance: {fileID: 120498783}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1421801241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1421801219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89c76daf120ca904fa7489954b7586ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentState: 0
-  Text: {fileID: 0}
-  Description: Shoot 3 bullet
-  zzz: 0
 --- !u!82 &1433768890 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 7187274748320284202, guid: 7444c0cbf33ab0f4d9822ae07519372b, type: 3}
@@ -18697,9 +18676,10 @@ GameObject:
   - component: {fileID: 2094769950}
   - component: {fileID: 2094769951}
   - component: {fileID: 2094769952}
+  - component: {fileID: 2094769953}
   m_Layer: 0
   m_Name: z
-  m_TagString: Z
+  m_TagString: QuestManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18773,6 +18753,24 @@ MonoBehaviour:
   npcName: {fileID: 636187514}
   npcDialogueBox: {fileID: 1964349364}
   playerResponse: {fileID: 1992440131}
+--- !u!114 &2094769953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094769947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26584e490bbd81d44865eb5e11ce3ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  Description: Shoot 3Bullet
+  requiredShots: 3
+  currentShots: 0
+  zzz: 0
+  Text: {fileID: 1721680276}
 --- !u!1 &2115800390
 GameObject:
   m_ObjectHideFlags: 0

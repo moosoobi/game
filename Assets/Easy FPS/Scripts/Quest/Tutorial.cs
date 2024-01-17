@@ -18,16 +18,15 @@ public class Tutorial : Quest
         QuestState CurrentState=currentState;
         string Description=description;
     }
-    // 총알이 목표에 맞았을 때 호출되는 메서드
-    public void BulletHitTarget()
-    {
-        currentShots++;
-        Debug.Log("1");
-        // 퀘스트 완료 체크
-        if (currentShots >= requiredShots)
-        {
-            
-        }
+    public GameObject zz;
+    
+    private void OnTriggerEnter(Collider other){
+        zz.SetActive(true);
+       
+    }
+    private void OnTriggerExit(Collider other){
+        zz.SetActive(false);
+    
     }
     private void Update() {
         

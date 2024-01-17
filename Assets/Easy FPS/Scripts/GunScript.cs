@@ -32,8 +32,8 @@ public class GunScript : MonoBehaviour {
 
 	private PlayerMovementScript pmS;
 	
-	[HideInInspector]
-	public Tutorial Tutorial;
+	
+	public ShootingQuest ShootingQuest;
 	
 
 	/*
@@ -48,7 +48,7 @@ public class GunScript : MonoBehaviour {
 		secondCamera = GameObject.FindGameObjectWithTag("SecondCamera").GetComponent<Camera>();
 		cameraComponent = mainCamera.GetComponent<Camera>();
 		pmS = player.GetComponent<PlayerMovementScript>();
-		Tutorial=GameObject.FindGameObjectWithTag("QuestManager").GetComponent<Tutorial>();
+		ShootingQuest=GameObject.FindGameObjectWithTag("QuestManager").GetComponent<ShootingQuest>();
 		
 		
 		hitMarker = transform.Find ("hitMarkerSound").GetComponent<AudioSource> ();
@@ -346,9 +346,8 @@ public class GunScript : MonoBehaviour {
 			if (currentStyle == GunStyles.nonautomatic) {
 				if (Input.GetButtonDown ("Fire1")) {
 					ShootMethod ();
-					if (Tutorial != null){
-            			Tutorial.BulletHitTarget();
-        			}
+					
+				
 				}
 				
 
@@ -357,9 +356,7 @@ public class GunScript : MonoBehaviour {
 				if (Input.GetButton ("Fire1")) {
 					ShootMethod ();
 					
-            		if (Tutorial != null){
-            			Tutorial.BulletHitTarget();
-        			}
+            		
 				}
 			}
 		}
@@ -453,6 +450,11 @@ public class GunScript : MonoBehaviour {
 
 				waitTillNextFire = 1;
 				bulletsInTheGun -= 1;
+				if (ShootingQuest != null){
+            			ShootingQuest.BulletHitTarget();
+						
+        		}
+				Debug.Log(1);
 			}
 				
 			else{

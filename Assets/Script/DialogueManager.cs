@@ -42,7 +42,7 @@ public class DialogueManager : MonoBehaviour
             }
             if(Input.GetKeyDown(KeyCode.Z)&&isTalking==false){
                 StartConversation();
-                npc.Quest.CompleteQuest();
+                
             }
             else if(Input.GetKeyDown(KeyCode.Z)&&curResponseTracker==npc.dialogue.Length-1){
                 EndDialogue();
@@ -65,7 +65,7 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.SetActive(true);
         npcName.text=npc.name;
         npcDialogueBox.text=npc.dialogue[0];
-        npc.Quest.AcceptQuest();
+        
     }
 
     void EndDialogue(){
