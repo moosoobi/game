@@ -7,7 +7,7 @@ public class z : MonoBehaviour
     public GameObject zz;
     
     private void OnTriggerEnter(Collider other){
-        zz.SetActive(true);
+        zz.SetActive(false);
        
     }
     private void OnTriggerExit(Collider other){
