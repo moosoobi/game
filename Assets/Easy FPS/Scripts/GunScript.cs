@@ -40,8 +40,8 @@ public class GunScript : MonoBehaviour {
 	 * Collection the variables upon awake that we need.
 	 */
 	void Awake(){
-
-
+		if(cross){cross.SetActive(false);}
+		
 		mls = GameObject.FindGameObjectWithTag("Player").GetComponent<MouseLookScript>();
 		player = mls.transform;
 		mainCamera = mls.myCamera;
@@ -535,21 +535,29 @@ public class GunScript : MonoBehaviour {
 	[Tooltip("HUD bullets to display bullet count on screen. Will be find under name 'HUD_bullets' in scene.")]
 	public TextMesh HUD_bullets;
 	void OnGUI(){
-		if(!HUD_bullets){
-			try{
-				HUD_bullets = GameObject.Find("HUD_bullets").GetComponent<TextMesh>();
-			}
-			catch(System.Exception ex){
-				print("Couldnt find the HUD_Bullets ->" + ex.StackTrace.ToString());
-			}
+		if(currentStyle == GunStyles.hand){
+			cross.SetActive(true);
 		}
-		if(mls && HUD_bullets)
-			HUD_bullets.text = bulletsIHave.ToString() + " - " + bulletsInTheGun.ToString();
+		if (currentStyle != GunStyles.hand) {
+			if(!HUD_bullets){
+				try{
+					HUD_bullets = GameObject.Find("HUD_bullets").GetComponent<TextMesh>();
+				}
+				catch(System.Exception ex){
+					print("Couldnt find the HUD_Bullets ->" + ex.StackTrace.ToString());
+				}
+			}
+			if(mls && HUD_bullets)
+				HUD_bullets.text = bulletsIHave.ToString() + " - " + bulletsInTheGun.ToString();
 
-		DrawCrosshair();
+			DrawCrosshair();
+		}
+
+		
 	}
 
 	[Header("Crosshair properties")]
+	public GameObject cross;
 	public Texture horizontal_crosshair, vertical_crosshair;
 	public Vector2 top_pos_crosshair, bottom_pos_crosshair, left_pos_crosshair, right_pos_crosshair;
 	public Vector2 size_crosshair_vertical = new Vector2(1,1), size_crosshair_horizontal = new Vector2(1,1);
@@ -559,6 +567,7 @@ public class GunScript : MonoBehaviour {
 	/*
 	 * Drawing the crossHair.
 	 */
+	
 	void DrawCrosshair(){
 		GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, fadeout_value);
 		if(Input.GetAxis("Fire2") == 0){//if not aiming draw

@@ -85,10 +85,11 @@ public class GunInventory : MonoBehaviour {
 		 */
 		if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetAxis("Mouse ScrollWheel") > 0){
 			switchWeaponCooldown = 0;
-
+			
 			currentGunCounter++;
 			if(currentGunCounter > gunsIHave.Count-1){
 				currentGunCounter = 0;
+				
 			}
 			StartCoroutine("Spawn",currentGunCounter);
 		}
@@ -139,12 +140,8 @@ public class GunInventory : MonoBehaviour {
 				currentGun = (GameObject) Instantiate(resource, transform.position, /*gameObject.transform.rotation*/Quaternion.identity);
 				AssignHandsAnimator(currentGun);
 			}
-			else if(currentGun.name.Contains("Sword")){
-				currentHAndsAnimator.SetBool("changingWeapon", true);
-				yield return new WaitForSeconds(0.25f);//0.5f
-
-				currentHAndsAnimator.SetBool("changingWeapon", false);
-
+			else if(currentGun.name.Contains("Hand")){
+				
 				yield return new WaitForSeconds(0.6f);//1
 				Destroy(currentGun);
 

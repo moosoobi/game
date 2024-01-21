@@ -42,24 +42,20 @@ public class DrawerController : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         
         zzzz=true;
-            
+        StartCoroutine(ExecuteAfterDelay(3.0f));
         
     }
     
     
-    private void OnTriggerExit(Collider other)
-    {
-        zzzz=false;
-    }
     private IEnumerator ExecuteAfterDelay(float delayInSeconds)
     {
         // 일정 시간만큼 대기
         yield return new WaitForSeconds(delayInSeconds);
-
+        zzzz=false;
     }
 
 }

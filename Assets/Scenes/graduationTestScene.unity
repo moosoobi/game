@@ -11740,10 +11740,14 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: eec42eafa9929104e859b27b484ca6f4, type: 2}
     - target: {fileID: 11414154, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: icons.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11414154, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: icons.Array.data[0]
+      value: 
+      objectReference: {fileID: 2800000, guid: 9e83ff2b639a14541a20b24663caa49b, type: 3}
+    - target: {fileID: 11414154, guid: c391f12a928274acab8576bb6030641d, type: 3}
+      propertyPath: icons.Array.data[1]
       value: 
       objectReference: {fileID: 2800000, guid: 89cb17ce6d76c46668922c09a46b97a2, type: 3}
     - target: {fileID: 11414154, guid: c391f12a928274acab8576bb6030641d, type: 3}
