@@ -874,7 +874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a804723bdccf04fca985e160ab5f88d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentStyle: 0
+  currentStyle: 2
   mls: {fileID: 0}
   walkingSpeed: 3
   runningSpeed: 5
