@@ -10,6 +10,7 @@ TagManager:
   - Dummie
   - Z
   - QuestManager
+  - Object
   layers:
   - Default
   - TransparentFX

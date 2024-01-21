@@ -18,9 +18,12 @@ public class DrawerController : MonoBehaviour
 
     private bool zzzz=false;
 
+    public GameObject cross;
+    
     
     void Update()
     {
+        
         if(zzzz){
             if (Input.GetKeyDown(KeyCode.Z)){
             if(openTrigger){
@@ -40,6 +43,7 @@ public class DrawerController : MonoBehaviour
                 StartCoroutine(ExecuteAfterDelay(1f));
             }
             }
+
         }
     }
     private void OnTriggerStay(Collider other)

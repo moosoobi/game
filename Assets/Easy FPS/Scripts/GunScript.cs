@@ -34,14 +34,15 @@ public class GunScript : MonoBehaviour {
 	
 	
 	public ShootingQuest ShootingQuest;
-	
+	public z zz;
 
 	/*
 	 * Collection the variables upon awake that we need.
 	 */
 	void Awake(){
-		if(cross){cross.SetActive(false);}
 		
+		if(cross){cross.SetActive(false);}
+		if(cross1){cross1.SetActive(false);}
 		mls = GameObject.FindGameObjectWithTag("Player").GetComponent<MouseLookScript>();
 		player = mls.transform;
 		mainCamera = mls.myCamera;
@@ -536,7 +537,8 @@ public class GunScript : MonoBehaviour {
 	public TextMesh HUD_bullets;
 	void OnGUI(){
 		if(currentStyle == GunStyles.hand){
-			cross.SetActive(true);
+			
+			
 		}
 		if (currentStyle != GunStyles.hand) {
 			if(!HUD_bullets){
@@ -558,6 +560,7 @@ public class GunScript : MonoBehaviour {
 
 	[Header("Crosshair properties")]
 	public GameObject cross;
+	public GameObject cross1;
 	public Texture horizontal_crosshair, vertical_crosshair;
 	public Vector2 top_pos_crosshair, bottom_pos_crosshair, left_pos_crosshair, right_pos_crosshair;
 	public Vector2 size_crosshair_vertical = new Vector2(1,1), size_crosshair_horizontal = new Vector2(1,1);

@@ -1210,7 +1210,7 @@ GameObject:
   - component: {fileID: -1465227281255645257}
   m_Layer: 0
   m_Name: cabinet2
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1276,6 +1276,7 @@ MonoBehaviour:
   DrawerClose: {fileID: 1165311908511910410}
   dooropen: CabinetOpen
   doorclose: CabinetClose
+  cross: {fileID: 0}
 --- !u!65 &2210438771553465336
 BoxCollider:
   m_ObjectHideFlags: 0

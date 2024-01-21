@@ -5021,6 +5021,7 @@ MonoBehaviour:
   DrawerClose: {fileID: 1433768890}
   dooropen: DrawerOpen
   doorclose: DrawerClose
+  cross: {fileID: 0}
 --- !u!65 &331921415
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15957,6 +15958,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: drawer4_uv 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 420329ef0c55c654496bff91cca0d774, type: 3}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
     - target: {fileID: 2899711810776021545, guid: 420329ef0c55c654496bff91cca0d774, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.98
@@ -16978,6 +16983,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 61040cbc4a34cb841bdca8567cf55f97, type: 3}
       propertyPath: m_Name
       value: drawer2_uv
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 61040cbc4a34cb841bdca8567cf55f97, type: 3}
+      propertyPath: m_TagString
+      value: Object
       objectReference: {fileID: 0}
     - target: {fileID: 6413746652832612111, guid: 61040cbc4a34cb841bdca8567cf55f97, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -23915,6 +23924,7 @@ MonoBehaviour:
   DrawerClose: {fileID: 1433768890}
   dooropen: DrawerOpen
   doorclose: DrawerClose
+  cross: {fileID: 0}
 --- !u!1001 &1756398417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30244,6 +30254,7 @@ MonoBehaviour:
   DrawerClose: {fileID: 1634746867}
   dooropen: DoorOpen
   doorclose: DoorClose
+  cross: {fileID: 0}
 --- !u!65 &919132149357934584
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35152,7 +35163,7 @@ GameObject:
   - component: {fileID: 8712061105434776110}
   m_Layer: 0
   m_Name: Box001
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
