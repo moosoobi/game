@@ -11745,14 +11745,22 @@ PrefabInstance:
     - target: {fileID: 11414154, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: icons.Array.data[0]
       value: 
-      objectReference: {fileID: 2800000, guid: 4cc45e4dad006426e8c62aff1240b894, type: 3}
+      objectReference: {fileID: 2800000, guid: 89cb17ce6d76c46668922c09a46b97a2, type: 3}
+    - target: {fileID: 11414154, guid: c391f12a928274acab8576bb6030641d, type: 3}
+      propertyPath: gunsIHave.Array.data[0]
+      value: Hand
+      objectReference: {fileID: 0}
+    - target: {fileID: 11414154, guid: c391f12a928274acab8576bb6030641d, type: 3}
+      propertyPath: gunsIHave.Array.data[1]
+      value: NewGun_semi
+      objectReference: {fileID: 0}
     - target: {fileID: 13695512, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: m_Radius
-      value: 0.055252075
+      value: 0.27323914
       objectReference: {fileID: 0}
     - target: {fileID: 13695512, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: m_Center.z
-      value: -0.00093078613
+      value: 0.025894165
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -31269,11 +31277,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2210438771553465336, guid: 7444c0cbf33ab0f4d9822ae07519372b, type: 3}
       propertyPath: m_Size.x
-      value: 0.89329296
+      value: 0.65004617
       objectReference: {fileID: 0}
     - target: {fileID: 2210438771553465336, guid: 7444c0cbf33ab0f4d9822ae07519372b, type: 3}
       propertyPath: m_Center.x
-      value: 0.48623353
+      value: 0.6078569
       objectReference: {fileID: 0}
     - target: {fileID: 2210438771553465336, guid: 7444c0cbf33ab0f4d9822ae07519372b, type: 3}
       propertyPath: m_Center.z
@@ -34014,11 +34022,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 623732425597306866, guid: bd0c53749705e3340952948757d40e28, type: 3}
       propertyPath: m_Size.x
-      value: 0.8138381
+      value: 0.56291837
       objectReference: {fileID: 0}
     - target: {fileID: 623732425597306866, guid: bd0c53749705e3340952948757d40e28, type: 3}
       propertyPath: m_Center.x
-      value: -0.50485754
+      value: -0.6303174
       objectReference: {fileID: 0}
     - target: {fileID: 623732425597306866, guid: bd0c53749705e3340952948757d40e28, type: 3}
       propertyPath: m_Center.z

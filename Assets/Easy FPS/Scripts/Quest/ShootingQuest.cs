@@ -57,7 +57,7 @@ public class ShootingQuest : Quest
         if(zzz&&Input.GetKeyDown(KeyCode.Z)){
             
             if(CurrentState==QuestState.Completed){
-                Text.text="new quest";
+                Text.text="방안에 서랍을 열어 지도를 획득하시오.";
             }
             if(CurrentState==QuestState.Inactive){
                 CurrentState=QuestState.Active;
