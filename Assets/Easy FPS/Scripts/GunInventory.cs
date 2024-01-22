@@ -25,6 +25,7 @@ public class GunInventory : MonoBehaviour {
 	 * Also will spawn a weapon upon start.
 	 */
 	void Awake(){
+		
 		StartCoroutine("UpdateIconsFromResources");
 
 		StartCoroutine ("SpawnWeaponUponStart");//to start with a gun

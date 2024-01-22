@@ -4,40 +4,32 @@ using UnityEngine;
 
 public class z : MonoBehaviour
 {
-    public bool zzz=false;
-    public GameObject cross;
-    public GameObject cross1;
+    public GunScript gun;
     
-    void Update()
+    
+    
+   
+    private void OnTriggerEnter(Collider other)
     {
-        if(cross&&cross1){
-            if(zzz==true){
-				cross.SetActive(false);
-				cross1.SetActive(true);
-			}else{
-				cross1.SetActive(false);
-				cross.SetActive(true);
-				}
+        
+        gun=GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>();
+        if (other.CompareTag("Player"))
+        {   
+            gun.zcrosschange();
         }
-        
     }
-    private void OnTriggerStay(Collider other)
+    
+    void OnTriggerExit(Collider other)
     {
-        Debug.Log("2");
-        if (other.CompareTag("Object"))
-        {
-            Debug.Log("1");
-            zzz = true;
-            StartCoroutine(ExecuteAfterDelay(3.0f));
+        gun=GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>();
+        if (other.CompareTag("Player"))
+        {   
+            gun.zcrosschange();
         }
-        
     }
+   
+
     
     
-    private IEnumerator ExecuteAfterDelay(float delayInSeconds)
-    {
-        // 일정 시간만큼 대기
-        yield return new WaitForSeconds(delayInSeconds);
-        
-    }
+
 }

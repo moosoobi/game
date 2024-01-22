@@ -34,12 +34,15 @@ public class GunScript : MonoBehaviour {
 	
 	
 	public ShootingQuest ShootingQuest;
-	public z zz;
+	public string currentgun;
+	public bool zcross=false;
+	
 
 	/*
 	 * Collection the variables upon awake that we need.
 	 */
 	void Awake(){
+
 		
 		if(cross){cross.SetActive(false);}
 		if(cross1){cross1.SetActive(false);}
@@ -87,7 +90,19 @@ public class GunScript : MonoBehaviour {
 	Update loop calling for methods that are descriped below where they are initiated.
 	*/
 	void Update(){
-
+		currentgun=GameObject.FindGameObjectWithTag("Player").GetComponent<GunInventory>().currentGun.name;
+		
+		
+		if(cross&&cross1){
+			if(zcross){
+				cross.SetActive(false);
+				cross1.SetActive(true);
+			}else if(!zcross){
+				cross.SetActive(true);
+				cross1.SetActive(false);
+			}
+		}
+		
 		Animations();
 
 		GiveCameraScriptMySensitvity();
@@ -101,7 +116,7 @@ public class GunScript : MonoBehaviour {
 		Sprint(); //iff we have the gun you sprint from here, if we are gunless then its called from movement script
 
 		CrossHairExpansionWhenWalking();
-
+		
 
 	}
 
@@ -557,7 +572,10 @@ public class GunScript : MonoBehaviour {
 
 		
 	}
-
+	public void zcrosschange(){
+		if(zcross==false){zcross=true;}
+		else if(zcross==true){zcross=false;}
+	}
 	[Header("Crosshair properties")]
 	public GameObject cross;
 	public GameObject cross1;
