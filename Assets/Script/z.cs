@@ -15,7 +15,9 @@ public class z : MonoBehaviour
         gun=GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>();
         if (other.CompareTag("Player"))
         {   
-            gun.zcrosschange();
+            
+            if(gun){gun.zcrosschange();}
+            
         }
     }
     
@@ -24,7 +26,7 @@ public class z : MonoBehaviour
         gun=GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>();
         if (other.CompareTag("Player"))
         {   
-            gun.zcrosschange();
+            if(gun){gun.zcrosschange();}
         }
     }
    

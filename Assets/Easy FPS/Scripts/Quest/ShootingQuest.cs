@@ -6,12 +6,12 @@ using TMPro;
 public class ShootingQuest : Quest
 {
     public string Description;
-    public int requiredShots; // 목표 발사 횟수
-    public int currentShots;   // 현재 발사 횟수
+    public int requiredShots;
+    public int currentShots;  
     public bool zzz=false;
     public TextMeshProUGUI Text;
     QuestState CurrentState;
-
+    GunPick gunpick;
     
     public ShootingQuest(QuestState currentState)
     {
@@ -23,6 +23,7 @@ public class ShootingQuest : Quest
     
     void Awake()
     {
+        gunpick=GetComponent<GunPick>();
         Description="신규퀘스트:\n총 3발을 쏴라:";
         requiredShots=3;
         currentShots=0;
@@ -54,18 +55,19 @@ public class ShootingQuest : Quest
         zzz=false;
     }
     private void Update() {
-        if(zzz&&Input.GetKeyDown(KeyCode.Z)){
+        if(gunpick.currentState==QuestState.Completed){
+            if(zzz&&Input.GetKeyDown(KeyCode.Z)){
             
-            if(CurrentState==QuestState.Completed){
-                Text.text="방안에 서랍을 열어 지도를 획득하시오.";
-            }
-            if(CurrentState==QuestState.Inactive){
-                CurrentState=QuestState.Active;
-            }
+                if(CurrentState==QuestState.Completed){
+                    Text.text="방안에 서랍을 열어 지도를 획득하시오.";
+                }
+                
             
+            }
+            if(CurrentState==QuestState.Active){
+                Text.text=Description;
+            }
         }
-        if(CurrentState==QuestState.Active){
-            Text.text=Description;
-        }
+        
     }
 }
