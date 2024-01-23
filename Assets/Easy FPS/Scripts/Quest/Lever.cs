@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class Lever : MonoBehaviour
 {
     public GameObject[] switches;
@@ -12,6 +12,7 @@ public class Lever : MonoBehaviour
     public GameObject player;
     public GameObject camera;
     public bool zzzz=false;
+    public TextMeshProUGUI Text;
     
     void Start()
     {
@@ -24,6 +25,10 @@ public class Lever : MonoBehaviour
     {
         if(zzzz){
         if(isFixed){
+            
+            if(switches[0].transform.eulerAngles.x<365f&&switches[0].transform.eulerAngles.x<355f&&switches[1].transform.eulerAngles.x>35&&switches[1].transform.eulerAngles.x<45&&switches[2].transform.eulerAngles.x<285&&switches[2].transform.eulerAngles.x>275&&switches[3].transform.eulerAngles.x>315&&switches[3].transform.eulerAngles.x<325){
+                Text.text="성공!";
+            }
             if(Input.GetKeyDown(KeyCode.UpArrow)){
                 Vector3 currentRotation = switches[horizontal].transform.eulerAngles;
                 currentRotation.x -= 40f;
@@ -36,7 +41,7 @@ public class Lever : MonoBehaviour
                 if(Input.GetKeyDown(KeyCode.DownArrow)){
                     Vector3 currentRotation = switches[horizontal].transform.eulerAngles;
                     currentRotation.x += 40f;
-                    Debug.Log(currentRotation.x);
+                    
                     if (currentRotation.x >40f&&currentRotation.x<100f){
                         currentRotation.x = 40f;
                         
