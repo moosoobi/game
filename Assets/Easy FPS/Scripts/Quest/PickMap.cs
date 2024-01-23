@@ -11,6 +11,7 @@ public class PickMap : MonoBehaviour
     public bool show=true;
     public bool z;
     public TextMeshProUGUI Text;
+    public GameObject text1;
     void Update()
     {
         
@@ -19,6 +20,8 @@ public class PickMap : MonoBehaviour
         if(z){
             if(Input.GetKeyDown(KeyCode.Z)){
                 Text.text="Bar로 이동해서 npc에게 말을 거시오.";
+                text1.SetActive(true);
+                StartCoroutine(ExecuteAfterDelay(3f));
             }
         }
         if(zz){
@@ -29,13 +32,20 @@ public class PickMap : MonoBehaviour
                 
                 if(show){
                     map.SetActive(true);
-                    show=false;
+                    
                 }else if(!show){
                     map.SetActive(false);
-                    show=true;
+                    
                 }
+                show=!show;
                 
             }
         }
+    }
+    private IEnumerator ExecuteAfterDelay(float delayInSeconds)
+    {
+        // 일정 시간만큼 대기
+        yield return new WaitForSeconds(delayInSeconds);
+        text1.SetActive(false);
     }
 }

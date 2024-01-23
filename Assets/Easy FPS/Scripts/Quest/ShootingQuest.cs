@@ -25,7 +25,7 @@ public class ShootingQuest : Quest
     {
         
         
-        Description="마네킹을 사격하십시오";
+        Description="마네킹을 3회 사격하십시오";
         requiredShots=3;
         currentShots=0;
     }
