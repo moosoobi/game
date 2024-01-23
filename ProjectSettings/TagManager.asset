@@ -11,6 +11,7 @@ TagManager:
   - Z
   - QuestManager
   - Object
+  - PickMap
   layers:
   - Default
   - TransparentFX

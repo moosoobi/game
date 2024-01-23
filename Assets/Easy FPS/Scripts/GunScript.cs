@@ -33,7 +33,7 @@ public class GunScript : MonoBehaviour {
 	private PlayerMovementScript pmS;
 	
 	
-	public ShootingQuest ShootingQuest;
+
 	public string currentgun;
 	public bool zcross=false;
 	
@@ -52,7 +52,7 @@ public class GunScript : MonoBehaviour {
 		secondCamera = GameObject.FindGameObjectWithTag("SecondCamera").GetComponent<Camera>();
 		cameraComponent = mainCamera.GetComponent<Camera>();
 		pmS = player.GetComponent<PlayerMovementScript>();
-		ShootingQuest=GameObject.FindGameObjectWithTag("QuestManager").GetComponent<ShootingQuest>();
+	
 		
 		
 		hitMarker = transform.Find ("hitMarkerSound").GetComponent<AudioSource> ();
@@ -470,10 +470,7 @@ public class GunScript : MonoBehaviour {
 
 				waitTillNextFire = 1;
 				bulletsInTheGun -= 1;
-				if (ShootingQuest != null){
-            			ShootingQuest.BulletHitTarget();
-						
-        		}
+				
 				
 			}
 				

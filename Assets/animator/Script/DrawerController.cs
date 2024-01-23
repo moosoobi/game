@@ -6,8 +6,8 @@ public class DrawerController : MonoBehaviour
 {
     [SerializeField] public Animator myDoor=null;
 
-    [SerializeField] private bool openTrigger=false;
-    [SerializeField] private bool closeTrigger=false;
+    [SerializeField] public bool openTrigger=false;
+    [SerializeField] public bool closeTrigger=false;
 
 
     public AudioSource DrawerOpen;
@@ -16,7 +16,7 @@ public class DrawerController : MonoBehaviour
     public string dooropen;
     public string doorclose;
 
-    private bool zzzz=false;
+    public bool zzzz=false;
 
     public GameObject cross;
     

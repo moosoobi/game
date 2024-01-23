@@ -17,8 +17,7 @@ public class pick : MonoBehaviour
         
         if(gunpick&&zzz){
             if(Input.GetKeyDown(KeyCode.Z)){
-                Debug.Log(gunpick.currentState);
-                if(gunpick.currentState==GunPick.QuestState.Active){
+                if(gunpick.CurrentState==GunPick.QuestState.Active){
                     gunpick.pickup();
                     Destroy(gameObject);
                 }

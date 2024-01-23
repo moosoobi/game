@@ -10,8 +10,8 @@ public class ShootingQuest : Quest
     public int currentShots;  
     public bool zzz=false;
     public TextMeshProUGUI Text;
-    QuestState CurrentState;
-    GunPick gunpick;
+    public QuestState CurrentState;
+    
     
     public ShootingQuest(QuestState currentState)
     {
@@ -23,8 +23,9 @@ public class ShootingQuest : Quest
     
     void Awake()
     {
-        gunpick=GetComponent<GunPick>();
-        Description="신규퀘스트:\n총 3발을 쏴라:";
+        
+        
+        Description="마네킹을 사격하십시오";
         requiredShots=3;
         currentShots=0;
     }
@@ -39,6 +40,7 @@ public class ShootingQuest : Quest
         
             if (currentShots >= requiredShots)
             {
+                Debug.Log(1);
                 CurrentState=QuestState.Completed;
                 Text.text="퀘스트 완료 npc에게 돌아가십시요.";
             }
@@ -55,7 +57,7 @@ public class ShootingQuest : Quest
         zzz=false;
     }
     private void Update() {
-        if(gunpick.currentState==QuestState.Completed){
+        
             if(zzz&&Input.GetKeyDown(KeyCode.Z)){
             
                 if(CurrentState==QuestState.Completed){
@@ -67,7 +69,10 @@ public class ShootingQuest : Quest
             if(CurrentState==QuestState.Active){
                 Text.text=Description;
             }
-        }
         
+        
+    }
+    public void Active(){
+        CurrentState=QuestState.Active;
     }
 }

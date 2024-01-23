@@ -6,7 +6,7 @@ using TMPro;
 public class Quest : MonoBehaviour
 {
     public enum QuestState { Inactive, Active, Completed, TurnedIn }
-    public QuestState currentState = QuestState.Inactive;
+    public QuestState currentState1 = QuestState.Inactive;
 
     
     

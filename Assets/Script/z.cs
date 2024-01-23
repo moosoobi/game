@@ -6,8 +6,6 @@ public class z : MonoBehaviour
 {
     public GunScript gun;
     
-    
-    
    
     private void OnTriggerEnter(Collider other)
     {
