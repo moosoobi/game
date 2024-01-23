@@ -12,6 +12,7 @@ public class Lever : MonoBehaviour
     public GameObject player;
     public GameObject camera;
     public bool zzzz=false;
+    
     void Start()
     {
         
@@ -22,6 +23,35 @@ public class Lever : MonoBehaviour
     void Update()
     {
         if(zzzz){
+        if(isFixed){
+            if(Input.GetKeyDown(KeyCode.UpArrow)){
+                Vector3 currentRotation = switches[horizontal].transform.eulerAngles;
+                currentRotation.x -= 40f;
+                
+                if (currentRotation.x < 280f){
+                    currentRotation.x = 280f;
+                }
+                switches[horizontal].transform.rotation = Quaternion.Euler(currentRotation);
+            }
+                if(Input.GetKeyDown(KeyCode.DownArrow)){
+                    Vector3 currentRotation = switches[horizontal].transform.eulerAngles;
+                    currentRotation.x += 40f;
+                    Debug.Log(currentRotation.x);
+                    if (currentRotation.x >40f&&currentRotation.x<100f){
+                        currentRotation.x = 40f;
+                        
+                    }
+                    switches[horizontal].transform.rotation = Quaternion.Euler(currentRotation);
+                }
+                if(Input.GetKeyDown(KeyCode.LeftArrow)){
+                    horizontal++;
+                    if(horizontal>=4){horizontal=0;}
+                }
+                if(Input.GetKeyDown(KeyCode.RightArrow)){
+                    horizontal++;
+                    if(horizontal>=4){horizontal=0;}
+                }
+        }
         if (Input.GetKeyDown(KeyCode.Z))
         {
             isFixed = !isFixed;
@@ -39,21 +69,7 @@ public class Lever : MonoBehaviour
                 // 플레이어의 움직임을 차단
                 player.GetComponent<MouseLookScript>().enabled = false;
                 player.GetComponent<PlayerMovementScript>().enabled = false;
-
-                if(Input.GetKey(KeyCode.UpArrow)){
-                    switches[horizontal].transform.rotation = Quaternion.Euler(-40f, 0f, 0f);
-                }
-                if(Input.GetKey(KeyCode.DownArrow)){
-                    switches[horizontal].transform.rotation = Quaternion.Euler(40f, 40f, 0f);
-                }
-                if(Input.GetKey(KeyCode.LeftArrow)){
-                    horizontal++;
-                    if(horizontal>=4){horizontal=0;}
-                }
-                if(Input.GetKey(KeyCode.RightArrow)){
-                    horizontal++;
-                    if(horizontal>=4){horizontal=0;}
-                }
+                
             }
             else
             {
@@ -66,20 +82,22 @@ public class Lever : MonoBehaviour
 
         
     }
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         
         zzzz=true;
-        StartCoroutine(ExecuteAfterDelay(3.0f));
+        
+        
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        
+        zzzz=false;
+       
         
     }
     
     
-    private IEnumerator ExecuteAfterDelay(float delayInSeconds)
-    {
-        // 일정 시간만큼 대기
-        yield return new WaitForSeconds(delayInSeconds);
-        zzzz=false;
-    }
+    
  }
 
