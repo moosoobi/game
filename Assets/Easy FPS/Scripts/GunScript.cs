@@ -3,7 +3,7 @@ using System.Collections;
 //using UnityStandardAssets.ImageEffects;
 
 public enum GunStyles{
-	nonautomatic,automatic,hand
+	nonautomatic,automatic,hand,nothing
 }
 public class GunScript : MonoBehaviour {
 	[Tooltip("Selects type of waepon to shoot rapidly or one bullet per click.")]
@@ -363,6 +363,7 @@ public class GunScript : MonoBehaviour {
 				if (Input.GetButtonDown ("Fire1")) {
 					ShootMethod ();
 					
+					
 				
 				}
 				
@@ -379,6 +380,7 @@ public class GunScript : MonoBehaviour {
 			
 
 			}
+
 		}
 		waitTillNextFire -= roundsPerSecond * Time.deltaTime;
 	}

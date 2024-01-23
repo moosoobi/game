@@ -84,7 +84,7 @@ public class GunInventory : MonoBehaviour {
 		/*
 		 * Scrolling wheel waepons changing
 		 */
-		if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetAxis("Mouse ScrollWheel") > 0){
+		if(Input.GetAxis("Mouse ScrollWheel") > 0){
 			switchWeaponCooldown = 0;
 			
 			currentGunCounter++;
@@ -94,7 +94,7 @@ public class GunInventory : MonoBehaviour {
 			}
 			StartCoroutine("Spawn",currentGunCounter);
 		}
-		if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetAxis("Mouse ScrollWheel") < 0){
+		if(Input.GetAxis("Mouse ScrollWheel") < 0){
 			switchWeaponCooldown = 0;
 
 			currentGunCounter--;
@@ -117,6 +117,7 @@ public class GunInventory : MonoBehaviour {
 			currentGunCounter = 1;
 			StartCoroutine("Spawn",currentGunCounter);
 		}
+		
 
 	}
 
