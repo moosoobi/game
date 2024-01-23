@@ -201,9 +201,9 @@ public class GunInventory : MonoBehaviour {
 	 * The curent gun selected image has their image slightly enlared for some value.
 	 */
 	void DrawCorrespondingImage(int _number){
-
+		/*
 		string deleteCloneFromName = currentGun.name.Substring(0,currentGun.name.Length - 7);
-
+		
 		if(menuStyle == MenuStyle.horizontal){
 			if(deleteCloneFromName == gunsIHave[_number]){
 				GUI.DrawTexture(new Rect(vec2(beginPosition).x +(_number*position_x(spacing)),vec2(beginPosition).y,//position variables
@@ -229,7 +229,7 @@ public class GunInventory : MonoBehaviour {
 			}
 		}
 
-
+*/
 
 	}
 
