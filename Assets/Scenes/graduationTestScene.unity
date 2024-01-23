@@ -4285,7 +4285,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &237290820
 RectTransform:
@@ -5675,6 +5675,7 @@ MonoBehaviour:
   DrawerClose: {fileID: 1433768890}
   dooropen: DrawerOpen
   doorclose: DrawerClose
+  zzzz: 0
   cross: {fileID: 0}
 --- !u!65 &331921415
 BoxCollider:
@@ -23954,7 +23955,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 1244989869}
   zz: 0
+  zzz: 0
   show: 0
+  z: 0
+  Text: {fileID: 1721680276}
 --- !u!1 &1536427252 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2463706537061040287, guid: 1c1b00c0fd6f2d6499cbe08de1bf00e7, type: 3}
@@ -26660,6 +26664,7 @@ MonoBehaviour:
   DrawerClose: {fileID: 1433768890}
   dooropen: DrawerOpen
   doorclose: DrawerClose
+  zzzz: 0
   cross: {fileID: 0}
 --- !u!4 &1752966446 stripped
 Transform:
@@ -33200,6 +33205,7 @@ MonoBehaviour:
   DrawerClose: {fileID: 1634746867}
   dooropen: DoorOpen
   doorclose: DoorClose
+  zzzz: 0
   cross: {fileID: 0}
 --- !u!65 &919132149357934584
 BoxCollider:
