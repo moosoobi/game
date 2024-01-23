@@ -13,6 +13,7 @@ public class Lever : MonoBehaviour
     public GameObject camera;
     public bool zzzz=false;
     public TextMeshProUGUI Text;
+    public GameObject text1;
     
     void Start()
     {
@@ -60,7 +61,7 @@ public class Lever : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             isFixed = !isFixed;
-
+            text1.SetActive(true);
             // 상태에 따라 플레이어 제어 여부를 조절
             if (isFixed)
             {
@@ -77,7 +78,8 @@ public class Lever : MonoBehaviour
                 
             }
             else
-            {
+            {   
+                text1.SetActive(false);
                 // 플레이어의 움직임을 다시 활성화
                 player.GetComponent<MouseLookScript>().enabled = true;
                 player.GetComponent<PlayerMovementScript>().enabled = true;

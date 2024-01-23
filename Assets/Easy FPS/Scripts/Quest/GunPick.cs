@@ -11,6 +11,7 @@ public class GunPick : Quest
     public TextMeshProUGUI Text;
     public QuestState CurrentState;
     public ShootingQuest shootingquest;
+    public GameObject text1;
 
     public GunPick(QuestState currentState)
     {
@@ -26,6 +27,8 @@ public class GunPick : Quest
         if(CurrentState==QuestState.Active){
             CurrentState=QuestState.Completed;
             shootingquest.Active();
+            text1.SetActive(true);
+            StartCoroutine(ExecuteAfterDelay(3f));
         }
         
     }
@@ -56,4 +59,11 @@ public class GunPick : Quest
 
         zzz=false;
     }
+    private IEnumerator ExecuteAfterDelay(float delayInSeconds)
+    {
+        // 일정 시간만큼 대기
+        yield return new WaitForSeconds(delayInSeconds);
+        text1.SetActive(false);
+    }
+
 }

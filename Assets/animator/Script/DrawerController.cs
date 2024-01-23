@@ -50,7 +50,7 @@ public class DrawerController : MonoBehaviour
     {
         
         zzzz=true;
-        StartCoroutine(ExecuteAfterDelay(3.0f));
+        StartCoroutine(ExecuteAfterDelay(0.5f));
         
     }
     
