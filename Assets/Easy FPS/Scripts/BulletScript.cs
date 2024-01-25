@@ -17,7 +17,7 @@ public class BulletScript : MonoBehaviour {
     }
 
     // 총알을 움직이는 속도
-    private float maxSpeed = 10.0f;
+    private float maxSpeed = 15.0f;
 
     // 총알이 움직이는 방향으로 이동하는 함수
     private void MoveBullet()

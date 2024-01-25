@@ -14056,7 +14056,7 @@ PrefabInstance:
       objectReference: {fileID: 2800000, guid: 89cb17ce6d76c46668922c09a46b97a2, type: 3}
     - target: {fileID: 11414154, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: gunsIHave.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11414154, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: gunsIHave.Array.data[0]
