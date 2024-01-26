@@ -1245,8 +1245,8 @@ MonoBehaviour:
   HUD_bullets: {fileID: 0}
   cross: {fileID: 0}
   cross1: {fileID: 0}
-  horizontal_crosshair: {fileID: 2800000, guid: e1aa4c90445944348a112c3b7fa4b318, type: 3}
-  vertical_crosshair: {fileID: 2800000, guid: 3f8b669e9880644cbb903f67bbc9f824, type: 3}
+  horizontal_crosshair: {fileID: 2800000, guid: 19a83063bea97d142933b756adc4e103, type: 3}
+  vertical_crosshair: {fileID: 2800000, guid: 11d8728552bc15c43946b9836c08a99f, type: 3}
   top_pos_crosshair: {x: -2.7, y: -20.8}
   bottom_pos_crosshair: {x: -2.7, y: -7.61}
   left_pos_crosshair: {x: -14, y: -5}
