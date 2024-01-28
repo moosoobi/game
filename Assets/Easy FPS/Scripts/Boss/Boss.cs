@@ -20,19 +20,42 @@ public class Boss : MonoBehaviour
     public AudioSource flashsound;
     public AudioSource electricsound;
     public AudioSource lazersound;
+    public AudioSource warningsound;
     public GameObject[] Bullet;
     public float obstacleSpeed = 5f;  // 장애물 이동 속도
     public int numberOfWaves = 5;
+    private bool alive=true;
+    private bool touch=false;
+
+
     void Update()
     {
-        
-        if (!isAttacking)
-        {
-            // 현재 공격 패턴 실행
-            StartCoroutine(ExecuteAttackPattern());
+        if(touch){
+            if(alive){
+                if (!isAttacking)
+                {
+                    // 현재 공격 패턴 실행
+                    StartCoroutine(ExecuteAttackPattern());
+                }
         }
+        }
+        
+        
     }
+    public void touchboss(){
+        touch=true;
+        Text1.SetActive(true);
+        warningsound.Play();
+        text1.text="보안 프로그램이 작동했다. 뒤로 물러서자.";
+        StartCoroutine(ExecuteAfterDelayText(10f));
 
+    }
+    public void die(){
+        alive=false;
+        Text1.SetActive(true);
+        text1.text="해치웠다. 가서 해킹칩을 심자.";
+        StartCoroutine(ExecuteAfterDelayText(3f));
+    }
     IEnumerator ExecuteAttackPattern()
     {
         isAttacking = true;
@@ -81,13 +104,11 @@ public class Boss : MonoBehaviour
 
     public void LazerAttack(){
         Vector3 lazerposition=new Vector3(transform.position.x-23f, transform.position.y-5f, transform.position.z-7f);
-        // 장애물 생성
         GameObject lazerobject = Instantiate(Lazer,lazerposition , Quaternion.identity);
         lazersound.Play();
         Rigidbody lazerRd = lazerobject.GetComponent<Rigidbody>();
         if (lazerRd != null)
         {
-            Debug.Log("실행");
             lazerRd.velocity = new Vector3(10f, 0.0f, 0.0f);
         }
     }
@@ -117,15 +138,15 @@ public class Boss : MonoBehaviour
     
 
     public IEnumerator Execute(int currentPatternIndex)
-    {
-        currentPatternIndex=1;
+    {   
+        yield return new WaitForSeconds(duration);
         if(currentPatternIndex==0){
             Text1.SetActive(true);
             text1.text="빛 공격 준비!";
             StartCoroutine(ExecuteAfterDelayText(3f));
-            yield return new WaitForSeconds(duration);
+            yield return new WaitForSeconds(3f);
             LightAttack();
-            yield return new WaitForSeconds(duration);
+            yield return new WaitForSeconds(3f);
         }else if(currentPatternIndex==1){
             Text1.SetActive(true);
             text1.text="레이저 공격 준비!";
@@ -136,11 +157,10 @@ public class Boss : MonoBehaviour
             Text1.SetActive(true);
             text1.text="에너지볼 공격!";
             StartCoroutine(ExecuteAfterDelayText(3f));
-            yield return new WaitForSeconds(duration);
-            Invoke("StopSpawningObstacles", 30f);
+            Invoke("StopSpawningObstacles", 18f);
             InvokeRepeating("BulletAttack", 0f, 6f);
 
-            yield return new WaitForSeconds(30f);
+            yield return new WaitForSeconds(20f);
         }
     }
     void StopSpawningObstacles()

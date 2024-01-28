@@ -8,11 +8,11 @@ public class BossHpbar : MonoBehaviour
     static public float BossHp=100f;
     public float BossMaxHp=100f;
     public Slider healthSlider;
-    
+    public Boss boss;
 
     void Start()
     {
-        // 슬라이더 초기화
+        boss=GetComponent<Boss>();
         InitializeHealthBar();
     }
 
@@ -43,8 +43,7 @@ public class BossHpbar : MonoBehaviour
 
     void BossDefeated()
     {
-        // 보스가 죽었을 때의 동작 처리
-        Debug.Log("Boss Defeated!");
+        boss.die();
     }
     private void OnTriggerEnter(Collider other)
     {
