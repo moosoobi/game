@@ -16,7 +16,13 @@ public class Boss : MonoBehaviour
     public GameObject player;
     public GameObject PlayerForward;
     public GameObject flash;
+    public GameObject Lazer;
     public AudioSource flashsound;
+    public AudioSource electricsound;
+    public AudioSource lazersound;
+    public GameObject[] Bullet;
+    public float obstacleSpeed = 5f;  // 장애물 이동 속도
+    public int numberOfWaves = 5;
     void Update()
     {
         
@@ -73,16 +79,46 @@ public class Boss : MonoBehaviour
         }
     }
 
-    public void ElecticAttack(){
-        
+    public void LazerAttack(){
+        Vector3 lazerposition=new Vector3(transform.position.x-23f, transform.position.y-5f, transform.position.z-7f);
+        // 장애물 생성
+        GameObject lazerobject = Instantiate(Lazer,lazerposition , Quaternion.identity);
+        lazersound.Play();
+        Rigidbody lazerRd = lazerobject.GetComponent<Rigidbody>();
+        if (lazerRd != null)
+        {
+            Debug.Log("실행");
+            lazerRd.velocity = new Vector3(10f, 0.0f, 0.0f);
+        }
     }
 
-    public void BulletAttack(){
+    void BulletAttack(){
+        
+
+        int randomValue = GetRandomNumber(0, 3);
+        Vector3 position=new Vector3(transform.position.x, transform.position.y, transform.position.z+5f);
+        // 장애물 생성
+        GameObject obstacle = Instantiate(Bullet[randomValue],position , Quaternion.identity);
+        electricsound.Play();
+
+        // 장애물에 힘을 가해 발사
+        Rigidbody obstacleRb = obstacle.GetComponent<Rigidbody>();
+        if (obstacleRb != null)
+        {
+            
+            obstacleRb.velocity = new Vector3(0.0f, 0.0f, -obstacleSpeed);
+        }
         
     }
+    int GetRandomNumber(int min, int max)
+    {
+        return Random.Range(min, max);
+    }
+    
 
     public IEnumerator Execute(int currentPatternIndex)
     {
+        currentPatternIndex=1;
         if(currentPatternIndex==0){
             Text1.SetActive(true);
             text1.text="빛 공격 준비!";
@@ -91,24 +127,26 @@ public class Boss : MonoBehaviour
             LightAttack();
             yield return new WaitForSeconds(duration);
         }else if(currentPatternIndex==1){
-            ElecticAttack();
             Text1.SetActive(true);
-            text1.text="전기 공격 준비!";
+            text1.text="레이저 공격 준비!";
             StartCoroutine(ExecuteAfterDelayText(3f));
+            LazerAttack();
             yield return new WaitForSeconds(duration);
         }else if(currentPatternIndex==2){
             Text1.SetActive(true);
-            text1.text="총 공격준비!";
+            text1.text="에너지볼 공격!";
             StartCoroutine(ExecuteAfterDelayText(3f));
             yield return new WaitForSeconds(duration);
-            BulletAttack();
-            yield return new WaitForSeconds(duration);
+            Invoke("StopSpawningObstacles", 30f);
+            InvokeRepeating("BulletAttack", 0f, 6f);
+
+            yield return new WaitForSeconds(30f);
         }
-
-        
-
-   
-
+    }
+    void StopSpawningObstacles()
+    {
+        // 일정 시간이 지나면 장애물 생성을 멈춥니다.
+        CancelInvoke("BulletAttack");
     }
     private IEnumerator ExecuteAfterDelayText(float delayInSeconds)
     {

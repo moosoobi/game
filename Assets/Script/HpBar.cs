@@ -11,8 +11,8 @@ public class HpBar : MonoBehaviour
 
     void Start()
     {
-        health=3;
-        maxhealth=3;
+        health=5;
+        maxhealth=5;
         
     }
     public void healthminus(){health--;}
@@ -29,7 +29,7 @@ public class HpBar : MonoBehaviour
   
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("attack")){
+        if (other.CompareTag("PlayerAttack")){
             health--;
             if(health<=0){
                 Debug.Log("게임 종료");

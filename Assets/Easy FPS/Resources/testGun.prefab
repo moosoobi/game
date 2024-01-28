@@ -1208,7 +1208,7 @@ MonoBehaviour:
   rotationLagTime: 0
   forwardRotationAmount: {x: 1, y: 1}
   bulletSpawnPlace: {fileID: 0}
-  bullet: {fileID: 4526418526604946858, guid: c2596c121af7f5346b4bd725b1e73688, type: 3}
+  bullet: {fileID: 4526418526604946858, guid: 9d91dc3edc1fde54e9ac41e463a5d58b, type: 3}
   roundsPerSecond: 100
   recoilAmount_z: 0.04
   recoilAmount_x: 0.04

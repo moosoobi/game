@@ -48,7 +48,10 @@ public class BossHpbar : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        UpdateHealth(-10f);
+        if (other.CompareTag("Attack")){
+            UpdateHealth(-1f);
+        }
+        
     }
     
 }
