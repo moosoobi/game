@@ -12,6 +12,7 @@ TagManager:
   - QuestManager
   - Object
   - PickMap
+  - Forward
   layers:
   - Default
   - TransparentFX

@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class HpBar : MonoBehaviour
 {
-    static public int health;
+    public int health;
     public int maxhealth;
     public Image[] hearts;
 
     void Start()
     {
-        health=2;
-        maxhealth=5;
+        health=3;
+        maxhealth=3;
         
     }
-
+    public void healthminus(){health--;}
     // Update is called once per frame
     void Update()
     {
@@ -27,11 +27,14 @@ public class HpBar : MonoBehaviour
         
     }
   
-    void OnCollisionEnter(Collision enemy)
+    private void OnTriggerEnter(Collider other)
     {
-        HpBar.health--;
-        if(HpBar.health<=0){
-            Debug.Log("게임 종료");
+        if (other.CompareTag("attack")){
+            health--;
+            if(health<=0){
+                Debug.Log("게임 종료");
+            }
         }
     }
+
 }
