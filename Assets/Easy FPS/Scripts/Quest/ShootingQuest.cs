@@ -11,6 +11,8 @@ public class ShootingQuest : Quest
     public bool zzz=false;
     public TextMeshProUGUI Text;
     public QuestState CurrentState;
+    public TextMeshProUGUI QuestText;
+    public NPC npc;
     
     
     public ShootingQuest(QuestState currentState)
@@ -23,7 +25,6 @@ public class ShootingQuest : Quest
     
     void Awake()
     {
-        
         
         Description="마네킹을 3회 사격하십시오";
         requiredShots=3;
@@ -40,7 +41,6 @@ public class ShootingQuest : Quest
         
             if (currentShots >= requiredShots)
             {
-                Debug.Log(1);
                 CurrentState=QuestState.Completed;
                 Text.text="퀘스트 완료 npc에게 돌아가십시요.";
             }
@@ -66,13 +66,23 @@ public class ShootingQuest : Quest
                 
             
             }
-            if(CurrentState==QuestState.Active){
-                Text.text=Description;
-            }
+
         
         
     }
     public void Active(){
         CurrentState=QuestState.Active;
+    }
+    public void QuestActive(){
+        Text.text=Description;
+        StartCoroutine(ChangeColor());
+    }
+    private IEnumerator ChangeColor(){
+        for(int i=0;i<3;i++){
+            QuestText.color=new Color32(229,255,0,255);
+            yield return new WaitForSeconds(0.5f);
+            QuestText.color=new Color32(0,222,255,255);
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 }

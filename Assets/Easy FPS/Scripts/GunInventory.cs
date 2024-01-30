@@ -20,6 +20,7 @@ public class GunInventory : MonoBehaviour {
 	[HideInInspector]
 	public float switchWeaponCooldown;
 
+	public GunPick gunpick;
 	/*
 	 * Calling the method that will update the icons of our guns if we carry any upon start.
 	 * Also will spawn a weapon upon start.
@@ -84,6 +85,7 @@ public class GunInventory : MonoBehaviour {
 		/*
 		 * Scrolling wheel waepons changing
 		 */
+		 /*
 		if(Input.GetAxis("Mouse ScrollWheel") > 0){
 			switchWeaponCooldown = 0;
 			
@@ -103,7 +105,7 @@ public class GunInventory : MonoBehaviour {
 			}
 			StartCoroutine("Spawn",currentGunCounter);
 		}
-
+		*/
 		/*
 		 * Keypad numbers
 		 */
@@ -112,7 +114,7 @@ public class GunInventory : MonoBehaviour {
 			currentGunCounter = 0;
 			StartCoroutine("Spawn",currentGunCounter);
 		}
-		if(Input.GetKeyDown(KeyCode.Alpha2) && currentGunCounter != 1){
+		if(Input.GetKeyDown(KeyCode.Alpha2) && currentGunCounter != 1&&gunpick.ifpick()){
 			switchWeaponCooldown = 0;
 			currentGunCounter = 1;
 			StartCoroutine("Spawn",currentGunCounter);

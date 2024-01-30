@@ -11,7 +11,12 @@ public class NPC : ScriptableObject
     [TextArea(3,15)]
     public string[] dialogue;
     [TextArea(3,15)]
-    public string[] playerDialogue;
+    public string[] dialogue2;
+    [TextArea(3,15)]
+    public string[] dialogue3;
+    [TextArea(3,15)]
+    public int stage=0;
+    public void upstage(){stage++;}
 
    
 
