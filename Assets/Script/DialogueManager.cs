@@ -7,6 +7,9 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
     public NPC npc;
+    public string[] storySentences1;
+    public string[] storySentences2;
+    public string[] storySentences3;
 
     bool isTalking=false;
 
