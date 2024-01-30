@@ -29088,7 +29088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d971d5be872f80045835a8f2cbf790cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunpick: {fileID: 0}
+  gunpick: {fileID: 2094769954}
   zzz: 0
 --- !u!4 &1307967303 stripped
 Transform:
@@ -33904,9 +33904,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a8f7c9fdcb4ecfa488a136f2079f898c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1830398241}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a8f7c9fdcb4ecfa488a136f2079f898c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1830398242}
   m_SourcePrefab: {fileID: 100100000, guid: a8f7c9fdcb4ecfa488a136f2079f898c, type: 3}
 --- !u!4 &1583238039 stripped
 Transform:
@@ -38280,29 +38277,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.206653, y: 2.6018093, z: 0.0000002880697}
   m_Center: {x: -0.06842303, y: -0.1455614, z: 0.000000059604645}
---- !u!114 &1830398242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1022116082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 086efb572a881b841ba50423a504f8be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  map: {fileID: 1244989869}
-  zzz: 0
-  ifpick: 0
-  show: 1
-  z: 0
-  Text: {fileID: 468041311}
-  text1: {fileID: 2002562846}
-  Text2: {fileID: 1721680276}
-  dia: {fileID: 2094769952}
-  gunpick: {fileID: 2094769954}
-  QuestText: {fileID: 912608626}
 --- !u!1001 &1832007141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44085,7 +44059,7 @@ MonoBehaviour:
   npcName: {fileID: 636187514}
   npcDialogueBox: {fileID: 1964349364}
   playerResponse: {fileID: 1992440131}
-  pickmap: {fileID: 1830398242}
+  pickmap: {fileID: 0}
 --- !u!114 &2094769953
 MonoBehaviour:
   m_ObjectHideFlags: 0

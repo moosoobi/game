@@ -12,7 +12,8 @@ public class GunPick : Quest
     public TextMeshProUGUI QuestText;
     public QuestState CurrentState;
     public ShootingQuest shootingquest;
-    public GameObject text1;
+    public TextMeshProUGUI Text1;
+    public TextMeshProUGUI text2;
     public DialogueManager dia;
     
 
@@ -29,12 +30,10 @@ public class GunPick : Quest
     }
     public void pickup(){
         if(CurrentState==QuestState.Active){
-            Debug.Log(1);
+            text2.text="2번을 눌러 총을 획득하시오.";
             CurrentState=QuestState.Completed;
             shootingquest.Active();
-            text1.SetActive(true);
             shootingquest.QuestActive();
-            StartCoroutine(ExecuteAfterDelay(3f));
         }
         
     }
@@ -75,11 +74,6 @@ public class GunPick : Quest
 
         zzz=false;
     }
-    private IEnumerator ExecuteAfterDelay(float delayInSeconds)
-    {
-        // 일정 시간만큼 대기
-        yield return new WaitForSeconds(delayInSeconds);
-        text1.SetActive(false);
-    }
+
 
 }
