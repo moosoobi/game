@@ -12,7 +12,7 @@ public class ShootingQuest : Quest
     public TextMeshProUGUI Text;
     public QuestState CurrentState;
     public TextMeshProUGUI QuestText;
-    public NPC npc;
+    public DialogueManager dia;
     
     
     public ShootingQuest(QuestState currentState)
@@ -25,7 +25,7 @@ public class ShootingQuest : Quest
     
     void Awake()
     {
-        
+        dia=GetComponent<DialogueManager>();
         Description="마네킹을 3회 사격하십시오";
         requiredShots=3;
         currentShots=0;
@@ -41,6 +41,7 @@ public class ShootingQuest : Quest
         
             if (currentShots >= requiredShots)
             {
+                dia.upstage();
                 CurrentState=QuestState.Completed;
                 Text.text="퀘스트 완료 npc에게 돌아가십시요.";
             }

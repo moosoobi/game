@@ -23,12 +23,13 @@ public class GunPick : Quest
     
     void Awake()
     {
-        Description="책상에 있는 총을 획득하십시오.";
+        Description="방안을 조사해 총을 획득하십시오.";
         dia=GetComponent<DialogueManager>();
         shootingquest=GetComponent<ShootingQuest>();
     }
     public void pickup(){
         if(CurrentState==QuestState.Active){
+            Debug.Log(1);
             CurrentState=QuestState.Completed;
             shootingquest.Active();
             text1.SetActive(true);

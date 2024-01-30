@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.053590246, g: 0.05426193, b: 0.07334221, a: 1}
+  m_IndirectSpecularColor: {r: 0.053590365, g: 0.05426223, b: 0.07334197, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11891,7 +11891,7 @@ GameObject:
   - component: {fileID: 468041312}
   - component: {fileID: 468041311}
   m_Layer: 0
-  m_Name: QuestDialogue
+  m_Name: "2\uBC88"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13891,31 +13891,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2807027633822764093, guid: 5c1ad73355445664186ef7d801492c0b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.0770264
+      value: -8.227
       objectReference: {fileID: 0}
     - target: {fileID: 2807027633822764093, guid: 5c1ad73355445664186ef7d801492c0b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.471
+      value: 1.55
       objectReference: {fileID: 0}
     - target: {fileID: 2807027633822764093, guid: 5c1ad73355445664186ef7d801492c0b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.3649902
+      value: 5.248
       objectReference: {fileID: 0}
     - target: {fileID: 2807027633822764093, guid: 5c1ad73355445664186ef7d801492c0b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70421237
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2807027633822764093, guid: 5c1ad73355445664186ef7d801492c0b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.70421237
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2807027633822764093, guid: 5c1ad73355445664186ef7d801492c0b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.06391368
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2807027633822764093, guid: 5c1ad73355445664186ef7d801492c0b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.063913666
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2807027633822764093, guid: 5c1ad73355445664186ef7d801492c0b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -13927,7 +13927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2807027633822764093, guid: 5c1ad73355445664186ef7d801492c0b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -10.372
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6949342998553530406, guid: 5c1ad73355445664186ef7d801492c0b, type: 3}
       propertyPath: m_Name
@@ -13939,10 +13939,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6949342998553530406, guid: 5c1ad73355445664186ef7d801492c0b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1307967302}
+      addedObject: {fileID: 1307967301}
     - targetCorrespondingSourceObject: {fileID: 6949342998553530406, guid: 5c1ad73355445664186ef7d801492c0b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1307967301}
+      addedObject: {fileID: 1307967304}
   m_SourcePrefab: {fileID: 100100000, guid: 5c1ad73355445664186ef7d801492c0b, type: 3}
 --- !u!1001 &536587524
 PrefabInstance:
@@ -19678,7 +19678,7 @@ MonoBehaviour:
   camera: {fileID: 756269174}
   zzzz: 0
   Text: {fileID: 1721680276}
-  text1: {fileID: 1686345157}
+  text1: {fileID: 0}
 --- !u!114 &767930045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23323,6 +23323,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1793975376165738297, guid: e6133ce56b6db894487e776e52f26c4d, type: 3}
   m_PrefabInstance: {fileID: 1539932867}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1022116082 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a8f7c9fdcb4ecfa488a136f2079f898c, type: 3}
+  m_PrefabInstance: {fileID: 1580707624}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1023450922 stripped
 GameObject:
@@ -29085,8 +29090,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunpick: {fileID: 0}
   zzz: 0
---- !u!135 &1307967302
-SphereCollider:
+--- !u!4 &1307967303 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2807027633822764093, guid: 5c1ad73355445664186ef7d801492c0b, type: 3}
+  m_PrefabInstance: {fileID: 535979683}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1307967304
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -29104,13 +29114,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &1307967303 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2807027633822764093, guid: 5c1ad73355445664186ef7d801492c0b, type: 3}
-  m_PrefabInstance: {fileID: 535979683}
-  m_PrefabAsset: {fileID: 0}
+  m_Size: {x: 0.89546245, y: 1, z: 1}
+  m_Center: {x: -0.036231652, y: 0, z: 0}
 --- !u!1001 &1310558669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30163,6 +30168,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 535947219}
     m_Modifications:
+    - target: {fileID: 1648366690382022121, guid: 7444c0cbf33ab0f4d9822ae07519372b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3384338841752765099, guid: 7444c0cbf33ab0f4d9822ae07519372b, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -30218,10 +30227,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7804874126567973941, guid: 7444c0cbf33ab0f4d9822ae07519372b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1526850518}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7444c0cbf33ab0f4d9822ae07519372b, type: 3}
 --- !u!4 &1362893451 stripped
 Transform:
@@ -32793,30 +32799,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4097932294234462501, guid: c65bff06be5df67408c56e0700a65321, type: 3}
   m_PrefabInstance: {fileID: 567779409}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1526850513 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7804874126567973941, guid: 7444c0cbf33ab0f4d9822ae07519372b, type: 3}
-  m_PrefabInstance: {fileID: 1362893450}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1526850518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526850513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 086efb572a881b841ba50423a504f8be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  map: {fileID: 1244989869}
-  zz: 0
-  zzz: 0
-  show: 0
-  z: 0
-  Text: {fileID: 1721680276}
-  text1: {fileID: 1144308758}
 --- !u!1 &1536427252 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2463706537061040287, guid: 1c1b00c0fd6f2d6499cbe08de1bf00e7, type: 3}
@@ -33918,7 +33900,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a8f7c9fdcb4ecfa488a136f2079f898c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1830398241}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a8f7c9fdcb4ecfa488a136f2079f898c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1830398242}
   m_SourcePrefab: {fileID: 100100000, guid: a8f7c9fdcb4ecfa488a136f2079f898c, type: 3}
 --- !u!4 &1583238039 stripped
 Transform:
@@ -36079,7 +36067,7 @@ GameObject:
   - component: {fileID: 1721680277}
   - component: {fileID: 1721680276}
   m_Layer: 0
-  m_Name: QuestDialogue
+  m_Name: realQuestDialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38271,6 +38259,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a8f7c9fdcb4ecfa488a136f2079f898c, type: 3}
   m_PrefabInstance: {fileID: 1580707624}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1830398241
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022116082}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.206653, y: 2.6018093, z: 0.0000002880697}
+  m_Center: {x: -0.06842303, y: -0.1455614, z: 0.000000059604645}
+--- !u!114 &1830398242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022116082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 086efb572a881b841ba50423a504f8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 1244989869}
+  zzz: 0
+  ifpick: 0
+  show: 1
+  z: 0
+  Text: {fileID: 468041311}
+  text1: {fileID: 2002562846}
+  Text2: {fileID: 1721680276}
+  dia: {fileID: 2094769952}
+  gunpick: {fileID: 2094769954}
+  QuestText: {fileID: 912608626}
 --- !u!1001 &1832007141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44024,7 +44056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dee4e5976059b1468715f5124f231d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: "\uC9F1"
+  name: Jeff
   dialogue:
   - "\uACE0\uCCA0 \uB369\uC5B4\uB9AC\uB97C \uBAB8 \uC18D\uC5D0 \uC9D1\uC5B4\uB123\uC73C\uB77C\uB2C8... "
   - "\uC800\uB7F0 \uC815\uC2E0\uB098\uAC04 \uAD11\uACE0\uAC00 TV\uC5D0 \uB098\uC624\uB294
@@ -44039,7 +44071,12 @@ MonoBehaviour:
     \uC190\uC774\uB77C\uB3C4 \uD480\uACE0 \uB098\uAC00\uB294\uAC8C \uC88B\uC744\uAC70\uC57C."
   dialogue2:
   - "\uC65C \uBD88\uB800\uB098?"
-  dialogue3: []
+  dialogue3:
+  - "\uC218\uACE0\uD588\uC5B4. \uC774\uC81C Bar\uB85C \uAC00\uC11C \uC784\uBB34\uC218\uD589\uC744
+    \uD558\uB3C4\uB85D \uD574."
+  - "\uC790\uB124\uB9CC \uBBFF\uB124."
+  dialogue4:
+  - "\uC2DC\uAC04\uC774 \uC5C6\uB124. \uC5B4\uC11C Bar\uB85C \uAC00\uAC8C"
   isTalking: 0
   curResponseTracker: 0
   stage: 0
@@ -44048,7 +44085,7 @@ MonoBehaviour:
   npcName: {fileID: 636187514}
   npcDialogueBox: {fileID: 1964349364}
   playerResponse: {fileID: 1992440131}
-  gunpick: {fileID: 0}
+  pickmap: {fileID: 1830398242}
 --- !u!114 &2094769953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44069,7 +44106,7 @@ MonoBehaviour:
   Text: {fileID: 1721680276}
   CurrentState: 0
   QuestText: {fileID: 912608626}
-  npc: {fileID: 0}
+  dia: {fileID: 0}
 --- !u!114 &2094769954
 MonoBehaviour:
   m_ObjectHideFlags: 0

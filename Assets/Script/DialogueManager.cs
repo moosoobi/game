@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     public string[] dialogue;
     public string[] dialogue2;
     public string[] dialogue3;
+    public string[] dialogue4;
 
     public bool isTalking=false;
     private bool zzz=false;
@@ -25,13 +26,12 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI npcDialogueBox;
     public TextMeshProUGUI playerResponse;
     
-    public GunPick gunpick;
-    private bool gunpickbool=false;
+    public PickMap pickmap;
+    private bool pickmapbool=false;
 
     void Start()
     {
         dialogueUI.SetActive(false);
-        gunpick=GetComponent<GunPick>();
     }
 
     
@@ -50,9 +50,25 @@ public class DialogueManager : MonoBehaviour
                 
             }
             else if(Input.GetKeyDown(KeyCode.Z)){
-                if(curResponseTracker==dialogue.Length){
-                    EndDialogue();
-                    
+                if(stage==0){
+                    if(curResponseTracker==dialogue.Length){
+                        EndDialogue();
+                    }
+                }
+                else if(stage==1){
+                    if(curResponseTracker==dialogue2.Length){
+                        EndDialogue();
+                    }
+                }
+                else if(stage==2){
+                    if(curResponseTracker==dialogue3.Length){
+                        EndDialogue();
+                    }
+                }
+                else if(stage==3){
+                    if(curResponseTracker==dialogue4.Length){
+                        EndDialogue();
+                    }
                 }
                 
                 
@@ -78,6 +94,8 @@ public class DialogueManager : MonoBehaviour
         npcName.text=name;
         if(stage==0){npcDialogueBox.text=dialogue[0];}
         else if(stage==1){npcDialogueBox.text=dialogue2[0];}
+        else if(stage==2){npcDialogueBox.text=dialogue3[0];}
+        else if(stage==3){npcDialogueBox.text=dialogue4[0];}
 
     }
 
@@ -100,6 +118,24 @@ public class DialogueManager : MonoBehaviour
                     {
                         npcDialogueBox.text=dialogue2[curResponseTracker];
                     }
+        }else if(stage==2){
+                    curResponseTracker++;
+                    if(curResponseTracker>dialogue3.Length){
+                        curResponseTracker=dialogue3.Length;
+                    }
+                    else if(curResponseTracker<dialogue3.Length)
+                    {
+                        npcDialogueBox.text=dialogue3[curResponseTracker];
+                    }
+        }else if(stage==3){
+                    curResponseTracker++;
+                    if(curResponseTracker>dialogue4.Length){
+                        curResponseTracker=dialogue4.Length;
+                    }
+                    else if(curResponseTracker<dialogue4.Length)
+                    {
+                        npcDialogueBox.text=dialogue4[curResponseTracker];
+                    }
         }
     }
 
@@ -107,10 +143,11 @@ public class DialogueManager : MonoBehaviour
         isTalking=false;
         dialogueUI.SetActive(false);
         if(stage==0){stage=1;}
+        if(stage==2){stage=3;}
         
-        if(!gunpickbool){
-            gunpickbool=true;
-            gunpick.QuestActive();
+        if(!pickmapbool){
+            pickmapbool=true;
+            pickmap.QuestActive();
         }
     }
     
