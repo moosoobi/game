@@ -12,10 +12,8 @@ public class GunPick : Quest
     public TextMeshProUGUI QuestText;
     public QuestState CurrentState;
     public ShootingQuest shootingquest;
-    public TextMeshProUGUI Text1;
-    public TextMeshProUGUI text2;
     public DialogueManager dia;
-    
+    public AudioSource QuestSound;
 
     public GunPick(QuestState currentState)
     {
@@ -25,12 +23,9 @@ public class GunPick : Quest
     void Awake()
     {
         Description="방안을 조사해 총을 획득하십시오.";
-        dia=GetComponent<DialogueManager>();
-        shootingquest=GetComponent<ShootingQuest>();
     }
     public void pickup(){
         if(CurrentState==QuestState.Active){
-            text2.text="2번을 눌러 총을 획득하시오.";
             CurrentState=QuestState.Completed;
             shootingquest.Active();
             shootingquest.QuestActive();
@@ -56,6 +51,7 @@ public class GunPick : Quest
     public void QuestActive(){
         Text.text=Description;
         StartCoroutine(ChangeColor());
+        QuestSound.Play();
     }
     private IEnumerator ChangeColor(){
         for(int i=0;i<3;i++){

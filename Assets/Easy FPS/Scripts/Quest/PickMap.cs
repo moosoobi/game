@@ -10,14 +10,15 @@ public class PickMap : MonoBehaviour
     public bool ifpick=false;
     public bool show=true;
     public bool z;
-    public TextMeshProUGUI Text;
-    public GameObject text1;
-    public TextMeshProUGUI Text2;
+    public TextMeshProUGUI Text;//uitext
+    public GameObject text1;//uitext
+    public TextMeshProUGUI Text2;//questtext
     public DialogueManager dia;
     public GunPick gunpick;
     private bool gunpickbool=false;
     public TextMeshProUGUI QuestText;
     private string Description="책상에서 지도를 얻어라.";
+    public AudioSource QuestSound;
 
     void Update()
     {
@@ -61,6 +62,7 @@ public class PickMap : MonoBehaviour
     public void QuestActive(){
         Text2.text="책상에서 지도를 얻어라.";
         StartCoroutine(ChangeColor());
+        QuestSound.Play();
     }
     private IEnumerator ChangeColor(){
         for(int i=0;i<3;i++){

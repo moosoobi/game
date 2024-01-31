@@ -13,7 +13,7 @@ public class ShootingQuest : Quest
     public QuestState CurrentState;
     public TextMeshProUGUI QuestText;
     public DialogueManager dia;
-    
+    public AudioSource QuestSound;
     
     public ShootingQuest(QuestState currentState)
     {
@@ -44,6 +44,8 @@ public class ShootingQuest : Quest
                 dia.upstage();
                 CurrentState=QuestState.Completed;
                 Text.text="퀘스트 완료 npc에게 돌아가십시요.";
+                StartCoroutine(ChangeColor());
+                QuestSound.Play();
             }
         }
     }
@@ -62,7 +64,9 @@ public class ShootingQuest : Quest
             if(zzz&&Input.GetKeyDown(KeyCode.Z)){
             
                 if(CurrentState==QuestState.Completed){
-                    Text.text="방안에 서랍을 열어 지도를 획득하시오.";
+                    StartCoroutine(ChangeColor());
+                    QuestSound.Play();
+                    Text.text="지도를 보고 목표지점으로 이동하시오.";
                 }
                 
             
@@ -77,6 +81,7 @@ public class ShootingQuest : Quest
     public void QuestActive(){
         Text.text=Description;
         StartCoroutine(ChangeColor());
+        QuestSound.Play();
     }
     private IEnumerator ChangeColor(){
         for(int i=0;i<3;i++){

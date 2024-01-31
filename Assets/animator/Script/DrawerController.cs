@@ -6,8 +6,8 @@ public class DrawerController : MonoBehaviour
 {
     [SerializeField] public Animator myDoor=null;
 
-    [SerializeField] public bool openTrigger=false;
-    [SerializeField] public bool closeTrigger=false;
+    public bool openTrigger=true;
+    public bool closeTrigger=false;
 
 
     public AudioSource DrawerOpen;
@@ -16,36 +16,39 @@ public class DrawerController : MonoBehaviour
     public string dooropen;
     public string doorclose;
 
+    public bool noclose=false;
     public bool zzzz=false;
 
     public GameObject cross;
+    public pick pick;
     
-    
+    public void noclosetrue(){noclose=true;}
     void Update()
     {
         
         if(zzzz){
             if (Input.GetKeyDown(KeyCode.Z)){
-            if(openTrigger){
-                myDoor.Play(dooropen, 0, 0.0f);
-                closeTrigger=true;
-                openTrigger=false;
-                if (DrawerOpen)
-				DrawerOpen.Play ();
-                StartCoroutine(ExecuteAfterDelay(1f));
-            }
-            else if(closeTrigger){
-                myDoor.Play(doorclose, 0, 0.0f);
-                closeTrigger=false;
-                openTrigger=true;
-                if (DrawerClose)
-				DrawerClose.Play ();
-                StartCoroutine(ExecuteAfterDelay(1f));
-            }
+                if(openTrigger){
+                    myDoor.Play(dooropen, 0, 0.0f);
+                    closeTrigger=true;
+                    openTrigger=false;
+                    if (DrawerOpen)
+                    DrawerOpen.Play ();
+                    StartCoroutine(ExecuteAfterDelay(1f));
+                }
+                else if(closeTrigger){
+                    myDoor.Play(doorclose, 0, 0.0f);
+                    closeTrigger=false;
+                    openTrigger=true;
+                    if (DrawerClose)
+                    DrawerClose.Play ();
+                    StartCoroutine(ExecuteAfterDelay(1f));
+                }
             }
 
         }
     }
+    
     private void OnTriggerStay(Collider other)
     {
         
