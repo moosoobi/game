@@ -1891,6 +1891,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: streetLamp (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7399154494574176221, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8632996937757706173, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
@@ -9397,6 +9401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: labacorn (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3475212291793872334, guid: 6534bda88a03e72438ab4652a52e49da, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4419697022786067735, guid: 6534bda88a03e72438ab4652a52e49da, type: 3}
       propertyPath: m_RootOrder
       value: 51
@@ -12836,6 +12844,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: streetLamp (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7399154494574176221, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8632996937757706173, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
@@ -14059,9 +14071,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5114137749437200286, guid: 5c1ad73355445664186ef7d801492c0b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6949342998553530406, guid: 5c1ad73355445664186ef7d801492c0b, type: 3}
       propertyPath: m_Name
       value: Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748922953818112754, guid: 5c1ad73355445664186ef7d801492c0b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14771,6 +14791,10 @@ PrefabInstance:
     - target: {fileID: 7519257461269757553, guid: 76e057023b7674743b85b38e2156b2d9, type: 3}
       propertyPath: m_Name
       value: electricMeterPrefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519257461269757553, guid: 76e057023b7674743b85b38e2156b2d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16296,6 +16320,10 @@ PrefabInstance:
     - target: {fileID: 7399154494574176221, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
       propertyPath: m_Name
       value: streetLamp (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399154494574176221, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -18729,6 +18757,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: clothingCollectionBox
       objectReference: {fileID: 0}
+    - target: {fileID: 4678446496679934223, guid: 57c4b7de005879a4c8a6365fbc948ce2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18984,6 +19016,10 @@ PrefabInstance:
     - target: {fileID: 102540, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 173116, guid: c391f12a928274acab8576bb6030641d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 431846, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26322,6 +26358,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: noParking (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2939727826254208544, guid: 7af36e43847b0f0499d6d6772625584b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29083,6 +29123,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: villa_folder
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0ab6e332daecc1f449c4506b6509c081, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1603246306389932429, guid: 0ab6e332daecc1f449c4506b6509c081, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -30608,6 +30652,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: house (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7446292303515744169, guid: 718dcf1b5b3c687498b9518433d61130, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -31140,6 +31188,10 @@ PrefabInstance:
     - target: {fileID: 7399154494574176221, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
       propertyPath: m_Name
       value: streetLamp (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399154494574176221, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -31705,6 +31757,10 @@ PrefabInstance:
     - target: {fileID: 7399154494574176221, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
       propertyPath: m_Name
       value: streetLamp (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399154494574176221, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -32448,6 +32504,10 @@ PrefabInstance:
     - target: {fileID: 7446292303515744169, guid: 718dcf1b5b3c687498b9518433d61130, type: 3}
       propertyPath: m_Name
       value: house
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446292303515744169, guid: 718dcf1b5b3c687498b9518433d61130, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34327,6 +34387,10 @@ PrefabInstance:
     - target: {fileID: 7270673363674352961, guid: de6f2c66d3c36f84e89eb1cb952a3217, type: 3}
       propertyPath: m_Name
       value: outdoorUnit (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270673363674352961, guid: de6f2c66d3c36f84e89eb1cb952a3217, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37405,6 +37469,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: villa_folder (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0ab6e332daecc1f449c4506b6509c081, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1603246306389932429, guid: 0ab6e332daecc1f449c4506b6509c081, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -38490,7 +38558,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1833722213}
   - component: {fileID: 1833722214}
-  - component: {fileID: 1833722216}
   - component: {fileID: 1833722215}
   m_Layer: 0
   m_Name: Entrance
@@ -38547,20 +38614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41cab8566b67784da62e8923e67c4bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scene: {fileID: 1833722216}
---- !u!114 &1833722216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1833722212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abad48e4eeba1104485ca070b4ecd1a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextSceneName: Bar
 --- !u!1001 &1836187545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39248,6 +39301,10 @@ PrefabInstance:
     - target: {fileID: 3475212291793872334, guid: 6534bda88a03e72438ab4652a52e49da, type: 3}
       propertyPath: m_Name
       value: labacorn (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475212291793872334, guid: 6534bda88a03e72438ab4652a52e49da, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4419697022786067735, guid: 6534bda88a03e72438ab4652a52e49da, type: 3}
       propertyPath: m_RootOrder
@@ -40595,6 +40652,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: villa2_uv Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 704196950012547925, guid: 62892c8aee3bb4844b74570e832609d4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 840738895845543682, guid: 62892c8aee3bb4844b74570e832609d4, type: 3}
       propertyPath: m_Intensity
       value: 0
@@ -41531,6 +41592,10 @@ PrefabInstance:
     - target: {fileID: 7399154494574176221, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
       propertyPath: m_Name
       value: streetLamp (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399154494574176221, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -46341,6 +46406,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: labacorn
       objectReference: {fileID: 0}
+    - target: {fileID: 3475212291793872334, guid: 6534bda88a03e72438ab4652a52e49da, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4419697022786067735, guid: 6534bda88a03e72438ab4652a52e49da, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -50679,6 +50748,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: streetLamp
       objectReference: {fileID: 0}
+    - target: {fileID: 7399154494574176221, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50874,6 +50947,10 @@ PrefabInstance:
     - target: {fileID: 912984397238994431, guid: 442bc6d0abbd00f4d8f1d255934f00d8, type: 3}
       propertyPath: m_Name
       value: noParking2
+      objectReference: {fileID: 0}
+    - target: {fileID: 912984397238994431, guid: 442bc6d0abbd00f4d8f1d255934f00d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7323214604173937243, guid: 442bc6d0abbd00f4d8f1d255934f00d8, type: 3}
       propertyPath: m_RootOrder
@@ -51290,6 +51367,10 @@ PrefabInstance:
     - target: {fileID: 704196950012547925, guid: 62892c8aee3bb4844b74570e832609d4, type: 3}
       propertyPath: m_Name
       value: villa2_uv
+      objectReference: {fileID: 0}
+    - target: {fileID: 704196950012547925, guid: 62892c8aee3bb4844b74570e832609d4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -52477,6 +52558,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: electricMeterPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 7519257461269757553, guid: 76e057023b7674743b85b38e2156b2d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -53198,6 +53283,10 @@ PrefabInstance:
     - target: {fileID: 2939727826254208544, guid: 7af36e43847b0f0499d6d6772625584b, type: 3}
       propertyPath: m_Name
       value: noParking
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939727826254208544, guid: 7af36e43847b0f0499d6d6772625584b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
