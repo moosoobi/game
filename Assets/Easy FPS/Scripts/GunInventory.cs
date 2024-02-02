@@ -21,6 +21,7 @@ public class GunInventory : MonoBehaviour {
 	public float switchWeaponCooldown;
 
 	public GunPick gunpick;
+	public bool IfKey=false;
 	/*
 	 * Calling the method that will update the icons of our guns if we carry any upon start.
 	 * Also will spawn a weapon upon start.
@@ -119,6 +120,11 @@ public class GunInventory : MonoBehaviour {
 			currentGunCounter = 1;
 			StartCoroutine("Spawn",currentGunCounter);
 		}
+		if(Input.GetKeyDown(KeyCode.Alpha3) && currentGunCounter != 2){
+			switchWeaponCooldown = 0;
+			currentGunCounter = 2;
+			StartCoroutine("Spawn",currentGunCounter);
+		}
 		
 
 	}
@@ -153,6 +159,15 @@ public class GunInventory : MonoBehaviour {
 				currentGun = (GameObject) Instantiate(resource, transform.position, /*gameObject.transform.rotation*/Quaternion.identity);
 				AssignHandsAnimator(currentGun);
 			}
+			else if(currentGun.name.Contains("Key")){
+				
+				yield return new WaitForSeconds(0.6f);//1
+				Destroy(currentGun);
+
+				GameObject resource = (GameObject) Resources.Load(gunsIHave[_redniBroj].ToString());
+				currentGun = (GameObject) Instantiate(resource, transform.position, /*gameObject.transform.rotation*/Quaternion.identity);
+				AssignHandsAnimator(currentGun);
+			}
 		}
 		else{
 			GameObject resource = (GameObject) Resources.Load(gunsIHave[_redniBroj].ToString());
@@ -163,7 +178,8 @@ public class GunInventory : MonoBehaviour {
 
 
 	}
-
+	public void PositiveKey(){IfKey=true;}
+	public void NegativeKey(){IfKey=false;}
 
 	/*
 	* Assigns Animator to the script so we can use it in other scripts of a current gun.

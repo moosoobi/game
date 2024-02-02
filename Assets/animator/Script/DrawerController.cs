@@ -16,13 +16,9 @@ public class DrawerController : MonoBehaviour
     public string dooropen;
     public string doorclose;
 
-    public bool noclose=false;
     public bool zzzz=false;
 
-    public GameObject cross;
-    public pick pick;
     
-    public void noclosetrue(){noclose=true;}
     void Update()
     {
         
