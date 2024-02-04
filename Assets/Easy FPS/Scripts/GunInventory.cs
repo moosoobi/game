@@ -120,7 +120,7 @@ public class GunInventory : MonoBehaviour {
 			currentGunCounter = 1;
 			StartCoroutine("Spawn",currentGunCounter);
 		}
-		if(Input.GetKeyDown(KeyCode.Alpha3) && currentGunCounter != 2){
+		if(Input.GetKeyDown(KeyCode.Alpha3) && currentGunCounter != 2&&IfKey){
 			switchWeaponCooldown = 0;
 			currentGunCounter = 2;
 			StartCoroutine("Spawn",currentGunCounter);
@@ -128,7 +128,10 @@ public class GunInventory : MonoBehaviour {
 		
 
 	}
-
+	public void ChangeWeapon1(){
+		switchWeaponCooldown = 0;
+		StartCoroutine("Spawn",0);
+	}
 	/*
 	 * This method is called from Create_Weapon() upon pressing arrow up/down or scrolling the mouse wheel,
 	 * It will check if we carry a gun and destroy it, and its then going to load a gun prefab from our Resources Folder.
@@ -178,8 +181,11 @@ public class GunInventory : MonoBehaviour {
 
 
 	}
+	public bool currneguniskey(){return currentGun.name.Contains("Key");}
 	public void PositiveKey(){IfKey=true;}
 	public void NegativeKey(){IfKey=false;}
+	
+	public bool ReturnKey(){return IfKey;}
 
 	/*
 	* Assigns Animator to the script so we can use it in other scripts of a current gun.

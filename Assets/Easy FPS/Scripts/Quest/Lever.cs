@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 public class Lever : MonoBehaviour
 {
+    public ElectricBox electricBox;
     public GameObject[] switches;
     public int[] switchStates;
     public int horizontal=0;
@@ -14,6 +15,8 @@ public class Lever : MonoBehaviour
     public bool zzzz=false;
     public TextMeshProUGUI Text;
     public GameObject text1;
+    public TextMeshProUGUI UiText;
+    public GameObject UiObject;
     
     void Start()
     {
@@ -26,6 +29,7 @@ public class Lever : MonoBehaviour
     {
         if(zzzz){
         if(isFixed){
+            
             
             if(switches[0].transform.eulerAngles.x<365f&&switches[0].transform.eulerAngles.x<355f&&switches[1].transform.eulerAngles.x>35&&switches[1].transform.eulerAngles.x<45&&switches[2].transform.eulerAngles.x<285&&switches[2].transform.eulerAngles.x>275&&switches[3].transform.eulerAngles.x>315&&switches[3].transform.eulerAngles.x<325){
                 Text.text="성공!";
@@ -58,15 +62,18 @@ public class Lever : MonoBehaviour
                     if(horizontal>=4){horizontal=0;}
                 }
         }
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z)&&electricBox.ReturnDoorLock())
         {
+            UiObject.SetActive(true);
+            UiText.text="방향키로 조작하시오.";
+            StartCoroutine(ExecuteAfterDelayText(3f)); 
             isFixed = !isFixed;
             text1.SetActive(true);
             // 상태에 따라 플레이어 제어 여부를 조절
             if (isFixed)
             {
                 // 특정 위치로 이동
-                player.transform.position = new Vector3(500f, 0.6f, 501.5f);
+                player.transform.position = new Vector3(354.2f, 1f, 424f);
 
                 // 특정 회전값으로 설정
                 player.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
@@ -103,7 +110,13 @@ public class Lever : MonoBehaviour
        
         
     }
-    
+    private IEnumerator ExecuteAfterDelayText(float delayInSeconds)
+    {
+        // 일정 시간만큼 대기
+        yield return new WaitForSeconds(delayInSeconds);
+        UiObject.SetActive(false);
+        Destroy(gameObject);
+    }
     
     
  }

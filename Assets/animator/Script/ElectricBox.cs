@@ -16,6 +16,7 @@ public class ElectricBox : MonoBehaviour
 
     public string dooropen;
     public string doorclose;
+    public bool doorlock=false;
 
     public bool zzzz=false;
 
@@ -24,7 +25,12 @@ public class ElectricBox : MonoBehaviour
     {
         
         if(zzzz){
-            if (Input.GetKeyDown(KeyCode.Z)&&gunInventory.IfKey==true&&openTrigger==true){
+            if(Input.GetKeyDown(KeyCode.Z)&&!doorlock){
+                if(gunInventory.currneguniskey()){
+                    Positivedoorlock();
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Z)&&doorlock&&openTrigger){
                 if(openTrigger){
                     myDoor.Play(dooropen, 0, 0.0f);
                     closeTrigger=true;
@@ -37,6 +43,12 @@ public class ElectricBox : MonoBehaviour
             }
         }
     }
+    public void Positivedoorlock(){
+        doorlock=true;
+        gunInventory.NegativeKey();
+        gunInventory.ChangeWeapon1();
+    }
+    public bool ReturnDoorLock(){return doorlock;}
     private void OnTriggerStay(Collider other)
     {
         zzzz=true;
