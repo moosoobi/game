@@ -17,6 +17,7 @@ public class Lever : MonoBehaviour
     public TextMeshProUGUI UiText;
     public GameObject UiObject;
     public GameObject SuccessDoor;
+    public AudioSource SlidingDoorSound;
     
     void Start()
     {
@@ -29,13 +30,12 @@ public class Lever : MonoBehaviour
     {
         if(zzzz){
         if(isFixed){
-            
-            
-            if(switches[0].transform.eulerAngles.x<365f&&switches[0].transform.eulerAngles.x<355f&&switches[1].transform.eulerAngles.x>35&&switches[1].transform.eulerAngles.x<45&&switches[2].transform.eulerAngles.x<285&&switches[2].transform.eulerAngles.x>275&&switches[3].transform.eulerAngles.x>315&&switches[3].transform.eulerAngles.x<325){
+            if(switches[0].transform.eulerAngles.x>355f&&switches[0].transform.eulerAngles.x<365f&&switches[1].transform.eulerAngles.x>35&&switches[1].transform.eulerAngles.x<45&&switches[2].transform.eulerAngles.x<285&&switches[2].transform.eulerAngles.x>275&&switches[3].transform.eulerAngles.x>315&&switches[3].transform.eulerAngles.x<325){
                 UiObject.SetActive(true);
-                UiText.text="문이 열린 것 같은 소리가 들린 것 같다.";
+                UiText.text="문이 열린 것 같은 소리가 들린다.";
                 StartCoroutine(ExecuteAfterDelayText(3f)); 
                 SuccessDoor.transform.position = new Vector3(-15f, 7f, -7f);
+                SlidingDoorSound.Play();
             }
             if(Input.GetKeyDown(KeyCode.UpArrow)){
                 Vector3 currentRotation = switches[horizontal].transform.eulerAngles;
