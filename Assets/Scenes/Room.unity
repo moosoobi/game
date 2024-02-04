@@ -13595,7 +13595,7 @@ GameObject:
   - component: {fileID: 309265427}
   - component: {fileID: 309265426}
   m_Layer: 0
-  m_Name: z (1)
+  m_Name: "\uC1A1\uAC15"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26352,6 +26352,8 @@ MonoBehaviour:
   zzzz: 0
   Text: {fileID: 1721680276}
   text1: {fileID: 468041309}
+  UiText: {fileID: 468041311}
+  UiObject: {fileID: 2002562846}
 --- !u!114 &767930045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26490,7 +26492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - "\uC800\uAE30 \uC220\uC794\uB4E4\uC740 \uC0C9\uB3C4 \uD2B9\uC774\uD558\uACE0
-    \uAE38\uC774\uB3C4 \uC81C\uAC01\uAC01\uC774\uAD6C"
+    \uAE38\uC774\uB3C4 \uC81C\uAC01\uAC01\uC774\uAD6C\uB9CC.   "
   curResponseTracker: 0
   npcName: {fileID: 636187514}
   npcDialogueBox: {fileID: 1964349364}
@@ -37542,7 +37544,7 @@ GameObject:
   - component: {fileID: 1357345682}
   - component: {fileID: 1357345681}
   m_Layer: 0
-  m_Name: z
+  m_Name: "\uC774\uB3C4\uD604"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46587,8 +46589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Text: {fileID: 1721680276}
-  Description: "\uC5D0\uB108\uC9C0 \uC99D\uD3ED\uC7A5\uCE58\uC758 \uB2E8\uC11C\uB97C
-    \uC5BB\uC73C\uC2ED\uC2DC\uC624."
+  Description: "\uC5D0\uB108\uC9C0 \uC99D\uD3ED\uC7A5\uC758 \uB2E8\uC11C\uB97C \uC5BB\uC73C\uC2ED\uC2DC\uC624."
   QuestText: {fileID: 912608626}
   RadioSound: {fileID: 1360393776}
   dialogue:
