@@ -66,6 +66,7 @@ public class First_Bar : MonoBehaviour
             }
     }
     public void EndDialogue(){
+        curResponseTracker=0;
         isTalking=false;
         dialogueUI.SetActive(false);
         QuestActive();
