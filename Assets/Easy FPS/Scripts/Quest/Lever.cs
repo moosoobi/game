@@ -9,14 +9,14 @@ public class Lever : MonoBehaviour
     public int[] switchStates;
     public int horizontal=0;
     public int vertical=0;
-    private bool isFixed = false;
+    public bool isFixed = false;
     public GameObject player;
     public GameObject camera;
     public bool zzzz=false;
     public TextMeshProUGUI Text;
-    public GameObject text1;
     public TextMeshProUGUI UiText;
     public GameObject UiObject;
+    public GameObject SuccessDoor;
     
     void Start()
     {
@@ -32,7 +32,10 @@ public class Lever : MonoBehaviour
             
             
             if(switches[0].transform.eulerAngles.x<365f&&switches[0].transform.eulerAngles.x<355f&&switches[1].transform.eulerAngles.x>35&&switches[1].transform.eulerAngles.x<45&&switches[2].transform.eulerAngles.x<285&&switches[2].transform.eulerAngles.x>275&&switches[3].transform.eulerAngles.x>315&&switches[3].transform.eulerAngles.x<325){
-                Text.text="성공!";
+                UiObject.SetActive(true);
+                UiText.text="문이 열린 것 같은 소리가 들린 것 같다.";
+                StartCoroutine(ExecuteAfterDelayText(3f)); 
+                SuccessDoor.transform.position = new Vector3(-15f, 7f, -7f);
             }
             if(Input.GetKeyDown(KeyCode.UpArrow)){
                 Vector3 currentRotation = switches[horizontal].transform.eulerAngles;
@@ -68,7 +71,6 @@ public class Lever : MonoBehaviour
             UiText.text="방향키로 조작하시오.";
             StartCoroutine(ExecuteAfterDelayText(3f)); 
             isFixed = !isFixed;
-            text1.SetActive(true);
             // 상태에 따라 플레이어 제어 여부를 조절
             if (isFixed)
             {
@@ -86,7 +88,6 @@ public class Lever : MonoBehaviour
             }
             else
             {   
-                text1.SetActive(false);
                 // 플레이어의 움직임을 다시 활성화
                 player.GetComponent<MouseLookScript>().enabled = true;
                 player.GetComponent<PlayerMovementScript>().enabled = true;
@@ -115,7 +116,7 @@ public class Lever : MonoBehaviour
         // 일정 시간만큼 대기
         yield return new WaitForSeconds(delayInSeconds);
         UiObject.SetActive(false);
-        Destroy(gameObject);
+        
     }
     
     

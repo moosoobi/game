@@ -3144,6 +3144,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 83f1990e10a80014fa795943f4049bc8, type: 2}
+    - target: {fileID: 8144394004440419581, guid: fb0800f6df8204941bc2dddf5799dea7, type: 3}
+      propertyPath: m_Name
+      value: SucessDoor
+      objectReference: {fileID: 0}
     - target: {fileID: 8835409689826365435, guid: fb0800f6df8204941bc2dddf5799dea7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -26354,6 +26358,7 @@ MonoBehaviour:
   text1: {fileID: 468041309}
   UiText: {fileID: 468041311}
   UiObject: {fileID: 2002562846}
+  SuccessDoor: {fileID: 1586720701}
 --- !u!114 &767930045
 MonoBehaviour:
   m_ObjectHideFlags: 0
