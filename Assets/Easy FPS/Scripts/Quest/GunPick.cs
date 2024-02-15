@@ -14,6 +14,7 @@ public class GunPick : Quest
     public ShootingQuest shootingquest;
     public DialogueManager dia;
     public AudioSource QuestSound;
+    public GunInventory guninventory;
 
     public GunPick(QuestState currentState)
     {
@@ -36,7 +37,7 @@ public class GunPick : Quest
     void Update()
     {
         
-        if(zzz&&Input.GetKeyDown(KeyCode.Z)){
+        if(zzz&&Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
             
             
             if(CurrentState==QuestState.Inactive){

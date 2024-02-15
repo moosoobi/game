@@ -21,12 +21,13 @@ public class DrawerController2 : MonoBehaviour
 
     public GameObject cross;
     public pick pick;
+    public GunInventory guninventory;
     
     void Update()
     {
         
         if(zzzz){
-            if (Input.GetKeyDown(KeyCode.Z)){
+            if (Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
             if(openTrigger){
                 myDoor.Play(dooropen, 0, 0.0f);
                 closeTrigger=true;

@@ -36,11 +36,11 @@ public class First_Bar : MonoBehaviour
         if(zzz&&isTalking==false){
                 StartConversation();   
         }
-        if(Input.GetKeyDown(KeyCode.Z)&&isTalking==true){
+        if(Input.GetMouseButtonDown(0)&&isTalking==true){
                 
             ContinueConversation();          
         }
-        if(Input.GetKeyDown(KeyCode.Z)&&curResponseTracker==dialogue.Length){
+        if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
             EndDialogue();
         }
     }

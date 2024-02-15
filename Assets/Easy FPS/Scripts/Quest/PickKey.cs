@@ -12,7 +12,7 @@ public class PickKey : MonoBehaviour
     
     void Update()
     {
-        if(zzz&&Input.GetKeyDown(KeyCode.Z)){
+        if(zzz&&Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
             guninventory.PositiveKey();
             UiObject.SetActive(true);
             UiText.text="3번을 눌러 키를 꺼내십시오.";

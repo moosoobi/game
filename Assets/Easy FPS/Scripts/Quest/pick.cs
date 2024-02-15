@@ -11,6 +11,7 @@ public class pick : MonoBehaviour
     public TextMeshProUGUI UiText;
     public GameObject UiObject;
     public int stack=0;
+    public GunInventory guninventory;
     
     void Awake()
     {
@@ -19,7 +20,7 @@ public class pick : MonoBehaviour
     void Update()
     {
         if(gunpick&&zzz){
-            if(Input.GetKeyDown(KeyCode.Z)){
+            if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
                 if(stack==0){stack++;}
                 if(gunpick.CurrentState==GunPick.QuestState.Active&&stack==1){
                     gunpick.pickup();

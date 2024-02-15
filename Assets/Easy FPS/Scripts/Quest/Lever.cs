@@ -65,7 +65,7 @@ public class Lever : MonoBehaviour
                     if(horizontal>=4){horizontal=0;}
                 }
         }
-        if (Input.GetKeyDown(KeyCode.Z)&&electricBox.ReturnDoorLock())
+        if (Input.GetMouseButtonDown(0)&&electricBox.ReturnDoorLock())
         {
             UiObject.SetActive(true);
             UiText.text="방향키로 조작하시오.";

@@ -12,21 +12,22 @@ public class BarNpc : MonoBehaviour
     public GameObject dialogueUI;
     public bool isTalking=false;
     private bool zzz=false;
+    public GunInventory guninventory;
     void Update()
     {
         if(zzz){
-            if(Input.GetKeyDown(KeyCode.Z)&&isTalking==true){
+            if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==true){
                 
                 ContinueConversation();          
             }
                 
                
         
-            if(Input.GetKeyDown(KeyCode.Z)&&isTalking==false){
+            if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==false){
                 StartConversation();
                 
             }
-            else if(Input.GetKeyDown(KeyCode.Z)&&curResponseTracker==dialogue.Length){
+            else if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&curResponseTracker==dialogue.Length){
                 EndDialogue();
             }
         }
