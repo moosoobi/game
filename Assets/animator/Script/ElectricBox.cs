@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ElectricBox : MonoBehaviour
 {
-    public GunInventory gunInventory;
+    public GunInventory guninventory;
     [SerializeField] public Animator myDoor=null;
 
     public bool openTrigger=true;
@@ -25,12 +25,12 @@ public class ElectricBox : MonoBehaviour
     {
         
         if(zzzz){
-            if(Input.GetKeyDown(KeyCode.Z)&&!doorlock){
-                if(gunInventory.currneguniskey()){
+            if(Input.GetMouseButtonDown(0)&&!doorlock){
+                if(guninventory.currneguniskey()){
                     Positivedoorlock();
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Z)&&doorlock&&openTrigger){
+            if (Input.GetMouseButtonDown(0)&&doorlock&&openTrigger){
                 if(openTrigger){
                     myDoor.Play(dooropen, 0, 0.0f);
                     closeTrigger=true;
@@ -45,8 +45,8 @@ public class ElectricBox : MonoBehaviour
     }
     public void Positivedoorlock(){
         doorlock=true;
-        gunInventory.NegativeKey();
-        gunInventory.ChangeWeapon1();
+        guninventory.NegativeKey();
+        guninventory.ChangeWeapon1();
     }
     public bool ReturnDoorLock(){return doorlock;}
     private void OnTriggerStay(Collider other)

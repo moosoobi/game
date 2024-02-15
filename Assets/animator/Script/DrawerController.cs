@@ -15,15 +15,20 @@ public class DrawerController : MonoBehaviour
 
     public string dooropen;
     public string doorclose;
+    
 
     public bool zzzz=false;
+
+    public GunInventory guninventory;
+
+    
 
     
     void Update()
     {
         
         if(zzzz){
-            if (Input.GetKeyDown(KeyCode.Z)){
+            if (Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
                 if(openTrigger){
                     myDoor.Play(dooropen, 0, 0.0f);
                     closeTrigger=true;

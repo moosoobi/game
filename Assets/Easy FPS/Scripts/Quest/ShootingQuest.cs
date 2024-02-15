@@ -14,6 +14,7 @@ public class ShootingQuest : Quest
     public TextMeshProUGUI QuestText;
     public DialogueManager dia;
     public AudioSource QuestSound;
+    public GunInventory guninventory;
     
     public ShootingQuest(QuestState currentState)
     {
@@ -61,7 +62,7 @@ public class ShootingQuest : Quest
     }
     private void Update() {
         
-            if(zzz&&Input.GetKeyDown(KeyCode.Z)){
+            if(zzz&&Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
             
                 if(CurrentState==QuestState.Completed){
                     StartCoroutine(ChangeColor());

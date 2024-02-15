@@ -19,6 +19,7 @@ public class GunInventory : MonoBehaviour {
 
 	[HideInInspector]
 	public float switchWeaponCooldown;
+	public GunInventory guninventory;
 
 	public GunPick gunpick;
 	public bool IfKey=false;
@@ -186,6 +187,7 @@ public class GunInventory : MonoBehaviour {
 	public void NegativeKey(){IfKey=false;}
 	
 	public bool ReturnKey(){return IfKey;}
+	public bool IfHand(){return currentGun.name.Contains("Hand");}
 
 	/*
 	* Assigns Animator to the script so we can use it in other scripts of a current gun.

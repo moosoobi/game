@@ -19,13 +19,14 @@ public class PickMap : MonoBehaviour
     public TextMeshProUGUI QuestText;
     private string Description="책상에서 지도를 얻어라.";
     public AudioSource QuestSound;
+    public GunInventory guninventory;
 
     void Update()
     {
         
 
         if(zzz&&dia.stage==1){
-            if(Input.GetKeyDown(KeyCode.Z)){
+            if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
                 text1.SetActive(true);
                 Text.text="X를 누르면 지도를 확인할 수 있습니다.";
                 StartCoroutine(ExecuteAfterDelayText(3f));

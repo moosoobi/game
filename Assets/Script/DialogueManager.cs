@@ -25,6 +25,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI npcName;
     public TextMeshProUGUI npcDialogueBox;
     public TextMeshProUGUI playerResponse;
+    public GunInventory guninventory;
     
     public PickMap pickmap;
     private bool pickmapbool=false;
@@ -38,18 +39,18 @@ public class DialogueManager : MonoBehaviour
     void Update()
     {
         if(zzz){
-            if(Input.GetKeyDown(KeyCode.Z)&&isTalking==true){
+            if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==true){
                 
                 ContinueConversation();          
             }
                 
                
         
-            if(Input.GetKeyDown(KeyCode.Z)&&isTalking==false){
+            if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==false){
                 StartConversation();
                 
             }
-            else if(Input.GetKeyDown(KeyCode.Z)){
+            else if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
                 if(stage==0){
                     if(curResponseTracker==dialogue.Length){
                         EndDialogue();
