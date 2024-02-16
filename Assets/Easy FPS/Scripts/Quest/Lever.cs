@@ -13,11 +13,9 @@ public class Lever : MonoBehaviour
     public GameObject player;
     public GameObject camera;
     public bool zzzz=false;
-    public TextMeshProUGUI Text;
     public TextMeshProUGUI UiText;
     public GameObject UiObject;
     public GameObject SuccessDoor;
-    public AudioSource SlidingDoorSound;
     
     void Start()
     {
@@ -36,7 +34,6 @@ public class Lever : MonoBehaviour
                 UiText.color=Color.red;
                 StartCoroutine(ExecuteAfterDelayText(3f)); 
                 //SuccessDoor.transform.position = new Vector3(-15f, 7f, -7f);
-                SlidingDoorSound.Play();
             }
             if(Input.GetKeyDown(KeyCode.UpArrow)){
                 Vector3 currentRotation = switches[horizontal].transform.eulerAngles;
@@ -95,8 +92,6 @@ public class Lever : MonoBehaviour
             }
         }
         }
-
-        
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -120,7 +115,11 @@ public class Lever : MonoBehaviour
         UiObject.SetActive(false);
         
     }
+        
+    }
+
+
     
     
- }
+ 
 

@@ -127,7 +127,7 @@ public class GunInventory : MonoBehaviour {
 			currentGunCounter = 2;
 			StartCoroutine("Spawn",currentGunCounter);
 		}
-		if(Input.GetKeyDown(KeyCode.Alpha3) && currentGunCounter != 2&&IfCard){
+		if(Input.GetKeyDown(KeyCode.Alpha3) && currentGunCounter != 3&&IfCard){
 			switchWeaponCooldown = 0;
 			currentGunCounter = 3;
 			StartCoroutine("Spawn",currentGunCounter);
@@ -178,6 +178,15 @@ public class GunInventory : MonoBehaviour {
 				currentGun = (GameObject) Instantiate(resource, transform.position, /*gameObject.transform.rotation*/Quaternion.identity);
 				AssignHandsAnimator(currentGun);
 			}
+			else if(currentGun.name.Contains("Card")){
+				
+				yield return new WaitForSeconds(0.6f);//1
+				Destroy(currentGun);
+
+				GameObject resource = (GameObject) Resources.Load(gunsIHave[_redniBroj].ToString());
+				currentGun = (GameObject) Instantiate(resource, transform.position, /*gameObject.transform.rotation*/Quaternion.identity);
+				AssignHandsAnimator(currentGun);
+			}
 		}
 		else{
 			GameObject resource = (GameObject) Resources.Load(gunsIHave[_redniBroj].ToString());
@@ -192,6 +201,7 @@ public class GunInventory : MonoBehaviour {
 	public void PositiveKey(){IfKey=true;}
 	public void NegativeKey(){IfKey=false;}
 	public bool ReturnKey(){return IfKey;}
+	public bool currneguniscard(){return currentGun.name.Contains("Card");}
 	public void PositiveCard(){IfCard=true;}
 	public void NegativeCard(){IfCard=false;}
 	public bool ReturnCard(){return IfCard;}
