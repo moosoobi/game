@@ -47,6 +47,7 @@ public class ElectricBox : MonoBehaviour
         doorlock=true;
         guninventory.NegativeKey();
         guninventory.ChangeWeapon1();
+        
     }
     public bool ReturnDoorLock(){return doorlock;}
     private void OnTriggerStay(Collider other)

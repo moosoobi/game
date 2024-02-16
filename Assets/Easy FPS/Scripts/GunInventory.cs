@@ -23,6 +23,7 @@ public class GunInventory : MonoBehaviour {
 
 	public GunPick gunpick;
 	public bool IfKey=false;
+	public bool IfCard=false;
 	/*
 	 * Calling the method that will update the icons of our guns if we carry any upon start.
 	 * Also will spawn a weapon upon start.
@@ -126,6 +127,11 @@ public class GunInventory : MonoBehaviour {
 			currentGunCounter = 2;
 			StartCoroutine("Spawn",currentGunCounter);
 		}
+		if(Input.GetKeyDown(KeyCode.Alpha3) && currentGunCounter != 2&&IfCard){
+			switchWeaponCooldown = 0;
+			currentGunCounter = 3;
+			StartCoroutine("Spawn",currentGunCounter);
+		}
 		
 
 	}
@@ -185,8 +191,10 @@ public class GunInventory : MonoBehaviour {
 	public bool currneguniskey(){return currentGun.name.Contains("Key");}
 	public void PositiveKey(){IfKey=true;}
 	public void NegativeKey(){IfKey=false;}
-	
 	public bool ReturnKey(){return IfKey;}
+	public void PositiveCard(){IfCard=true;}
+	public void NegativeCard(){IfCard=false;}
+	public bool ReturnCard(){return IfCard;}
 	public bool IfHand(){return currentGun.name.Contains("Hand");}
 
 	/*
