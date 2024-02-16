@@ -36,18 +36,12 @@ public class ShootingQuest : Quest
     {
         if(CurrentState==QuestState.Active){
 
-        
-            currentShots++;
-          
-        
-            if (currentShots >= requiredShots)
-            {
                 dia.upstage();
                 CurrentState=QuestState.Completed;
                 Text.text="퀘스트 완료 npc에게 돌아가십시요.";
                 StartCoroutine(ChangeColor());
                 QuestSound.Play();
-            }
+            
         }
     }
     
