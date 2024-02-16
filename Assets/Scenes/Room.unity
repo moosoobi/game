@@ -16620,6 +16620,7 @@ MonoBehaviour:
   dialogueUI: {fileID: 1789039769}
   isTalking: 0
   guninventory: {fileID: 342722315}
+  IfRed: 0
 --- !u!65 &309265427
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23283,7 +23284,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 138.5}
+  m_AnchoredPosition: {x: 0.000030517578, y: 138.5}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &468041311
@@ -24955,6 +24956,7 @@ MonoBehaviour:
   dialogueUI: {fileID: 1789039769}
   isTalking: 0
   guninventory: {fileID: 342722315}
+  IfRed: 0
 --- !u!65 &499013340
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32948,14 +32950,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-  - "\uBA70\uCE60\uC804\uC5D0 \uC67C\uCABD \uC190\uAC00\uB77D\uC744 \uAE30\uACC4\uB85C
-    \uAD50\uCCB4\uD588\uB354\uB2C8 \uC190\uB180\uB9BC\uC774 \uB354\uC6B1 \uBE68\uB77C\uC84C\uC5B4"
+  - "<b>*\uC774 \uC794\uB4E4\uC740 \uC804\uC2DC\uC6A9\uC774\uB77C \uADF8\uB300\uB85C
+    \uB450\uB294 \uAC83\uC785\uB2C8\uB2E4. \uC2E0\uACBD\uC4F0\uC9C0 \uB9C8\uC2DC\uC9C0\uC694
+    \uC190\uB2D8.*</b>"
   curResponseTracker: 0
   npcName: {fileID: 636187514}
   npcDialogueBox: {fileID: 1964349364}
   dialogueUI: {fileID: 1789039769}
   isTalking: 0
   guninventory: {fileID: 342722315}
+  IfRed: 1
 --- !u!65 &726499127
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33762,7 +33766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 479812, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 526.1
+      value: 389
       objectReference: {fileID: 0}
     - target: {fileID: 479812, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -33770,7 +33774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 479812, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 475.9
+      value: 425.9
       objectReference: {fileID: 0}
     - target: {fileID: 479812, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -35251,6 +35255,7 @@ MonoBehaviour:
   dialogueUI: {fileID: 1789039769}
   isTalking: 0
   guninventory: {fileID: 342722315}
+  IfRed: 0
 --- !u!65 &781139894
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45402,13 +45407,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-  - "\uC751? \uC774 \uC220\uBCD1 \uB85C\uACE0\uAC00 \uC6D0\uB798 \uC774\uB7AC\uB358\uAC00?"
+  - "<b> *\uC8FC\uC778\uC7A5 \uC800 \uCEEC\uB7EC\uC220\uC794\uB4E4\uC740 \uD56D\uC0C1
+    \uC800\uC704\uCE58\uC5D0 \uC788\uB294 \uC774\uC720\uAC00 \uC788\uB294\uAC00?*</b>"
   curResponseTracker: 0
   npcName: {fileID: 636187514}
   npcDialogueBox: {fileID: 1964349364}
   dialogueUI: {fileID: 1789039769}
   isTalking: 0
   guninventory: {fileID: 342722315}
+  IfRed: 1
 --- !u!65 &1105768908
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52822,6 +52829,7 @@ MonoBehaviour:
   dialogueUI: {fileID: 1789039769}
   isTalking: 0
   guninventory: {fileID: 342722315}
+  IfRed: 0
 --- !u!65 &1357345682
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62658,8 +62666,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 495508220}
   - {fileID: 355235729}
+  - {fileID: 495508220}
   m_Father: {fileID: 237290820}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -63862,8 +63870,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.39859143, y: 0.22377947, z: 0.4392483}
-  m_Center: {x: 0.009017891, y: 0.07895946, z: -0.11691383}
+  m_Size: {x: 0.44039991, y: 0.22377947, z: 0.4392483}
+  m_Center: {x: -0.007966828, y: 0.07895946, z: -0.11691383}
 --- !u!114 &1737794807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74041,8 +74049,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 468041310}
   - {fileID: 1646607236}
+  - {fileID: 468041310}
   m_Father: {fileID: 237290820}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -79357,6 +79365,7 @@ MonoBehaviour:
   dialogueUI: {fileID: 1789039769}
   isTalking: 0
   guninventory: {fileID: 342722315}
+  IfRed: 0
 --- !u!4 &2109103314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 773571182107878039, guid: f39b312970cf40f4da92a638ad18eeb5, type: 3}

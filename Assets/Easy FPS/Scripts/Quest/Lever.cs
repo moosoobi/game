@@ -32,9 +32,10 @@ public class Lever : MonoBehaviour
         if(isFixed){
             if(switches[0].transform.eulerAngles.x>355f&&switches[0].transform.eulerAngles.x<365f&&switches[1].transform.eulerAngles.x>35&&switches[1].transform.eulerAngles.x<45&&switches[2].transform.eulerAngles.x<285&&switches[2].transform.eulerAngles.x>275&&switches[3].transform.eulerAngles.x>315&&switches[3].transform.eulerAngles.x<325){
                 UiObject.SetActive(true);
-                UiText.text="문이 열린 것 같은 소리가 들린다.";
+                UiText.text="<b>*오른쪽 비상구표지판에 무슨 변화가 생긴 것 같다.*<b>";
+                UiText.color=Color.red;
                 StartCoroutine(ExecuteAfterDelayText(3f)); 
-                SuccessDoor.transform.position = new Vector3(-15f, 7f, -7f);
+                //SuccessDoor.transform.position = new Vector3(-15f, 7f, -7f);
                 SlidingDoorSound.Play();
             }
             if(Input.GetKeyDown(KeyCode.UpArrow)){
@@ -115,6 +116,7 @@ public class Lever : MonoBehaviour
     {
         // 일정 시간만큼 대기
         yield return new WaitForSeconds(delayInSeconds);
+        UiText.color=Color.white;
         UiObject.SetActive(false);
         
     }

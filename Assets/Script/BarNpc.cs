@@ -13,6 +13,7 @@ public class BarNpc : MonoBehaviour
     public bool isTalking=false;
     private bool zzz=false;
     public GunInventory guninventory;
+    public bool IfRed=false;
     void Update()
     {
         if(zzz){
@@ -33,6 +34,7 @@ public class BarNpc : MonoBehaviour
         }
     }
     public void StartConversation(){
+        if(IfRed){npcDialogueBox.color=Color.red;}
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
@@ -53,6 +55,7 @@ public class BarNpc : MonoBehaviour
             }
         }
     public void EndDialogue(){
+        if(IfRed){npcDialogueBox.color=Color.white;}
         isTalking=false;
         dialogueUI.SetActive(false);
 
