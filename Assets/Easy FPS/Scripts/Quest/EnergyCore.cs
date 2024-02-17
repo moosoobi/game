@@ -66,6 +66,7 @@ public class EnergyCore : Quest
                     first=true;
                     healthSlider.maxValue = CoreMaxHp;
                     healthSlider.value = CoreHp;
+                    
                 }
                 UpdateHealth(-1f);
         }

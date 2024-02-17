@@ -9,12 +9,18 @@ public class ShootingQuest : Quest
     public int requiredShots;
     public int currentShots;  
     public bool zzz=false;
+    public string[] dialogue;
     public TextMeshProUGUI Text;
     public QuestState CurrentState;
     public TextMeshProUGUI QuestText;
     public DialogueManager dia;
     public AudioSource QuestSound;
     public GunInventory guninventory;
+    public int curResponseTracker=0;
+    public TextMeshProUGUI npcName;
+    public TextMeshProUGUI npcDialogueBox;
+    public GameObject dialogueUI;
+    public bool isTalking=false;
     
     public ShootingQuest(QuestState currentState)
     {
@@ -27,7 +33,7 @@ public class ShootingQuest : Quest
     void Awake()
     {
         dia=GetComponent<DialogueManager>();
-        Description="마네킹을 3회 사격하십시오";
+        Description="마네킹의 머리 가슴 배를 사격하십시오.";
         requiredShots=3;
         currentShots=0;
     }
@@ -66,12 +72,20 @@ public class ShootingQuest : Quest
                 
             
             }
+            if(Input.GetMouseButtonDown(0)&&isTalking==true){
+                
+                ContinueConversation();          
+            }
+            if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
+                EndDialogue();
+            }
 
         
         
     }
     public void Active(){
         CurrentState=QuestState.Active;
+        StartConversation();
     }
     public void QuestActive(){
         Text.text=Description;
@@ -85,5 +99,27 @@ public class ShootingQuest : Quest
             QuestText.color=new Color32(0,222,255,255);
             yield return new WaitForSeconds(0.5f);
         }
+    }
+     public void StartConversation(){
+        isTalking=true;
+        curResponseTracker=0;
+        dialogueUI.SetActive(true);
+        npcName.text=name;
+        npcDialogueBox.text=dialogue[0];
+    }
+
+    public void ContinueConversation(){
+            curResponseTracker++;
+            if(curResponseTracker>dialogue.Length){
+                curResponseTracker=dialogue.Length;
+            }
+            else if(curResponseTracker<dialogue.Length)
+            {
+                npcDialogueBox.text=dialogue[curResponseTracker];
+            }
+        }
+    public void EndDialogue(){
+        isTalking=false;
+        dialogueUI.SetActive(false);
     }
 }

@@ -34252,7 +34252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 479812, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 391.01
+      value: 527.1
       objectReference: {fileID: 0}
     - target: {fileID: 479812, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -34260,7 +34260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 479812, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 426.03
+      value: 475.7
       objectReference: {fileID: 0}
     - target: {fileID: 479812, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -79580,12 +79580,21 @@ MonoBehaviour:
   requiredShots: 3
   currentShots: 0
   zzz: 0
+  dialogue:
+  - "\uC774\uAC8C \uC5D0\uB108\uC9C0\uBB50\uC2DC\uAE30 \uCD1D\uC778\uAC00?"
+  - "\uC774\uAC8C \uC5D0\uB108\uC9C0\uBB50\uC2DC\uAE30 \uCD1D\uC778\uAC00?"
+  - "\uB9C8\uB124\uD0B9\uC73C\uB85C \uD55C\uBC88 \uC5F0\uC2B5\uC744 \uD574\uBD10\uC57C\uACA0\uC5B4."
   Text: {fileID: 1721680276}
   CurrentState: 0
   QuestText: {fileID: 912608626}
   dia: {fileID: 0}
   QuestSound: {fileID: 472838188}
   guninventory: {fileID: 342722315}
+  curResponseTracker: 0
+  npcName: {fileID: 636187514}
+  npcDialogueBox: {fileID: 1964349364}
+  dialogueUI: {fileID: 1789039769}
+  isTalking: 0
 --- !u!1001 &2095035948
 PrefabInstance:
   m_ObjectHideFlags: 0
