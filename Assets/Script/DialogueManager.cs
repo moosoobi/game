@@ -26,6 +26,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI npcDialogueBox;
     public TextMeshProUGUI playerResponse;
     public GunInventory guninventory;
+    public ShootingQuest shoot;
     
     public PickMap pickmap;
     private bool pickmapbool=false;

@@ -15,6 +15,7 @@ public class GunPick : Quest
     public DialogueManager dia;
     public AudioSource QuestSound;
     public GunInventory guninventory;
+    
 
     public GunPick(QuestState currentState)
     {
@@ -45,7 +46,6 @@ public class GunPick : Quest
             }
             
         }
-
         
     
     }

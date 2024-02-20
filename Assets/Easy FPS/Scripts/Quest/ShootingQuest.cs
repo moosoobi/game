@@ -9,19 +9,22 @@ public class ShootingQuest : Quest
     public int requiredShots;
     public int currentShots;  
     public bool zzz=false;
-    public string[] dialogue;
     public TextMeshProUGUI Text;
     public QuestState CurrentState;
     public TextMeshProUGUI QuestText;
     public DialogueManager dia;
     public AudioSource QuestSound;
     public GunInventory guninventory;
+    public string[] dialogue;
+    public string[] dialogue2;
     public int curResponseTracker=0;
     public TextMeshProUGUI npcName;
     public TextMeshProUGUI npcDialogueBox;
     public GameObject dialogueUI;
     public bool isTalking=false;
-    
+    public GameObject GunImage;
+    public bool conversation2=false;
+
     public ShootingQuest(QuestState currentState)
     {
         
@@ -68,29 +71,32 @@ public class ShootingQuest : Quest
                     StartCoroutine(ChangeColor());
                     QuestSound.Play();
                     Text.text="지도를 보고 목표지점으로 이동하시오.";
+                    
                 }
                 
             
             }
-            if(Input.GetMouseButtonDown(0)&&isTalking==true){
+            if(Input.GetMouseButtonDown(0)&&isTalking==true&&CurrentState!=QuestState.Completed){
                 
                 ContinueConversation();          
             }
-            if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
+            if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length&&CurrentState!=QuestState.Completed){
                 EndDialogue();
             }
+
 
         
         
     }
     public void Active(){
         CurrentState=QuestState.Active;
-        StartConversation();
     }
     public void QuestActive(){
         Text.text=Description;
         StartCoroutine(ChangeColor());
         QuestSound.Play();
+        StartConversation();
+
     }
     private IEnumerator ChangeColor(){
         for(int i=0;i<3;i++){
@@ -104,9 +110,11 @@ public class ShootingQuest : Quest
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
-        npcName.text=name;
+        npcName.text="주인공";
         npcDialogueBox.text=dialogue[0];
+        GunImage.SetActive(true);
     }
+
 
     public void ContinueConversation(){
             curResponseTracker++;
@@ -118,8 +126,12 @@ public class ShootingQuest : Quest
                 npcDialogueBox.text=dialogue[curResponseTracker];
             }
         }
+
+
     public void EndDialogue(){
         isTalking=false;
         dialogueUI.SetActive(false);
+        GunImage.SetActive(false);
     }
+
 }

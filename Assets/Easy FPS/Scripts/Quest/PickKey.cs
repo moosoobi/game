@@ -9,14 +9,25 @@ public class PickKey : MonoBehaviour
     public TextMeshProUGUI UiText;
     public GameObject UiObject;
     public bool zzz=false;
+    public string[] dialogue;
+    public int curResponseTracker=0;
+    public TextMeshProUGUI npcName;
+    public TextMeshProUGUI npcDialogueBox;
+    public GameObject dialogueUI;
+    public bool isTalking=false;
     
     void Update()
     {
-        if(zzz&&Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
-            guninventory.PositiveKey();
-            UiObject.SetActive(true);
-            UiText.text="3번을 눌러 키를 꺼내십시오.";
-            StartCoroutine(ExecuteAfterDelayText(0.5f)); 
+
+        if(Input.GetMouseButtonDown(0)&&zzz&&isTalking==false){
+                StartConversation();   
+        }
+        if(Input.GetMouseButtonDown(0)&&isTalking==true){
+                
+            ContinueConversation();          
+        }
+        if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
+            EndDialogue();
         }
     }
     private void OnTriggerEnter(Collider other){
@@ -27,11 +38,40 @@ public class PickKey : MonoBehaviour
 
         zzz=false;
     }
+    public void StartConversation(){
+        isTalking=true;
+        curResponseTracker=0;
+        dialogueUI.SetActive(true);
+        npcName.text="주인공";
+        npcDialogueBox.text=dialogue[0];
+        zzz=false;
+
+
+    }
+    public void ContinueConversation(){
+            curResponseTracker++;
+            if(curResponseTracker>dialogue.Length){
+                curResponseTracker=dialogue.Length;
+            }
+            else if(curResponseTracker<dialogue.Length)
+            {
+                npcDialogueBox.text=dialogue[curResponseTracker];
+            }
+    }
+    public void EndDialogue(){
+        curResponseTracker=0;
+        isTalking=false;
+        dialogueUI.SetActive(false);
+        guninventory.PositiveKey();
+        UiObject.SetActive(true);
+        UiText.text="3번을 눌러 키를 꺼내십시오.";
+        StartCoroutine(ExecuteAfterDelayText(3f)); 
+    }
     private IEnumerator ExecuteAfterDelayText(float delayInSeconds)
     {
         // 일정 시간만큼 대기
         yield return new WaitForSeconds(delayInSeconds);
         UiObject.SetActive(false);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

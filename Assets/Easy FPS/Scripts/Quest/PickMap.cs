@@ -20,6 +20,12 @@ public class PickMap : MonoBehaviour
     private string Description="책상에서 지도를 얻어라.";
     public AudioSource QuestSound;
     public GunInventory guninventory;
+    public string[] dialogue;
+    public int curResponseTracker=0;
+    public TextMeshProUGUI npcName;
+    public TextMeshProUGUI npcDialogueBox;
+    public GameObject dialogueUI;
+    public bool isTalking=false;
 
     void Update()
     {
@@ -51,6 +57,41 @@ public class PickMap : MonoBehaviour
                 
             }
         }
+        if(Input.GetMouseButtonDown(0)&&zzz&&isTalking==false&&dia.stage==1){
+                StartConversation();   
+        }
+        if(Input.GetMouseButtonDown(0)&&isTalking==true){
+                
+            ContinueConversation();          
+        }
+        if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
+            EndDialogue();
+        }
+    }
+    public void StartConversation(){
+        isTalking=true;
+        curResponseTracker=0;
+        dialogueUI.SetActive(true);
+        npcName.text="주인공";
+        npcDialogueBox.text=dialogue[0];
+        zzz=false;
+
+
+    }
+    public void ContinueConversation(){
+            curResponseTracker++;
+            if(curResponseTracker>dialogue.Length){
+                curResponseTracker=dialogue.Length;
+            }
+            else if(curResponseTracker<dialogue.Length)
+            {
+                npcDialogueBox.text=dialogue[curResponseTracker];
+            }
+    }
+    public void EndDialogue(){
+        curResponseTracker=0;
+        isTalking=false;
+        dialogueUI.SetActive(false);
     }
     private void OnTriggerEnter(Collider other){
         

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ElectricBox : MonoBehaviour
 {
@@ -20,6 +21,14 @@ public class ElectricBox : MonoBehaviour
 
     public bool zzzz=false;
 
+    public string[] dialogue;
+    public int curResponseTracker=0;
+    public TextMeshProUGUI npcName;
+    public TextMeshProUGUI npcDialogueBox;
+    public GameObject dialogueUI;
+    public bool isTalking=false;
+    private bool talked=false;
+
     
     void Update()
     {
@@ -27,7 +36,11 @@ public class ElectricBox : MonoBehaviour
         if(zzzz){
             if(Input.GetMouseButtonDown(0)&&!doorlock){
                 if(guninventory.currneguniskey()){
-                    Positivedoorlock();
+                    if(!talked){
+                        talked=true;
+                        StartConversation();
+                    }
+                    
                 }
             }
             if (Input.GetMouseButtonDown(0)&&doorlock&&openTrigger){
@@ -40,6 +53,13 @@ public class ElectricBox : MonoBehaviour
                     StartCoroutine(ExecuteAfterDelay(1f));
                 }
                 
+            }
+            if(Input.GetMouseButtonDown(0)&&isTalking==true){
+                
+            ContinueConversation();          
+            }
+            if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
+                EndDialogue();
             }
         }
     }
@@ -60,6 +80,40 @@ public class ElectricBox : MonoBehaviour
         // 일정 시간만큼 대기
         yield return new WaitForSeconds(delayInSeconds);
         zzzz=false;
+    }
+    public void StartConversation(){
+        isTalking=true;
+        curResponseTracker=0;
+        dialogueUI.SetActive(true);
+        npcName.text="주인공";
+        npcDialogueBox.text=dialogue[0];
+        if(openTrigger){
+                    myDoor.Play(dooropen, 0, 0.0f);
+                    closeTrigger=true;
+                    openTrigger=false;
+                    if (DrawerOpen)
+                    DrawerOpen.Play ();
+                    StartCoroutine(ExecuteAfterDelay(1f));
+                }
+        
+
+    }
+    public void ContinueConversation(){
+            curResponseTracker++;
+            if(curResponseTracker>dialogue.Length){
+                curResponseTracker=dialogue.Length;
+            }
+            else if(curResponseTracker<dialogue.Length)
+            {
+                npcDialogueBox.text=dialogue[curResponseTracker];
+            }
+    }
+    public void EndDialogue(){
+        curResponseTracker=0;
+        isTalking=false;
+        dialogueUI.SetActive(false);
+        Positivedoorlock();
+        
     }
 
 }

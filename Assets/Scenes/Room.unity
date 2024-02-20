@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.053590246, g: 0.05426193, b: 0.07334221, a: 1}
+  m_IndirectSpecularColor: {r: 0.053590365, g: 0.05426223, b: 0.07334197, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14334,6 +14334,7 @@ RectTransform:
   - {fileID: 2002562847}
   - {fileID: 1268332957}
   - {fileID: 496918579}
+  - {fileID: 776593157}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22621,6 +22622,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: prf_v_key_03
       objectReference: {fileID: 0}
+    - target: {fileID: 3874798687770068871, guid: 2d678e3e202b1344d999c6e60927f9ab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22631,6 +22636,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3874798687770068871, guid: 2d678e3e202b1344d999c6e60927f9ab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 543176344}
+    - targetCorrespondingSourceObject: {fileID: 3874798687770068871, guid: 2d678e3e202b1344d999c6e60927f9ab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 543176345}
     - targetCorrespondingSourceObject: {fileID: 2240418669916865034, guid: 2d678e3e202b1344d999c6e60927f9ab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1939051364}
@@ -26905,6 +26913,17 @@ MonoBehaviour:
   UiText: {fileID: 468041311}
   UiObject: {fileID: 2002562846}
   zzz: 0
+  dialogue:
+  - "\uC8FC\uC778\uC7A5\uC774 \uC7A0\uAE50 \uD758\uB9B0 \uC5F4\uC1E0\uC778\uAC00
+    \uBCF4\uAD70"
+  - "\uC8FC\uC778\uC7A5\uC774 \uC7A0\uAE50 \uD758\uB9B0 \uC5F4\uC1E0\uC778\uAC00
+    \uBCF4\uAD70"
+  - "\uC774 \uC5F4\uC1E0\uB97C \uC5B4\uB514\uC5D0 \uC4F0\uB294\uC9C0 \uCC3E\uC544\uBD10\uC57C\uACA0\uC5B4"
+  curResponseTracker: 0
+  npcName: {fileID: 636187514}
+  npcDialogueBox: {fileID: 1964349364}
+  dialogueUI: {fileID: 1789039769}
+  isTalking: 0
 --- !u!136 &543176344
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -26928,6 +26947,19 @@ CapsuleCollider:
   m_Height: 0
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &543176345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543176341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba7993681b5d444bbafad2a263e6341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gun: {fileID: 0}
 --- !u!4 &544059983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5894926615655303978, guid: 2bd3db7d654e9b04d9c66e690c721bdc, type: 3}
@@ -34252,15 +34284,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 479812, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 527.1
+      value: 389.35
       objectReference: {fileID: 0}
     - target: {fileID: 479812, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.22
+      value: 1.47
       objectReference: {fileID: 0}
     - target: {fileID: 479812, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 475.7
+      value: 423.06
       objectReference: {fileID: 0}
     - target: {fileID: 479812, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -35587,6 +35619,92 @@ Transform:
   m_Father: {fileID: 1239254616}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -90}
+--- !u!1 &776593156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 776593157}
+  - component: {fileID: 776593159}
+  - component: {fileID: 776593158}
+  - component: {fileID: 776593160}
+  m_Layer: 0
+  m_Name: "\uC804\uC790\uAE30\uD384\uC2A4"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &776593157
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776593156}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4.977456, y: 4.977456, z: 2.9864736}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 237290820}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 89}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &776593158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776593156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 46f259a71d0cdb544b54abfae494a98f, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &776593159
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776593156}
+  m_CullTransparentMesh: 1
+--- !u!114 &776593160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776593156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b86319224c1031c46a3d364dd71c2c3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &779104574
 GameObject:
   m_ObjectHideFlags: 0
@@ -56903,8 +57021,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 7.624279, z: 4.5764923}
-  m_Center: {x: -0.000000014914276, y: 1.1878669, z: 2.71163}
+  m_Size: {x: 13.287193, y: 7.624279, z: 4.5764923}
+  m_Center: {x: -1.6435941, y: 1.1878668, z: 2.7116284}
 --- !u!114 &1485093702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56921,6 +57039,16 @@ MonoBehaviour:
   UiText: {fileID: 468041311}
   UiObject: {fileID: 2002562846}
   zzz: 0
+  dialogue:
+  - "\uCE74\uB4DC\uAC00 \uC228\uACA8\uC838 \uC788\uC5C8\uAD70"
+  - "\uCE74\uB4DC\uAC00 \uC228\uACA8\uC838 \uC788\uC5C8\uAD70"
+  - "\uC774 \uCE74\uB4DC\uB97C \uBD84\uBA85 \uC4F8 \uACF3\uC774 \uC788\uC5C8\uC744\uAC70\uC57C."
+  - "\uCC3E\uC544\uBCF4\uC790."
+  curResponseTracker: 0
+  npcName: {fileID: 636187514}
+  npcDialogueBox: {fileID: 1964349364}
+  dialogueUI: {fileID: 1789039769}
+  isTalking: 0
 --- !u!114 &1485093703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60544,6 +60672,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a8f7c9fdcb4ecfa488a136f2079f898c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1830398242}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a8f7c9fdcb4ecfa488a136f2079f898c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1830398245}
   m_SourcePrefab: {fileID: 100100000, guid: a8f7c9fdcb4ecfa488a136f2079f898c, type: 3}
 --- !u!1 &1582798502
 GameObject:
@@ -69340,6 +69471,31 @@ MonoBehaviour:
   QuestText: {fileID: 912608626}
   QuestSound: {fileID: 472838188}
   guninventory: {fileID: 342722315}
+  dialogue:
+  - "\uC774\uAC8C \uB3C4\uC2DC\uC758 \uC9C0\uB3C4\uC774\uAD70."
+  - "\uC774\uAC8C \uB3C4\uC2DC\uC758 \uC9C0\uB3C4\uC774\uAD70."
+  - "X\uB97C \uB204\uB974\uBA74 \uB2E4\uC2DC \uAEBC\uB0B4\uAC70\uB098 \uB123\uC744
+    \uC218 \uC788\uC5B4."
+  - "\uC798 \uCC38\uACE0\uD574\uC11C \uC784\uBB34\uB97C \uC131\uACF5\uC2DC\uCF1C\uC57C\uACA0\uC5B4."
+  - "\uC774\uC81C \uBC29\uC548\uC744 \uB4A4\uC838 \uCD1D\uC744 \uCC3E\uC544\uBCF4\uC790."
+  curResponseTracker: 0
+  npcName: {fileID: 636187514}
+  npcDialogueBox: {fileID: 1964349364}
+  dialogueUI: {fileID: 1789039769}
+  isTalking: 0
+--- !u!114 &1830398245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022116082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba7993681b5d444bbafad2a263e6341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gun: {fileID: 0}
 --- !u!82 &1831859993 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 1165311908511910410, guid: 7444c0cbf33ab0f4d9822ae07519372b, type: 3}
@@ -69510,6 +69666,11 @@ MonoBehaviour:
     \uD3ED\uD30C\uC2DC\uD0A4\uB294\uAC8C \uC790\uB124\uC758 \uC784\uBB34\uC57C."
   - "\uC798\uD560 \uC218 \uC788\uACA0\uC9C0?"
   - "\uC790\uB124\uB9CC\uBBFF\uB124"
+  dialogue2:
+  - "\uD750\uC74C \uC77C\uB2E8 \uC5EC\uAE30\uB97C \uBA3C\uC800 \uD30C\uC545\uD574\uC57C\uACA0\uC5B4
+    npc\uB4E4\uC5D0\uAC8C \uB9D0\uC744 \uAC78\uC5B4\uBCF4\uC790"
+  - "\uD750\uC74C \uC77C\uB2E8 \uC5EC\uAE30\uB97C \uBA3C\uC800 \uD30C\uC545\uD574\uC57C\uACA0\uC5B4
+    npc\uB4E4\uC5D0\uAC8C \uB9D0\uC744 \uAC78\uC5B4\uBCF4\uC790"
   curResponseTracker: 0
   npcName: {fileID: 636187514}
   npcDialogueBox: {fileID: 1964349364}
@@ -71160,6 +71321,19 @@ MonoBehaviour:
   doorclose: ElectricBoxClose
   doorlock: 0
   zzzz: 0
+  dialogue:
+  - "\uD750\uC74C... \uB808\uBC84\uB97C \uC774\uC6A9\uD55C \uD37C\uC990\uC778 \uAC83
+    \uAC19\uC544."
+  - "??? \uBB54\uAC00 \uC218\uC0C1\uD55C \uAE30\uACC4\uC774\uAD70"
+  - "\uD750\uC74C... \uB808\uBC84\uB97C \uC774\uC6A9\uD55C \uD37C\uC990\uC778 \uAC83
+    \uAC19\uC544."
+  - "\uC774 \uB9E4\uC7A5 \uC5B4\uB518\uAC00\uC5D0 \uD78C\uD2B8\uAC00 \uC788\uC5C8\uC744\uAC70\uC57C."
+  - "\uD55C\uBC88 \uD480\uC5B4\uBCF4"
+  curResponseTracker: 0
+  npcName: {fileID: 636187514}
+  npcDialogueBox: {fileID: 1964349364}
+  dialogueUI: {fileID: 1789039769}
+  isTalking: 0
 --- !u!1001 &1902800144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79562,6 +79736,7 @@ MonoBehaviour:
   npcDialogueBox: {fileID: 1964349364}
   playerResponse: {fileID: 1992440131}
   guninventory: {fileID: 342722315}
+  shoot: {fileID: 2094769953}
   pickmap: {fileID: 1830398242}
 --- !u!114 &2094769953
 MonoBehaviour:
@@ -79580,21 +79755,30 @@ MonoBehaviour:
   requiredShots: 3
   currentShots: 0
   zzz: 0
-  dialogue:
-  - "\uC774\uAC8C \uC5D0\uB108\uC9C0\uBB50\uC2DC\uAE30 \uCD1D\uC778\uAC00?"
-  - "\uC774\uAC8C \uC5D0\uB108\uC9C0\uBB50\uC2DC\uAE30 \uCD1D\uC778\uAC00?"
-  - "\uB9C8\uB124\uD0B9\uC73C\uB85C \uD55C\uBC88 \uC5F0\uC2B5\uC744 \uD574\uBD10\uC57C\uACA0\uC5B4."
   Text: {fileID: 1721680276}
   CurrentState: 0
   QuestText: {fileID: 912608626}
   dia: {fileID: 0}
   QuestSound: {fileID: 472838188}
   guninventory: {fileID: 342722315}
+  dialogue:
+  - "\uC774\uAC8C \uC804\uC790\uAE30\uD384\uC2A4\uCD1D EP2136\uC778\uAC00?"
+  - "\uC774\uAC8C \uC804\uC790\uAE30\uD384\uC2A4\uCD1D EP2136\uC778\uAC00?"
+  - "\uB0B4\uAC00 \uC6D0\uB798 \uC4F0\uB358 \uCD1D\uC774\uB791\uC740 \uC6D0\uB9AC\uAC00
+    \uB2E4\uB974\uAD70"
+  - "\uB9C8\uB124\uD0B9\uC73C\uB85C \uC5F0\uC2B5\uD574\uBCF4\uC790."
+  dialogue2:
+  - "X\uB97C \uB20C\uB7EC \uC9C0\uB3C4\uB97C \uBCF4\uACE0 \uBAA9\uD45C\uC9C0\uC810\uC744
+    \uCC3E\uC544\uAC00\uB3C4\uB85D \uD558\uC790."
+  - "X\uB97C \uB20C\uB7EC \uC9C0\uB3C4\uB97C \uBCF4\uACE0 \uBAA9\uD45C\uC9C0\uC810\uC744
+    \uCC3E\uC544\uAC00\uB3C4\uB85D \uD558\uC790."
   curResponseTracker: 0
   npcName: {fileID: 636187514}
   npcDialogueBox: {fileID: 1964349364}
   dialogueUI: {fileID: 1789039769}
   isTalking: 0
+  GunImage: {fileID: 776593156}
+  conversation2: 0
 --- !u!1001 &2095035948
 PrefabInstance:
   m_ObjectHideFlags: 0
