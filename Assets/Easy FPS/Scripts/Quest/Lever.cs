@@ -16,6 +16,8 @@ public class Lever : MonoBehaviour
     public TextMeshProUGUI UiText;
     public GameObject UiObject;
     public GameObject SuccessDoor;
+    public GameObject Triangle;
+    public RectTransform TriangleRect;
     
     void Start()
     {
@@ -57,10 +59,19 @@ public class Lever : MonoBehaviour
                 if(Input.GetKeyDown(KeyCode.LeftArrow)){
                     horizontal++;
                     if(horizontal>=4){horizontal=0;}
+                    if(horizontal==0){TriangleRect.anchoredPosition = new Vector2(-162f, 215f);}
+                    if(horizontal==1){TriangleRect.anchoredPosition = new Vector2(-52.4f, 215f);}
+                    if(horizontal==2){TriangleRect.anchoredPosition = new Vector2(63f, 215f);}
+                    if(horizontal==3){TriangleRect.anchoredPosition = new Vector2(176.2f, 215f);}
+                    
                 }
                 if(Input.GetKeyDown(KeyCode.RightArrow)){
                     horizontal++;
                     if(horizontal>=4){horizontal=0;}
+                    if(horizontal==0){TriangleRect.anchoredPosition = new Vector2(-162f, 215f);}
+                    if(horizontal==1){TriangleRect.anchoredPosition = new Vector2(-52.4f, 215f);}
+                    if(horizontal==2){TriangleRect.anchoredPosition = new Vector2(63f, 215f);}
+                    if(horizontal==3){TriangleRect.anchoredPosition = new Vector2(176.2f, 215f);}
                 }
         }
         if (Input.GetMouseButtonDown(0)&&electricBox.ReturnDoorLock())
@@ -73,7 +84,7 @@ public class Lever : MonoBehaviour
             if (isFixed)
             {
                 // 특정 위치로 이동
-                player.transform.position = new Vector3(354.2f, 1f, 424f);
+                player.transform.position = new Vector3(354.6f, 1f, 424.16f);
 
                 // 특정 회전값으로 설정
                 player.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
@@ -82,6 +93,8 @@ public class Lever : MonoBehaviour
                 // 플레이어의 움직임을 차단
                 player.GetComponent<MouseLookScript>().enabled = false;
                 player.GetComponent<PlayerMovementScript>().enabled = false;
+                Triangle.SetActive(true);
+                TriangleRect.anchoredPosition = new Vector2(-162f, 215f);
                 
             }
             else
@@ -89,6 +102,7 @@ public class Lever : MonoBehaviour
                 // 플레이어의 움직임을 다시 활성화
                 player.GetComponent<MouseLookScript>().enabled = true;
                 player.GetComponent<PlayerMovementScript>().enabled = true;
+                Triangle.SetActive(false);
             }
         }
         }
