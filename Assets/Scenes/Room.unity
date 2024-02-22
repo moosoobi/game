@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.053590246, g: 0.05426193, b: 0.07334221, a: 1}
+  m_IndirectSpecularColor: {r: 0.053590365, g: 0.05426223, b: 0.07334197, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -58365,7 +58365,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -202, y: -213}
+  m_AnchoredPosition: {x: -1, y: 84}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1488665251
@@ -58383,6 +58383,29 @@ MonoBehaviour:
   uiRectTransform: {fileID: 0}
   JackCoke: {fileID: 1008316796}
   JackCokeMouseOver: {fileID: 454033654}
+  Xrated: {fileID: 2129407507}
+  XratedMouseOver: {fileID: 102073567}
+  Mojito: {fileID: 1847010839}
+  MojitoMouseOver: {fileID: 1570209653}
+  Blue: {fileID: 1000335866}
+  BlueMouseOver: {fileID: 1484764686}
+  Kahlua: {fileID: 1053794053}
+  KahluaMouseOver: {fileID: 1144726647}
+  Espresso: {fileID: 604326180}
+  EspressoMouseOver: {fileID: 2127868321}
+  Black: {fileID: 1736412975}
+  BlackMouseOver: {fileID: 517175259}
+  Tequila: {fileID: 1514142694}
+  TequilaMouseOver: {fileID: 1967993516}
+  Illegal: {fileID: 119768093}
+  IllegalMouseOver: {fileID: 1693177795}
+  White: {fileID: 1768250247}
+  WhiteMouseOver: {fileID: 1576514050}
+  Peach: {fileID: 1927934620}
+  PeachMouseOver: {fileID: 2114105072}
+  Rusty: {fileID: 1483777585}
+  RustyMouseOver: {fileID: 79867580}
+  moveSpeed: 1000
 --- !u!114 &1488665253
 MonoBehaviour:
   m_ObjectHideFlags: 0
