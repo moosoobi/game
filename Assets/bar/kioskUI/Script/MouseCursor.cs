@@ -30,6 +30,8 @@ public class MouseCursor : MonoBehaviour
     public GameObject PeachMouseOver;
     public GameObject Rusty;
     public GameObject RustyMouseOver;
+    public GameObject AllClear;
+    public GameObject AllClearOver;
     public float moveSpeed = 5f;
     public Cart cart;
 
@@ -200,6 +202,19 @@ public class MouseCursor : MonoBehaviour
         }else{
             Rusty.SetActive(true);
             RustyMouseOver.SetActive(false);
+        }
+        if(currentX>44f&&currentX<150f&&currentY>-336f&&currentY<-314f){
+            AllClear.SetActive(false);
+            AllClearOver.SetActive(true);
+            
+            if (Input.GetMouseButtonDown(0))
+            {
+                cart.AllClear();
+            }
+            
+        }else{
+            AllClear.SetActive(true);
+            AllClearOver.SetActive(false);
         }
         
         float horizontalInput = Input.GetAxis("Mouse X");

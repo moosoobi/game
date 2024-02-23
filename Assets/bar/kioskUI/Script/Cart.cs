@@ -81,7 +81,25 @@ public class Cart : MonoBehaviour
         OrderAmount.text=index.ToString();
         TotalPrice+=productPrices[index-1];
         OrderTotalPrice.text=TotalPrice.ToString();
-        
-            
+        if(productNames[0]=="Espresso martini"&&productNames[1]=="Xrated tonic"&&productNames[2]=="Illegal"&&productNames[3]=="Tequlia sunrise"){
+            Debug.Log("성공");
+        }
+    }
+    public void AllClear(){
+        index=0;
+        productNames[0]="";
+        productNames[1]="";
+        productNames[2]="";
+        productNames[3]="";
+        productPrices[0]=0;
+        productPrices[1]=0;
+        productPrices[2]=0;
+        productPrices[3]=0;
+        CartPrice.text="";
+        CartName.text="";
+        OrderAmount.text="";
+        OrderTotalPrice.text="";
+        TotalPrice=0;
+       
     }
 }
