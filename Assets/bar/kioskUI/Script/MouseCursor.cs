@@ -31,6 +31,7 @@ public class MouseCursor : MonoBehaviour
     public GameObject Rusty;
     public GameObject RustyMouseOver;
     public float moveSpeed = 5f;
+    public Cart cart;
 
 
     void Start()
@@ -47,12 +48,12 @@ public class MouseCursor : MonoBehaviour
         if(currentX>-234f&&currentX<-130f&&currentY>97f&&currentY<222f){
             JackCoke.SetActive(false);
             JackCokeMouseOver.SetActive(true);
-            /*
+            
             if (Input.GetMouseButtonDown(0))
             {
-
+                cart.AddItem(1);
             }
-            */
+            
         }else{
             JackCoke.SetActive(true);
             JackCokeMouseOver.SetActive(false);
@@ -60,12 +61,12 @@ public class MouseCursor : MonoBehaviour
         if(currentX>-109f&&currentX<0f&&currentY>97f&&currentY<222f){
             Xrated.SetActive(false);
             XratedMouseOver.SetActive(true);
-            /*
+            
             if (Input.GetMouseButtonDown(0))
             {
-
+                cart.AddItem(2);
             }
-            */
+            
         }else{
             Xrated.SetActive(true);
             XratedMouseOver.SetActive(false);
@@ -73,12 +74,12 @@ public class MouseCursor : MonoBehaviour
         if(currentX>22f&&currentX<128f&&currentY>97f&&currentY<222f){
             Mojito.SetActive(false);
             MojitoMouseOver.SetActive(true);
-            /*
+            
             if (Input.GetMouseButtonDown(0))
             {
-
+                cart.AddItem(3);
             }
-            */
+            
         }else{
             Mojito.SetActive(true);
             MojitoMouseOver.SetActive(false);
@@ -86,12 +87,12 @@ public class MouseCursor : MonoBehaviour
         if(currentX>150f&&currentX<250f&&currentY>97f&&currentY<222f){
             Blue.SetActive(false);
             BlueMouseOver.SetActive(true);
-            /*
+            
             if (Input.GetMouseButtonDown(0))
             {
-
+                cart.AddItem(4);
             }
-            */
+            
         }else{
             Blue.SetActive(true);
             BlueMouseOver.SetActive(false);
@@ -99,12 +100,12 @@ public class MouseCursor : MonoBehaviour
         if(currentX>-234f&&currentX<-130f&&currentY>-61f&&currentY<66f){
             Kahlua.SetActive(false);
             KahluaMouseOver.SetActive(true);
-            /*
+            
             if (Input.GetMouseButtonDown(0))
             {
-
+                cart.AddItem(5);
             }
-            */
+            
         }else{
             Kahlua.SetActive(true);
             KahluaMouseOver.SetActive(false);
@@ -112,93 +113,93 @@ public class MouseCursor : MonoBehaviour
         if(currentX>-109f&&currentX<0f&&currentY>-61f&&currentY<66f){
             Espresso.SetActive(false);
             EspressoMouseOver.SetActive(true);
-            /*
+            
             if (Input.GetMouseButtonDown(0))
             {
-
+                cart.AddItem(6);
             }
-            */
+            
         }else{
             Espresso.SetActive(true);
             EspressoMouseOver.SetActive(false);
         }
         if(currentX>22f&&currentX<128f&&currentY>-61f&&currentY<66f){
-            Tequila.SetActive(false);
-            TequilaMouseOver.SetActive(true);
-            /*
+            White.SetActive(false);
+            WhiteMouseOver.SetActive(true);
+            
             if (Input.GetMouseButtonDown(0))
             {
-
+                cart.AddItem(7);
             }
-            */
+            
+        }else{
+            White.SetActive(true);
+            WhiteMouseOver.SetActive(false);
+        }
+        if(currentX>150f&&currentX<250f&&currentY>-61f&&currentY<66f){
+            Tequila.SetActive(false);
+            TequilaMouseOver.SetActive(true);
+            
+            if (Input.GetMouseButtonDown(0))
+            {
+                cart.AddItem(8);
+            }
+            
         }else{
             Tequila.SetActive(true);
             TequilaMouseOver.SetActive(false);
         }
-        if(currentX>150f&&currentX<250f&&currentY>-61f&&currentY<66f){
-            JackCoke.SetActive(false);
-            JackCokeMouseOver.SetActive(true);
-            /*
-            if (Input.GetMouseButtonDown(0))
-            {
-
-            }
-            */
-        }else{
-            JackCoke.SetActive(true);
-            JackCokeMouseOver.SetActive(false);
-        }
         if(currentX>-234f&&currentX<-130f&&currentY>-213f&&currentY<-83f){
-            JackCoke.SetActive(false);
-            JackCokeMouseOver.SetActive(true);
-            /*
+            Black.SetActive(false);
+            BlackMouseOver.SetActive(true);
+            
             if (Input.GetMouseButtonDown(0))
             {
-
+                cart.AddItem(9);
             }
-            */
+            
         }else{
-            JackCoke.SetActive(true);
-            JackCokeMouseOver.SetActive(false);
+            Black.SetActive(true);
+            BlackMouseOver.SetActive(false);
         }
         if(currentX>-109f&&currentX<0f&&currentY>-213f&&currentY<-83f){
-            JackCoke.SetActive(false);
-            JackCokeMouseOver.SetActive(true);
-            /*
+            Illegal.SetActive(false);
+            IllegalMouseOver.SetActive(true);
+            
             if (Input.GetMouseButtonDown(0))
             {
-
+                cart.AddItem(10);
             }
-            */
+            
         }else{
-            JackCoke.SetActive(true);
-            JackCokeMouseOver.SetActive(false);
+            Illegal.SetActive(true);
+            IllegalMouseOver.SetActive(false);
         }
         if(currentX>22f&&currentX<128f&&currentY>-213f&&currentY<-83f){
-            JackCoke.SetActive(false);
-            JackCokeMouseOver.SetActive(true);
-            /*
+            Peach.SetActive(false);
+            PeachMouseOver.SetActive(true);
+            
             if (Input.GetMouseButtonDown(0))
             {
-
+                cart.AddItem(11);
             }
-            */
+            
         }else{
-            JackCoke.SetActive(true);
-            JackCokeMouseOver.SetActive(false);
+            Peach.SetActive(true);
+            PeachMouseOver.SetActive(false);
         }
         if(currentX>150f&&currentX<250f&&currentY>-213f&&currentY<-83f){
-            JackCoke.SetActive(false);
-            JackCokeMouseOver.SetActive(true);
-            /*
+            Rusty.SetActive(false);
+            RustyMouseOver.SetActive(true);
+            
             if (Input.GetMouseButtonDown(0))
             {
-
+                cart.AddItem(12);
             }
-            */
+            
         }else{
-            JackCoke.SetActive(true);
-            JackCokeMouseOver.SetActive(false);
+            Rusty.SetActive(true);
+            RustyMouseOver.SetActive(false);
         }
         
         float horizontalInput = Input.GetAxis("Mouse X");
@@ -216,5 +217,8 @@ public class MouseCursor : MonoBehaviour
         // 새로 계산된 위치로 anchoredPosition 설정
         uiRectTransform.anchoredPosition = newPosition;
         
+    }
+    public void Registor(string Drink){
+
     }
 }
