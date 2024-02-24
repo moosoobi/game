@@ -14,6 +14,9 @@ public class Kiosk : MonoBehaviour
     public GameObject dialogueUI;
     public bool isTalking=false;
     public GunInventory guninventory;
+    public GameObject Cursor;
+    public GameObject KioskUi;
+    public GameObject player;
 
 
 
@@ -21,7 +24,10 @@ public class Kiosk : MonoBehaviour
     {
          if(zzzz){
             if(Input.GetMouseButtonDown(0)&&guninventory.currneguniscard()){
-                
+                Cursor.SetActive(true);
+                KioskUi.SetActive(true);
+                player.GetComponent<MouseLookScript>().enabled = false;
+                player.GetComponent<PlayerMovementScript>().enabled = false;
             }else if(Input.GetMouseButtonDown(0)&&!guninventory.currneguniscard()&&!isTalking){
                 dialogueUI.SetActive(true);
                 npcName.text="";

@@ -32,6 +32,8 @@ public class MouseCursor : MonoBehaviour
     public GameObject RustyMouseOver;
     public GameObject AllClear;
     public GameObject AllClearOver;
+    public GameObject Check;
+    public GameObject CheckOver;
     public float moveSpeed = 5f;
     public Cart cart;
 
@@ -216,7 +218,20 @@ public class MouseCursor : MonoBehaviour
             AllClear.SetActive(true);
             AllClearOver.SetActive(false);
         }
-        
+        if(currentX>163.2f&&currentX<292f&&currentY>-355f&&currentY<-247.2f){
+            Check.SetActive(false);
+            CheckOver.SetActive(true);
+            
+            if (Input.GetMouseButtonDown(0))
+            {
+                cart.Check();
+            }
+            
+        }else{
+            Check.SetActive(true);
+            CheckOver.SetActive(false);
+        }
+
         float horizontalInput = Input.GetAxis("Mouse X");
         float verticalInput = Input.GetAxis("Mouse Y");
 
@@ -232,8 +247,5 @@ public class MouseCursor : MonoBehaviour
         // 새로 계산된 위치로 anchoredPosition 설정
         uiRectTransform.anchoredPosition = newPosition;
         
-    }
-    public void Registor(string Drink){
-
     }
 }
