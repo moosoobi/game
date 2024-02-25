@@ -17,17 +17,23 @@ public class Kiosk : MonoBehaviour
     public GameObject Cursor;
     public GameObject KioskUi;
     public GameObject player;
+    public Cart cart;
+    public int stack=1;
 
 
 
     void Update()
     {
          if(zzzz){
-            if(Input.GetMouseButtonDown(0)&&guninventory.currneguniscard()){
+            if(Input.GetMouseButtonDown(0)&&guninventory.currneguniscard()&&cart.IsTalking()&&stack==0){
+                stack=1;
+            }
+            else if(Input.GetMouseButtonDown(0)&&guninventory.currneguniscard()&&cart.IsTalking()&&stack==1){
                 Cursor.SetActive(true);
                 KioskUi.SetActive(true);
                 player.GetComponent<MouseLookScript>().enabled = false;
                 player.GetComponent<PlayerMovementScript>().enabled = false;
+                stack=0;
             }else if(Input.GetMouseButtonDown(0)&&!guninventory.currneguniscard()&&!isTalking){
                 dialogueUI.SetActive(true);
                 npcName.text="";

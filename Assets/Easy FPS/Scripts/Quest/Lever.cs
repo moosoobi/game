@@ -15,7 +15,6 @@ public class Lever : MonoBehaviour
     public bool zzzz=false;
     public TextMeshProUGUI UiText;
     public GameObject UiObject;
-    public GameObject SuccessDoor;
     public GameObject Triangle;
     public RectTransform TriangleRect;
     
@@ -35,7 +34,7 @@ public class Lever : MonoBehaviour
                 UiText.text="<b>*오른쪽 비상구표지판에 무슨 변화가 생긴 것 같다.*<b>";
                 UiText.color=Color.red;
                 StartCoroutine(ExecuteAfterDelayText(3f)); 
-                //SuccessDoor.transform.position = new Vector3(-15f, 7f, -7f);
+                
             }
             if(Input.GetKeyDown(KeyCode.UpArrow)){
                 Vector3 currentRotation = switches[horizontal].transform.eulerAngles;
