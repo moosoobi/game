@@ -33,9 +33,7 @@ public class Cart : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("아아");
         if(Input.GetMouseButtonDown(0)&&isTalking==true){
-            Debug.Log("실행");
             ContinueConversation();          
         }
         if(Input.GetMouseButtonDown(0)&&isTalking2==true){
