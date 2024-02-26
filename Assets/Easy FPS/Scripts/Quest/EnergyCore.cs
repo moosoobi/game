@@ -18,11 +18,17 @@ public class EnergyCore : Quest
     private bool zzz=false;
     public GunInventory guninventory;
     public AudioSource SecuritySound;
+    public AudioSource RadioSound;
+    public AudioSource UrgentSound;
     static public float CoreHp=10f;
     public float CoreMaxHp=10f;
     public TextMeshProUGUI Core;
     public Slider healthSlider;
     public bool first=false;
+    public GunScript Gun;
+
+
+
 
      public EnergyCore(QuestState currentState)
     {
@@ -30,22 +36,15 @@ public class EnergyCore : Quest
     }
     void Update()
     {
-        if(zzz){
-            if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==true){
-                
-                ContinueConversation();          
-            }
-                
-               
         
-            if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==false){
-                StartConversation();
-                
-            }
-            else if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&curResponseTracker==dialogue.Length){
-                EndDialogue();
-            }
+        if(Input.GetMouseButtonDown(0)&&isTalking==true){
+            
+            ContinueConversation();          
         }
+        if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
+            EndDialogue();
+        }
+        
     }
     public void StartConversation(){
         isTalking=true;
@@ -60,13 +59,15 @@ public class EnergyCore : Quest
             zzz=true;
             if (other.CompareTag("Attack")){
                 if(!first){
-                    
+                    Gun=GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>();
+                    Gun.Talking();
+                    SecuritySound.Play();
                     healthSlider.gameObject.SetActive(true);
                     Core.gameObject.SetActive(true);
                     first=true;
                     healthSlider.maxValue = CoreMaxHp;
                     healthSlider.value = CoreHp;
-                    
+                    StartConversation();
                 }
                 UpdateHealth(-1f);
         }
@@ -88,6 +89,7 @@ public class EnergyCore : Quest
     public void EndDialogue(){
         isTalking=false;
         dialogueUI.SetActive(false);
+        Gun.NotTalking();
     }
     public void UpdateHealth(float newHP)
     {

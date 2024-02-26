@@ -36,7 +36,7 @@ public class GunScript : MonoBehaviour {
 
 	public string currentgun;
 	public bool zcross=false;
-	
+	public bool talking=false;
 
 	/*
 	 * Collection the variables upon awake that we need.
@@ -353,34 +353,25 @@ public class GunScript : MonoBehaviour {
 	[Tooltip("Rounds per second if weapon is set to automatic rafal.")]
 	public float roundsPerSecond;
 	private float waitTillNextFire;
-	/*
-	 * Checking if the gun is automatic or nonautomatic and accordingly runs the ShootMethod();.
-	 */
+	public void Talking(){talking=true;}
+	public void NotTalking(){talking=false;}
 	void Shooting(){
 
 		if (!meeleAttack) {
-			if (currentStyle == GunStyles.nonautomatic) {
+			if(!talking){
+				if (currentStyle == GunStyles.nonautomatic) {
 				if (Input.GetButtonDown ("Fire1")) {
 					ShootMethod ();
-					
-					
-				
 				}
-				
-
-			}
-			if (currentStyle == GunStyles.automatic) {
-				if (Input.GetButton ("Fire1")) {
-					ShootMethod ();
-					
-            		
+				}
+				if (currentStyle == GunStyles.automatic) {
+					if (Input.GetButton ("Fire1")) {
+						ShootMethod ();
+					}
+				}
+				if (currentStyle == GunStyles.hand) {
 				}
 			}
-			if (currentStyle == GunStyles.hand) {
-			
-
-			}
-
 		}
 		waitTillNextFire -= roundsPerSecond * Time.deltaTime;
 	}

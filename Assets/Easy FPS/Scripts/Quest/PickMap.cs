@@ -6,6 +6,7 @@ using TMPro;
 public class PickMap : MonoBehaviour
 {
     public GameObject map;
+    public GameObject mark;
     public bool zzz=false;
     public bool ifpick=false;
     public bool show=true;
@@ -26,6 +27,7 @@ public class PickMap : MonoBehaviour
     public TextMeshProUGUI npcDialogueBox;
     public GameObject dialogueUI;
     public bool isTalking=false;
+    public bool Detail=false;
 
     void Update()
     {
@@ -48,25 +50,30 @@ public class PickMap : MonoBehaviour
                 
                 if(show){
                     map.SetActive(true);
+                    mark.SetActive(true);
                     
                 }else if(!show){
                     map.SetActive(false);
+                    mark.SetActive(false);
                     
                 }
                 show=!show;
                 
             }
         }
-        if(Input.GetMouseButtonDown(0)&&zzz&&isTalking==false&&dia.stage==1){
+        if(Detail){
+            if(Input.GetMouseButtonDown(0)&&zzz&&isTalking==false&&dia.stage==1){
                 StartConversation();   
+            }
+            if(Input.GetMouseButtonDown(0)&&isTalking==true){
+                    
+                ContinueConversation();          
+            }
+            if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
+                EndDialogue();
+            }
         }
-        if(Input.GetMouseButtonDown(0)&&isTalking==true){
-                
-            ContinueConversation();          
-        }
-        if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
-            EndDialogue();
-        }
+        
     }
     public void StartConversation(){
         isTalking=true;

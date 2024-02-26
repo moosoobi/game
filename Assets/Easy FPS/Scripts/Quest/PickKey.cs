@@ -15,20 +15,29 @@ public class PickKey : MonoBehaviour
     public TextMeshProUGUI npcDialogueBox;
     public GameObject dialogueUI;
     public bool isTalking=false;
-    
+    public bool Detail=false;
+
     void Update()
     {
-
-        if(Input.GetMouseButtonDown(0)&&zzz&&isTalking==false){
+        if(Detail){
+            if(Input.GetMouseButtonDown(0)&&zzz&&isTalking==false){
                 StartConversation();   
+            }
+            if(Input.GetMouseButtonDown(0)&&isTalking==true){
+                    
+                ContinueConversation();          
+            }
+            if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
+                EndDialogue();
+            }
         }
-        if(Input.GetMouseButtonDown(0)&&isTalking==true){
-                
-            ContinueConversation();          
+        if(Input.GetMouseButtonDown(0)&&zzz){
+            guninventory.PositiveKey();
+            UiObject.SetActive(true);
+            UiText.text="3번을 눌러 키를 꺼내십시오.";
+            StartCoroutine(ExecuteAfterDelayText(2f)); 
         }
-        if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
-            EndDialogue();
-        }
+        
     }
     private void OnTriggerEnter(Collider other){
         

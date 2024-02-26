@@ -9,9 +9,10 @@ public class DrawerController : MonoBehaviour
     public bool openTrigger=true;
     public bool closeTrigger=false;
 
-
     public AudioSource DrawerOpen;
     public AudioSource DrawerClose;
+    public AudioSource UrgentSound;
+    public AudioSource BarSound;
 
     public string dooropen;
     public string doorclose;
@@ -30,6 +31,7 @@ public class DrawerController : MonoBehaviour
         if(zzzz){
             if (Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
                 if(openTrigger){
+                    if(UrgentSound){BarSound.Stop();UrgentSound.Play();}
                     myDoor.Play(dooropen, 0, 0.0f);
                     closeTrigger=true;
                     openTrigger=false;
