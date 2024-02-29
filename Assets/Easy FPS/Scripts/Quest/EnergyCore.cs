@@ -58,6 +58,7 @@ public class EnergyCore : Quest
     {    
             zzz=true;
             if (other.CompareTag("Attack")){
+                
                 if(!first){
                     Gun=GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>();
                     Gun.Talking();

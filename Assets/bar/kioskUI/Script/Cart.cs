@@ -116,7 +116,6 @@ public class Cart : MonoBehaviour
     }
     public void Check(){
         if(productNames[0]=="Espresso martini"&&productNames[1]=="Xrated tonic"&&productNames[2]=="Illegal"&&productNames[3]=="Tequlia sunrise"){
-            Debug.Log("성공");
             Cursor.SetActive(false);
             KioskUi.SetActive(false);
             player.GetComponent<MouseLookScript>().enabled = true;
@@ -126,7 +125,6 @@ public class Cart : MonoBehaviour
 
             
         }else{
-            Debug.Log("실패");
             Cursor.SetActive(false);
             KioskUi.SetActive(false);
             player.GetComponent<MouseLookScript>().enabled = true;
