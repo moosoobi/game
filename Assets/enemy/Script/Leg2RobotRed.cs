@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Leg2RobotRed : MonoBehaviour
 {
-    public int CoolTime=3;
+    public float CoolTime=3;
 
     public float rotationSpeed = 5f;
 
@@ -12,9 +12,17 @@ public class Leg2RobotRed : MonoBehaviour
     
     public Transform player;
 
+    public GameObject bullet;
+    public GameObject bulletSpawnPlace;
+
+    
     
     void Update()
     {
+        if(CoolTime==3.0f){
+            CoolTime=0;
+            Instantiate (bullet, bulletSpawnPlace.transform.position, bulletSpawnPlace.transform.rotation);
+        }
         if(Attack){
             if (player != null)
         {

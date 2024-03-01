@@ -3,12 +3,8 @@ using System.Collections;
 
 public class BulletScript : MonoBehaviour {
 
-	[Tooltip("Furthest distance bullet will look for target")]
-	public float maxDistance = 1000000;
-	
-	[Tooltip("Blood prefab particle this bullet will create upoon hitting enemy")]
 	public GameObject bloodEffect;
-	[Tooltip("Put Weapon layer and Player layer to ignore bullet raycast.")]
+    private float maxSpeed = 15.0f;
 
 	void Start()
     {
@@ -16,8 +12,6 @@ public class BulletScript : MonoBehaviour {
         MoveBullet();
     }
 
-    // 총알을 움직이는 속도
-    private float maxSpeed = 15.0f;
 
     // 총알이 움직이는 방향으로 이동하는 함수
     private void MoveBullet()
@@ -27,7 +21,8 @@ public class BulletScript : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        
+
+            
             if(other.CompareTag("Dummie"))
             {
                 Instantiate(bloodEffect, transform.position, Quaternion.LookRotation(transform.forward));
