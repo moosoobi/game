@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Leg2RobotBlue : MonoBehaviour
 {
@@ -15,9 +16,21 @@ public class Leg2RobotBlue : MonoBehaviour
     
     public Transform player;
 
+    public NavMeshAgent navMeshAgent;
     
+
+
     void Update()
     {
+
+        if(Vector3.Distance(transform.position, player.position)<AttackRange){
+            navMeshAgent.isStopped = true;
+            StartCoroutine(ExecuteAfterDelayCoolTime(CoolTime));
+            CoolTime=0;
+        }else{
+            navMeshAgent.SetDestination(player.position);
+        }
+        
         if(Attack){
             if (player != null)
                 {
@@ -35,10 +48,7 @@ public class Leg2RobotBlue : MonoBehaviour
     }
 
     private void Moving(){
-        Vector3 directionToPlayer = player.position - transform.position;
-        directionToPlayer.y = 0f; // Y 축 방향은 무시
-        transform.rotation = Quaternion.LookRotation(directionToPlayer);
-        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+
     }
     private void Attacking(){
 
@@ -48,6 +58,7 @@ public class Leg2RobotBlue : MonoBehaviour
     {
         
         yield return new WaitForSeconds(delayInSeconds);
+        CoolTime=3.0f;
         
     }
 }
