@@ -6,8 +6,7 @@ using UnityEngine.AI;
 public class Leg2RobotBlue : MonoBehaviour
 {
 
-    public int CoolTime=3;
-
+    public float CoolTime=3.0f;
     public float rotationSpeed = 5f;
     public float AttackRange=3.0f;
     public float moveSpeed=3.0f;
