@@ -9,6 +9,7 @@ public class Leg2RobotBlue : MonoBehaviour
 
     public float rotationSpeed = 5f;
     public float AttackRange=3.0f;
+    public float moveSpeed=3.0f;
 
     public bool Attack=false;
     
