@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.096968904, g: 0.0955133, b: 0.115963474, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2096,6 +2096,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3010758882560078007, guid: c91e9a220b60d694f8addfe229e96947, type: 3}
       insertIndex: -1
       addedObject: {fileID: 978639941}
+    - targetCorrespondingSourceObject: {fileID: 4063842861876637559, guid: c91e9a220b60d694f8addfe229e96947, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 978639937}
   m_SourcePrefab: {fileID: 100100000, guid: c91e9a220b60d694f8addfe229e96947, type: 3}
 --- !u!1 &978639934 stripped
 GameObject:
@@ -2125,6 +2128,25 @@ CapsuleCollider:
   m_Height: 8.727675
   m_Direction: 1
   m_Center: {x: 8.8601213e-16, y: 3.8638368, z: 0.4639267}
+--- !u!1 &978639936 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4063842861876637559, guid: c91e9a220b60d694f8addfe229e96947, type: 3}
+  m_PrefabInstance: {fileID: 978639933}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &978639937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978639936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122a438097530484a8db0e1ef71f5dbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 5
+  player: {fileID: 697519322}
 --- !u!114 &978639938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2138,10 +2160,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Red: {fileID: 978639939}
+  bulletPrefab: {fileID: 7038143750954130294, guid: cd9d73d57ac5afb428676399486098de, type: 3}
+  bulletSpawnPlace: {fileID: 978639936}
   CoolTime: 3
-  rotationSpeed: 5
   AttackRange: 10
   DetectRange: 20
+  rotationSpeed: 5
   Attack: 0
   IfWalking: 0
   IfAttacking: 0
@@ -2255,6 +2279,10 @@ PrefabInstance:
     - target: {fileID: 479812, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 479812, guid: c391f12a928274acab8576bb6030641d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 479812, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: m_LocalPosition.x

@@ -8,11 +8,14 @@ public class Leg2RobotRed : MonoBehaviour
 {
     public Animator Red=null;
 
+    public GameObject bulletPrefab;
+    public GameObject bulletSpawnPlace;
+    private GameObject bullet;
     
     public float CoolTime=3.0f;
-    public float rotationSpeed = 5f;
     public float AttackRange=10.0f;
     public float DetectRange=20.0f;
+    public float rotationSpeed = 5f;
 
     public bool Attack=false;
     public bool IfWalking=false;
@@ -24,6 +27,7 @@ public class Leg2RobotRed : MonoBehaviour
     public string Shoot;
 
     public Transform player;
+    private Transform a;
 
     public NavMeshAgent navMeshAgent;
     
@@ -53,9 +57,13 @@ public class Leg2RobotRed : MonoBehaviour
         IfAttacking=false;
     }
     private void Attacking(){
-        Red.Play(Shoot, 0, 0.0f);
+
         navMeshAgent.isStopped = true;
         Z=false;
+        Red.Play(Shoot, 0, 0.0f);
+        Vector3 playerDirection = (player.position - bulletSpawnPlace.transform.position).normalized;
+        bullet = Instantiate(bulletPrefab, bulletSpawnPlace.transform.position, bulletSpawnPlace.transform.rotation);
+        bullet.transform.right = playerDirection;
         StartCoroutine(ExecuteAfterDelay(5.0f));
         IfWalking=false;
     }
