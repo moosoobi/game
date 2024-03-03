@@ -5,14 +5,23 @@ using UnityEngine.AI;
 
 public class Leg2RobotBlue : MonoBehaviour
 {
+    public Animator Blue=null;
 
+    
     public float CoolTime=3.0f;
     public float rotationSpeed = 5f;
     public float AttackRange=3.0f;
-    public float moveSpeed=3.0f;
+    public float DetectRange=10.0f;
 
     public bool Attack=false;
-    
+    public bool IfWalking=false;
+    public bool IfAttacking=false;
+    public bool IfIdle=false;
+    public bool Z=true;
+
+    public string Walk;
+    public string Slash;
+
     public Transform player;
 
     public NavMeshAgent navMeshAgent;
@@ -21,14 +30,20 @@ public class Leg2RobotBlue : MonoBehaviour
 
     void Update()
     {
-
-        if(Vector3.Distance(transform.position, player.position)<AttackRange){
-            navMeshAgent.isStopped = true;
-            StartCoroutine(ExecuteAfterDelayCoolTime(CoolTime));
-            CoolTime=0;
-        }else{
-            navMeshAgent.SetDestination(player.position);
+        if(Z){
+            if(Vector3.Distance(transform.position, player.position)<AttackRange){
+                if(!IfAttacking){Attacking();IfAttacking=true;}
+                StartCoroutine(ExecuteAfterDelayCoolTime(CoolTime));
+                CoolTime=0;
+            }else if(AttackRange<Vector3.Distance(transform.position, player.position)&&Vector3.Distance(transform.position, player.position)<DetectRange){
+                if(!IfWalking){Walking();IfWalking=true;}
+                navMeshAgent.SetDestination(player.position);
+            }else{
+                navMeshAgent.isStopped = true;
+                if(!IfIdle){Idle();IfIdle=true;}
+            }
         }
+        
         
         if(Attack){
             if (player != null)
@@ -46,11 +61,23 @@ public class Leg2RobotBlue : MonoBehaviour
         }
     }
 
-    private void Moving(){
-
+    private void Walking(){
+        Blue.Play(Walk, 0, 0.0f);
+        navMeshAgent.isStopped = false;
+        IfIdle=false;
+        IfAttacking=false;
     }
     private void Attacking(){
-
+        Blue.Play(Slash, 0, 0.0f);
+        navMeshAgent.isStopped = true;
+        Z=false;
+        StartCoroutine(ExecuteAfterDelay(5.0f));
+        IfWalking=false;
+    }
+    private void Idle(){
+        Blue.Play("Idle", 0, 0.0f);
+        IfWalking=false;
+        IfAttacking=false;
     }
 
     private IEnumerator ExecuteAfterDelayCoolTime(float delayInSeconds)
@@ -60,4 +87,13 @@ public class Leg2RobotBlue : MonoBehaviour
         CoolTime=3.0f;
         
     }
+    private IEnumerator ExecuteAfterDelay(float delayInSeconds)
+    {
+        
+        yield return new WaitForSeconds(delayInSeconds);
+        Z=true;
+        
+    }
+
+
 }
