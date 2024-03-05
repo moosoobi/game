@@ -78204,14 +78204,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3860097309111078727, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 3860097309111078727, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.32
-      objectReference: {fileID: 0}
     - target: {fileID: 4573763697009265729, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
       propertyPath: m_RootOrder
       value: 53
@@ -78256,23 +78248,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5316079566509181224, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7399154494574176221, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
       propertyPath: m_Name
       value: streetLamp (9)
       objectReference: {fileID: 0}
-    - target: {fileID: 7399154494574176221, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 8632996937757706173, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
-    - {fileID: 4969902925811243103, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
-    - {fileID: 7058918829593235368, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c2163727b3d23e4fa1528690c4f8816, type: 3}
