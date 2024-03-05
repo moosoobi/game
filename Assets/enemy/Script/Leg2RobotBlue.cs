@@ -7,6 +7,7 @@ public class Leg2RobotBlue : MonoBehaviour
 {
     public Animator Blue=null;
 
+    public AudioSource BlueSword;
     
     public float CoolTime=3.0f;
     public float rotationSpeed = 5f;
@@ -68,6 +69,7 @@ public class Leg2RobotBlue : MonoBehaviour
         IfAttacking=false;
     }
     private void Attacking(){
+        BlueSword.Play();
         Blue.Play(Slash, 0, 0.0f);
         navMeshAgent.isStopped = true;
         Z=false;
