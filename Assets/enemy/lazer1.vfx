@@ -31,7 +31,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4c867f6b72b714dbb5fd1780afe208, type: 3}
-  m_Name: lazer1
+  m_Name: New Graph2
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 0}
@@ -80,6 +80,20 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
+  - name: thickness
+    path: thickness
+    tooltip: 
+    sheetType: m_Float
+    realType: Single
+    defaultValue:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 2
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
   - name: Color 1
     path: Color 1
     tooltip: 
@@ -104,6 +118,20 @@ MonoBehaviour:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
       m_SerializableObject: 1
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
+  - name: noisePower
+    path: noisePower
+    tooltip: 
+    sheetType: m_Float
+    realType: Single
+    defaultValue:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 0.1
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -3147,7 +3175,7 @@ MonoBehaviour:
   m_OutputSlots:
   - {fileID: 8926484042661614687}
   m_ExposedName: thickness
-  m_Exposed: 0
+  m_Exposed: 1
   m_Order: 1
   m_Category: 
   m_Min:
@@ -3167,7 +3195,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614687}
       inputSlot: {fileID: 8926484042661614672}
-    position: {x: 740, y: 1060}
+    position: {x: 720.50006, y: 1054.1001}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614687
@@ -3195,7 +3223,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.1
+      m_SerializableObject: 2
     m_Space: 2147483647
   m_Property:
     name: o
@@ -4736,7 +4764,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614758}
   m_ExposedName: noisespeed
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 6
   m_Category: 
   m_Min:
     m_Type:
@@ -4815,8 +4843,8 @@ MonoBehaviour:
   m_OutputSlots:
   - {fileID: 8926484042661614760}
   m_ExposedName: noisePower
-  m_Exposed: 0
-  m_Order: 4
+  m_Exposed: 1
+  m_Order: 7
   m_Category: 
   m_Min:
     m_Type:
@@ -4865,7 +4893,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.2
+      m_SerializableObject: 0.1
     m_Space: 2147483647
   m_Property:
     name: o
@@ -4994,7 +5022,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614768}
   m_ExposedName: noiseFrequency
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 8
   m_Category: 
   m_Min:
     m_Type:
@@ -7202,7 +7230,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.1
+      m_SerializableObject: 0.01
     m_Space: 2147483647
   m_Property:
     name: A
@@ -7806,7 +7834,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614955}
   m_ExposedName: Color 1
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 1
   m_Category: 
   m_Min:
     m_Type:

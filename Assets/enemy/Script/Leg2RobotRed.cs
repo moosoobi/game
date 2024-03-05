@@ -7,8 +7,6 @@ using UnityEngine.AI;
 public class Leg2RobotRed : MonoBehaviour
 {
     public Animator Red=null;
-    
-    public AudioSource RedLazer;
 
     public GameObject bulletPrefab;
     public GameObject bulletSpawnPlace;
@@ -59,7 +57,7 @@ public class Leg2RobotRed : MonoBehaviour
         IfAttacking=false;
     }
     private void Attacking(){
-        RedLazer.Play();
+
         navMeshAgent.isStopped = true;
         Z=false;
         Red.Play(Shoot, 0, 0.0f);
