@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Lazer : MonoBehaviour
 {
-    
-    
+
+
+    public GameObject Player;
     public GameObject prefabToClone;
 
     public bool IfHit=false;
@@ -15,9 +16,18 @@ public class Lazer : MonoBehaviour
 
     void Start()
     {
+        
+
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.up*-1.0f, out hit, raycastDistance))
         {
+            //playerhp=GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHp>();
+            if(hit.collider.gameObject.name=="Player"){
+                Player=GameObject.FindGameObjectWithTag("Player");
+                if(Player){
+                    Player.GetComponent<PlayerHp>().UpdateHealth(-10f);
+                }
+                }
         }
         else
         {

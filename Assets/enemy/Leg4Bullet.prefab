@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4984722415067683816}
   m_Layer: 0
   m_Name: Leg4Bullet
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8546312427195084609}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: PlayerAttack10
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -12,7 +12,11 @@ public class Leg4Robot : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject bulletSpawnPlace;
     private GameObject bullet;
+    private GameObject bullet1;
+    private GameObject bullet2;
     
+    public int damage=10;
+
     public float CoolTime=3.0f;
     public float AttackRange=10.0f;
     public float DetectRange=20.0f;
@@ -59,13 +63,10 @@ public class Leg4Robot : MonoBehaviour
         IfAttacking=false;
     }
     private void Attacking(){
-        Leg4Bullet.Play();
         navMeshAgent.isStopped = true;
         Z=false;
         Reg4.Play(Shoot, 0, 0.0f);
-        Vector3 playerDirection = (player.position - bulletSpawnPlace.transform.position).normalized;
-        bullet = Instantiate(bulletPrefab, bulletSpawnPlace.transform.position, bulletSpawnPlace.transform.rotation);
-        bullet.transform.right = playerDirection;
+        StartCoroutine(Shooting());
         StartCoroutine(ExecuteAfterDelay(5.0f));
         IfWalking=false;
     }
@@ -88,6 +89,22 @@ public class Leg4Robot : MonoBehaviour
         
         yield return new WaitForSeconds(delayInSeconds);
         Z=true;
+        
+    }
+    private IEnumerator Shooting()
+    {
+        Vector3 playerDirection = (player.position - bulletSpawnPlace.transform.position).normalized;
+        bullet = Instantiate(bulletPrefab, bulletSpawnPlace.transform.position, bulletSpawnPlace.transform.rotation);
+        bullet.transform.right = playerDirection;
+        Leg4Bullet.Play();
+        yield return new WaitForSeconds(0.4f);
+        bullet1 = Instantiate(bulletPrefab, bulletSpawnPlace.transform.position, bulletSpawnPlace.transform.rotation);
+        bullet1.transform.right = playerDirection;
+        Leg4Bullet.Play();
+        yield return new WaitForSeconds(0.4f);
+        bullet2 = Instantiate(bulletPrefab, bulletSpawnPlace.transform.position, bulletSpawnPlace.transform.rotation);
+        bullet2.transform.right = playerDirection;
+        Leg4Bullet.Play();
         
     }
 
