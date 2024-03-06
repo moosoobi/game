@@ -16,6 +16,9 @@ TagManager:
   - Attack
   - PlayerAttack
   - Boss
+  - PlayerAttack10
+  - PlayerAttack20
+  - PlayerAttack30
   layers:
   - Default
   - TransparentFX

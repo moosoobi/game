@@ -1837,7 +1837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3010758882560078007, guid: c91e9a220b60d694f8addfe229e96947, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3035486625344734899, guid: c91e9a220b60d694f8addfe229e96947, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3928,7 +3928,7 @@ MonoBehaviour:
   Z: 1
   Walk: Great Sword Walk
   Slash: Great Sword Slash
-  player: {fileID: 697519322}
+  player: {fileID: 1753953782}
   navMeshAgent: {fileID: 1952895976}
 --- !u!195 &1952895976
 NavMeshAgent:
@@ -4213,6 +4213,7 @@ MonoBehaviour:
   Leg4Bullet: {fileID: 233669376}
   bulletPrefab: {fileID: 739966955877709841, guid: 2f4e46ac89f1ee24aa78495423fcf9c4, type: 3}
   bulletSpawnPlace: {fileID: 1693821318}
+  damage: 10
   CoolTime: 3
   AttackRange: 10
   DetectRange: 20
