@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.06360055, g: 0.06379128, b: 0.08333767, a: 1}
+  m_IndirectSpecularColor: {r: 0.053590246, g: 0.05426193, b: 0.07334221, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1138,7 +1138,7 @@ GameObject:
   - component: {fileID: 638503837}
   - component: {fileID: 638503838}
   m_Layer: 5
-  m_Name: BossHp
+  m_Name: PlayerHp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1787,6 +1787,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -8.818755
       objectReference: {fileID: 0}
+    - target: {fileID: 2373784575608999848, guid: c91e9a220b60d694f8addfe229e96947, type: 3}
+      propertyPath: RedLazer
+      value: 
+      objectReference: {fileID: 1453017954}
+    - target: {fileID: 2373784575608999848, guid: c91e9a220b60d694f8addfe229e96947, type: 3}
+      propertyPath: navMeshAgent
+      value: 
+      objectReference: {fileID: 978639941}
     - target: {fileID: 2486987464425089549, guid: c91e9a220b60d694f8addfe229e96947, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1837,7 +1845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3010758882560078007, guid: c91e9a220b60d694f8addfe229e96947, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3035486625344734899, guid: c91e9a220b60d694f8addfe229e96947, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2311,7 +2319,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -5.2278066
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2373784575608999848, guid: c91e9a220b60d694f8addfe229e96947, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3365,6 +3374,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.6292455
       objectReference: {fileID: 0}
+    - target: {fileID: 3059295473099052853, guid: 1bd40b3d46fb01847904063f0f580f41, type: 3}
+      propertyPath: navMeshAgent
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3175418085081068301, guid: 1bd40b3d46fb01847904063f0f580f41, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 26.293924
@@ -3861,7 +3874,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 86.05656
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3059295473099052853, guid: 1bd40b3d46fb01847904063f0f580f41, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -4151,11 +4165,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4103409664421073188, guid: 0ff96bb2835e5b241970142e127a3c5b, type: 3}
+      propertyPath: navMeshAgent
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4232172916967440862, guid: 0ff96bb2835e5b241970142e127a3c5b, type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4103409664421073188, guid: 0ff96bb2835e5b241970142e127a3c5b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

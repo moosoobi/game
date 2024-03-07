@@ -28,22 +28,27 @@ public class Leg2RobotRed : MonoBehaviour
     public string Walk;
     public string Shoot;
 
-    public Transform player;
+
+
+    public GameObject player;
     private Transform a;
 
     public NavMeshAgent navMeshAgent;
     
-    
+    void Start()
+    {
+        player=GameObject.FindGameObjectWithTag("Player");
+    }
     void Update()
     {
         if(Z){
-            if(Vector3.Distance(transform.position, player.position)<AttackRange){
+            if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
                 if(!IfAttacking){Attacking();IfAttacking=true;}
                 StartCoroutine(ExecuteAfterDelayCoolTime(CoolTime));
                 CoolTime=0;
-            }else if(AttackRange<Vector3.Distance(transform.position, player.position)&&Vector3.Distance(transform.position, player.position)<DetectRange){
+            }else if(AttackRange<Vector3.Distance(transform.position, player.transform.position)&&Vector3.Distance(transform.position, player.transform.position)<DetectRange){
                 if(!IfWalking){Walking();IfWalking=true;}
-                navMeshAgent.SetDestination(player.position);
+                navMeshAgent.SetDestination(player.transform.position);
             }else{
                 navMeshAgent.isStopped = true;
                 if(!IfIdle){Idle();IfIdle=true;}
@@ -63,7 +68,7 @@ public class Leg2RobotRed : MonoBehaviour
         navMeshAgent.isStopped = true;
         Z=false;
         Red.Play(Shoot, 0, 0.0f);
-        Vector3 playerDirection = (player.position - bulletSpawnPlace.transform.position).normalized;
+        Vector3 playerDirection = (player.transform.position - bulletSpawnPlace.transform.position).normalized;
         bullet = Instantiate(bulletPrefab, bulletSpawnPlace.transform.position, bulletSpawnPlace.transform.rotation);
         bullet.transform.right = playerDirection;
         StartCoroutine(ExecuteAfterDelay(5.0f));

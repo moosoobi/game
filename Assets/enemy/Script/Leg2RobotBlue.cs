@@ -29,6 +29,10 @@ public class Leg2RobotBlue : MonoBehaviour
     
 
 
+    void Start()
+    {
+        player=GameObject.FindGameObjectWithTag("Player");
+    }
     void Update()
     {
         if(Z){
@@ -40,7 +44,11 @@ public class Leg2RobotBlue : MonoBehaviour
                 if(!IfWalking){Walking();IfWalking=true;}
                 navMeshAgent.SetDestination(player.transform.position);
             }else{
-                navMeshAgent.isStopped = true;
+                if (navMeshAgent.isActiveAndEnabled && navMeshAgent.isOnNavMesh)
+                {
+                    navMeshAgent.isStopped = true;
+                }
+
                 if(!IfIdle){Idle();IfIdle=true;}
             }
         }
