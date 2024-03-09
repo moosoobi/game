@@ -23,7 +23,7 @@ public class Leg2RobotRed : MonoBehaviour
     public bool IfWalking=false;
     public bool IfAttacking=false;
     public bool IfIdle=false;
-    public bool Z=true;
+    public bool Z=false;
 
     public string Walk;
     public string Shoot;
@@ -55,8 +55,15 @@ public class Leg2RobotRed : MonoBehaviour
             }
         }
     }
+    public void Active(){
+        Z=true;
+    }
 
-
+    public void SetDestination(Transform targetDestination)
+    {
+        navMeshAgent.SetDestination(targetDestination.position);
+        Red.Play(Walk, 0, 0.0f);
+    }
     private void Walking(){
         Red.Play(Walk, 0, 0.0f);
         navMeshAgent.isStopped = false;

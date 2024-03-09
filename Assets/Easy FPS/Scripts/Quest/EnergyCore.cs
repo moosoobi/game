@@ -29,6 +29,22 @@ public class EnergyCore : Quest
     public Light[] light;
     public Animator[] myDoor=null;
     public string dooropen;
+    public Leg2RobotBlue Leg2RobotBlue1;
+    public Leg2RobotBlue Leg2RobotBlue2;
+    public Leg2RobotRed Leg2RobotRed1;
+    public Leg2RobotRed Leg2RobotRed2;
+    public Leg4Robot Leg4Robot1;
+    public Leg4Robot Leg4Robot2;
+    public Leg4Robot Leg4Robot3;
+    public Leg4Robot Leg4Robot4;
+    public Transform targetDestination1; 
+    public Transform targetDestination2; 
+    public Transform targetDestination3; 
+    public Transform targetDestination4; 
+    public Transform targetDestination5; 
+    public Transform targetDestination6; 
+    public Transform targetDestination7;
+    public Transform targetDestination8;  
 
 
 
@@ -39,11 +55,13 @@ public class EnergyCore : Quest
 
     void Start()
     {
+        /*
         SecuritySound.Play();
         StartCoroutine(LightBlub());
         for(int i=0;i<8;i++){
             myDoor[i].Play(dooropen, 0, 0.0f);
         }
+        */
     }
     void Update()
     {
@@ -82,10 +100,12 @@ public class EnergyCore : Quest
                     healthSlider.maxValue = CoreMaxHp;
                     healthSlider.value = CoreHp;
                     StartConversation();
-                    for(int i=0;i<21;i++){
-                        light[i].color =  Color.red;
-                    }
                     StartCoroutine(LightBlub());
+                    for(int i=0;i<8;i++){
+                        myDoor[i].Play(dooropen, 0, 0.0f);
+                    }
+                    
+                    
                 }
                 UpdateHealth(-0.5f);
         }
@@ -108,6 +128,14 @@ public class EnergyCore : Quest
         isTalking=false;
         dialogueUI.SetActive(false);
         Gun.NotTalking();
+        Leg2RobotBlue1.SetDestination(targetDestination1);
+        Leg2RobotBlue2.SetDestination(targetDestination2);
+        Leg2RobotRed1.SetDestination(targetDestination3);
+        Leg2RobotRed2.SetDestination(targetDestination4);
+        Leg4Robot1.SetDestination(targetDestination5);
+        Leg4Robot2.SetDestination(targetDestination6);
+        Leg4Robot3.SetDestination(targetDestination7);
+        Leg4Robot4.SetDestination(targetDestination8);
     }
     public void UpdateHealth(float newHP)
     {

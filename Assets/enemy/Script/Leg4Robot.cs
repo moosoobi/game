@@ -26,7 +26,8 @@ public class Leg4Robot : MonoBehaviour
     public bool IfWalking=false;
     public bool IfAttacking=false;
     public bool IfIdle=false;
-    public bool Z=true;
+    public bool Z=false;
+    public bool first=false;
 
     public string Walk;
     public string Shoot;
@@ -57,7 +58,14 @@ public class Leg4Robot : MonoBehaviour
         }
     }
 
-
+    public void SetDestination(Transform targetDestination)
+    {
+        navMeshAgent.SetDestination(targetDestination.position);
+        Reg4.Play(Walk, 0, 0.0f);
+    }
+    public void Active(){
+        Z=true;
+    }
     private void Walking(){
         
         Reg4.Play(Walk, 0, 0.0f);
@@ -80,6 +88,7 @@ public class Leg4Robot : MonoBehaviour
         IfAttacking=false;
     }
 
+    
     private IEnumerator ExecuteAfterDelayCoolTime(float delayInSeconds)
     {
         
