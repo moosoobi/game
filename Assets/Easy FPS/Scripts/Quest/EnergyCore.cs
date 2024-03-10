@@ -125,6 +125,7 @@ public class EnergyCore : Quest
             }
         }
     public void EndDialogue(){
+        curResponseTracker=0;
         isTalking=false;
         dialogueUI.SetActive(false);
         Gun.NotTalking();
