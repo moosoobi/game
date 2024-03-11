@@ -27,6 +27,8 @@ public class BulletScript : MonoBehaviour {
             {
                 Instantiate(bloodEffect, transform.position, Quaternion.LookRotation(transform.forward));
                 Destroy(gameObject);
+            }else if(other.CompareTag("Area"))
+            {
             }
             else{
                 Destroy(gameObject);

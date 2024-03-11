@@ -23,11 +23,17 @@ public class Leg2RobotBlue : MonoBehaviour
     public bool Z=false;
     public bool FistMoving=false;
     public bool Die=false;
+    public bool back=true;
 
     public string Walk;
     public string Slash;
 
     public GameObject player;
+    
+    public Transform Destination;
+
+    public EnemyArea Area1;
+    public EnemyArea Area2;
 
     public NavMeshAgent navMeshAgent;
     
@@ -40,7 +46,7 @@ public class Leg2RobotBlue : MonoBehaviour
     void Update()
     {
         if(!Die){
-            if(Z){
+            if(Z&&(Area1.Retrunz()||Area2.Retrunz())){
                 if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
                     if(!IfAttacking){Attacking();IfAttacking=true;}
                     StartCoroutine(ExecuteAfterDelayCoolTime(CoolTime));
@@ -56,12 +62,19 @@ public class Leg2RobotBlue : MonoBehaviour
 
                     if(!IfIdle){Idle();IfIdle=true;}
                 }
+            }else if(Z&&!(Area1.Retrunz()||Area2.Retrunz())){
+                SetDestination(Destination);
+                if (navMeshAgent.remainingDistance>0&&navMeshAgent.remainingDistance < 0.1f)
+                {
+                    Blue.Play("Great Sword Idle", 0, 0.0f);
+                }
             }
             if(FistMoving){
                 if (navMeshAgent.remainingDistance>0&&navMeshAgent.remainingDistance < 0.1f)
                 {
                     Blue.Play("Great Sword Idle", 0, 0.0f);
                     FistMoving=false;
+                    Z=true;
                 }
             }
             

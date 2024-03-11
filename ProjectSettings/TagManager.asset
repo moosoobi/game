@@ -19,6 +19,7 @@ TagManager:
   - PlayerAttack10
   - PlayerAttack20
   - PlayerAttack30
+  - Area
   layers:
   - Default
   - TransparentFX

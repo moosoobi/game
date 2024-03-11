@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.053590246, g: 0.05426193, b: 0.07334221, a: 1}
+  m_IndirectSpecularColor: {r: 0.053590365, g: 0.05426223, b: 0.07334197, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15318,9 +15318,10 @@ GameObject:
   m_Component:
   - component: {fileID: 203202367}
   - component: {fileID: 203202368}
+  - component: {fileID: 203202369}
   m_Layer: 0
   m_Name: Area1 (1)
-  m_TagString: Untagged
+  m_TagString: Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15361,6 +15362,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 24.82959, y: 2.7576652, z: 4.2409973}
   m_Center: {x: -9.477539, y: -0.02442336, z: 1.286087}
+--- !u!114 &203202369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203202366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d38c6774f29d44eabd2fa9c07ddf92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  z: 0
 --- !u!1 &204536138
 GameObject:
   m_ObjectHideFlags: 0
@@ -21698,9 +21712,10 @@ GameObject:
   m_Component:
   - component: {fileID: 353022755}
   - component: {fileID: 353022756}
+  - component: {fileID: 353022757}
   m_Layer: 0
   m_Name: Area1 (4)
-  m_TagString: Untagged
+  m_TagString: Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21741,6 +21756,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 26.059326, y: 5.0714326, z: 6.5283203}
   m_Center: {x: -10.092407, y: -1.1813071, z: 0.14242554}
+--- !u!114 &353022757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353022754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d38c6774f29d44eabd2fa9c07ddf92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  z: 0
 --- !u!4 &354396954 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5894926615655303978, guid: 2bd3db7d654e9b04d9c66e690c721bdc, type: 3}
@@ -35153,9 +35181,10 @@ GameObject:
   m_Component:
   - component: {fileID: 624169614}
   - component: {fileID: 624169615}
+  - component: {fileID: 624169616}
   m_Layer: 0
   m_Name: Area1 (2)
-  m_TagString: Untagged
+  m_TagString: Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35196,6 +35225,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 26.059326, y: 5.0714326, z: 6.5283203}
   m_Center: {x: -10.092407, y: -1.1813071, z: 0.14242554}
+--- !u!114 &624169616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624169613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d38c6774f29d44eabd2fa9c07ddf92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  z: 0
 --- !u!1001 &625240961
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43230,9 +43272,10 @@ GameObject:
   m_Component:
   - component: {fileID: 783632724}
   - component: {fileID: 783632725}
+  - component: {fileID: 783632726}
   m_Layer: 0
   m_Name: Area1
-  m_TagString: Untagged
+  m_TagString: Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43273,6 +43316,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 26.506897, y: 5.0714326, z: 6.5283203}
   m_Center: {x: -10.316193, y: -1.1813071, z: 0.14242554}
+--- !u!114 &783632726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783632723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d38c6774f29d44eabd2fa9c07ddf92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  z: 0
 --- !u!1 &786766351
 GameObject:
   m_ObjectHideFlags: 0
@@ -49312,9 +49368,10 @@ GameObject:
   m_Component:
   - component: {fileID: 937632333}
   - component: {fileID: 937632334}
+  - component: {fileID: 937632335}
   m_Layer: 0
   m_Name: Area1 (3)
-  m_TagString: Untagged
+  m_TagString: Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49355,6 +49412,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 26.059326, y: 5.0714326, z: 6.5283203}
   m_Center: {x: -10.092407, y: -1.1813071, z: 0.14242554}
+--- !u!114 &937632335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937632332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d38c6774f29d44eabd2fa9c07ddf92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  z: 0
 --- !u!108 &937777709 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 2327760929722505040, guid: 071797f809c962249a99b7f610548280, type: 3}
@@ -70862,9 +70932,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1475601006}
   - component: {fileID: 1475601007}
+  - component: {fileID: 1475601008}
   m_Layer: 0
   m_Name: Area1 (6)
-  m_TagString: Untagged
+  m_TagString: Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70905,6 +70976,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 26.059328, y: 5.0714326, z: 8.551968}
   m_Center: {x: -10.092407, y: -1.1813071, z: -0.49571407}
+--- !u!114 &1475601008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475601005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d38c6774f29d44eabd2fa9c07ddf92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  z: 0
 --- !u!1001 &1476664405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72277,6 +72361,18 @@ PrefabInstance:
       propertyPath: Z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3059295473099052853, guid: 1bd40b3d46fb01847904063f0f580f41, type: 3}
+      propertyPath: Area1
+      value: 
+      objectReference: {fileID: 624169616}
+    - target: {fileID: 3059295473099052853, guid: 1bd40b3d46fb01847904063f0f580f41, type: 3}
+      propertyPath: Area2
+      value: 
+      objectReference: {fileID: 353022757}
+    - target: {fileID: 3059295473099052853, guid: 1bd40b3d46fb01847904063f0f580f41, type: 3}
+      propertyPath: Destination
+      value: 
+      objectReference: {fileID: 567797345}
     - target: {fileID: 3519752466945581840, guid: 1bd40b3d46fb01847904063f0f580f41, type: 3}
       propertyPath: m_Name
       value: 2legRobot_Blue Variant
@@ -73282,9 +73378,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1525157097}
   - component: {fileID: 1525157098}
+  - component: {fileID: 1525157099}
   m_Layer: 0
   m_Name: Area1 (5)
-  m_TagString: Untagged
+  m_TagString: Area
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73325,6 +73422,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 26.059328, y: 5.0714326, z: 4.742099}
   m_Center: {x: -10.092407, y: -1.1813071, z: 1.0355368}
+--- !u!114 &1525157099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525157096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d38c6774f29d44eabd2fa9c07ddf92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  z: 0
 --- !u!1 &1525586207 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6711682460271340882, guid: 780ad70456f52854c9ea7498b12440c5, type: 3}
@@ -88254,6 +88364,18 @@ PrefabInstance:
       propertyPath: Z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3059295473099052853, guid: 1bd40b3d46fb01847904063f0f580f41, type: 3}
+      propertyPath: Area1
+      value: 
+      objectReference: {fileID: 203202369}
+    - target: {fileID: 3059295473099052853, guid: 1bd40b3d46fb01847904063f0f580f41, type: 3}
+      propertyPath: Area2
+      value: 
+      objectReference: {fileID: 353022757}
+    - target: {fileID: 3059295473099052853, guid: 1bd40b3d46fb01847904063f0f580f41, type: 3}
+      propertyPath: Destination
+      value: 
+      objectReference: {fileID: 1648508739}
     - target: {fileID: 3519752466945581840, guid: 1bd40b3d46fb01847904063f0f580f41, type: 3}
       propertyPath: m_Name
       value: 2legRobot_Blue Variant (1)
