@@ -15,6 +15,7 @@ public class Leg2RobotBlue : MonoBehaviour
     public float rotationSpeed = 5f;
     public float AttackRange=3.0f;
     public float DetectRange=10.0f;
+    public float raycastDistance = 10f;
 
     public bool Attack=false;
     public bool IfWalking=false;
@@ -45,30 +46,43 @@ public class Leg2RobotBlue : MonoBehaviour
     }
     void Update()
     {
-        if(!Die){
-            if(Z&&(Area1.Retrunz()||Area2.Retrunz())){
-                if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
-                    if(!IfAttacking){Attacking();IfAttacking=true;}
-                    StartCoroutine(ExecuteAfterDelayCoolTime(CoolTime));
-                    CoolTime=0;
-                }else if(AttackRange<Vector3.Distance(transform.position, player.transform.position)&&Vector3.Distance(transform.position, player.transform.position)<DetectRange){
-                    if(!IfWalking){Walking();IfWalking=true;}
-                    navMeshAgent.SetDestination(player.transform.position);
-                }else{
-                    if (navMeshAgent.isActiveAndEnabled && navMeshAgent.isOnNavMesh)
-                    {
-                        navMeshAgent.isStopped = true;
-                    }
 
-                    if(!IfIdle){Idle();IfIdle=true;}
+        if(!Die){
+            if(Z){
+                if(Vector3.Distance(transform.position, player.transform.position)<DetectRange){
+                    Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
+                    Vector3 Player = (player.transform.position - PlayerForward.transform.position).normalized;
+                    float dotProduct = Vector3.Dot(Player, directionToPlayer);
+                    if(dotProduct > 0f){
+                        
+                        RaycastHit hit;
+                        if (Physics.Raycast(transform.position, player.transform.position- transform.position, out hit, raycastDistance))
+                        {
+                            //playerhp=GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHp>();
+                            if(hit.collider.gameObject.name=="Player"){
+                                if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
+                                if(!IfAttacking){Attacking();IfAttacking=true;}
+                                StartCoroutine(ExecuteAfterDelayCoolTime(CoolTime));
+                                CoolTime=0;
+                                }else if(AttackRange<Vector3.Distance(transform.position, player.transform.position)&&Vector3.Distance(transform.position, player.transform.position)<DetectRange){
+                                    if(!IfWalking){Walking();IfWalking=true;}
+                                    navMeshAgent.SetDestination(player.transform.position);
+                                }else{
+                                    if (navMeshAgent.isActiveAndEnabled && navMeshAgent.isOnNavMesh)
+                                    {
+                                        navMeshAgent.isStopped = true;
+                                    }
+
+                                    if(!IfIdle){Idle();IfIdle=true;}
+                                }
+                            }
+                        }
+
+                    }
+                    
                 }
-            }else if(Z&&!(Area1.Retrunz()||Area2.Retrunz())){
-                SetDestination(Destination);
-                if (navMeshAgent.remainingDistance>0&&navMeshAgent.remainingDistance < 0.1f)
-                {
-                    Blue.Play("Great Sword Idle", 0, 0.0f);
-                }
-            }
+                
+            
             if(FistMoving){
                 if (navMeshAgent.remainingDistance>0&&navMeshAgent.remainingDistance < 0.1f)
                 {
