@@ -8,6 +8,8 @@ public class Leg2RobotBlue : MonoBehaviour
     public Animator Blue=null;
 
     public AudioSource BlueSword;
+    public AudioSource EnemyHittingSound;
+
     
     public int Hp=5;
 
@@ -41,6 +43,7 @@ public class Leg2RobotBlue : MonoBehaviour
 
     public LayerMask obstacleLayer; 
     
+    public EnemyDeath EnemyDeath;
 
     void Start()
     {
@@ -166,6 +169,7 @@ public class Leg2RobotBlue : MonoBehaviour
     private IEnumerator Death()
     {
         Blue.Play("Two Handed Sword Death", 0, 0.0f);
+        EnemyDeath.Death();
         yield return new WaitForSeconds(3f);
         gameObject.SetActive(false);
         
@@ -175,6 +179,7 @@ public class Leg2RobotBlue : MonoBehaviour
     {
         if (other.CompareTag("Attack")){
             Hp-=1;
+            EnemyHittingSound.Play();
         }
     }
 }

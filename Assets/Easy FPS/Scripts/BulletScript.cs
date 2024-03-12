@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BulletScript : MonoBehaviour {
 
+    
 	public GameObject bloodEffect;
     private float maxSpeed = 15.0f;
 
@@ -23,14 +24,11 @@ public class BulletScript : MonoBehaviour {
     {
 
             
-            if(other.CompareTag("Dummie"))
+            if(other.CompareTag("Enemy"))
             {
                 Instantiate(bloodEffect, transform.position, Quaternion.LookRotation(transform.forward));
                 Destroy(gameObject);
-            }else if(other.CompareTag("Area"))
-            {
-            }
-            else{
+            }else{
                 Destroy(gameObject);
             }
     }

@@ -6,7 +6,7 @@ using TMPro;
 public class PickMap : MonoBehaviour
 {
     public GameObject map;
-    public GameObject mark;
+    public GameObject map2;
     public bool zzz=false;
     public bool ifpick=false;
     public bool show=true;
@@ -50,11 +50,11 @@ public class PickMap : MonoBehaviour
                 
                 if(show){
                     map.SetActive(true);
-                    mark.SetActive(true);
+                    map2.SetActive(true);
                     
                 }else if(!show){
                     map.SetActive(false);
-                    mark.SetActive(false);
+
                     
                 }
                 show=!show;

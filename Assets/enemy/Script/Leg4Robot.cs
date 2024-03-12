@@ -8,6 +8,7 @@ public class Leg4Robot : MonoBehaviour
     public Animator Reg4=null;
 
     public AudioSource Leg4Bullet;
+    public AudioSource EnemyHittingSound;
 
     public GameObject bulletPrefab;
     public GameObject bulletSpawnPlace;
@@ -41,6 +42,9 @@ public class Leg4Robot : MonoBehaviour
 
     public LayerMask obstacleLayer; 
     public NavMeshAgent navMeshAgent;
+
+    public EnemyDeath EnemyDeath;
+
     
         void Start()
     {
@@ -55,7 +59,7 @@ public class Leg4Robot : MonoBehaviour
                     Vector3 playerToEnemy = player.transform.position - transform.position;
                     Vector3 playerForward = transform.forward;
                     float angle = Vector3.Angle(playerForward, playerToEnemy);
-                    Debug.Log(angle);
+                    //Debug.Log(angle);
                     if(angle < 30f){
                         RaycastHit hit;
                         if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
@@ -122,6 +126,7 @@ public class Leg4Robot : MonoBehaviour
 
             if(Hp<=0){
                 Die=true;
+                EnemyDeath.Death();
                 gameObject.SetActive(false);
             }
         }
@@ -196,6 +201,7 @@ public class Leg4Robot : MonoBehaviour
     {
         if (other.CompareTag("Attack")){
             Hp-=1;
+            EnemyHittingSound.Play();
         }
     }
 

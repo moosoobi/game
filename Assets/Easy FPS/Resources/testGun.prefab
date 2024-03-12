@@ -1188,7 +1188,7 @@ MonoBehaviour:
   currentStyle: 0
   mls: {fileID: 0}
   walkingSpeed: 3
-  runningSpeed: 5
+  runningSpeed: 10
   bulletsIHave: 1000
   bulletsInTheGun: 3
   amountOfBulletsPerLoad: 3
@@ -1200,7 +1200,7 @@ MonoBehaviour:
   aimPlacePosition: {x: 0, y: -0.05, z: 0.29}
   gunAimTime: 0.05
   reloading: 0
-  mouseSensitvity_notAiming: 4
+  mouseSensitvity_notAiming: 3
   mouseSensitvity_aiming: 1
   mouseSensitvity_running: 1
   meeleAttack: 0

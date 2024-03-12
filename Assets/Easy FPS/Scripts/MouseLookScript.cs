@@ -57,10 +57,10 @@ public class MouseLookScript : MonoBehaviour {
 	}
 	[Tooltip("Current mouse sensivity, changes in the weapon properties")]
 	public float mouseSensitvity = 0;
-	[HideInInspector]
-	public float mouseSensitvity_notAiming = 300;
-	[HideInInspector]
-	public float mouseSensitvity_aiming = 50;
+
+	public float mouseSensitvity_notAiming; 
+
+	public float mouseSensitvity_aiming ;
 
 /*
 * FixedUpdate()

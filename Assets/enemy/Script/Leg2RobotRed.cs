@@ -9,6 +9,7 @@ public class Leg2RobotRed : MonoBehaviour
     public Animator Red=null;
     
     public AudioSource RedLazer;
+    public AudioSource EnemyHittingSound;
 
     public GameObject bulletPrefab;
     public GameObject bulletSpawnPlace;
@@ -37,6 +38,8 @@ public class Leg2RobotRed : MonoBehaviour
     public LayerMask obstacleLayer; 
     public GameObject player;
     private Transform a;
+
+    public EnemyDeath EnemyDeath;
 
     public NavMeshAgent navMeshAgent;
     
@@ -175,6 +178,7 @@ public class Leg2RobotRed : MonoBehaviour
     private IEnumerator Death()
     {
         Red.Play("Standing React Death Forward", 0, 0.0f);
+        EnemyDeath.Death();
         yield return new WaitForSeconds(3f);
         gameObject.SetActive(false);
         
@@ -185,6 +189,7 @@ public class Leg2RobotRed : MonoBehaviour
     {
         if (other.CompareTag("Attack")){
             Hp-=1;
+            EnemyHittingSound.Play();
         }
     }
 }

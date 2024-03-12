@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Leg4Bullet : MonoBehaviour
 {
+    
+
     public float speed = 10f; // 총알 이동 속도
 
     void Update()
