@@ -20,7 +20,7 @@ public class Leg2RobotRed : MonoBehaviour
     public float AttackRange=10.0f;
     public float DetectRange=20.0f;
     public float rotationSpeed = 5f;
-    public float raycastDistance = 10f;
+    public float raycastDistance = 20f;
 
     public bool Attack=false;
     public bool IfWalking=false;
@@ -50,8 +50,8 @@ public class Leg2RobotRed : MonoBehaviour
             if(Z){
                 
                 if(Vector3.Distance(transform.position, player.transform.position)<DetectRange){
-                    Vector3 playerToEnemy = transform.position - player.transform.position;
-                    Vector3 playerForward = player.transform.forward;
+                    Vector3 playerToEnemy = player.transform.position - transform.position;
+                    Vector3 playerForward = transform.forward;
                     float angle = Vector3.Angle(playerForward, playerToEnemy);
                     //Debug.Log(angle);
                     if(angle < 30f){
@@ -61,9 +61,9 @@ public class Leg2RobotRed : MonoBehaviour
                             //Debug.Log(hit.collider.gameObject.name);
                             if(hit.collider.gameObject.name=="Player"){
                                 if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
-                                if(!IfAttacking){Attacking();IfAttacking=true;}
-                                StartCoroutine(ExecuteAfterDelayCoolTime(CoolTime));
-                                CoolTime=0;
+                                    if(!IfAttacking){Attacking();IfAttacking=true;}
+                                    StartCoroutine(ExecuteAfterDelayCoolTime(CoolTime));
+                                    CoolTime=0;
                                 }else if(AttackRange<Vector3.Distance(transform.position, player.transform.position)&&Vector3.Distance(transform.position, player.transform.position)<DetectRange){
                                     if(!IfWalking){Walking();IfWalking=true;}
                                     navMeshAgent.SetDestination(player.transform.position);

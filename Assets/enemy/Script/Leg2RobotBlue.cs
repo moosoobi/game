@@ -15,7 +15,7 @@ public class Leg2RobotBlue : MonoBehaviour
     public float rotationSpeed = 5f;
     public float AttackRange=3.0f;
     public float DetectRange=10.0f;
-    public float raycastDistance = 10f;
+    public float raycastDistance = 20f;
 
     public bool Attack=false;
     public bool IfWalking=false;
@@ -53,11 +53,11 @@ public class Leg2RobotBlue : MonoBehaviour
         if(!Die){
             if(Z){
                 if(Vector3.Distance(transform.position, player.transform.position)<DetectRange){
-                    Vector3 playerToEnemy = transform.position - player.transform.position;
-                    Vector3 playerForward = player.transform.forward;
+                    Vector3 playerToEnemy = player.transform.position - transform.position;
+                    Vector3 playerForward = transform.forward;
                     float angle = Vector3.Angle(playerForward, playerToEnemy);
                     //Debug.Log(angle);
-                    if(angle < 30f){
+                    if(angle < 90f){
                         RaycastHit hit;
                         if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
                         {
@@ -105,7 +105,7 @@ public class Leg2RobotBlue : MonoBehaviour
                     Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
 
                     // 적의 회전을 부드럽게 설정
-                    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                    transform.rotation = targetRotation;
                     
                 }
             }

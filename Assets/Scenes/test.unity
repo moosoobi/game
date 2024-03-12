@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.053590246, g: 0.05426193, b: 0.07334221, a: 1}
+  m_IndirectSpecularColor: {r: 0.06360055, g: 0.06379128, b: 0.08333767, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1845,7 +1845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3010758882560078007, guid: c91e9a220b60d694f8addfe229e96947, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3035486625344734899, guid: c91e9a220b60d694f8addfe229e96947, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2400,17 +2400,24 @@ MonoBehaviour:
   RedLazer: {fileID: 1453017954}
   bulletPrefab: {fileID: 7038143750954130294, guid: cd9d73d57ac5afb428676399486098de, type: 3}
   bulletSpawnPlace: {fileID: 978639936}
+  Hp: 5
   CoolTime: 3
   AttackRange: 10
   DetectRange: 20
   rotationSpeed: 5
+  raycastDistance: 10
   Attack: 0
   IfWalking: 0
   IfAttacking: 0
   IfIdle: 0
   Z: 1
+  FistMoving: 0
+  Die: 0
   Walk: Walk Forward
   Shoot: Rifle Aiming Idle
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 64
   player: {fileID: 697519322}
   navMeshAgent: {fileID: 978639941}
 --- !u!95 &978639939 stripped
@@ -3931,19 +3938,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Blue: {fileID: 1952895977}
   BlueSword: {fileID: 1630741943}
+  Hp: 5
   CoolTime: 3
   rotationSpeed: 5
   AttackRange: 3
   DetectRange: 10
+  raycastDistance: 10
   Attack: 0
   IfWalking: 0
   IfAttacking: 0
   IfIdle: 0
   Z: 1
+  FistMoving: 0
+  Die: 0
+  back: 1
   Walk: Great Sword Walk
   Slash: Great Sword Slash
   player: {fileID: 1753953782}
+  PlayerForward: {fileID: 0}
+  Destination: {fileID: 0}
+  Area1: {fileID: 0}
+  Area2: {fileID: 0}
   navMeshAgent: {fileID: 1952895976}
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!195 &1952895976
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4233,18 +4252,26 @@ MonoBehaviour:
   bulletPrefab: {fileID: 739966955877709841, guid: 2f4e46ac89f1ee24aa78495423fcf9c4, type: 3}
   bulletSpawnPlace: {fileID: 1693821318}
   damage: 10
+  Hp: 5
   CoolTime: 3
   AttackRange: 10
   DetectRange: 20
   rotationSpeed: 5
+  raycastDistance: 20
   Attack: 0
   IfWalking: 0
   IfAttacking: 0
   IfIdle: 0
   Z: 1
+  first: 0
+  FistMoving: 0
+  Die: 0
   Walk: 4legRobot_walk
   Shoot: 4legRobot_IDLE
   player: {fileID: 697519322}
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
   navMeshAgent: {fileID: 2125259344}
 --- !u!95 &2125259342 stripped
 Animator:

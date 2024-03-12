@@ -22,7 +22,7 @@ public class Leg4Robot : MonoBehaviour
     public float AttackRange=10.0f;
     public float DetectRange=20.0f;
     public float rotationSpeed = 5f;
-    public float raycastDistance = 10f;
+    public float raycastDistance = 20f;
 
     public bool Attack=false;
     public bool IfWalking=false;
@@ -48,19 +48,20 @@ public class Leg4Robot : MonoBehaviour
     }
     void Update()
     {
-
+        Debug.DrawRay(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, Color.green);
         if(!Die){
             if(Z){
                 if(Vector3.Distance(transform.position, player.transform.position)<DetectRange){
-                    Vector3 playerToEnemy = transform.position - player.transform.position;
-                    Vector3 playerForward = player.transform.forward;
+                    Vector3 playerToEnemy = player.transform.position - transform.position;
+                    Vector3 playerForward = transform.forward;
                     float angle = Vector3.Angle(playerForward, playerToEnemy);
-                    //Debug.Log(angle);
+                    Debug.Log(angle);
                     if(angle < 30f){
                         RaycastHit hit;
                         if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
                         {
-                            //Debug.Log(hit.collider.gameObject.name);
+                            Debug.Log(1);
+                            Debug.Log(hit.collider.gameObject.name);
                             if(hit.collider.gameObject.name=="Player"){
                                 if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
                                 if(!IfAttacking){Attacking();IfAttacking=true;}
