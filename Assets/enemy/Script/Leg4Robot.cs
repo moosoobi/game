@@ -22,6 +22,7 @@ public class Leg4Robot : MonoBehaviour
     public float AttackRange=10.0f;
     public float DetectRange=20.0f;
     public float rotationSpeed = 5f;
+    public float raycastDistance = 10f;
 
     public bool Attack=false;
     public bool IfWalking=false;
@@ -38,6 +39,7 @@ public class Leg4Robot : MonoBehaviour
     public GameObject player;
     private Transform a;
 
+    public LayerMask obstacleLayer; 
     public NavMeshAgent navMeshAgent;
     
         void Start()
@@ -46,8 +48,48 @@ public class Leg4Robot : MonoBehaviour
     }
     void Update()
     {
+
         if(!Die){
             if(Z){
+                if(Vector3.Distance(transform.position, player.transform.position)<DetectRange){
+                    Vector3 playerToEnemy = transform.position - player.transform.position;
+                    Vector3 playerForward = player.transform.forward;
+                    float angle = Vector3.Angle(playerForward, playerToEnemy);
+                    //Debug.Log(angle);
+                    if(angle < 30f){
+                        RaycastHit hit;
+                        if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
+                        {
+                            //Debug.Log(hit.collider.gameObject.name);
+                            if(hit.collider.gameObject.name=="Player"){
+                                if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
+                                if(!IfAttacking){Attacking();IfAttacking=true;}
+                                StartCoroutine(ExecuteAfterDelayCoolTime(CoolTime));
+                                CoolTime=0;
+                                }else if(AttackRange<Vector3.Distance(transform.position, player.transform.position)&&Vector3.Distance(transform.position, player.transform.position)<DetectRange){
+                                    if(!IfWalking){Walking();IfWalking=true;}
+                                    navMeshAgent.SetDestination(player.transform.position);
+                                }else{
+                                    if (navMeshAgent.isActiveAndEnabled && navMeshAgent.isOnNavMesh)
+                                    {
+                                        navMeshAgent.isStopped = true;
+                                    }
+
+                                    if(!IfIdle){Idle();IfIdle=true;}
+                                }
+                            }
+                        }
+                    }else{
+                        if (navMeshAgent.isActiveAndEnabled && navMeshAgent.isOnNavMesh)
+                        {
+                            navMeshAgent.isStopped = true;
+                        }
+
+                        if(!IfIdle){Idle();IfIdle=true;}
+                    }
+                
+            }
+                /*
                 if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
                     if(!IfAttacking){Attacking();IfAttacking=true;}
                     StartCoroutine(ExecuteAfterDelayCoolTime(CoolTime));
@@ -58,7 +100,7 @@ public class Leg4Robot : MonoBehaviour
                 }else{
                     navMeshAgent.isStopped = true;
                     if(!IfIdle){Idle();IfIdle=true;}
-                }
+                }*/
             }
 
             if(FistMoving){
@@ -66,6 +108,14 @@ public class Leg4Robot : MonoBehaviour
                 {
                     Reg4.Play("4legRobot_IDLE", 0, 0.0f);
                     FistMoving=false;
+                    Z=true;
+                    Vector3 directionToPlayer = player.transform.position - transform.position;
+                    directionToPlayer.y = 0f; // Y축 방향은 무시 (수평 방향으로만 회전)
+                    // 방향 벡터를 바탕으로 회전 값 생성
+                    Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+                    // 적의 회전을 부드럽게 설정
+                    transform.rotation = targetRotation;
+                    
                 }
             }
 
@@ -98,7 +148,7 @@ public class Leg4Robot : MonoBehaviour
         Z=false;
         Reg4.Play(Shoot, 0, 0.0f);
         StartCoroutine(Shooting());
-        StartCoroutine(ExecuteAfterDelay(5.0f));
+        StartCoroutine(ExecuteAfterDelay(3.0f));
         IfWalking=false;
     }
     private void Idle(){
@@ -107,6 +157,7 @@ public class Leg4Robot : MonoBehaviour
         IfWalking=false;
         IfAttacking=false;
     }
+
 
     
     private IEnumerator ExecuteAfterDelayCoolTime(float delayInSeconds)

@@ -20,6 +20,7 @@ TagManager:
   - PlayerAttack20
   - PlayerAttack30
   - Area
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 
