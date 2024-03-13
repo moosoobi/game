@@ -14,7 +14,7 @@ public class z : MonoBehaviour
         if (other.CompareTag("Player"))
         {   
             
-            if(gun){gun.zcrosschange();}
+            if(gun){gun.ZcrossOn();}
             
         }
     }
@@ -24,7 +24,7 @@ public class z : MonoBehaviour
         gun=GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>();
         if (other.CompareTag("Player"))
         {   
-            if(gun){gun.zcrosschange();}
+            if(gun){gun.ZcrossOff();}
         }
     }
    

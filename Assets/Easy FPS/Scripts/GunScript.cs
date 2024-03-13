@@ -562,9 +562,23 @@ public class GunScript : MonoBehaviour {
 
 		
 	}
+	/*
 	public void zcrosschange(){
-		if(zcross==false){zcross=true;}
+		if(zcross==false){zcross=true;StartCoroutine(Zcross());}
 		else if(zcross==true){zcross=false;}
+	}
+	*/
+	public void ZcrossOn(){
+		zcross=true;
+		StartCoroutine(Zcross());
+	}
+	public void ZcrossOff(){
+		zcross=false;
+
+	}
+	private IEnumerator Zcross(){
+		yield return new WaitForSeconds(3.0f);
+		zcross=false;
 	}
 	[Header("Crosshair properties")]
 	public GameObject cross;
