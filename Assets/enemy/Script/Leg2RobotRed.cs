@@ -8,6 +8,8 @@ public class Leg2RobotRed : MonoBehaviour
 {
     public Animator Red=null;
     
+    public Transform RespawnSpot;
+
     public AudioSource RedLazer;
     public AudioSource EnemyHittingSound;
 
@@ -134,6 +136,7 @@ public class Leg2RobotRed : MonoBehaviour
 
     public void SetDestination(Transform targetDestination)
     {
+        navMeshAgent.isStopped = false;
         navMeshAgent.SetDestination(targetDestination.position);
         Red.Play(Walk, 0, 0.0f);
         FistMoving=true;
@@ -160,7 +163,27 @@ public class Leg2RobotRed : MonoBehaviour
         IfWalking=false;
         IfAttacking=false;
     }
-
+    public void Respawn(){
+        gameObject.SetActive(true);
+        navMeshAgent.isStopped = true;
+        Attack=false;
+        IfWalking=false;
+        IfAttacking=false;
+        IfIdle=false;
+        Z=false;
+        FistMoving=false;
+        Die=false;
+        Red.Play("Rifle Aiming Idle", 0, 0.0f);
+        Hp=5;
+        transform.position=RespawnSpot.position;
+        transform.rotation=RespawnSpot.rotation;
+        StartCoroutine(RespawnSpotMove());
+    }
+    private IEnumerator RespawnSpotMove(){
+        yield return new WaitForSeconds(0.5f);
+        transform.position=RespawnSpot.position;
+        transform.rotation=RespawnSpot.rotation;
+    }
     private IEnumerator ExecuteAfterDelayCoolTime(float delayInSeconds)
     {
         

@@ -152,6 +152,14 @@ public class EnergyCore : Quest
             Debug.Log("파괴");
         }
     }
+    public void Respawn(){
+        for(int i=0;i<8;i++){
+            myDoor[i].Play("DoorClose", 0, 0.0f);
+        }
+        CoreHp=10.0f;
+        first=false;
+        UpdateHealth(0);
+    }
     private IEnumerator LightBlub(){
         for(int i=0;i<21;i++){
             light[i].enabled = false;

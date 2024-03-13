@@ -8,12 +8,64 @@ public class PlayerHp : MonoBehaviour
     public float PlayerCurHp=100f;
     public float PlayerMaxHp=100f;
     public Slider healthSlider;
+    public GameObject GameOver;
+    public Animator Player;
+    public GameObject player;
+    public Leg2RobotBlue Blue1;
+    public Leg2RobotBlue Blue2;
+    public Leg2RobotRed Red1;
+    public Leg2RobotRed Red2;
+    public Leg4Robot Leg1;
+    public Leg4Robot Leg2;
+    public Leg4Robot Leg3;
+    public Leg4Robot Leg4;
+    public EnergyCore Energy;
+    public bool first=true;
+    public bool Die=false;
+
 
     void Start()
     {
         InitializeHealthBar();
+        
     }
 
+
+void Update()
+{
+    if (PlayerCurHp <= 0f)
+    {
+        if(first){
+            UpdateHealth(0);
+            first=false;
+        }
+        
+    }
+    if(Die){
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+
+            Blue1.Respawn();
+            Blue2.Respawn();
+            Red1.Respawn();
+            Red2.Respawn();
+            Leg1.Respawn();
+            Leg2.Respawn();
+            Leg3.Respawn();
+            Leg4.Respawn();
+            Energy.Respawn();
+            Die=false;
+            player.transform.position=new Vector3(376f, -4f, 432f);
+            player.transform.rotation=Quaternion.Euler(new Vector3(0f, 90f, 0f));
+            PlayerCurHp=100f;
+            player.GetComponent<MouseLookScript>().enabled = true;
+            player.GetComponent<PlayerMovementScript>().enabled = true;
+            GameOver.SetActive(false);
+
+        }
+    }
+    
+}
 
     void InitializeHealthBar()
     {
@@ -42,6 +94,12 @@ public class PlayerHp : MonoBehaviour
 
     void PlayerDefeated()
     {
+        
+        StartCoroutine(Death());
+        Player.enabled=true;
+        Player.Play("PlayerDeath", 0, 0.0f);
+        player.GetComponent<MouseLookScript>().enabled = false;
+        player.GetComponent<PlayerMovementScript>().enabled = false;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -54,6 +112,16 @@ public class PlayerHp : MonoBehaviour
         if (other.CompareTag("PlayerAttack30")){
             UpdateHealth(-30f);
         }
+        
+    }
+    private IEnumerator Death()
+    {
+
+        yield return new WaitForSeconds(2.0f);
+        Player.enabled=false;
+        yield return new WaitForSeconds(1.0f);
+        GameOver.SetActive(true);
+        Die=true;
         
     }
 }

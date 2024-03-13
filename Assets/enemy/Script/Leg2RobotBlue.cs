@@ -34,10 +34,7 @@ public class Leg2RobotBlue : MonoBehaviour
     public GameObject player;
     public GameObject PlayerForward;
 
-    public Transform Destination;
-
-    public EnemyArea Area1;
-    public EnemyArea Area2;
+    public Transform RespawnSpot;
 
     public NavMeshAgent navMeshAgent;
 
@@ -48,7 +45,6 @@ public class Leg2RobotBlue : MonoBehaviour
     void Start()
     {
         player=GameObject.FindGameObjectWithTag("Player");
-
     }
     void Update()
     {
@@ -127,6 +123,7 @@ public class Leg2RobotBlue : MonoBehaviour
     }
     public void SetDestination(Transform targetDestination)
     {
+        navMeshAgent.isStopped = false;
         navMeshAgent.SetDestination(targetDestination.position);
         Blue.Play(Walk, 0, 0.0f);
         FistMoving=true;
@@ -151,7 +148,28 @@ public class Leg2RobotBlue : MonoBehaviour
         IfWalking=false;
         IfAttacking=false;
     }
-
+    public void Respawn(){
+        gameObject.SetActive(true);
+        navMeshAgent.isStopped = true;
+        Attack=false;
+        IfWalking=false;
+        IfAttacking=false;
+        IfIdle=false;
+        Z=false;
+        FistMoving=false;
+        Die=false;
+        back=true;
+        Blue.Play("Great Sword Idle", 0, 0.0f);
+        Hp=5;
+        transform.position=RespawnSpot.position;
+        transform.rotation=RespawnSpot.rotation;
+        StartCoroutine(RespawnSpotMove());
+    }
+    private IEnumerator RespawnSpotMove(){
+        yield return new WaitForSeconds(0.5f);
+        transform.position=RespawnSpot.position;
+        transform.rotation=RespawnSpot.rotation;
+    }
     private IEnumerator ExecuteAfterDelayCoolTime(float delayInSeconds)
     {
         

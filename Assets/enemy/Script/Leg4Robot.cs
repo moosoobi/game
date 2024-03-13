@@ -16,6 +16,8 @@ public class Leg4Robot : MonoBehaviour
     private GameObject bullet1;
     private GameObject bullet2;
     
+    public Transform RespawnSpot;
+    
     public int damage=10;
     public int Hp=5;
 
@@ -52,7 +54,7 @@ public class Leg4Robot : MonoBehaviour
     }
     void Update()
     {
-        Debug.DrawRay(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, Color.green);
+
         if(!Die){
             if(Z){
                 if(Vector3.Distance(transform.position, player.transform.position)<DetectRange){
@@ -64,8 +66,6 @@ public class Leg4Robot : MonoBehaviour
                         RaycastHit hit;
                         if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
                         {
-                            Debug.Log(1);
-                            Debug.Log(hit.collider.gameObject.name);
                             if(hit.collider.gameObject.name=="Player"){
                                 if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
                                 if(!IfAttacking){Attacking();IfAttacking=true;}
@@ -135,6 +135,7 @@ public class Leg4Robot : MonoBehaviour
 
     public void SetDestination(Transform targetDestination)
     {
+        navMeshAgent.isStopped = false;
         navMeshAgent.SetDestination(targetDestination.position);
         Reg4.Play(Walk, 0, 0.0f);
         FistMoving=true;
@@ -164,8 +165,29 @@ public class Leg4Robot : MonoBehaviour
         IfAttacking=false;
     }
 
+    public void Respawn(){
 
-    
+        gameObject.SetActive(true);
+        navMeshAgent.isStopped = true;
+        Attack=false;
+        IfWalking=false;
+        IfAttacking=false;
+        IfIdle=false;
+        Z=false;
+        FistMoving=false;
+        Die=false;
+        Reg4.Play("4legRobot_IDLE", 0, 0.0f);
+        Hp=5;
+
+        transform.position=RespawnSpot.position;
+        transform.rotation=RespawnSpot.rotation;
+        StartCoroutine(RespawnSpotMove());
+    }
+    private IEnumerator RespawnSpotMove(){
+        yield return new WaitForSeconds(0.5f);
+        transform.position=RespawnSpot.position;
+        transform.rotation=RespawnSpot.rotation;
+    }
     private IEnumerator ExecuteAfterDelayCoolTime(float delayInSeconds)
     {
         
