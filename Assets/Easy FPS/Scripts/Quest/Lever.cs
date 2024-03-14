@@ -19,6 +19,7 @@ public class Lever : MonoBehaviour
     public RectTransform TriangleRect;
     public GameObject Exit;
     public Material newMaterial; // 변경할 Material
+    public PickCard card;
 
     
     void Start()
@@ -38,6 +39,7 @@ public class Lever : MonoBehaviour
                 UiText.color=Color.red;
                 Renderer rend = Exit.GetComponent<Renderer>();
                 rend.material = newMaterial;
+                card.PositiveClear();
                 StartCoroutine(ExecuteAfterDelayText(3f)); 
                 
             }
@@ -107,6 +109,7 @@ public class Lever : MonoBehaviour
                 player.GetComponent<MouseLookScript>().enabled = true;
                 player.GetComponent<PlayerMovementScript>().enabled = true;
                 Triangle.SetActive(false);
+                UiObject.SetActive(false);
             }
         }
         }

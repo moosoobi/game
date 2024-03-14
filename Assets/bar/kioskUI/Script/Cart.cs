@@ -19,6 +19,7 @@ public class Cart : MonoBehaviour
     public GameObject KioskUi;
     public GameObject SuccessDoor;
 
+    public AudioSource StoneDoor;
     public string[] dialogue;
     public string[] dialogue2;
     public int curResponseTracker=0;
@@ -121,6 +122,7 @@ public class Cart : MonoBehaviour
             player.GetComponent<MouseLookScript>().enabled = true;
             player.GetComponent<PlayerMovementScript>().enabled = true;
             StartConversation2();
+            StoneDoor.Play();
             SuccessDoor.transform.Translate(0f, -5f, 0f);
 
             

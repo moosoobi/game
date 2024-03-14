@@ -26,6 +26,8 @@ public class EnergyCoreDoor : MonoBehaviour
     public int curResponseTracker=0;
     public TextMeshProUGUI npcName;
     public TextMeshProUGUI npcDialogueBox;
+    public TextMeshProUGUI QuestText;
+    public TextMeshProUGUI Text2;//questtext
     public GameObject dialogueUI;
     public bool isTalking=false;
     
@@ -52,9 +54,21 @@ public class EnergyCoreDoor : MonoBehaviour
         }
         if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
             EndDialogue();
+            QuestActive();
         }
     }
-    
+    public void QuestActive(){
+        Text2.text="에너지 증폭장치를 부숴라.";
+        StartCoroutine(ChangeColor());
+    }
+    private IEnumerator ChangeColor(){
+        for(int i=0;i<3;i++){
+            QuestText.color=new Color32(229,255,0,255);
+            yield return new WaitForSeconds(0.5f);
+            QuestText.color=new Color32(0,222,255,255);
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         

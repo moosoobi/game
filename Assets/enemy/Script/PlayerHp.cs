@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerHp : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class PlayerHp : MonoBehaviour
     public EnergyCore Energy;
     public bool first=true;
     public bool Die=false;
+    public TextMeshProUGUI Core;
+    public Slider CorehealthSlider;
+    public AudioSource UrgentSound;
+    public AudioSource BarBackground;
 
 
     void Start()
@@ -44,7 +49,10 @@ void Update()
     if(Die){
         if (Input.GetKeyDown(KeyCode.Return))
         {
-
+            UrgentSound.Stop();
+            BarBackground.Play();
+            CorehealthSlider.gameObject.SetActive(false);
+            Core.gameObject.SetActive(false);
             Blue1.Respawn();
             Blue2.Respawn();
             Red1.Respawn();
@@ -55,8 +63,8 @@ void Update()
             Leg4.Respawn();
             Energy.Respawn();
             Die=false;
-            player.transform.position=new Vector3(376f, -4f, 432f);
-            player.transform.rotation=Quaternion.Euler(new Vector3(0f, 90f, 0f));
+            player.transform.position=new Vector3(351f, -3.8f, 430f);
+            player.transform.rotation=Quaternion.Euler(new Vector3(0f, 0f, 0f));
             PlayerCurHp=100f;
             player.GetComponent<MouseLookScript>().enabled = true;
             player.GetComponent<PlayerMovementScript>().enabled = true;

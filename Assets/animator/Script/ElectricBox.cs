@@ -28,35 +28,35 @@ public class ElectricBox : MonoBehaviour
     public GameObject dialogueUI;
     public bool isTalking=false;
     private bool talked=false;
-    public bool Detail=false;
+
 
     
     void Update()
     {
         
         if(zzzz){
-            if(guninventory.currneguniskey()){
+            if(Input.GetMouseButtonDown(0)&&guninventory.currneguniskey()){
                         Positivedoorlock();
                         
             }
-            if(Detail){
-                if(Input.GetMouseButtonDown(0)&&!doorlock){
-                    if(guninventory.currneguniskey()){
-                        if(!talked){
-                            talked=true;
-                            StartConversation();
-                        }
-                        
+        
+            if(Input.GetMouseButtonDown(0)&&!doorlock){
+                if(guninventory.currneguniskey()){
+                    if(!talked){
+                        talked=true;
+                        StartConversation();
                     }
-                }
-                if(Input.GetMouseButtonDown(0)&&isTalking==true){
-                
-                    ContinueConversation();          
-                }
-                if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
-                    EndDialogue();
+                    
                 }
             }
+            if(Input.GetMouseButtonDown(0)&&isTalking==true){
+            
+                ContinueConversation();          
+            }
+            if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
+                EndDialogue();
+            }
+            
             
             if (Input.GetMouseButtonDown(0)&&doorlock&&openTrigger){
                 if(openTrigger){

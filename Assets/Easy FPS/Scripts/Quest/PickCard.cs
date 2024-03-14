@@ -16,21 +16,25 @@ public class PickCard : MonoBehaviour
     public TextMeshProUGUI npcDialogueBox;
     public GameObject dialogueUI;
     public bool isTalking=false;
-    private bool talked=false;
+    private bool Clear=false;
     
     void Update()
     {
-        if(zzz&&Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==false){
+        if(Clear){
+            if(zzz&&Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==false){
             guninventory.PositiveCard();
             StartConversation();
+            }
+            if(Input.GetMouseButtonDown(0)&&isTalking==true){
+                ContinueConversation();          
+            }
+            if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
+                EndDialogue();
+            }
         }
-        if(Input.GetMouseButtonDown(0)&&isTalking==true){
-            ContinueConversation();          
-        }
-        if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
-            EndDialogue();
-        }
+        
     }
+    public void PositiveClear(){Clear=true;}
     private void OnTriggerEnter(Collider other){
         
         zzz=true;

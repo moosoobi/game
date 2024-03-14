@@ -23,6 +23,8 @@ public class EnergyCore : Quest
     static public float CoreHp=10f;
     public float CoreMaxHp=10f;
     public TextMeshProUGUI Core;
+    public TextMeshProUGUI QuestText;
+    public TextMeshProUGUI Text2;//questtext
     public Slider healthSlider;
     public bool first=false;
     public GunScript Gun;
@@ -91,6 +93,7 @@ public class EnergyCore : Quest
             if (other.CompareTag("Attack")){
                 
                 if(!first){
+                    
                     Gun=GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>();
                     Gun.Talking();
                     SecuritySound.Play();
@@ -106,8 +109,21 @@ public class EnergyCore : Quest
                     }
                     
                     
+                    
                 }
                 UpdateHealth(-0.5f);
+        }
+    }
+    public void QuestActive(){
+        Text2.text="에너지 증폭장치를 부수고 적들을 섬멸하라.";
+        StartCoroutine(ChangeColor());
+    }
+    private IEnumerator ChangeColor(){
+        for(int i=0;i<3;i++){
+            QuestText.color=new Color32(229,255,0,255);
+            yield return new WaitForSeconds(0.5f);
+            QuestText.color=new Color32(0,222,255,255);
+            yield return new WaitForSeconds(0.5f);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -125,6 +141,7 @@ public class EnergyCore : Quest
             }
         }
     public void EndDialogue(){
+        QuestActive();
         curResponseTracker=0;
         isTalking=false;
         dialogueUI.SetActive(false);
@@ -153,7 +170,7 @@ public class EnergyCore : Quest
         }
     }
     public void Respawn(){
-        for(int i=0;i<8;i++){
+        for(int i=0;i<10;i++){
             myDoor[i].Play("DoorClose", 0, 0.0f);
         }
         CoreHp=10.0f;

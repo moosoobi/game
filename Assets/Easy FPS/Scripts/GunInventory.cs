@@ -206,6 +206,7 @@ public class GunInventory : MonoBehaviour {
 	public void NegativeCard(){IfCard=false;}
 	public bool ReturnCard(){return IfCard;}
 	public bool IfHand(){return currentGun.name.Contains("Hand");}
+	public bool IfGun(){return currentGun.name.Contains("Gun");}
 
 	/*
 	* Assigns Animator to the script so we can use it in other scripts of a current gun.

@@ -39,17 +39,17 @@ public class DialogueManager : MonoBehaviour
     
     void Update()
     {
+        
         if(zzz){
             if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==true){
                 
                 ContinueConversation();          
             }
-                
+            
                
         
             if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==false){
                 StartConversation();
-                
             }
             else if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
                 if(stage==0){
@@ -72,11 +72,11 @@ public class DialogueManager : MonoBehaviour
                         EndDialogue();
                     }
                 }
-                
-                
             }
+   
         }
     }
+
     public void upstage(){stage++;}
     private void OnTriggerEnter(Collider other)
     {    
