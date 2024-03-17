@@ -308,21 +308,6 @@ public class PlayerMovementScript : MonoBehaviour {
 	*/
 	void InstantiateBlood (RaycastHit _hitPos,bool swordHitWithGunOrNot) {		
 
-		if (currentWeapo == "gun") {
-			GunScript.HitMarkerSound ();
-
-			if (_hitSound)
-				_hitSound.Play ();
-			else
-				print ("Missing hit sound");
-			
-			if (!swordHitWithGunOrNot) {
-				if (bloodEffect)
-					Instantiate (bloodEffect, _hitPos.point, Quaternion.identity);
-				else
-					print ("Missing blood effect prefab in the inspector.");
-			}
-		} 
 	}
 	private GameObject myBloodEffect;
 
