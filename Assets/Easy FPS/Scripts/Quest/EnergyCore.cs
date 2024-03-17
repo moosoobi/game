@@ -10,6 +10,7 @@ public class EnergyCore : Quest
     public QuestState CurrentState;
     public string[] dialogue;
     public string[] dialogue1;
+    public int stage=0;
     public int curResponseTracker=0;
     public TextMeshProUGUI npcName;
     public TextMeshProUGUI npcDialogueBox;
@@ -74,17 +75,31 @@ public class EnergyCore : Quest
             
             ContinueConversation();          
         }
-        if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
-            EndDialogue();
+        if(stage==0){
+            if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
+                EndDialogue();
+            }
+        }else if(stage==1){
+            if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue1.Length){
+                EndDialogue();
+            }
         }
+        
         
     }
     public void StartConversation(){
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
-        npcName.text=name;
+        npcName.text="J";
         npcDialogueBox.text=dialogue[0];
+    }
+    public void StartConversation1(){
+        isTalking=true;
+        curResponseTracker=0;
+        dialogueUI.SetActive(true);
+        npcName.text="J";
+        npcDialogueBox.text=dialogue1[0];
     }
 
     private void OnTriggerEnter(Collider other)
@@ -107,6 +122,7 @@ public class EnergyCore : Quest
                     for(int i=0;i<8;i++){
                         myDoor[i].Play(dooropen, 0, 0.0f);
                     }
+                    StartCoroutine(DoorClose());
                     
                     
                     
@@ -115,7 +131,11 @@ public class EnergyCore : Quest
         }
     }
     public void QuestActive(){
-        Text2.text="에너지 증폭장치를 부수고 적들을 섬멸하라.";
+        Text2.text="공격하는 적들을 피해 에너지 증폭장치를 부숴라.";
+        StartCoroutine(ChangeColor());
+    }
+    public void QuestActive1(){
+        Text2.text="메인 컴퓨터를 파괴하라.";
         StartCoroutine(ChangeColor());
     }
     private IEnumerator ChangeColor(){
@@ -126,11 +146,18 @@ public class EnergyCore : Quest
             yield return new WaitForSeconds(0.5f);
         }
     }
+    private IEnumerator DoorClose(){
+        yield return new WaitForSeconds(3f);
+        for(int i=0;i<10;i++){
+            myDoor[i].Play("DoorClose", 0, 0.0f);
+        }
+    }
     private void OnTriggerExit(Collider other)
     {    
             zzz=false;
     }
     public void ContinueConversation(){
+        if(stage==0){
             curResponseTracker++;
             if(curResponseTracker>dialogue.Length){
                 curResponseTracker=dialogue.Length;
@@ -139,21 +166,40 @@ public class EnergyCore : Quest
             {
                 npcDialogueBox.text=dialogue[curResponseTracker];
             }
+        }else if(stage==1){
+            curResponseTracker++;
+            if(curResponseTracker>dialogue1.Length){
+                curResponseTracker=dialogue1.Length;
+            }
+            else if(curResponseTracker<dialogue1.Length)
+            {
+                npcDialogueBox.text=dialogue1[curResponseTracker];
+            }
         }
+     
+    }
     public void EndDialogue(){
-        QuestActive();
-        curResponseTracker=0;
-        isTalking=false;
-        dialogueUI.SetActive(false);
-        Gun.NotTalking();
-        Leg2RobotBlue1.SetDestination(targetDestination1);
-        Leg2RobotBlue2.SetDestination(targetDestination2);
-        Leg2RobotRed1.SetDestination(targetDestination3);
-        Leg2RobotRed2.SetDestination(targetDestination4);
-        Leg4Robot1.SetDestination(targetDestination5);
-        Leg4Robot2.SetDestination(targetDestination6);
-        Leg4Robot3.SetDestination(targetDestination7);
-        Leg4Robot4.SetDestination(targetDestination8);
+        if(stage==0){
+            QuestActive();
+            curResponseTracker=0;
+            isTalking=false;
+            dialogueUI.SetActive(false);
+            Gun.NotTalking();
+            Leg2RobotBlue1.SetDestination(targetDestination1);
+            Leg2RobotBlue2.SetDestination(targetDestination2);
+            Leg2RobotRed1.SetDestination(targetDestination3);
+            Leg2RobotRed2.SetDestination(targetDestination4);
+            Leg4Robot1.SetDestination(targetDestination5);
+            Leg4Robot2.SetDestination(targetDestination6);
+            Leg4Robot3.SetDestination(targetDestination7);
+            Leg4Robot4.SetDestination(targetDestination8);
+        }else if(stage==1){
+            curResponseTracker=0;
+            isTalking=false;
+            dialogueUI.SetActive(false);
+            QuestActive1();
+        }
+   
     }
     public void UpdateHealth(float newHP)
     {
@@ -166,7 +212,19 @@ public class EnergyCore : Quest
         // HP가 0 이하로 떨어졌을 때 처리 (예를 들어, 보스가 죽었을 때)
         if (CoreHp <= 0f)
         {
-            Debug.Log("파괴");
+            Leg2RobotBlue1.Hp=0;
+            Leg2RobotBlue2.Hp=0;
+            Leg2RobotRed1.Hp=0;
+            Leg2RobotRed2.Hp=0;
+            Leg4Robot1.Hp=0;
+            Leg4Robot2.Hp=0;
+            Leg4Robot3.Hp=0;
+            Leg4Robot4.Hp=0;
+            UrgentSound.Stop();
+            RadioSound.Play();
+            stage=1;
+            StartConversation1();
+
         }
     }
     public void Respawn(){
