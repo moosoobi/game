@@ -51,7 +51,11 @@ public class Leg2RobotBlue : MonoBehaviour
         
         if(!Die){
             if(Z){
-                if(Vector3.Distance(transform.position, player.transform.position)<DetectRange){
+                if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
+                                if(!IfAttacking){Attacking();IfAttacking=true;}
+                                StartCoroutine(ExecuteAfterDelayCoolTime(CoolTime));
+                                CoolTime=0;
+                }else if(Vector3.Distance(transform.position, player.transform.position)<DetectRange){
                     Vector3 playerToEnemy = player.transform.position - transform.position;
                     Vector3 playerForward = transform.forward;
                     float angle = Vector3.Angle(playerForward, playerToEnemy);
@@ -62,11 +66,7 @@ public class Leg2RobotBlue : MonoBehaviour
                         {
                             //Debug.Log(hit.collider.gameObject.name);
                             if(hit.collider.gameObject.name=="Player"){
-                                if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
-                                if(!IfAttacking){Attacking();IfAttacking=true;}
-                                StartCoroutine(ExecuteAfterDelayCoolTime(CoolTime));
-                                CoolTime=0;
-                                }else if(AttackRange<Vector3.Distance(transform.position, player.transform.position)&&Vector3.Distance(transform.position, player.transform.position)<DetectRange){
+                                if(AttackRange<Vector3.Distance(transform.position, player.transform.position)&&Vector3.Distance(transform.position, player.transform.position)<DetectRange){
                                     if(!IfWalking){Walking();IfWalking=true;}
                                     navMeshAgent.SetDestination(player.transform.position);
                                 }else{

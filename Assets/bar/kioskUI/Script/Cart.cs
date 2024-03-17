@@ -19,6 +19,8 @@ public class Cart : MonoBehaviour
     public GameObject KioskUi;
     public GameObject SuccessDoor;
 
+    public TextMeshProUGUI QuestText;
+    public TextMeshProUGUI Text2;//questtext
     public AudioSource StoneDoor;
     public string[] dialogue;
     public string[] dialogue2;
@@ -124,6 +126,7 @@ public class Cart : MonoBehaviour
             StartConversation2();
             StoneDoor.Play();
             SuccessDoor.transform.Translate(0f, -5f, 0f);
+            QuestActive();
 
             
         }else{
@@ -134,6 +137,18 @@ public class Cart : MonoBehaviour
             StartConversation();
         }
 
+    }
+    public void QuestActive(){
+        Text2.text="천장에 있는 동그란 전등을 사격하라.";
+        StartCoroutine(ChangeColor());
+    }
+    private IEnumerator ChangeColor(){
+        for(int i=0;i<3;i++){
+            QuestText.color=new Color32(229,255,0,255);
+            yield return new WaitForSeconds(0.5f);
+            QuestText.color=new Color32(0,222,255,255);
+            yield return new WaitForSeconds(0.5f);
+        }
     }
     public void AllClear(){
         index=0;
