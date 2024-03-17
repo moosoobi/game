@@ -12,6 +12,7 @@ public class CelingLight : MonoBehaviour
     public GameObject CelingLight1;
     public GameObject CelingLight2;
     public GameObject CelingLight3;
+    public AudioSource BarBackground;
 
     public void LightOff()
     {
@@ -28,6 +29,8 @@ public class CelingLight : MonoBehaviour
             rend2.material = newMaterial;
             Renderer rend3 = CelingLight3.GetComponent<Renderer>();
             rend3.material = newMaterial1;
+            BarBackground.Stop();
+            
         }
         
     }
