@@ -7,6 +7,7 @@ public class CelingLight : MonoBehaviour
     public AudioSource EnemyDeathSound;
     public Light[] light;
     public Material newMaterial;
+    public Material newMaterial1;
     public bool first=true;
     public GameObject CelingLight1;
     public GameObject CelingLight2;
@@ -26,7 +27,7 @@ public class CelingLight : MonoBehaviour
             Renderer rend2 = CelingLight2.GetComponent<Renderer>();
             rend2.material = newMaterial;
             Renderer rend3 = CelingLight3.GetComponent<Renderer>();
-            rend3.material = newMaterial;
+            rend3.material = newMaterial1;
         }
         
     }
