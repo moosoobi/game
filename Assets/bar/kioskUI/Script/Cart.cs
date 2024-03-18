@@ -35,6 +35,8 @@ public class Cart : MonoBehaviour
     public bool Clear=false;
     public GunInventory guninventory;
     public GameObject InsertCard;
+    public GameObject BarCamera;
+    public SuccessDoor SuccessDoorScript;
 
 
     void Update()
@@ -55,16 +57,19 @@ public class Cart : MonoBehaviour
             guninventory.NegativeCard();
             guninventory.ChangeWeapon1();
             KioskUi.SetActive(false);
-            player.GetComponent<MouseLookScript>().enabled = true;
-            player.GetComponent<PlayerMovementScript>().enabled = true;
-            StartConversation2();
-            StoneDoor.Play();
-            SuccessDoor.transform.Translate(0f, -5f, 0f);
-            QuestActive();
             InsertCard.SetActive(false);
+            StartCoroutine(Camera());
+            Clear=false;
         }
     }
-
+    private IEnumerator Camera()
+    {
+        SuccessDoorScript.Success();
+        StoneDoor.Play();
+        yield return new WaitForSeconds(3.0f);
+        BarCamera.SetActive(false);
+        StartConversation2();
+    }
     public void AddItem(int number)
     {
         if(index==4){}
@@ -224,6 +229,9 @@ public class Cart : MonoBehaviour
         curResponseTracker2=0;
         isTalking2=false;
         dialogueUI.SetActive(false);
+        QuestActive();
+        player.GetComponent<MouseLookScript>().enabled = true;
+        player.GetComponent<PlayerMovementScript>().enabled = true;
     }
     public bool IsTalking(){return isTalking==false&&isTalking2==false;}
 }
