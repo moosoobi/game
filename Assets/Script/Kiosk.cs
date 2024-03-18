@@ -19,27 +19,28 @@ public class Kiosk : MonoBehaviour
     public GameObject player;
     public Cart cart;
     public int stack=1;
+    public bool Possible=false;
 
 
 
     void Update()
     {
          if(zzzz){
-            if(Input.GetMouseButtonDown(0)&&guninventory.currneguniscard()&&cart.IsTalking()&&stack==0){
+            if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&cart.IsTalking()&&stack==0&&Possible){
                 stack=1;
             }
-            else if(Input.GetMouseButtonDown(0)&&guninventory.currneguniscard()&&cart.IsTalking()&&stack==1){
+            else if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&cart.IsTalking()&&stack==1&&Possible){
                 Cursor.SetActive(true);
                 KioskUi.SetActive(true);
                 player.GetComponent<MouseLookScript>().enabled = false;
                 player.GetComponent<PlayerMovementScript>().enabled = false;
                 stack=0;
-            }else if(Input.GetMouseButtonDown(0)&&!guninventory.currneguniscard()&&!isTalking){
+            }else if(Input.GetMouseButtonDown(0)&&!Possible&&!isTalking){
                 dialogueUI.SetActive(true);
                 npcName.text="";
-                npcDialogueBox.text="카드가 필요할 것 같다.";
+                npcDialogueBox.text="아직은 볼일이 없는 것 같다.";
                 isTalking=true;
-            }else if(Input.GetMouseButtonDown(0)&&!guninventory.currneguniscard()&&isTalking){
+            }else if(Input.GetMouseButtonDown(0)&&!Possible&&isTalking){
                 isTalking=false;
                 dialogueUI.SetActive(false);
             }

@@ -32,6 +32,9 @@ public class Cart : MonoBehaviour
     public bool isTalking=false;
     public bool isTalking2=false;
     private bool talked=false;
+    public bool Clear=false;
+    public GunInventory guninventory;
+    public GameObject InsertCard;
 
 
     void Update()
@@ -47,6 +50,18 @@ public class Cart : MonoBehaviour
         }
         if(Input.GetMouseButtonDown(0)&&curResponseTracker2==dialogue2.Length){
             EndDialogue2();
+        }
+        if(Clear&&guninventory.currneguniscard()&&Input.GetMouseButtonDown(0)){
+            guninventory.NegativeCard();
+            guninventory.ChangeWeapon1();
+            KioskUi.SetActive(false);
+            player.GetComponent<MouseLookScript>().enabled = true;
+            player.GetComponent<PlayerMovementScript>().enabled = true;
+            StartConversation2();
+            StoneDoor.Play();
+            SuccessDoor.transform.Translate(0f, -5f, 0f);
+            QuestActive();
+            InsertCard.SetActive(false);
         }
     }
 
@@ -120,13 +135,8 @@ public class Cart : MonoBehaviour
     public void Check(){
         if(productNames[0]=="Espresso martini"&&productNames[1]=="Xrated tonic"&&productNames[2]=="Illegal"&&productNames[3]=="Tequlia sunrise"){
             Cursor.SetActive(false);
-            KioskUi.SetActive(false);
-            player.GetComponent<MouseLookScript>().enabled = true;
-            player.GetComponent<PlayerMovementScript>().enabled = true;
-            StartConversation2();
-            StoneDoor.Play();
-            SuccessDoor.transform.Translate(0f, -5f, 0f);
-            QuestActive();
+            Clear=true;
+            InsertCard.SetActive(true);
 
             
         }else{

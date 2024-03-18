@@ -17,6 +17,7 @@ public class PickCard : MonoBehaviour
     public GameObject dialogueUI;
     public bool isTalking=false;
     private bool Clear=false;
+    public Kiosk kiosk;
     
     void Update()
     {
@@ -34,7 +35,7 @@ public class PickCard : MonoBehaviour
         }
         
     }
-    public void PositiveClear(){Clear=true;}
+    public void PositiveClear(){Clear=true;kiosk.Possible=true;}
     private void OnTriggerEnter(Collider other){
         
         zzz=true;

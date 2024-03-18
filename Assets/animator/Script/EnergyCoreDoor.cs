@@ -22,6 +22,8 @@ public class EnergyCoreDoor : MonoBehaviour
 
     public GunInventory guninventory;
 
+    public EnergyCore EnergyCore;
+
     public string[] dialogue;
     public int curResponseTracker=0;
     public TextMeshProUGUI npcName;
@@ -108,5 +110,6 @@ public class EnergyCoreDoor : MonoBehaviour
         curResponseTracker=0;
         isTalking=false;
         dialogueUI.SetActive(false);
+        EnergyCore.Open=true;
     }
 }

@@ -17,6 +17,7 @@ public class EnergyCore : Quest
     public GameObject dialogueUI;
     public bool isTalking=false;
     private bool zzz=false;
+    public bool Open=false;
     public GunInventory guninventory;
     public AudioSource SecuritySound;
     public AudioSource RadioSound;
@@ -104,7 +105,8 @@ public class EnergyCore : Quest
 
     private void OnTriggerEnter(Collider other)
     {    
-            zzz=true;
+        zzz=true;
+        if(Open){
             if (other.CompareTag("Attack")){
                 
                 if(!first){
@@ -128,7 +130,9 @@ public class EnergyCore : Quest
                     
                 }
                 UpdateHealth(-0.5f);
+            }
         }
+            
     }
     public void QuestActive(){
         Text2.text="공격하는 적들을 피해 에너지 증폭장치를 부숴라.";
@@ -236,102 +240,102 @@ public class EnergyCore : Quest
         UpdateHealth(0);
     }
     private IEnumerator LightBlub(){
-        for(int i=0;i<21;i++){
+        for(int i=0;i<2;i++){
             light[i].enabled = false;
             light[i].color =  Color.red;
         }
         yield return new WaitForSeconds(0.5f);
-        for(int i=0;i<21;i++){
+        for(int i=0;i<2;i++){
             light[i].enabled = true;
             light[i].color =  Color.red;
         }
-        for(int i=0;i<21;i++){
+        for(int i=0;i<2;i++){
             light[i].enabled = false;
             light[i].color =  Color.red;
         }
         yield return new WaitForSeconds(0.5f);
-        for(int i=0;i<21;i++){
-            light[i].enabled = true;
-            light[i].color =  Color.red;
-        }
-        yield return new WaitForSeconds(0.5f);
-        for(int i=0;i<21;i++){
-            light[i].enabled = false;
-            light[i].color =  Color.red;
-        }
-        yield return new WaitForSeconds(0.5f);
-        for(int i=0;i<21;i++){
+        for(int i=0;i<2;i++){
             light[i].enabled = true;
             light[i].color =  Color.red;
         }
         yield return new WaitForSeconds(0.5f);
-        for(int i=0;i<21;i++){
+        for(int i=0;i<2;i++){
             light[i].enabled = false;
             light[i].color =  Color.red;
         }
         yield return new WaitForSeconds(0.5f);
-        for(int i=0;i<21;i++){
+        for(int i=0;i<2;i++){
             light[i].enabled = true;
             light[i].color =  Color.red;
         }
-        
         yield return new WaitForSeconds(0.5f);
-        for(int i=0;i<21;i++){
+        for(int i=0;i<2;i++){
             light[i].enabled = false;
             light[i].color =  Color.red;
         }
         yield return new WaitForSeconds(0.5f);
-        for(int i=0;i<21;i++){
+        for(int i=0;i<2;i++){
             light[i].enabled = true;
             light[i].color =  Color.red;
         }
         
         yield return new WaitForSeconds(0.5f);
-        for(int i=0;i<21;i++){
+        for(int i=0;i<2;i++){
             light[i].enabled = false;
             light[i].color =  Color.red;
         }
         yield return new WaitForSeconds(0.5f);
-        for(int i=0;i<21;i++){
+        for(int i=0;i<2;i++){
             light[i].enabled = true;
             light[i].color =  Color.red;
         }
         
         yield return new WaitForSeconds(0.5f);
-        for(int i=0;i<21;i++){
+        for(int i=0;i<2;i++){
             light[i].enabled = false;
             light[i].color =  Color.red;
         }
         yield return new WaitForSeconds(0.5f);
-        for(int i=0;i<21;i++){
+        for(int i=0;i<2;i++){
             light[i].enabled = true;
             light[i].color =  Color.red;
         }
         
         yield return new WaitForSeconds(0.5f);
-        for(int i=0;i<21;i++){
+        for(int i=0;i<2;i++){
             light[i].enabled = false;
             light[i].color =  Color.red;
         }
         yield return new WaitForSeconds(0.5f);
-        for(int i=0;i<21;i++){
+        for(int i=0;i<2;i++){
             light[i].enabled = true;
             light[i].color =  Color.red;
         }
         
         yield return new WaitForSeconds(0.5f);
-        for(int i=0;i<21;i++){
+        for(int i=0;i<2;i++){
             light[i].enabled = false;
             light[i].color =  Color.red;
         }
         yield return new WaitForSeconds(0.5f);
-        for(int i=0;i<21;i++){
+        for(int i=0;i<2;i++){
             light[i].enabled = true;
             light[i].color =  Color.red;
         }
         
         yield return new WaitForSeconds(0.5f);
-        for(int i=0;i<21;i++){
+        for(int i=0;i<2;i++){
+            light[i].enabled = false;
+            light[i].color =  Color.red;
+        }
+        yield return new WaitForSeconds(0.5f);
+        for(int i=0;i<2;i++){
+            light[i].enabled = true;
+            light[i].color =  Color.red;
+        }
+        
+        yield return new WaitForSeconds(0.5f);
+        for(int i=0;i<2;i++){
             light[i].color =  Color.white;
         }
     }
