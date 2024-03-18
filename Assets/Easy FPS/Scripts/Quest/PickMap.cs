@@ -32,7 +32,6 @@ public class PickMap : MonoBehaviour
     void Update()
     {
         
-
         if(zzz&&dia.stage==1){
             if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
                 text1.SetActive(true);
