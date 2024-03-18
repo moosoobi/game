@@ -57,6 +57,7 @@ public class Cart : MonoBehaviour
             guninventory.NegativeCard();
             guninventory.ChangeWeapon1();
             KioskUi.SetActive(false);
+            BarCamera.SetActive(true);
             InsertCard.SetActive(false);
             StartCoroutine(Camera());
             Clear=false;

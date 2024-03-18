@@ -6,6 +6,7 @@ public class SuccessDoor : MonoBehaviour
 {
     public Animator myDoor=null;
 
+
     public void Success(){
         myDoor.Play("BarDoorOpen", 0, 0.0f);
     }
