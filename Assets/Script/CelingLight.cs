@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CelingLight : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class CelingLight : MonoBehaviour
     public GameObject CelingLight2;
     public GameObject CelingLight3;
     public AudioSource BarBackground;
+    public TextMeshProUGUI QuestText;
+    public TextMeshProUGUI Text2;//questtext
 
     public void LightOff()
     {
@@ -30,9 +33,21 @@ public class CelingLight : MonoBehaviour
             Renderer rend3 = CelingLight3.GetComponent<Renderer>();
             rend3.material = newMaterial1;
             BarBackground.Stop();
+            QuestActive();
             
         }
         
     }
-    
+    public void QuestActive(){
+        Text2.text="비밀통로로 가라.";
+        StartCoroutine(ChangeColor());
+    }
+    private IEnumerator ChangeColor(){
+        for(int i=0;i<3;i++){
+            QuestText.color=new Color32(229,255,0,255);
+            yield return new WaitForSeconds(0.5f);
+            QuestText.color=new Color32(0,222,255,255);
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
 }
