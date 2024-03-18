@@ -75,7 +75,7 @@ public class PickCard : MonoBehaviour
         isTalking=false;
         dialogueUI.SetActive(false);
         UiObject.SetActive(true);
-        UiText.text="3번을 눌러 카드를 꺼내십시오.";
+        UiText.text="4번을 눌러 카드를 꺼내십시오.";
         StartCoroutine(ExecuteAfterDelayText(3f)); 
         
     }
