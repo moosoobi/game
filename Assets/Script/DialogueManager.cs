@@ -34,6 +34,8 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         dialogueUI.SetActive(false);
+        player.GetComponent<MouseLookScript>().enabled = false;
+        player.GetComponent<PlayerMovementScript>().enabled = false;
     }
 
     
@@ -152,6 +154,8 @@ public class DialogueManager : MonoBehaviour
             pickmapbool=true;
             pickmap.QuestActive();
         }
+        player.GetComponent<MouseLookScript>().enabled = true;
+        player.GetComponent<PlayerMovementScript>().enabled = true;
     }
     
 }
