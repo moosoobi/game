@@ -38,17 +38,11 @@ public class ElectricBox : MonoBehaviour
             if(Input.GetMouseButtonDown(0)&&guninventory.currneguniskey()){
                         Positivedoorlock();
                         
+            }else if(Input.GetMouseButtonDown(0)&&!guninventory.currneguniskey()&&isTalking==false&&!doorlock){
+                        StartConversation();    
             }
         
-            if(Input.GetMouseButtonDown(0)&&!doorlock){
-                if(guninventory.currneguniskey()){
-                    if(!talked){
-                        talked=true;
-                        StartConversation();
-                    }
-                    
-                }
-            }
+        
             if(Input.GetMouseButtonDown(0)&&isTalking==true){
             
                 ContinueConversation();          
@@ -96,14 +90,6 @@ public class ElectricBox : MonoBehaviour
         dialogueUI.SetActive(true);
         npcName.text="주인공";
         npcDialogueBox.text=dialogue[0];
-        if(openTrigger){
-                    myDoor.Play(dooropen, 0, 0.0f);
-                    closeTrigger=true;
-                    openTrigger=false;
-                    if (DrawerOpen)
-                    DrawerOpen.Play ();
-                    StartCoroutine(ExecuteAfterDelay(1f));
-                }
         
 
     }
@@ -121,7 +107,6 @@ public class ElectricBox : MonoBehaviour
         curResponseTracker=0;
         isTalking=false;
         dialogueUI.SetActive(false);
-        Positivedoorlock();
         
     }
 

@@ -14,6 +14,7 @@ public class BarNpc : MonoBehaviour
     private bool zzz=false;
     public GunInventory guninventory;
     public bool IfRed=false;
+    public GameObject player;
     void Update()
     {
         if(zzz){
@@ -40,6 +41,8 @@ public class BarNpc : MonoBehaviour
         dialogueUI.SetActive(true);
         npcName.text=name;
         npcDialogueBox.text=dialogue[0];
+        player.GetComponent<MouseLookScript>().enabled = false;
+        player.GetComponent<PlayerMovementScript>().enabled = false;
 
 
     }
@@ -58,6 +61,8 @@ public class BarNpc : MonoBehaviour
         if(IfRed){npcDialogueBox.color=Color.white;}
         isTalking=false;
         dialogueUI.SetActive(false);
+        player.GetComponent<MouseLookScript>().enabled = true;
+        player.GetComponent<PlayerMovementScript>().enabled = true;
 
     }
     private void OnTriggerEnter(Collider other)

@@ -4,7 +4,8 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovementScript : MonoBehaviour {
 	Rigidbody rb;
-
+	public GameObject player;
+	public bool CanMove=false;
 	[Tooltip("Current players speed")]
 	public float currentSpeed;
 	[Tooltip("Assign players camera here")]
@@ -91,7 +92,12 @@ public class PlayerMovementScript : MonoBehaviour {
 	* Update loop calling other stuff
 	*/
 	void Update(){
-		
+		/*
+		if(CanMove){
+			CanMove=false;
+			player.GetComponent<MouseLookScript>().enabled = true;
+            player.GetComponent<PlayerMovementScript>().enabled = true;
+		}*/
 
 		Jumping ();
 

@@ -18,21 +18,25 @@ public class PickCard : MonoBehaviour
     public bool isTalking=false;
     private bool Clear=false;
     public Kiosk kiosk;
+    public GameObject player;
     
     void Update()
     {
-        if(Clear){
-            if(zzz&&Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==false){
-            guninventory.PositiveCard();
-            StartConversation();
-            }
-            if(Input.GetMouseButtonDown(0)&&isTalking==true){
-                ContinueConversation();          
-            }
-            if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
-                EndDialogue();
-            }
+        
+        if(zzz&&Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==false){
+        guninventory.PositiveCard();
+        UiObject.SetActive(true);
+        UiText.text="카드키를 획득했다. 숫자키 4번을 눌러 손에 들 수 있다";
+        StartCoroutine(ExecuteAfterDelayText(3f)); 
+        //StartConversation();
         }
+        if(Input.GetMouseButtonDown(0)&&isTalking==true){
+            ContinueConversation();          
+        }
+        if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
+            EndDialogue();
+        }
+        
         
     }
     public void PositiveClear(){Clear=true;kiosk.Possible=true;}
@@ -57,7 +61,8 @@ public class PickCard : MonoBehaviour
         dialogueUI.SetActive(true);
         npcName.text="주인공";
         npcDialogueBox.text=dialogue[0];
-        
+        player.GetComponent<MouseLookScript>().enabled = false;
+        player.GetComponent<PlayerMovementScript>().enabled = false;
 
     }
     public void ContinueConversation(){
@@ -75,8 +80,10 @@ public class PickCard : MonoBehaviour
         isTalking=false;
         dialogueUI.SetActive(false);
         UiObject.SetActive(true);
-        UiText.text="4번을 눌러 카드를 꺼내십시오.";
+        UiText.text="카드키를 획득했다. 숫자키 4번을 눌러 손에 들 수 있다";
         StartCoroutine(ExecuteAfterDelayText(3f)); 
+        player.GetComponent<MouseLookScript>().enabled = true;
+        player.GetComponent<PlayerMovementScript>().enabled = true;
         
     }
 

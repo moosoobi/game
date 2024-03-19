@@ -8,6 +8,8 @@ public class DrawerController2 : MonoBehaviour
 
     public bool openTrigger=true;
     public bool closeTrigger=false;
+    public bool zzzz=false;
+    public bool first=true;
 
 
     public AudioSource DrawerOpen;
@@ -15,9 +17,11 @@ public class DrawerController2 : MonoBehaviour
 
     public string dooropen;
     public string doorclose;
+    
 
     public int stack=0;
-    public bool zzzz=false;
+
+    
 
     public GameObject cross;
     public pick pick;
@@ -28,24 +32,25 @@ public class DrawerController2 : MonoBehaviour
         
         if(zzzz){
             if (Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
-            if(openTrigger){
+            if(openTrigger&&first){
                 myDoor.Play(dooropen, 0, 0.0f);
                 closeTrigger=true;
                 openTrigger=false;
                 if (DrawerOpen)
 				DrawerOpen.Play ();
                 StartCoroutine(ExecuteAfterDelay(1f));
+                first=false;
             }
             else if(closeTrigger){
 
                 if(stack==0){stack++;}
                 else if(stack==1){
                     stack=0;
-                    myDoor.Play(doorclose, 0, 0.0f);
+                    
                     closeTrigger=false;
                     openTrigger=true;
                     if (DrawerClose)
-                    DrawerClose.Play ();
+                    
                     StartCoroutine(ExecuteAfterDelay(1f));
                 }
             }

@@ -21,6 +21,8 @@ public class DialogueManager : MonoBehaviour
     
     public GameObject player;
     public GameObject dialogueUI;
+    public TextMeshProUGUI UiText;
+    public GameObject UiObject;
 
     public TextMeshProUGUI npcName;
     public TextMeshProUGUI npcDialogueBox;
@@ -30,6 +32,8 @@ public class DialogueManager : MonoBehaviour
     
     public PickMap pickmap;
     private bool pickmapbool=false;
+
+    public GameObject Stage1;
 
     void Start()
     {
@@ -43,17 +47,21 @@ public class DialogueManager : MonoBehaviour
     {
         
         if(zzz){
-            if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==true){
-                
-                ContinueConversation();          
-            }
+        
             
                
         
             if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==false){
                 StartConversation();
             }
-            else if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
+            
+   
+        }
+        if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==true){
+                
+                ContinueConversation();          
+        }
+        if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
                 if(stage==0){
                     if(curResponseTracker==dialogue.Length){
                         EndDialogue();
@@ -74,8 +82,6 @@ public class DialogueManager : MonoBehaviour
                         EndDialogue();
                     }
                 }
-            }
-   
         }
     }
 
@@ -92,6 +98,8 @@ public class DialogueManager : MonoBehaviour
     public void Negativezzz(){zzz=true;}
 
     public void StartConversation(){
+        player.GetComponent<MouseLookScript>().enabled = false;
+        player.GetComponent<PlayerMovementScript>().enabled = false;
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
@@ -144,18 +152,32 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void EndDialogue(){
+
+        player.GetComponent<MouseLookScript>().enabled = true;
+        player.GetComponent<PlayerMovementScript>().enabled = true;
         isTalking=false;
         dialogueUI.SetActive(false);
-        if(stage==0){stage=1;}
-        if(stage==2){stage=3;}
+        if(stage==0){
+            stage=1;
+            UiObject.SetActive(true);
+            UiText.text="마우스 좌클릭으로 오브젝트와 상호작용할 수 있습니다.";
+            StartCoroutine(ExecuteAfterDelayText(3f)); 
+        }
+        if(stage==2){stage=3;Stage1.SetActive(false);}
         if (stage == 3) { stage = 4; }
 
         if (!pickmapbool){
             pickmapbool=true;
             pickmap.QuestActive();
         }
-        player.GetComponent<MouseLookScript>().enabled = true;
-        player.GetComponent<PlayerMovementScript>().enabled = true;
+
+    }
+    private IEnumerator ExecuteAfterDelayText(float delayInSeconds)
+    {
+        // 일정 시간만큼 대기
+        yield return new WaitForSeconds(delayInSeconds);
+        UiObject.SetActive(false);
+        
     }
     
 }

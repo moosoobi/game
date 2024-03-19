@@ -16,6 +16,7 @@ public class PickKey : MonoBehaviour
     public GameObject dialogueUI;
     public bool isTalking=false;
     public bool Detail=false;
+    public GameObject player;
 
     void Update()
     {
@@ -34,7 +35,7 @@ public class PickKey : MonoBehaviour
         if(Input.GetMouseButtonDown(0)&&zzz){
             guninventory.PositiveKey();
             UiObject.SetActive(true);
-            UiText.text="3번을 눌러 키를 꺼내십시오.";
+            UiText.text="열쇠를 획득했다. 숫자키 3번을 눌러 손에 들 수 있다.";
             StartCoroutine(ExecuteAfterDelayText(2f)); 
         }
         
@@ -48,6 +49,8 @@ public class PickKey : MonoBehaviour
         zzz=false;
     }
     public void StartConversation(){
+        player.GetComponent<MouseLookScript>().enabled = false;
+        player.GetComponent<PlayerMovementScript>().enabled = false;
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
@@ -68,12 +71,14 @@ public class PickKey : MonoBehaviour
             }
     }
     public void EndDialogue(){
+        player.GetComponent<MouseLookScript>().enabled = true;
+        player.GetComponent<PlayerMovementScript>().enabled = true;
         curResponseTracker=0;
         isTalking=false;
         dialogueUI.SetActive(false);
         guninventory.PositiveKey();
         UiObject.SetActive(true);
-        UiText.text="3번을 눌러 키를 꺼내십시오.";
+        UiText.text=" 열쇠를 획득했다. 숫자키 3번을 눌러 손에 들 수 있다.";
         StartCoroutine(ExecuteAfterDelayText(3f)); 
     }
     private IEnumerator ExecuteAfterDelayText(float delayInSeconds)

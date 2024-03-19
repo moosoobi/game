@@ -1190,8 +1190,8 @@ MonoBehaviour:
   walkingSpeed: 3
   runningSpeed: 10
   bulletsIHave: 1000
-  bulletsInTheGun: 3
-  amountOfBulletsPerLoad: 3
+  bulletsInTheGun: 10
+  amountOfBulletsPerLoad: 10
   currentgun: 
   zcross: 0
   talking: 0

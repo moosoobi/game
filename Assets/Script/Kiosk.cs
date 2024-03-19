@@ -26,10 +26,10 @@ public class Kiosk : MonoBehaviour
     void Update()
     {
          if(zzzz){
-            if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&cart.IsTalking()&&stack==0&&Possible){
+            if(Input.GetMouseButtonDown(0)&&cart.IsTalking()&&stack==0&&Possible){
                 stack=1;
             }
-            else if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&cart.IsTalking()&&stack==1&&Possible){
+            else if(Input.GetMouseButtonDown(0)&&cart.IsTalking()&&stack==1&&Possible){
                 Cursor.SetActive(true);
                 KioskUi.SetActive(true);
                 player.GetComponent<MouseLookScript>().enabled = false;

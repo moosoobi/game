@@ -22,6 +22,7 @@ public class Cart : MonoBehaviour
     public TextMeshProUGUI QuestText;
     public TextMeshProUGUI Text2;//questtext
     public AudioSource StoneDoor;
+    public AudioSource RadioSound;
     public string[] dialogue;
     public string[] dialogue2;
     public int curResponseTracker=0;
@@ -211,12 +212,16 @@ public class Cart : MonoBehaviour
         isTalking2=true;
         curResponseTracker2=0;
         dialogueUI.SetActive(true);
-        npcName.text="J";
+        npcName.text="주인공";
         npcDialogueBox.text=dialogue2[0];
         
 
     }
     public void ContinueConversation2(){
+            if(curResponseTracker2==1){
+                npcName.text="J";
+                RadioSound.Play();
+            }
             curResponseTracker2++;
             if(curResponseTracker2>dialogue2.Length){
                 curResponseTracker2=dialogue2.Length;

@@ -24,6 +24,9 @@ public class ShootingQuest : Quest
     public bool isTalking=false;
     public GameObject GunImage;
     public bool conversation2=false;
+    public GameObject player;
+    public TextMeshProUGUI Text1;//uitext
+    public GameObject text1;//uitext
 
     public ShootingQuest(QuestState currentState)
     {
@@ -92,8 +95,7 @@ public class ShootingQuest : Quest
         CurrentState=QuestState.Active;
     }
     public void QuestActive(){
-        Text.text=Description;
-        StartCoroutine(ChangeColor());
+        
         QuestSound.Play();
         StartConversation();
 
@@ -107,6 +109,8 @@ public class ShootingQuest : Quest
         }
     }
      public void StartConversation(){
+        player.GetComponent<MouseLookScript>().enabled = false;
+        player.GetComponent<PlayerMovementScript>().enabled = false;
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
@@ -129,9 +133,23 @@ public class ShootingQuest : Quest
 
 
     public void EndDialogue(){
+        curResponseTracker=0;
+        Text.text=Description;
+        StartCoroutine(ChangeColor());
         isTalking=false;
         dialogueUI.SetActive(false);
         GunImage.SetActive(false);
+        player.GetComponent<MouseLookScript>().enabled = true;
+        player.GetComponent<PlayerMovementScript>().enabled = true;
+        text1.SetActive(true);
+        Text1.text="2번을 눌러 총을 들고 마우스 좌클릭하여 총을 쏠 수 있습니다.";
+        StartCoroutine(ExecuteAfterDelayText(2.0f));
     }
 
+    private IEnumerator ExecuteAfterDelayText(float delayInSeconds)
+    {
+        // 일정 시간만큼 대기
+        yield return new WaitForSeconds(delayInSeconds);
+        text1.SetActive(false);
+    }
 }

@@ -50,4 +50,11 @@ public class CelingLight : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Attack")){
+            LightOff();
+            
+        }
+    }
 }

@@ -9,7 +9,7 @@ public class BulletScript : MonoBehaviour {
 
 	void Start()
     {
-        // 총알을 시작할 때 바로 움직이도록 추가
+        StartCoroutine(BulletDestroy());
         MoveBullet();
     }
 
@@ -29,8 +29,12 @@ public class BulletScript : MonoBehaviour {
                 Instantiate(bloodEffect, transform.position, Quaternion.LookRotation(transform.forward));
                 Destroy(gameObject);
             }else{
-                Destroy(gameObject);
+                
+                
             }
     }
-
+    private IEnumerator BulletDestroy(){
+        yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
+    }
 }
