@@ -146,8 +146,9 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.SetActive(false);
         if(stage==0){stage=1;}
         if(stage==2){stage=3;}
-        
-        if(!pickmapbool){
+        if (stage == 3) { stage = 4; }
+
+        if (!pickmapbool){
             pickmapbool=true;
             pickmap.QuestActive();
         }
