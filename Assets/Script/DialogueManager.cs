@@ -61,13 +61,10 @@ public class DialogueManager : MonoBehaviour
                 
                 ContinueConversation();          
         }
+
         if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
-                if(stage==0){
-                    if(curResponseTracker==dialogue.Length){
-                        EndDialogue();
-                    }
-                }
-                else if(stage==1){
+                
+                if(stage==1){
                     if(curResponseTracker==dialogue2.Length){
                         EndDialogue();
                     }
@@ -104,7 +101,7 @@ public class DialogueManager : MonoBehaviour
         curResponseTracker=0;
         dialogueUI.SetActive(true);
         npcName.text=name;
-        if(stage==0){npcDialogueBox.text=dialogue[0];}
+        if(stage==0){}
         else if(stage==1){npcDialogueBox.text=dialogue2[0];}
         else if(stage==2){npcDialogueBox.text=dialogue3[0];}
         else if(stage==3){npcDialogueBox.text=dialogue4[0];}
@@ -113,14 +110,7 @@ public class DialogueManager : MonoBehaviour
 
     public void ContinueConversation(){
         if(stage==0){
-                    curResponseTracker++;
-                    if(curResponseTracker>dialogue.Length){
-                        curResponseTracker=dialogue.Length;
-                    }
-                    else if(curResponseTracker<dialogue.Length)
-                    {
-                        npcDialogueBox.text=dialogue[curResponseTracker];
-                    }
+                    
         }else if(stage==1){
                     curResponseTracker++;
                     if(curResponseTracker>dialogue2.Length){

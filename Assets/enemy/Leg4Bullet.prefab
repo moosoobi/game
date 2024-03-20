@@ -4920,9 +4920,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1534943698593475186}
+  - component: {fileID: 4056039549096474913}
   m_Layer: 0
-  m_Name: leg4Bullet
-  m_TagString: Untagged
+  m_Name: Leg4Bullet
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4947,6 +4948,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -7.645, z: 0}
+--- !u!114 &4056039549096474913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703661833022528483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0bec6ad1a8178843b14e93fc9397d0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1 &3923966207440757459
 GameObject:
   m_ObjectHideFlags: 0

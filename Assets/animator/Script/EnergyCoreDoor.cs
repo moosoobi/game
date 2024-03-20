@@ -31,6 +31,7 @@ public class EnergyCoreDoor : MonoBehaviour
     public TextMeshProUGUI QuestText;
     public TextMeshProUGUI Text2;//questtext
     public GameObject dialogueUI;
+    public GameObject player;
     public bool isTalking=false;
     
 
@@ -87,6 +88,8 @@ public class EnergyCoreDoor : MonoBehaviour
         zzzz=false;
     }
     public void StartConversation(){
+        player.GetComponent<MouseLookScript>().enabled = false;
+        player.GetComponent<PlayerMovementScript>().enabled = false;
         RadioSound.Play();
         isTalking=true;
         curResponseTracker=0;
@@ -107,6 +110,8 @@ public class EnergyCoreDoor : MonoBehaviour
             }
     }
     public void EndDialogue(){
+        player.GetComponent<MouseLookScript>().enabled = true;
+        player.GetComponent<PlayerMovementScript>().enabled = true;
         curResponseTracker=0;
         isTalking=false;
         dialogueUI.SetActive(false);

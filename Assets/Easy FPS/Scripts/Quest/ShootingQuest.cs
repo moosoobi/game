@@ -53,6 +53,9 @@ public class ShootingQuest : Quest
                 Text.text="퀘스트 완료 npc에게 돌아가십시요.";
                 StartCoroutine(ChangeColor());
                 QuestSound.Play();
+                text1.SetActive(true);
+                Text1.text="숫자키 1번을 눌러 총을 넣을 수 있습니다.";
+                StartCoroutine(ExecuteAfterDelayText(2.0f));
             
         }
     }

@@ -206,15 +206,15 @@ public class Leg4Robot : MonoBehaviour
     {
         Vector3 playerDirection = (player.transform.position - bulletSpawnPlace.transform.position).normalized;
         bullet = Instantiate(bulletPrefab, bulletSpawnPlace.transform.position, bulletSpawnPlace.transform.rotation);
-        bullet.transform.right = playerDirection;
+        bullet.transform.forward = playerDirection*-1;
         Leg4Bullet.Play();
         yield return new WaitForSeconds(0.4f);
         bullet1 = Instantiate(bulletPrefab, bulletSpawnPlace.transform.position, bulletSpawnPlace.transform.rotation);
-        bullet1.transform.right = playerDirection;
+        bullet1.transform.forward = playerDirection*-1;
         Leg4Bullet.Play();
         yield return new WaitForSeconds(0.4f);
         bullet2 = Instantiate(bulletPrefab, bulletSpawnPlace.transform.position, bulletSpawnPlace.transform.rotation);
-        bullet2.transform.right = playerDirection;
+        bullet2.transform.forward = playerDirection*-1;
         Leg4Bullet.Play();
         
     }

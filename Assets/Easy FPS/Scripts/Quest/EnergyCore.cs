@@ -51,6 +51,10 @@ public class EnergyCore : Quest
     public Transform targetDestination8;  
 
 
+    public float dialogueInterval = 3f; // 대화 간격 (3초)
+
+
+
 
      public EnergyCore(QuestState currentState)
     {
@@ -74,11 +78,11 @@ public class EnergyCore : Quest
 
         if(Input.GetMouseButtonDown(0)&&isTalking==true){
             
-            ContinueConversation();          
+               
         }
         if(stage==0){
             if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
-                EndDialogue();
+                
             }
         }else if(stage==1){
             if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue1.Length){
@@ -88,13 +92,37 @@ public class EnergyCore : Quest
         
         
     }
-    public void StartConversation(){
+    IEnumerator StartConversation()
+    {
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
         npcName.text="J";
         npcDialogueBox.text=dialogue[0];
+        Leg2RobotBlue1.SetDestination(targetDestination1);
+        Leg2RobotBlue2.SetDestination(targetDestination2);
+        Leg2RobotRed1.SetDestination(targetDestination3);
+        Leg2RobotRed2.SetDestination(targetDestination4);
+        Leg4Robot1.SetDestination(targetDestination5);
+        Leg4Robot2.SetDestination(targetDestination6);
+        Leg4Robot3.SetDestination(targetDestination7);
+        Leg4Robot4.SetDestination(targetDestination8);
+        StartCoroutine(DoorClose());
+        while (curResponseTracker< dialogue.Length)
+        {
+            // 대화 내용을 UI에 표시
+            npcDialogueBox.text= dialogue[curResponseTracker];
+
+            // 대화 간격만큼 기다린 후 다음 대화로 넘어감
+            yield return new WaitForSeconds(dialogueInterval);
+
+            // 다음 대화로 인덱스 증가
+            curResponseTracker++;
+        }
+
+        EndDialogue();
     }
+
     public void StartConversation1(){
         isTalking=true;
         curResponseTracker=0;
@@ -119,12 +147,12 @@ public class EnergyCore : Quest
                     first=true;
                     healthSlider.maxValue = CoreMaxHp;
                     healthSlider.value = CoreHp;
-                    StartConversation();
+                    StartCoroutine(StartConversation());
                     StartCoroutine(LightBlub());
                     for(int i=0;i<8;i++){
                         myDoor[i].Play(dooropen, 0, 0.0f);
                     }
-                    StartCoroutine(DoorClose());
+                    
                     
                     
                     
@@ -152,7 +180,7 @@ public class EnergyCore : Quest
     }
     private IEnumerator DoorClose(){
         yield return new WaitForSeconds(3f);
-        for(int i=0;i<10;i++){
+        for(int i=0;i<9;i++){
             myDoor[i].Play("DoorClose", 0, 0.0f);
         }
     }
@@ -189,19 +217,13 @@ public class EnergyCore : Quest
             isTalking=false;
             dialogueUI.SetActive(false);
             Gun.NotTalking();
-            Leg2RobotBlue1.SetDestination(targetDestination1);
-            Leg2RobotBlue2.SetDestination(targetDestination2);
-            Leg2RobotRed1.SetDestination(targetDestination3);
-            Leg2RobotRed2.SetDestination(targetDestination4);
-            Leg4Robot1.SetDestination(targetDestination5);
-            Leg4Robot2.SetDestination(targetDestination6);
-            Leg4Robot3.SetDestination(targetDestination7);
-            Leg4Robot4.SetDestination(targetDestination8);
+            
         }else if(stage==1){
             curResponseTracker=0;
             isTalking=false;
             dialogueUI.SetActive(false);
             QuestActive1();
+            
         }
    
     }
