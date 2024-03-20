@@ -27,6 +27,7 @@ public class Leg2RobotBlue : MonoBehaviour
     public bool FistMoving=false;
     public bool Die=false;
     public bool back=true;
+    public bool Ifhit=false;
 
     public string Walk;
     public string Slash;
@@ -52,21 +53,26 @@ public class Leg2RobotBlue : MonoBehaviour
         if(!Die){
             if(Z){
                 if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
-                                if(!IfAttacking){Attacking();IfAttacking=true;}
-                                StartCoroutine(ExecuteAfterDelayCoolTime(CoolTime));
-                                CoolTime=0;
-                }else if(Vector3.Distance(transform.position, player.transform.position)<DetectRange){
+                    Vector3 directionToPlayer = player.transform.position - transform.position;
+                    directionToPlayer.y = 0f; // Y축 방향은 무시 (수평 방향으로만 회전)
+                    // 방향 벡터를 바탕으로 회전 값 생성
+                    Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+                    // 적의 회전을 부드럽게 설정
+                    transform.rotation = targetRotation;
+                    if(!IfAttacking){Attacking();IfAttacking=true;}
+                                
+                }else if(Vector3.Distance(transform.position, player.transform.position)<DetectRange||Ifhit){
                     Vector3 playerToEnemy = player.transform.position - transform.position;
                     Vector3 playerForward = transform.forward;
                     float angle = Vector3.Angle(playerForward, playerToEnemy);
                     //Debug.Log(angle);
-                    if(angle < 90f){
+                    if(angle < 90f||Ifhit){
                         RaycastHit hit;
                         if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
                         {
                             //Debug.Log(hit.collider.gameObject.name);
-                            if(hit.collider.gameObject.name=="Player"){
-                                if(AttackRange<Vector3.Distance(transform.position, player.transform.position)&&Vector3.Distance(transform.position, player.transform.position)<DetectRange){
+                            if(hit.collider.gameObject.name=="Player"||Ifhit){
+                                if(Vector3.Distance(transform.position, player.transform.position)<DetectRange||Ifhit){
                                     if(!IfWalking){Walking();IfWalking=true;}
                                     navMeshAgent.SetDestination(player.transform.position);
                                 }else{
@@ -117,6 +123,13 @@ public class Leg2RobotBlue : MonoBehaviour
         
 
     }
+    private IEnumerator hitting(float delayInSeconds)
+    {
+        
+        yield return new WaitForSeconds(delayInSeconds);
+        Ifhit=false;
+        
+    }
 
     public void Active(){
         Z=true;
@@ -135,11 +148,12 @@ public class Leg2RobotBlue : MonoBehaviour
         IfAttacking=false;
     }
     private void Attacking(){
+        
         BlueSword.Play();
         Blue.Play(Slash, 0, 0.0f);
         navMeshAgent.isStopped = true;
         Z=false;
-        StartCoroutine(ExecuteAfterDelay(3.0f));
+        StartCoroutine(ExecuteAfterDelay(1.0f));
         IfWalking=false;
         player.GetComponent<PlayerHp>().UpdateHealth(-30f);
     }
@@ -175,6 +189,7 @@ public class Leg2RobotBlue : MonoBehaviour
         
         yield return new WaitForSeconds(delayInSeconds);
         CoolTime=3.0f;
+        IfAttacking=false;
         
     }
     private IEnumerator ExecuteAfterDelay(float delayInSeconds)
@@ -182,6 +197,7 @@ public class Leg2RobotBlue : MonoBehaviour
         
         yield return new WaitForSeconds(delayInSeconds);
         Z=true;
+        IfAttacking=false;
         
     }
     private IEnumerator Death()
@@ -198,6 +214,8 @@ public class Leg2RobotBlue : MonoBehaviour
         if (other.CompareTag("Attack")){
             Hp-=1;
             EnemyHittingSound.Play();
+            Ifhit=true;
+            StartCoroutine(hitting(3.0f));
         }
     }
 }

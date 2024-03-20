@@ -16,7 +16,8 @@ public class Leg4Bullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // 총알이 다른 오브젝트와 충돌하면 파괴
+        Debug.Log(1);
         Destroy(gameObject);
     }
+
 }
