@@ -697,22 +697,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Reg4: {fileID: 4601716139352139771}
   Leg4Bullet: {fileID: 6490810567034058120}
+  EnemyHittingSound: {fileID: 0}
   bulletPrefab: {fileID: 739966955877709841, guid: 2f4e46ac89f1ee24aa78495423fcf9c4, type: 3}
   bulletSpawnPlace: {fileID: 4232172916967440862}
+  RespawnSpot: {fileID: 0}
   damage: 10
+  Hp: 5
   CoolTime: 3
   AttackRange: 10
   DetectRange: 20
   rotationSpeed: 5
+  raycastDistance: 20
   Attack: 0
   IfWalking: 0
   IfAttacking: 0
   IfIdle: 0
   Z: 1
+  first: 0
+  FistMoving: 0
+  Die: 0
   Walk: 4legRobot_walk
   Shoot: 4legRobot_IDLE
   player: {fileID: 0}
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
   navMeshAgent: {fileID: 6722813128877892781}
+  EnemyDeath: {fileID: 0}
 --- !u!4 &4095530274210076104 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ff8639e044601f44a212ac65e2af8a1, type: 3}
