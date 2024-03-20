@@ -139,8 +139,7 @@ public class EnergyCore : Quest
                 
                 if(!first){
                     
-                    Gun=GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>();
-                    Gun.Talking();
+                    
                     SecuritySound.Play();
                     healthSlider.gameObject.SetActive(true);
                     Core.gameObject.SetActive(true);
@@ -216,7 +215,7 @@ public class EnergyCore : Quest
             curResponseTracker=0;
             isTalking=false;
             dialogueUI.SetActive(false);
-            Gun.NotTalking();
+            
             
         }else if(stage==1){
             curResponseTracker=0;
@@ -257,6 +256,7 @@ public class EnergyCore : Quest
         for(int i=0;i<10;i++){
             myDoor[i].Play("DoorClose", 0, 0.0f);
         }
+        Open=false;
         CoreHp=10.0f;
         first=false;
         UpdateHealth(0);
