@@ -136,6 +136,8 @@ public class Leg2RobotBlue : MonoBehaviour
             if(Hp<=0){
                 Die=true;
                 StartCoroutine(Death());
+                navMeshAgent.isStopped = true;
+                
             }
         }
         
@@ -187,6 +189,7 @@ public class Leg2RobotBlue : MonoBehaviour
         IfWalking=false;
         IfAttacking=false;
         IfIdle=false;
+        Ifhit=false;
         Z=false;
         FistMoving=false;
         Die=false;

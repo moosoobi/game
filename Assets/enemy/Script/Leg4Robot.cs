@@ -165,13 +165,20 @@ public class Leg4Robot : MonoBehaviour
 
             if(Hp<=0){
                 Die=true;
-                EnemyDeath.Death();
-                gameObject.SetActive(false);
+                navMeshAgent.isStopped = true;
+                StartCoroutine(Death());
             }
         }
         
     }
-
+    private IEnumerator Death()
+    {
+        Reg4.Play("4legRobot_death", 0, 0.0f);
+        EnemyDeath.Death();
+        yield return new WaitForSeconds(3f);
+        gameObject.SetActive(false);
+        
+    }
     public void SetDestination(Transform targetDestination)
     {
         navMeshAgent.isStopped = false;
@@ -218,6 +225,7 @@ public class Leg4Robot : MonoBehaviour
         Die=false;
         Reg4.Play("4legRobot_IDLE", 0, 0.0f);
         Hp=5;
+        Ifhit=false;
 
         transform.position=RespawnSpot.position;
         transform.rotation=RespawnSpot.rotation;

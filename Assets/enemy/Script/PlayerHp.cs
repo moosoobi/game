@@ -50,7 +50,7 @@ void Update()
         if (Input.GetKeyDown(KeyCode.Return))
         {
             UrgentSound.Stop();
-            BarBackground.Play();
+  
             CorehealthSlider.gameObject.SetActive(false);
             Core.gameObject.SetActive(false);
             Blue1.Respawn();
@@ -85,19 +85,21 @@ void Update()
     }
     public void UpdateHealth(float newHP)
     {
+        if(!Die){
+            // 현재 HP 갱신
+            PlayerCurHp += newHP;
 
-        // 현재 HP 갱신
-        PlayerCurHp += newHP;
+            // 슬라이더에 반영
+            healthSlider.value = PlayerCurHp;
 
-        // 슬라이더에 반영
-        healthSlider.value = PlayerCurHp;
-
-        // HP가 0 이하로 떨어졌을 때 처리 (예를 들어, 보스가 죽었을 때)
-        if (PlayerCurHp <= 0f)
-        {
-            // 추가적인 처리 (보스 사망 등)
-            PlayerDefeated();
+            // HP가 0 이하로 떨어졌을 때 처리 (예를 들어, 보스가 죽었을 때)
+            if (PlayerCurHp <= 0f)
+            {
+                // 추가적인 처리 (보스 사망 등)
+                PlayerDefeated();
+            }
         }
+        
     }
 
     void PlayerDefeated()
@@ -111,15 +113,18 @@ void Update()
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("PlayerAttack10")){
-            UpdateHealth(-10f);
-        }
-        if (other.CompareTag("PlayerAttack20")){
-            UpdateHealth(-20f);
-        }
-        if (other.CompareTag("PlayerAttack30")){
-            UpdateHealth(-30f);
-        }
+        
+            if (other.CompareTag("PlayerAttack10")){
+                UpdateHealth(-10f);
+            }
+            if (other.CompareTag("PlayerAttack20")){
+                UpdateHealth(-20f);
+            }
+            if (other.CompareTag("PlayerAttack30")){
+                UpdateHealth(-30f);
+            }
+        
+        
         
     }
     private IEnumerator Death()

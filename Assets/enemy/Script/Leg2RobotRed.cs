@@ -148,6 +148,7 @@ public class Leg2RobotRed : MonoBehaviour
 
             if(Hp<=0){
                 Die=true;
+                navMeshAgent.isStopped = true;
                 StartCoroutine(Death());
             }
         }
@@ -208,6 +209,7 @@ public class Leg2RobotRed : MonoBehaviour
         Hp=5;
         transform.position=RespawnSpot.position;
         transform.rotation=RespawnSpot.rotation;
+        Ifhit=false;
         StartCoroutine(RespawnSpotMove());
     }
     private IEnumerator RespawnSpotMove(){

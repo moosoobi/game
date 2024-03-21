@@ -252,7 +252,7 @@ public class EnergyCore : Quest
             Door.openTrigger=true;
         }
         Open=false;
-        CoreHp=10.0f;
+        CoreHp=30.0f;
         first=false;
         UpdateHealth(0);
     }

@@ -16,6 +16,7 @@ public class CelingLight : MonoBehaviour
     public AudioSource BarBackground;
     public TextMeshProUGUI QuestText;
     public TextMeshProUGUI Text2;//questtext
+    public GameObject stage2;
 
     public void LightOff()
     {
@@ -34,6 +35,7 @@ public class CelingLight : MonoBehaviour
             rend3.material = newMaterial1;
             BarBackground.Stop();
             QuestActive();
+            stage2.SetActive(false);
             
         }
         
