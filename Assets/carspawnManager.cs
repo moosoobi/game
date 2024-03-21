@@ -9,7 +9,7 @@ public class carspawnManager : MonoBehaviour
     public Transform[] spawnPoints;
     public GameObject[] car;
 
-    public float spawnTime = 3f;
+    public float spawnTime;
     public float curTime;
 
     // Start is called before the first frame update
@@ -21,6 +21,7 @@ public class carspawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        spawnTime = Random.Range(.3f, 1.5f);
         if (curTime >= spawnTime && carCount < maxCount)
         {
             int x = Random.Range(0, spawnPoints.Length);
