@@ -58,28 +58,59 @@ public class Leg4Robot : MonoBehaviour
 
         if(!Die){
             if(Z){
-                if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
+                if(Ifhit){
+                    
+                    if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
+                        RaycastHit hit;
+                        if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
+                        {
+                            
+                            if(hit.collider.gameObject.name=="Player"){
+                                navMeshAgent.isStopped = true;
+                                Reg4.Play(Shoot, 0, 0.0f);
+                                if(!IfAttacking){Attacking();IfAttacking=true;}
+                            }
+                            else{
+                               
+                                if(!IfWalking){Walking();IfWalking=true;}
+                                navMeshAgent.SetDestination(player.transform.position);
+                            }   
+                        }
+                    }else if(Vector3.Distance(transform.position, player.transform.position)>=AttackRange){
+                       
+                        if(!IfWalking){Walking();IfWalking=true;}
+                        navMeshAgent.SetDestination(player.transform.position);
+                    }
+                }
+                else if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
                     Vector3 directionToPlayer = player.transform.position - transform.position;
                     directionToPlayer.y = 0f; // Y축 방향은 무시 (수평 방향으로만 회전)
                     // 방향 벡터를 바탕으로 회전 값 생성
                     Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
                     // 적의 회전을 부드럽게 설정
                     transform.rotation = targetRotation;
-                    if(!IfAttacking){Attacking();IfAttacking=true;}
+                    RaycastHit hit;
+                        if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
+                        {
+                            //Debug.Log(hit.collider.gameObject.name);
+                            if(hit.collider.gameObject.name=="Player"){if(!IfAttacking){Attacking();IfAttacking=true;}}
+                            
+                        }
                                 
                                 
-                }else if(Vector3.Distance(transform.position, player.transform.position)<DetectRange||Ifhit){
+                }else if(Vector3.Distance(transform.position, player.transform.position)<DetectRange){
                     Vector3 playerToEnemy = player.transform.position - transform.position;
                     Vector3 playerForward = transform.forward;
                     float angle = Vector3.Angle(playerForward, playerToEnemy);
                     //Debug.Log(angle);
-                    if(angle < 90f||Ifhit){
-                        Debug.Log("angle");
+                    if(angle < 90f){
+                        
                         RaycastHit hit;
                         if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
                         {
-                            if(hit.collider.gameObject.name=="Player"||Ifhit){
-                                if(Vector3.Distance(transform.position, player.transform.position)<DetectRange||Ifhit){
+                            if(hit.collider.gameObject.name=="Player"){
+                               
+                                if(Vector3.Distance(transform.position, player.transform.position)<DetectRange){
                                     if(!IfWalking){Walking();IfWalking=true;}
                                     navMeshAgent.SetDestination(player.transform.position);
                                 }else{
@@ -156,7 +187,7 @@ public class Leg4Robot : MonoBehaviour
         Reg4.Play(Walk, 0, 0.0f);
         navMeshAgent.isStopped = false;
         IfIdle=false;
-        IfAttacking=false;
+        
     }
     private void Attacking(){
 
@@ -171,7 +202,7 @@ public class Leg4Robot : MonoBehaviour
        
         Reg4.Play("4legRobot_IDLE", 0, 0.0f);
         IfWalking=false;
-        IfAttacking=false;
+       
     }
 
     public void Respawn(){
@@ -242,7 +273,7 @@ public class Leg4Robot : MonoBehaviour
             Hp-=1;
             EnemyHittingSound.Play();
             Ifhit=true;
-            StartCoroutine(hitting(3.0f));
+            
 
         }
     }

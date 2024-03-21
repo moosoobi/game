@@ -8,6 +8,7 @@ public class EnergyCore : Quest
 {
 
     public QuestState CurrentState;
+    public EnergyCoreDoor Door;
     public string[] dialogue;
     public string[] dialogue1;
     public int stage=0;
@@ -77,7 +78,7 @@ public class EnergyCore : Quest
         
 
         if(Input.GetMouseButtonDown(0)&&isTalking==true){
-            
+            ContinueConversation();
                
         }
         if(stage==0){
@@ -189,14 +190,7 @@ public class EnergyCore : Quest
     }
     public void ContinueConversation(){
         if(stage==0){
-            curResponseTracker++;
-            if(curResponseTracker>dialogue.Length){
-                curResponseTracker=dialogue.Length;
-            }
-            else if(curResponseTracker<dialogue.Length)
-            {
-                npcDialogueBox.text=dialogue[curResponseTracker];
-            }
+            
         }else if(stage==1){
             curResponseTracker++;
             if(curResponseTracker>dialogue1.Length){
@@ -255,6 +249,7 @@ public class EnergyCore : Quest
     public void Respawn(){
         for(int i=0;i<10;i++){
             myDoor[i].Play("DoorClose", 0, 0.0f);
+            Door.openTrigger=true;
         }
         Open=false;
         CoreHp=10.0f;

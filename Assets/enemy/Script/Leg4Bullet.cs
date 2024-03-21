@@ -14,10 +14,14 @@ public class Leg4Bullet : MonoBehaviour
         transform.Translate(Vector3.back * speed * Time.deltaTime);
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(1);
-        Destroy(gameObject);
+        if (other.gameObject.name == "Box Volume (2)"){}
+        else{
+            
+            Destroy(gameObject);
+        }
     }
+ 
 
 }

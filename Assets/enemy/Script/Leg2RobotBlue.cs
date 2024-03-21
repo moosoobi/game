@@ -52,14 +52,32 @@ public class Leg2RobotBlue : MonoBehaviour
         
         if(!Die){
             if(Z){
-                if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
+                if(Ifhit){
+                     if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
+                        RaycastHit hit;
+                        if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
+                        {
+                            //Debug.Log(hit.collider.gameObject.name);
+                            if(hit.collider.gameObject.name=="Player"){if(!IfAttacking){Attacking();IfAttacking=true;}}
+                            else{if(!IfWalking){Walking();IfWalking=true;}
+                                    navMeshAgent.SetDestination(player.transform.position);}   
+                        }
+                     }else{if(!IfWalking){Walking();IfWalking=true;}
+                                    navMeshAgent.SetDestination(player.transform.position);}
+                }
+                else if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
                     Vector3 directionToPlayer = player.transform.position - transform.position;
                     directionToPlayer.y = 0f; // Y축 방향은 무시 (수평 방향으로만 회전)
                     // 방향 벡터를 바탕으로 회전 값 생성
                     Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
                     // 적의 회전을 부드럽게 설정
                     transform.rotation = targetRotation;
-                    if(!IfAttacking){Attacking();IfAttacking=true;}
+                    RaycastHit hit;
+                        if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
+                        {
+                            //Debug.Log(hit.collider.gameObject.name);
+                            if(hit.collider.gameObject.name=="Player"){if(!IfAttacking){Attacking();IfAttacking=true;}}
+                        }
                                 
                 }else if(Vector3.Distance(transform.position, player.transform.position)<DetectRange||Ifhit){
                     Vector3 playerToEnemy = player.transform.position - transform.position;

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5982561446592270453}
   - component: {fileID: 6520679998570587836}
   - component: {fileID: 1954060177174249684}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Object001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 202809057277221886}
   - component: {fileID: 3240469697580651461}
   - component: {fileID: 7768213672347347393}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4921,8 +4921,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1534943698593475186}
   - component: {fileID: 9060016318666433624}
-  - component: {fileID: 8757568760552551089}
-  m_Layer: 6
+  - component: {fileID: 1761413029176631810}
+  m_Layer: 0
   m_Name: Leg4Bullet
   m_TagString: PlayerAttack10
   m_Icon: {fileID: 0}
@@ -4962,8 +4962,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
---- !u!65 &8757568760552551089
-BoxCollider:
+--- !u!135 &1761413029176631810
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4981,8 +4981,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.10805168, y: 0.09247471, z: 0.11715607}
-  m_Center: {x: -0.0084812, y: 0.0105272, z: 0.026482567}
+  m_Radius: 0.061133638
+  m_Center: {x: 5.1732785e-10, y: 0, z: 0.038866356}
 --- !u!1 &3923966207440757459
 GameObject:
   m_ObjectHideFlags: 0
@@ -4993,7 +4993,7 @@ GameObject:
   m_Component:
   - component: {fileID: 126231072158303430}
   - component: {fileID: 6064107060968954706}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Trail (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5130,7 +5130,7 @@ GameObject:
   - component: {fileID: 5750080086893571520}
   - component: {fileID: 1947772926282500277}
   - component: {fileID: 1664160877494498564}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Object002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5213,7 +5213,7 @@ GameObject:
   - component: {fileID: 7809366082598116181}
   - component: {fileID: 1299707468695613109}
   - component: {fileID: 4082286176813442039}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Cone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
