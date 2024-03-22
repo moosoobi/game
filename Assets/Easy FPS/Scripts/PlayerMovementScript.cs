@@ -120,7 +120,7 @@ public class PlayerMovementScript : MonoBehaviour {
 						//	print ("tu sem");
 						if (!_walkSound.isPlaying) {
 							//	print ("playam hod");
-							_walkSound.Play ();
+							//_walkSound.Play ();
 							_runSound.Stop ();
 						}					
 					} else if (maxSpeed == 5) {

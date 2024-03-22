@@ -8,6 +8,7 @@ public class ShootingCircle : MonoBehaviour
     public GameObject player;
     public TextMeshProUGUI Text;
     public TextMeshProUGUI QuestText;
+
     public bool Active=false;
     public Dummy Dummy1;
     public Dummy Dummy2;
@@ -15,6 +16,7 @@ public class ShootingCircle : MonoBehaviour
 
     public void Shoot(){
         player.GetComponent<PlayerMovementScript>().enabled = false;
+        player.GetComponent<PlayerMovementScript>().currentSpeed=0;
         Text.text="마네킹의 머리 가슴 배를 사격하여라.";
         StartCoroutine(ChangeColor());
         Dummy1.Active=true;

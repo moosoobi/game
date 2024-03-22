@@ -48,7 +48,7 @@ public class ShootingQuest : Quest
     public void BulletHitTarget()
     {
         if(CurrentState==QuestState.Active){
-
+                player.GetComponent<PlayerMovementScript>().enabled = true;
                 dia.upstage();
                 CurrentState=QuestState.Completed;
                 Text.text="퀘스트 완료 npc에게 돌아가십시요.";
@@ -57,6 +57,7 @@ public class ShootingQuest : Quest
                 text1.SetActive(true);
                 Text1.text="숫자키 1번을 눌러 총을 넣을 수 있습니다.";
                 StartCoroutine(ExecuteAfterDelayText(2.0f));
+                ShootingCircle.gameObject.SetActive(false);
             
         }
     }
@@ -149,6 +150,7 @@ public class ShootingQuest : Quest
         Text1.text="2번을 눌러 총을 들고 마우스 좌클릭하여 총을 쏠 수 있습니다.";
         StartCoroutine(ExecuteAfterDelayText(2.0f));
         ShootingCircle.Active=true;
+        ShootingCircle.gameObject.SetActive(true);
     }
 
     private IEnumerator ExecuteAfterDelayText(float delayInSeconds)
