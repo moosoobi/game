@@ -27,6 +27,7 @@ public class ShootingQuest : Quest
     public GameObject player;
     public TextMeshProUGUI Text1;//uitext
     public GameObject text1;//uitext
+    public ShootingCircle ShootingCircle;
 
     public ShootingQuest(QuestState currentState)
     {
@@ -39,7 +40,7 @@ public class ShootingQuest : Quest
     void Awake()
     {
         dia=GetComponent<DialogueManager>();
-        Description="마네킹의 머리 가슴 배를 사격하십시오.";
+        Description="사격연습을 위해 표시해둔 공간으로 가라.";
         requiredShots=3;
         currentShots=0;
     }
@@ -147,6 +148,7 @@ public class ShootingQuest : Quest
         text1.SetActive(true);
         Text1.text="2번을 눌러 총을 들고 마우스 좌클릭하여 총을 쏠 수 있습니다.";
         StartCoroutine(ExecuteAfterDelayText(2.0f));
+        ShootingCircle.Active=true;
     }
 
     private IEnumerator ExecuteAfterDelayText(float delayInSeconds)

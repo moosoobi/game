@@ -10,16 +10,20 @@ public class Dummy : MonoBehaviour
     public AudioSource ShutDown;
     public GameObject side;
     public bool ifhit=false;
+    public bool Active=false;
 
     
     private void OnTriggerEnter(Collider other)
     {
-        GetComponent<Renderer>().material=Off_Material;
-        if(side)side.GetComponent<Renderer>().material=Off_Material;
-        ShutDown.Play ();
-        StartCoroutine(ChangeMaterialAfterDelay());
-        ifhit=true;
-        mannequin.hit();
+        if(Active){
+            GetComponent<Renderer>().material=Off_Material;
+            if(side)side.GetComponent<Renderer>().material=Off_Material;
+            ShutDown.Play ();
+            StartCoroutine(ChangeMaterialAfterDelay());
+            ifhit=true;
+            mannequin.hit();
+        }
+        
 
     }
     private IEnumerator ChangeMaterialAfterDelay()

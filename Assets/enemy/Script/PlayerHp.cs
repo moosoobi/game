@@ -97,6 +97,7 @@ void Update()
             {
                 // 추가적인 처리 (보스 사망 등)
                 PlayerDefeated();
+                Die=true;
             }
         }
         
@@ -134,7 +135,7 @@ void Update()
         Player.enabled=false;
         yield return new WaitForSeconds(1.0f);
         GameOver.SetActive(true);
-        Die=true;
+        
         
     }
 }

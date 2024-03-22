@@ -94,7 +94,7 @@ public class EnergyCoreDoor : MonoBehaviour
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
-        npcName.text="Jeff";
+        npcName.text="J";
         npcDialogueBox.text=dialogue[0];
 
 

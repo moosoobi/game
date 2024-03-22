@@ -100,7 +100,7 @@ public class DialogueManager : MonoBehaviour
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
-        npcName.text=name;
+        npcName.text="J";
         if(stage==0){}
         else if(stage==1){npcDialogueBox.text=dialogue2[0];}
         else if(stage==2){npcDialogueBox.text=dialogue3[0];}
@@ -147,6 +147,7 @@ public class DialogueManager : MonoBehaviour
         player.GetComponent<PlayerMovementScript>().enabled = true;
         isTalking=false;
         dialogueUI.SetActive(false);
+        curResponseTracker=0;
         if(stage==0){
             stage=1;
             UiObject.SetActive(true);
