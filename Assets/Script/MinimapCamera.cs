@@ -13,7 +13,7 @@ public class MinimapCamera : MonoBehaviour
         if (player != null)
         {
             // 플레이어의 위치를 정확히 따라가기
-            transform.position = new Vector3(player.position.x, player.position.y+100f, player.transform.position.z);
+            transform.position = new Vector3(player.position.x, transform.position.y, player.transform.position.z);
         }
     }
 }
