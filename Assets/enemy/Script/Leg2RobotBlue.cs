@@ -28,12 +28,14 @@ public class Leg2RobotBlue : MonoBehaviour
     public bool Die=false;
     public bool back=true;
     public bool Ifhit=false;
+    public bool IfChip=false;
 
     public string Walk;
     public string Slash;
 
     public GameObject player;
     public GameObject PlayerForward;
+    public GameObject Chip;
 
     public Transform RespawnSpot;
 
@@ -227,6 +229,8 @@ public class Leg2RobotBlue : MonoBehaviour
         EnemyDeath.Death();
         yield return new WaitForSeconds(3f);
         gameObject.SetActive(false);
+        Quaternion newRotation = Quaternion.Euler(-90f, 0f, 0f); // 회전값 설정 (x축으로 -90도 회전)
+        if(IfChip){Instantiate(Chip, transform.position, newRotation);}
         
     }
 

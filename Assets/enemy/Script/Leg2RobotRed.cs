@@ -33,6 +33,7 @@ public class Leg2RobotRed : MonoBehaviour
     public bool FistMoving=false;
     public bool Die=false;
     public bool Ifhit=false;
+    public bool IfChip=false;
 
     public string Walk;
     public string Shoot;
@@ -40,6 +41,7 @@ public class Leg2RobotRed : MonoBehaviour
 
     public LayerMask obstacleLayer; 
     public GameObject player;
+    public GameObject Chip;
     private Transform a;
 
     public EnemyDeath EnemyDeath;
@@ -238,7 +240,8 @@ public class Leg2RobotRed : MonoBehaviour
         EnemyDeath.Death();
         yield return new WaitForSeconds(3f);
         gameObject.SetActive(false);
-        
+        Quaternion newRotation = Quaternion.Euler(-90f, 0f, 0f); // 회전값 설정 (x축으로 -90도 회전)
+        if(IfChip){Instantiate(Chip, transform.position, newRotation);}
     }
 
 
