@@ -7,7 +7,13 @@ public class Leg4Bullet : MonoBehaviour
     
 
     public float speed = 10f; // 총알 이동 속도
+    public GameObject player;
 
+    void Start()
+    {
+        player=GameObject.FindGameObjectWithTag("Player");
+        
+    }
     void Update()
     {
         // 총알을 앞으로 이동
@@ -16,11 +22,10 @@ public class Leg4Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.gameObject.name);
         if (other.gameObject.name == "Box Volume (2)"){}
-        else{
-            
-            Destroy(gameObject);
-        }
+        if (other.gameObject.name == "Player"){player.GetComponent<PlayerHp>().UpdateHealth(-10f);}
+        
     }
  
 

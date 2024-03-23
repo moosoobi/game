@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovementScript : MonoBehaviour {
+	public int ChipInt=0;
 	Rigidbody rb;
 	public GameObject player;
 	public bool CanMove=false;
@@ -210,7 +211,7 @@ public class PlayerMovementScript : MonoBehaviour {
 	{
 		grounded = false;
 	}
-
+	public void UpChip(){ChipInt+=1;}
 
 	RaycastHit hitInfo;
 	private float meleeAttack_cooldown;

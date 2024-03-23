@@ -70,6 +70,7 @@ public class Cart : MonoBehaviour
         StoneDoor.Play();
         yield return new WaitForSeconds(3.0f);
         BarCamera.SetActive(false);
+        InsertCard.SetActive(false);
         StartConversation2();
     }
     public void AddItem(int number)

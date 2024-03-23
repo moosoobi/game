@@ -36,10 +36,12 @@ public class Leg4Robot : MonoBehaviour
     public bool FistMoving=false;
     public bool Die=false;
     public bool Ifhit=false;
+    public bool IfChip=false;
 
     public string Walk;
     public string Shoot;
 
+    public GameObject Chip;
     public GameObject player;
     private Transform a;
 
@@ -173,9 +175,12 @@ public class Leg4Robot : MonoBehaviour
     }
     private IEnumerator Death()
     {
+
         Reg4.Play("4legRobot_death", 0, 0.0f);
         EnemyDeath.Death();
         yield return new WaitForSeconds(3f);
+        Quaternion newRotation = Quaternion.Euler(-90f, 0f, 0f); // 회전값 설정 (x축으로 -90도 회전)
+        if(IfChip){Instantiate(Chip, transform.position, newRotation);}
         gameObject.SetActive(false);
         
     }
