@@ -167,7 +167,7 @@ public class EnergyCore : Quest
         StartCoroutine(ChangeColor());
     }
     public void QuestActive1(){
-        Text2.text="메인 컴퓨터를 파괴하라.";
+        Text2.text="일단 여기까지 구현했습니다.";
         StartCoroutine(ChangeColor());
     }
     private IEnumerator ChangeColor(){

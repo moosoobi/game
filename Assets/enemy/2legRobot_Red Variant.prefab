@@ -366,21 +366,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Red: {fileID: 1722171018028523471}
+  RespawnSpot: {fileID: 0}
   RedLazer: {fileID: 6429288728250532014}
+  EnemyHittingSound: {fileID: 0}
   bulletPrefab: {fileID: 7038143750954130294, guid: cd9d73d57ac5afb428676399486098de, type: 3}
   bulletSpawnPlace: {fileID: 4063842861876637559}
+  Hp: 5
   CoolTime: 3
   AttackRange: 10
   DetectRange: 20
   rotationSpeed: 5
+  raycastDistance: 20
   Attack: 0
   IfWalking: 0
   IfAttacking: 0
   IfIdle: 0
   Z: 1
+  FistMoving: 0
+  Die: 0
+  Ifhit: 0
+  IfChip: 0
   Walk: Walk Forward
   Shoot: Rifle Aiming Idle
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
   player: {fileID: 0}
+  Chip: {fileID: 495328442153069815, guid: 852b5a9dca598554e9239f4da1785ae6, type: 3}
+  EnemyDeath: {fileID: 0}
   navMeshAgent: {fileID: 9127355044632542268}
 --- !u!195 &9127355044632542268
 NavMeshAgent:

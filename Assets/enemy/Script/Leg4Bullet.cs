@@ -17,7 +17,7 @@ public class Leg4Bullet : MonoBehaviour
     void Update()
     {
         // 총알을 앞으로 이동
-        transform.Translate(Vector3.back * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)

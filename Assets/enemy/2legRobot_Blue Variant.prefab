@@ -445,19 +445,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Blue: {fileID: 3215880162118551790}
   BlueSword: {fileID: 1363190910315576893}
+  EnemyHittingSound: {fileID: 0}
+  Hp: 5
   CoolTime: 3
   rotationSpeed: 5
   AttackRange: 3
   DetectRange: 10
+  raycastDistance: 20
   Attack: 0
   IfWalking: 0
   IfAttacking: 0
   IfIdle: 0
   Z: 1
+  FistMoving: 0
+  Die: 0
+  back: 1
+  Ifhit: 0
+  IfChip: 0
   Walk: Great Sword Walk
   Slash: Great Sword Slash
   player: {fileID: 0}
+  PlayerForward: {fileID: 0}
+  Chip: {fileID: 495328442153069815, guid: 852b5a9dca598554e9239f4da1785ae6, type: 3}
+  RespawnSpot: {fileID: 0}
   navMeshAgent: {fileID: 232968455113195244}
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  EnemyDeath: {fileID: 0}
 --- !u!4 &4292911849124985258 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 563cf5a0904912d408664e93e8dc5031, type: 3}
