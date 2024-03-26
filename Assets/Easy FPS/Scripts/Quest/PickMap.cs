@@ -28,6 +28,7 @@ public class PickMap : MonoBehaviour
     public GameObject dialogueUI;
     public bool isTalking=false;
     public bool Detail=false;
+    public GunScript gun;
 
     void Update()
     {
@@ -46,12 +47,15 @@ public class PickMap : MonoBehaviour
         }
         if(ifpick){
             if(Input.GetKeyDown(KeyCode.X)){
-                
+                gun=GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>();
                 if(show){
+                    gun.zcross1=false;
                     map.SetActive(true);
                     map2.SetActive(true);
                     
+                    
                 }else if(!show){
+                    gun.zcross1=true;
                     map.SetActive(false);
 
                     

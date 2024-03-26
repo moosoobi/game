@@ -35,6 +35,8 @@ public class DialogueManager : MonoBehaviour
 
     public GameObject Stage1;
 
+    public bool Look=false;
+    public GameObject J;
     void Start()
     {
         dialogueUI.SetActive(false);
@@ -46,6 +48,16 @@ public class DialogueManager : MonoBehaviour
     void Update()
     {
         
+            
+        if(Look){
+            Vector3 directionToPlayer = player.transform.position - J.transform.position;
+            directionToPlayer.y = 0f; // Y축 방향은 무시 (수평 방향으로만 회전)
+            // 방향 벡터를 바탕으로 회전 값 생성
+            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+            // 적의 회전을 부드럽게 설정
+            J.transform.rotation = targetRotation;
+        }
+        
         if(zzz){
         
             
@@ -53,6 +65,7 @@ public class DialogueManager : MonoBehaviour
         
             if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==false){
                 StartConversation();
+                StartCoroutine(Looking());
             }
             
    
@@ -169,6 +182,12 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(delayInSeconds);
         UiObject.SetActive(false);
         
+    }
+    private IEnumerator Looking(){
+        
+        Look=true;
+        yield return new WaitForSeconds(3.0f);
+        Look=false;
     }
     
 }

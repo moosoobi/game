@@ -17,7 +17,7 @@ public class DrawerController : MonoBehaviour
     public string dooropen;
     public string doorclose;
     
-
+    public bool Clear=false;
     public bool zzzz=false;
 
     public GunInventory guninventory;
@@ -31,7 +31,7 @@ public class DrawerController : MonoBehaviour
         if(zzzz){
             if (Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
                 if(openTrigger){
-                    if(UrgentSound){BarSound.Stop();UrgentSound.Play();}
+                    if(UrgentSound&&!Clear){StopAllAudioSources();UrgentSound.Play();}
                     myDoor.Play(dooropen, 0, 0.0f);
                     closeTrigger=true;
                     openTrigger=false;
@@ -51,7 +51,17 @@ public class DrawerController : MonoBehaviour
 
         }
     }
-    
+    void StopAllAudioSources()
+    {
+        // Scene에 있는 모든 AudioSource를 가져옵니다.
+        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+
+        // 모든 AudioSource를 반복하면서 정지시킵니다.
+        foreach (AudioSource audioSource in allAudioSources)
+        {
+            audioSource.Stop();
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         

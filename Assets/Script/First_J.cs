@@ -31,6 +31,7 @@ public class First_J : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (transform.position.z == 432f&&first)
         {
             first=false;
@@ -60,6 +61,7 @@ public class First_J : MonoBehaviour
         }
 
         Dia.EndDialogue();
+        J.enabled=false;
     }
 
     /*

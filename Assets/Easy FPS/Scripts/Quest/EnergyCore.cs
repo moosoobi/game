@@ -50,6 +50,7 @@ public class EnergyCore : Quest
     public Transform targetDestination6; 
     public Transform targetDestination7;
     public Transform targetDestination8;  
+    public DrawerController Entrance;
 
 
     public float dialogueInterval = 3f; // 대화 간격 (3초)
@@ -157,7 +158,7 @@ public class EnergyCore : Quest
                     
                     
                 }
-                UpdateHealth(-0.5f);
+                UpdateHealth(-1f);
             }
         }
             
@@ -242,6 +243,7 @@ public class EnergyCore : Quest
             UrgentSound.Stop();
             RadioSound.Play();
             stage=1;
+            Entrance.Clear=true;
             StartConversation1();
 
         }

@@ -36,6 +36,7 @@ public class GunScript : MonoBehaviour {
 
 	public string currentgun;
 	public bool zcross=false;
+	public bool zcross1=true;
 	public bool talking=false;
 
 	/*
@@ -94,13 +95,19 @@ public class GunScript : MonoBehaviour {
 		
 		
 		if(cross&&cross1){
-			if(zcross){
+			if(zcross1){
+				if(zcross){
 				cross.SetActive(false);
 				cross1.SetActive(true);
-			}else if(!zcross){
-				cross.SetActive(true);
+				}else if(!zcross){
+					cross.SetActive(true);
+					cross1.SetActive(false);
+				}
+			}else{
+				cross.SetActive(false);
 				cross1.SetActive(false);
 			}
+			
 		}
 		
 		Animations();
@@ -555,7 +562,7 @@ public class GunScript : MonoBehaviour {
 				}
 			}
 			if(mls && HUD_bullets)
-				HUD_bullets.text = bulletsIHave.ToString() + " - " + bulletsInTheGun.ToString();
+				HUD_bullets.text = amountOfBulletsPerLoad.ToString()+'/'+bulletsInTheGun.ToString();
 
 			DrawCrosshair();
 		}

@@ -38,7 +38,7 @@ public class Cart : MonoBehaviour
     public GameObject InsertCard;
     public GameObject BarCamera;
     public SuccessDoor SuccessDoorScript;
-
+    public Kiosk kiosk;
 
     void Update()
     {
@@ -145,6 +145,7 @@ public class Cart : MonoBehaviour
             Cursor.SetActive(false);
             Clear=true;
             InsertCard.SetActive(true);
+            kiosk.Clear=true;
 
             
         }else{

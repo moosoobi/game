@@ -10,19 +10,31 @@ public class Entrance : MonoBehaviour
     public bool PlayerIn=true;
     public bool first=true;
 
+    void StopAllAudioSources()
+    {
+        // Scene에 있는 모든 AudioSource를 가져옵니다.
+        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+
+        // 모든 AudioSource를 반복하면서 정지시킵니다.
+        foreach (AudioSource audioSource in allAudioSources)
+        {
+            audioSource.Stop();
+        }
+    }
+
     private void OnTriggerEnter(Collider other){
         if (other.CompareTag("Player")&&PlayerIn&&first){
-            RoomBackground.Stop();
+            StopAllAudioSources();
             BarBackground.Play();
             firsrbar.Positivez();
             PlayerIn=false;
         }else if(other.CompareTag("Player")&&!PlayerIn){
+            StopAllAudioSources();
             RoomBackground.Play();
-            BarBackground.Stop();
             PlayerIn=true;
             
         }else if(other.CompareTag("Player")&&PlayerIn&&!first){
-            RoomBackground.Stop();
+            StopAllAudioSources();
             BarBackground.Play();
             PlayerIn=false;
         }

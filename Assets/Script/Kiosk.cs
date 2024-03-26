@@ -20,16 +20,18 @@ public class Kiosk : MonoBehaviour
     public Cart cart;
     public int stack=1;
     public bool Possible=false;
+    public bool Clear=false;
 
 
 
     void Update()
     {
          if(zzzz){
+
             if(Input.GetMouseButtonDown(0)&&cart.IsTalking()&&stack==0&&Possible){
                 stack=1;
             }
-            else if(Input.GetMouseButtonDown(0)&&cart.IsTalking()&&stack==1&&Possible){
+            else if(Input.GetMouseButtonDown(0)&&cart.IsTalking()&&stack==1&&Possible&&!Clear){
                 Cursor.SetActive(true);
                 KioskUi.SetActive(true);
                 player.GetComponent<MouseLookScript>().enabled = false;
