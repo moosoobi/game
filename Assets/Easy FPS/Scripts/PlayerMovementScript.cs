@@ -212,6 +212,7 @@ public class PlayerMovementScript : MonoBehaviour {
 		grounded = false;
 	}
 	public void UpChip(){ChipInt+=1;}
+	
 
 	RaycastHit hitInfo;
 	private float meleeAttack_cooldown;

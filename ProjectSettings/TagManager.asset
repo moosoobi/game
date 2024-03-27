@@ -21,6 +21,7 @@ TagManager:
   - PlayerAttack30
   - Area
   - Enemy
+  - ChipText
   layers:
   - Default
   - TransparentFX

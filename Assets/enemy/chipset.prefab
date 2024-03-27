@@ -118,3 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16746bc3707d4342adbcf977a7e6851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  ChipObj: {fileID: 0}
+  ChipText: {fileID: 0}
