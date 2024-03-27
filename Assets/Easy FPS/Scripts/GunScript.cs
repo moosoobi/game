@@ -549,7 +549,8 @@ public class GunScript : MonoBehaviour {
 	public TextMesh HUD_bullets;
 	void OnGUI(){
 		if(currentStyle == GunStyles.hand){
-			
+			HUD_bullets = GameObject.Find("HUD_bullets").GetComponent<TextMesh>();
+			HUD_bullets.text = "";
 			
 		}
 		if (currentStyle != GunStyles.hand) {

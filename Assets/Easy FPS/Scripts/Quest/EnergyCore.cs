@@ -158,7 +158,8 @@ public class EnergyCore : Quest
                     
                     
                 }
-                UpdateHealth(-1f);
+                if(CoreHp>0){UpdateHealth(-1f);}
+                
             }
         }
             

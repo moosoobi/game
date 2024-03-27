@@ -100,7 +100,11 @@ public class Lever : MonoBehaviour
                 player.GetComponent<MouseLookScript>().enabled = false;
                 player.GetComponent<PlayerMovementScript>().enabled = false;
                 Triangle.SetActive(true);
-                TriangleRect.anchoredPosition = new Vector2(-162f, 215f);
+                if(horizontal>=4){horizontal=0;}
+                if(horizontal==0){TriangleRect.anchoredPosition = new Vector2(-162f, 215f);}
+                if(horizontal==1){TriangleRect.anchoredPosition = new Vector2(-52.4f, 215f);}
+                if(horizontal==2){TriangleRect.anchoredPosition = new Vector2(63f, 215f);}
+                if(horizontal==3){TriangleRect.anchoredPosition = new Vector2(176.2f, 215f);}
                 
             }
             else
