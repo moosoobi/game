@@ -7,6 +7,7 @@ public class First_J : MonoBehaviour
 {
     
     public Animator J=null;
+    public Animator P=null;
 
     public GameObject Tv_On;
 
@@ -25,7 +26,10 @@ public class First_J : MonoBehaviour
 
     void Start()
     {
-        J.Play("J_Walk", 0, 0.0f);
+        P.enabled=true;
+        P.Play("CameraMoving", 0, 0.0f);
+        StartCoroutine(Camera());
+        
     }
 
     // Update is called once per frame
@@ -63,7 +67,15 @@ public class First_J : MonoBehaviour
         Dia.EndDialogue();
         J.enabled=false;
     }
+    private IEnumerator Camera()
+    {
 
+        yield return new WaitForSeconds(5.0f);
+        P.enabled=false;
+        J.Play("J_Walk", 0, 0.0f);
+        
+        
+    }
     /*
     private IEnumerator TvOff()
     {

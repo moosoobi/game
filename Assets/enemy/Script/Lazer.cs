@@ -21,7 +21,7 @@ public class Lazer : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.up*-1.0f, out hit, raycastDistance))
         {
-            Debug.Log(hit.collider.gameObject.name);
+            
             if(hit.collider.gameObject.name=="Player"){
                 Player=GameObject.FindGameObjectWithTag("Player");
                 if(Player){
