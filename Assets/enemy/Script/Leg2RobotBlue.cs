@@ -86,7 +86,7 @@ public class Leg2RobotBlue : MonoBehaviour
                     Vector3 playerForward = transform.forward;
                     float angle = Vector3.Angle(playerForward, playerToEnemy);
                     //Debug.Log(angle);
-                    if(angle < 90f||Ifhit){
+                    if(angle < 120f||Ifhit){
                         RaycastHit hit;
                         if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
                         {
