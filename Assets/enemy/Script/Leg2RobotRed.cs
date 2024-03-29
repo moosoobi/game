@@ -59,6 +59,7 @@ public class Leg2RobotRed : MonoBehaviour
                 if(Ifhit){
                      if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
                         RaycastHit hit;
+                        
                         if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
                         {
                             //Debug.Log(hit.collider.gameObject.name);
@@ -96,6 +97,7 @@ public class Leg2RobotRed : MonoBehaviour
                             if(hit.collider.gameObject.name=="Player"||Ifhit){
                                 if(Vector3.Distance(transform.position, player.transform.position)<DetectRange||Ifhit){
                                     if(!IfWalking){Walking();IfWalking=true;}
+                                    navMeshAgent.isStopped = false;
                                     navMeshAgent.SetDestination(player.transform.position);
                                 }else{
                                     if (navMeshAgent.isActiveAndEnabled && navMeshAgent.isOnNavMesh)

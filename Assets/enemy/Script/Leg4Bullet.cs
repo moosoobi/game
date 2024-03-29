@@ -22,7 +22,7 @@ public class Leg4Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
+        
         if (other.gameObject.name == "Box Volume (2)"){}
         if (other.gameObject.name == "Player"){player.GetComponent<PlayerHp>().UpdateHealth(-10f);}
         
