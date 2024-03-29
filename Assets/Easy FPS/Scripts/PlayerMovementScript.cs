@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovementScript : MonoBehaviour {
+	
 	public int ChipInt=0;
 	Rigidbody rb;
 	public GameObject player;
