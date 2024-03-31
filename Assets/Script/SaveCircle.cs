@@ -6,6 +6,8 @@ public class SaveCircle : MonoBehaviour
 {
 
     public GameObject Save;
+    public PlayerHp playerhp;
+    public int stage;
     
 
 
@@ -17,6 +19,7 @@ public class SaveCircle : MonoBehaviour
     {
         
             if (other.CompareTag("Player")){
+                playerhp.stage=stage;
                 Save.SetActive(true);
                 gameObject.SetActive(false);
             }

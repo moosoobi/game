@@ -27,6 +27,7 @@ public class PlayerHp : MonoBehaviour
     public Slider CorehealthSlider;
     public AudioSource UrgentSound;
     public AudioSource BarBackground;
+    public int stage=0;
 
 
     void Start()
@@ -47,30 +48,51 @@ void Update()
         
     }
     if(Die){
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            UrgentSound.Stop();
-  
-            CorehealthSlider.gameObject.SetActive(false);
-            Core.gameObject.SetActive(false);
-            Blue1.Respawn();
-            Blue2.Respawn();
-            Red1.Respawn();
-            Red2.Respawn();
-            Leg1.Respawn();
-            Leg2.Respawn();
-            Leg3.Respawn();
-            Leg4.Respawn();
-            Energy.Respawn();
-            Die=false;
-            player.transform.position=new Vector3(351f, -3.8f, 430f);
-            player.transform.rotation=Quaternion.Euler(new Vector3(0f, 0f, 0f));
-            PlayerCurHp=100f;
-            player.GetComponent<MouseLookScript>().enabled = true;
-            player.GetComponent<PlayerMovementScript>().enabled = true;
-            GameOver.SetActive(false);
+        if(stage==0){
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                UrgentSound.Stop();
+    
+                CorehealthSlider.gameObject.SetActive(false);
+                Core.gameObject.SetActive(false);
+                Blue1.Respawn();
+                Blue2.Respawn();
+                Red1.Respawn();
+                Red2.Respawn();
+                Leg1.Respawn();
+                Leg2.Respawn();
+                Leg3.Respawn();
+                Leg4.Respawn();
+                Energy.Respawn();
+                Die=false;
+                player.transform.position=new Vector3(351.275f, -5.2f, 432.7f);
+                player.transform.rotation=Quaternion.Euler(new Vector3(0f, 0f, 0f));
+                PlayerCurHp=200f;
+                player.GetComponent<MouseLookScript>().enabled = true;
+                player.GetComponent<PlayerMovementScript>().enabled = true;
+                GameOver.SetActive(false);
 
+            }
+        }else if(stage==1){
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                Die=false;
+                player.transform.position=new Vector3(389.18f, -0.185f, 422.82f);
+                player.transform.rotation=Quaternion.Euler(new Vector3(0f, 0f, 0f));
+                PlayerCurHp=200f;
+                GameOver.SetActive(false);
+            }
+        }else if(stage==2){
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                Die=false;
+                player.transform.position=new Vector3(25.34f, 247.18f, 431.87f);
+                player.transform.rotation=Quaternion.Euler(new Vector3(0f, 0f, 0f));
+                PlayerCurHp=200f;
+                GameOver.SetActive(false);
+            }
         }
+        
     }
     
 }

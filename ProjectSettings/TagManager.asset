@@ -22,6 +22,7 @@ TagManager:
   - Area
   - Enemy
   - ChipText
+  - Volume
   layers:
   - Default
   - TransparentFX

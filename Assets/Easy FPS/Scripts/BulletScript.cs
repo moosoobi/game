@@ -9,7 +9,7 @@ public class BulletScript : MonoBehaviour {
 
 	void Start()
     {
-        StartCoroutine(BulletDestroy());
+        
         MoveBullet();
     }
 
@@ -28,13 +28,13 @@ public class BulletScript : MonoBehaviour {
             {
                 Instantiate(bloodEffect, transform.position, Quaternion.LookRotation(transform.forward));
                 Destroy(gameObject);
-            }else{
+            }else if(other.CompareTag("Volume")){
+
+            }
+            else{
                 
-                
+                Destroy(gameObject);
             }
     }
-    private IEnumerator BulletDestroy(){
-        yield return new WaitForSeconds(5f);
-        Destroy(gameObject);
-    }
+
 }

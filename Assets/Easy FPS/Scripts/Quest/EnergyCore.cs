@@ -6,7 +6,9 @@ using TMPro;
 
 public class EnergyCore : Quest
 {
-
+    public Vector3 targetPosition = new Vector3(8f, 413.8f, 432f);
+    public GameObject Ring;
+    public GameObject Save;
     public QuestState CurrentState;
     public EnergyCoreDoor Door;
     public string[] dialogue;
@@ -169,8 +171,10 @@ public class EnergyCore : Quest
         StartCoroutine(ChangeColor());
     }
     public void QuestActive1(){
-        Text2.text="일단 여기까지 구현했습니다.";
+        Text2.text="지도에 표시된 곳으로 가라.";
         StartCoroutine(ChangeColor());
+        Ring.transform.position=targetPosition;
+        Save.SetActive(true);
     }
     private IEnumerator ChangeColor(){
         for(int i=0;i<3;i++){
