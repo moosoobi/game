@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: neon 2
   m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
-  m_Parent: {fileID: 2100000, guid: fb412ded4ff2d2f45982c0369ef6b156, type: 2}
+  m_Parent: {fileID: 2100000, guid: 9d331f214880ec04b810cb9d1c206c73, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ALPHATEST_ON
