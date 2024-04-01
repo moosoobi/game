@@ -76,14 +76,20 @@ public class PlayerMovementScript : MonoBehaviour {
 			deaccelerationSpeed = 0.1f;
 		}
 	}
-	/*
-	* Handles jumping and ads the force and sounds.
-	*/
+	public bool IfJumping=false;
+	 private IEnumerator JumpSound()
+    {
+        JumpUp.Play();
+		yield return new WaitForSeconds(0.1f);
+        IfJumping=true;
+		
+		
+	}
 	void Jumping(){
 		if (Input.GetKeyDown (KeyCode.Space) && grounded) {
 			rb.AddRelativeForce (Vector3.up * jumpForce);
 			if (_jumpSound)
-				_jumpSound.Play ();
+				StartCoroutine(JumpSound());
 			else
 				print ("Missig jump sound.");
 			_walkSound.Stop ();
@@ -100,6 +106,7 @@ public class PlayerMovementScript : MonoBehaviour {
 			player.GetComponent<MouseLookScript>().enabled = true;
             player.GetComponent<PlayerMovementScript>().enabled = true;
 		}*/
+		if(IfJumping){if(grounded==true){JumpDown.Play();IfJumping=false;}}
 
 		Jumping ();
 
@@ -324,6 +331,8 @@ public class PlayerMovementScript : MonoBehaviour {
 	[Header("Player SOUNDS")]
 	[Tooltip("Jump sound when player jumps.")]
 	public AudioSource _jumpSound;
+	public AudioSource JumpUp;
+	public AudioSource JumpDown;
 	[Tooltip("Sound while player makes when successfully reloads weapon.")]
 	public AudioSource _freakingZombiesSound;
 	[Tooltip("Sound Bullet makes when hits target.")]

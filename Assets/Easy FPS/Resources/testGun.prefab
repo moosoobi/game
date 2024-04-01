@@ -1194,6 +1194,7 @@ MonoBehaviour:
   amountOfBulletsPerLoad: 10
   currentgun: 
   zcross: 0
+  zcross1: 1
   talking: 0
   currentGunPosition: {x: 0, y: 0, z: 0}
   restPlacePosition: {x: -0.07, y: -0.06, z: 0.4}
@@ -1623,10 +1624,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 736a6ee94d8a94aef925851d18125a0c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 65e7d81413cbf5e46b75b19c60f3ad0f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 2
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -3260,10 +3261,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5692ef4d0bf332645938f3b294a867b6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: aec87c0c31a30ef4db4a787c944d95d2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.71
-  m_Pitch: 1
+  m_Pitch: 1.44
   Loop: 0
   Mute: 0
   Spatialize: 0

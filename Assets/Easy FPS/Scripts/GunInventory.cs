@@ -205,7 +205,11 @@ public class GunInventory : MonoBehaviour {
 	public void PositiveCard(){IfCard=true;}
 	public void NegativeCard(){IfCard=false;}
 	public bool ReturnCard(){return IfCard;}
-	public bool IfHand(){return currentGun.name.Contains("Hand");}
+	public bool IfHand(){
+		if(currentGun){return currentGun.name.Contains("Hand");}
+		else{return false;}
+		
+	}
 	public bool IfGun(){return currentGun.name.Contains("Gun");}
 
 	/*
