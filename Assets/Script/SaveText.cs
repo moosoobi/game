@@ -5,15 +5,18 @@ using UnityEngine;
 public class SaveText : MonoBehaviour
 {
 
-    
-   void Start()
+    public bool active=true;
+    void Update()
     {
-        Invoke("Deactivate", 3.0f);
+        if(active){
+            Invoke("Deactivate", 3.0f);
+            active=false;
+        }
     }
 
     void Deactivate()
     {
-        // 타겟 오브젝트를 비활성화합니다.
+        active=true;
         gameObject.SetActive(false);
     }
 }
