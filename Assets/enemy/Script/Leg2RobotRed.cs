@@ -65,10 +65,14 @@ public class Leg2RobotRed : MonoBehaviour
                             //Debug.Log(hit.collider.gameObject.name);
                             if(hit.collider.gameObject.name=="Player"){if(!IfAttacking){Attacking();IfAttacking=true;}}
                             else{if(!IfWalking){Walking();IfWalking=true;}
-                                    navMeshAgent.SetDestination(player.transform.position);}   
+                                    if(navMeshAgent){
+                                         navMeshAgent.SetDestination(player.transform.position);
+                                    }}   
                         }
                      }else{if(!IfWalking){Walking();IfWalking=true;}
-                                    navMeshAgent.SetDestination(player.transform.position);}
+                                    if(navMeshAgent){
+                                         navMeshAgent.SetDestination(player.transform.position);
+                                    }}
                 }
                 else if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
                     Vector3 directionToPlayer = player.transform.position - transform.position;
@@ -98,7 +102,10 @@ public class Leg2RobotRed : MonoBehaviour
                                 if(Vector3.Distance(transform.position, player.transform.position)<DetectRange||Ifhit){
                                     if(!IfWalking){Walking();IfWalking=true;}
                                     navMeshAgent.isStopped = false;
-                                    navMeshAgent.SetDestination(player.transform.position);
+                                    if(navMeshAgent){
+                                         navMeshAgent.SetDestination(player.transform.position);
+                                    }
+                                   
                                 }else{
                                     if (navMeshAgent.isActiveAndEnabled && navMeshAgent.isOnNavMesh)
                                     {
@@ -172,12 +179,14 @@ public class Leg2RobotRed : MonoBehaviour
     public void SetDestination(Transform targetDestination)
     {
         navMeshAgent.isStopped = false;
-        navMeshAgent.SetDestination(targetDestination.position);
+        if(navMeshAgent){navMeshAgent.SetDestination(targetDestination.position);}
+        
         Red.Play(Walk, 0, 0.0f);
         FistMoving=true;
     }
     private void Walking(){
         Red.Play(Walk, 0, 0.0f);
+        
         navMeshAgent.isStopped = false;
         IfIdle=false;
         IfAttacking=false;

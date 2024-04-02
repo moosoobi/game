@@ -6,8 +6,8 @@ using TMPro;
 
 public class PlayerHp : MonoBehaviour
 {
-    public float PlayerCurHp=100f;
-    public float PlayerMaxHp=100f;
+    public float PlayerCurHp;
+    public float PlayerMaxHp;
     public Slider healthSlider;
     public GameObject GameOver;
     public Animator Player;
@@ -67,7 +67,7 @@ void Update()
                 Die=false;
                 player.transform.position=new Vector3(351.275f, -5.2f, 432.7f);
                 player.transform.rotation=Quaternion.Euler(new Vector3(0f, 0f, 0f));
-                PlayerCurHp=200f;
+                PlayerCurHp=300f;
                 player.GetComponent<MouseLookScript>().enabled = true;
                 player.GetComponent<PlayerMovementScript>().enabled = true;
                 GameOver.SetActive(false);
@@ -79,8 +79,10 @@ void Update()
                 Die=false;
                 player.transform.position=new Vector3(389.18f, -0.185f, 422.82f);
                 player.transform.rotation=Quaternion.Euler(new Vector3(0f, 0f, 0f));
-                PlayerCurHp=200f;
+                PlayerCurHp=300f;
                 GameOver.SetActive(false);
+                player.GetComponent<MouseLookScript>().enabled = true;
+                player.GetComponent<PlayerMovementScript>().enabled = true;
             }
         }else if(stage==2){
             if (Input.GetKeyDown(KeyCode.Return))
@@ -88,8 +90,10 @@ void Update()
                 Die=false;
                 player.transform.position=new Vector3(25.34f, 247.18f, 431.87f);
                 player.transform.rotation=Quaternion.Euler(new Vector3(0f, 0f, 0f));
-                PlayerCurHp=200f;
+                PlayerCurHp=300f;
                 GameOver.SetActive(false);
+                player.GetComponent<MouseLookScript>().enabled = true;
+                player.GetComponent<PlayerMovementScript>().enabled = true;
             }
         }
         
