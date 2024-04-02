@@ -9,7 +9,7 @@ public class Chip : MonoBehaviour
     public GameObject ChipObj;
     public TextMeshProUGUI ChipText;
     public ChipText ChipTextScript;
-
+    
 
     void Start()
     {
@@ -18,6 +18,11 @@ public class Chip : MonoBehaviour
         ChipText=GameObject.FindGameObjectWithTag("ChipText").GetComponent<TextMeshProUGUI>();
         ChipTextScript=GameObject.FindGameObjectWithTag("ChipText").GetComponent<ChipText>();
         
+    }
+
+    void Update()
+    {
+        if(player.GetComponent<PlayerHp>().Die == true){gameObject.SetActive(false);}
     }
     void OnTriggerEnter(Collider other)
     {

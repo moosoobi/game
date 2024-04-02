@@ -108,16 +108,20 @@ public class DialogueManager : MonoBehaviour
     public void Negativezzz(){zzz=true;}
 
     public void StartConversation(){
-        player.GetComponent<MouseLookScript>().enabled = false;
-        player.GetComponent<PlayerMovementScript>().enabled = false;
-        isTalking=true;
-        curResponseTracker=0;
-        dialogueUI.SetActive(true);
-        npcName.text="J";
-        if(stage==0){}
-        else if(stage==1){npcDialogueBox.text=dialogue2[0];}
-        else if(stage==2){npcDialogueBox.text=dialogue3[0];}
-        else if(stage==3){npcDialogueBox.text=dialogue4[0];}
+        if(stage==4){}
+        else{
+            player.GetComponent<MouseLookScript>().enabled = false;
+            player.GetComponent<PlayerMovementScript>().enabled = false;
+            isTalking=true;
+            curResponseTracker=0;
+            dialogueUI.SetActive(true);
+            npcName.text="J";
+            if(stage==0){}
+            else if(stage==1){npcDialogueBox.text=dialogue2[0];}
+            else if(stage==2){npcDialogueBox.text=dialogue3[0];}
+            else if(stage==3){npcDialogueBox.text=dialogue4[0];}
+        }
+        
 
     }
 

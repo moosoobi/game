@@ -450,7 +450,7 @@ public class GunScript : MonoBehaviour {
 	 */
 	private void ShootMethod(){
 		bulletSpawnPlace = GameObject.FindGameObjectWithTag("BulletSpawn");
-		if(waitTillNextFire <= 0 && !reloading && pmS.maxSpeed < 5){
+		if(waitTillNextFire <= 0 && !reloading && pmS.maxSpeed < 13){
 
 			if(bulletsInTheGun > 0){
 
@@ -616,13 +616,10 @@ public class GunScript : MonoBehaviour {
 	private Vector2 vec2(Vector2 _vec2){
 		return new Vector2(Screen.width * _vec2.x / 100, Screen.height * _vec2.y / 100);
 	}
-	//#
+	
 
 	public Animator handsAnimator;
-	/*
-	* Fetching if any current animation is running.
-	* Setting the reload animation upon pressing R.
-	*/
+	
 	void Animations(){
 
 		if(handsAnimator){
@@ -632,7 +629,7 @@ public class GunScript : MonoBehaviour {
 			handsAnimator.SetFloat("walkSpeed",pmS.currentSpeed);
 			handsAnimator.SetBool("aiming", Input.GetButton("Fire2"));
 			handsAnimator.SetInteger("maxSpeed", pmS.maxSpeed);
-			if(Input.GetKeyDown(KeyCode.R) && pmS.maxSpeed < 5 && !reloading && !meeleAttack/* && !aiming*/){
+			if(Input.GetKeyDown(KeyCode.R) && pmS.maxSpeed < 13 && !reloading && !meeleAttack/* && !aiming*/){
 				StartCoroutine("Reload_Animation");
 			}
 		}

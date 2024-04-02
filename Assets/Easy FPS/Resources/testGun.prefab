@@ -1187,7 +1187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStyle: 0
   mls: {fileID: 0}
-  walkingSpeed: 3
+  walkingSpeed: 4
   runningSpeed: 10
   bulletsIHave: 1000
   bulletsInTheGun: 10
@@ -1626,7 +1626,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 65e7d81413cbf5e46b75b19c60f3ad0f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.541
   m_Pitch: 1
   Loop: 0
   Mute: 0

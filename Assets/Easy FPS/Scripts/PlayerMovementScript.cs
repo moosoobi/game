@@ -132,7 +132,7 @@ public class PlayerMovementScript : MonoBehaviour {
 							//_walkSound.Play ();
 							_runSound.Stop ();
 						}					
-					} else if (maxSpeed == 5) {
+					} else if (maxSpeed == 10) {
 						//	print ("NE tu sem");
 
 						if (!_runSound.isPlaying) {
@@ -190,7 +190,7 @@ public class PlayerMovementScript : MonoBehaviour {
 
 
 	[Tooltip("The maximum speed you want to achieve")]
-	public int maxSpeed = 5;
+	public int maxSpeed;
 	[Tooltip("The higher the number the faster it will stop")]
 	public float deaccelerationSpeed = 15.0f;
 

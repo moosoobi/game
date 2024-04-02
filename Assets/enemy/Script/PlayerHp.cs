@@ -28,7 +28,7 @@ public class PlayerHp : MonoBehaviour
     public AudioSource UrgentSound;
     public AudioSource BarBackground;
     public int stage=0;
-
+    public GameObject HitImage;
 
     void Start()
     {
@@ -37,8 +37,8 @@ public class PlayerHp : MonoBehaviour
     }
 
 
-void Update()
-{
+    void Update()
+    {
     if (PlayerCurHp <= 0f)
     {
         if(first){
@@ -117,7 +117,7 @@ void Update()
 
             // 슬라이더에 반영
             healthSlider.value = PlayerCurHp;
-
+            StartCoroutine(Hit());
             // HP가 0 이하로 떨어졌을 때 처리 (예를 들어, 보스가 죽었을 때)
             if (PlayerCurHp <= 0f)
             {
@@ -153,6 +153,11 @@ void Update()
         
         
         
+    }
+    private IEnumerator Hit(){
+        HitImage.SetActive(true);
+        yield return new WaitForSeconds(2.0f);
+        HitImage.SetActive(false);
     }
     private IEnumerator Death()
     {
