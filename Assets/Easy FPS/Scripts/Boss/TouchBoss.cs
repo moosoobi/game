@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class TouchBoss : MonoBehaviour
 {
-    public Boss boss;
+    public RealBoss boss;
     public bool zzz=false;
+    public GunInventory guninventory;
 
-    void Start()
-    {
-        boss=GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>();
-    }
+ 
     void Update()
     {
         
-        if(zzz&&Input.GetKeyDown(KeyCode.Z)){
+        if(zzz&&Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
             boss.touchboss();
             Destroy(gameObject);
         }
@@ -23,11 +21,14 @@ public class TouchBoss : MonoBehaviour
     
     }
     private void OnTriggerEnter(Collider other){
+        if (other.CompareTag("Player")){
+            zzz=true;
+        }
         
-        zzz=true;
     }
     private void OnTriggerExit(Collider other){
-
-        zzz=false;
+        if (other.CompareTag("Player")){
+            zzz=false;
+        }
     }
 }
