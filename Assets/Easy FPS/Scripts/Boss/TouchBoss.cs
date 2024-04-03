@@ -7,14 +7,15 @@ public class TouchBoss : MonoBehaviour
     public RealBoss boss;
     public bool zzz=false;
     public GunInventory guninventory;
+    public bool first=true;
 
  
     void Update()
     {
         
-        if(zzz&&Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
+        if(zzz&&Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&first){
             boss.touchboss();
-            
+            first=false;
         }
         
         

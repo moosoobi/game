@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Video;
+using UnityEngine.UI;
 
 public class RealBoss : MonoBehaviour
 {
@@ -32,6 +33,9 @@ public class RealBoss : MonoBehaviour
     public Material Blue;
     public Material Yellow;
     public Material Pink;
+    public Material Error1;
+    public Material Error2;
+    public Material Black;
     public TextMeshProUGUI Text;
     public string Description;
     public TextMeshProUGUI QuestText;
@@ -43,7 +47,13 @@ public class RealBoss : MonoBehaviour
     public GameObject dialogueUI;
     public bool isTalking=false;
     private bool zzz=false;
+    public bool clear=false;
     public bool first=true;
+    static public float BossHp=100f;
+    public float BossMaxHp=100f;
+    public Slider BossSlider;
+    public GameObject BossText;
+    public Light light;
 
     private void Start()
     {
@@ -147,7 +157,7 @@ public class RealBoss : MonoBehaviour
         QuestActive();
         player.GetComponent<MouseLookScript>().enabled = true;
         player.GetComponent<PlayerMovementScript>().enabled = true;
-        
+        clear=true;
     }
     IEnumerator ExecuteAttackPattern()
     {
@@ -177,14 +187,8 @@ public class RealBoss : MonoBehaviour
     
 
     public void LazerAttack(){
-        Vector3 lazerposition=new Vector3(transform.position.x-23f, transform.position.y-5f, transform.position.z-7f);
-        GameObject lazerobject = Instantiate(Lazer,lazerposition , Quaternion.identity);
-        lazersound.Play();
-        Rigidbody lazerRd = lazerobject.GetComponent<Rigidbody>();
-        if (lazerRd != null)
-        {
-            lazerRd.velocity = new Vector3(10f, 0.0f, 0.0f);
-        }
+        Lazer.SetActive(true);
+        
     }
 
     void BulletAttack(){
@@ -214,7 +218,9 @@ public class RealBoss : MonoBehaviour
     public IEnumerator Execute(int currentPatternIndex)
     {   
         yield return new WaitForSeconds(duration);
-        if(currentPatternIndex==1){
+        if(currentPatternIndex==0){
+            
+        }else if(currentPatternIndex==1){
             Text1.SetActive(true);
             text1.text="레이저 공격 준비!";
             StartCoroutine(ExecuteAfterDelayText(3f));
@@ -248,6 +254,87 @@ public class RealBoss : MonoBehaviour
         
     }
     
-    
+    void InitializeHealthBar()
+    {
+        // 최대 HP 설정
+        BossSlider.maxValue = BossMaxHp;
+
+        // 현재 HP 설정
+        BossSlider.value = BossHp;
+    }
+    public void UpdateHealth(float newHP)
+    {
+
+        // 현재 HP 갱신
+        BossHp += newHP;
+
+        // 슬라이더에 반영
+        BossSlider.value = BossHp;
+
+        // HP가 0 이하로 떨어졌을 때 처리 (예를 들어, 보스가 죽었을 때)
+        if (BossHp <= 0f)
+        {
+            // 추가적인 처리 (보스 사망 등)
+            BossDefeated();
+        }
+    }
+
+    void BossDefeated()
+    {
+        die();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Attack")){
+            if(clear){
+                if(first){
+                    light.color =  Color.red;
+                    StartCoroutine(MonitorBulb());
+                    first=false;
+                }
+                else{UpdateHealth(-1f);}
+            }
+            
+        }
+        
+    }
+    private IEnumerator MonitorBulb(){
+        Renderer rend1 = Screen1.GetComponent<Renderer>();
+        Renderer rend2 = Screen2.GetComponent<Renderer>();
+        Renderer rend3 = Screen3.GetComponent<Renderer>();
+        
+        rend1.material=Error1;
+        rend2.material=Error2;
+        rend3.material=Error1;
+        yield return new WaitForSeconds(1f);
+        rend1.material=Error2;
+        rend2.material=Error1;
+        rend3.material=Error2;
+        yield return new WaitForSeconds(1f);
+        rend1.material=Error1;
+        rend2.material=Error2;
+        rend3.material=Error1;
+        yield return new WaitForSeconds(1f);
+        rend1.material=Error2;
+        rend2.material=Error1;
+        rend3.material=Error2;
+        yield return new WaitForSeconds(1f);
+        rend1.material=Error1;
+        rend2.material=Error2;
+        rend3.material=Error1;
+        yield return new WaitForSeconds(1f);
+        rend1.material=Error2;
+        rend2.material=Error1;
+        rend3.material=Error2;
+        yield return new WaitForSeconds(1f);
+        light.enabled=false;
+        rend1.material=Black;
+        rend2.material=Black;
+        rend3.material=Black;
+        yield return new WaitForSeconds(1.0f);
+        BossSlider.gameObject.SetActive(true);
+        BossText.SetActive(true);
+        
+    }
 
 }
