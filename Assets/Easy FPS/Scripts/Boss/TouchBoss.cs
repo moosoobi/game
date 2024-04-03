@@ -14,7 +14,7 @@ public class TouchBoss : MonoBehaviour
         
         if(zzz&&Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
             boss.touchboss();
-            Destroy(gameObject);
+            
         }
         
         

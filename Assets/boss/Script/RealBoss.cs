@@ -26,16 +26,30 @@ public class RealBoss : MonoBehaviour
     private bool alive=true;
     private bool touch=false;
     public VideoPlayer Loading;
-    public GameObject[] Screen;
+    public GameObject Screen1;
+    public GameObject Screen2;
+    public GameObject Screen3;
     public Material Blue;
     public Material Yellow;
     public Material Pink;
-    
+    public TextMeshProUGUI Text;
+    public string Description;
+    public TextMeshProUGUI QuestText;
+    public AudioSource RadioSound;
+    public string[] dialogue;
+    public int curResponseTracker=0;
+    public TextMeshProUGUI npcName;
+    public TextMeshProUGUI npcDialogueBox;
+    public GameObject dialogueUI;
+    public bool isTalking=false;
+    private bool zzz=false;
+    public bool first=true;
 
     private void Start()
     {
         
         Loading.loopPointReached += OnVideoEnd;
+        
     }
 
 
@@ -50,20 +64,39 @@ public class RealBoss : MonoBehaviour
                 }
         }
         }
+        if(Input.GetMouseButtonDown(0)&&isTalking==true){
+                
+            ContinueConversation();          
+        }
+        if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
+            EndDialogue();
+        }
         
         
     }
 
+    public void QuestActive(){
+        Text.text=Description;
+        StartCoroutine(ChangeColor());
+    }
+    private IEnumerator ChangeColor(){
+        for(int i=0;i<3;i++){
+            QuestText.color=new Color32(229,255,0,255);
+            yield return new WaitForSeconds(0.5f);
+            QuestText.color=new Color32(0,222,255,255);
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
     private void OnVideoEnd(VideoPlayer vp)
     {
         BlackScreen.SetActive(false);
         Monitor.SetActive(false);
-        Renderer rend1 = Screen[0].GetComponent<Renderer>();
+        Renderer rend1 = Screen1.GetComponent<Renderer>();
         rend1.material = Blue;
-        Renderer rend2 = Screen[1].GetComponent<Renderer>();
-        rend1.material = Yellow;
-        Renderer rend3 = Screen[2].GetComponent<Renderer>();
-        rend1.material = Pink;
+        Renderer rend2 = Screen2.GetComponent<Renderer>();
+        rend2.material = Yellow;
+        Renderer rend3 = Screen3.GetComponent<Renderer>();
+        rend3.material = Pink;
         StartConversation();
     }
 
@@ -81,6 +114,40 @@ public class RealBoss : MonoBehaviour
         Text1.SetActive(true);
         text1.text="해치웠다. 가서 해킹칩을 심자.";
         StartCoroutine(ExecuteAfterDelayText(3f));
+    }
+    public void StartConversation(){
+        RadioSound.Play();
+        isTalking=true;
+        curResponseTracker=0;
+        dialogueUI.SetActive(true);
+        npcName.text="J";
+        npcDialogueBox.text=dialogue[0];
+        zzz=false;
+        player.GetComponent<MouseLookScript>().enabled = false;
+        player.GetComponent<PlayerMovementScript>().enabled = false;
+
+
+    }
+
+    public void ContinueConversation(){
+            curResponseTracker++;
+            if(curResponseTracker>dialogue.Length){
+                curResponseTracker=dialogue.Length;
+            }
+            else if(curResponseTracker<dialogue.Length)
+            {
+                npcDialogueBox.text=dialogue[curResponseTracker];
+            }
+    }
+
+    public void EndDialogue(){
+        curResponseTracker=0;
+        isTalking=false;
+        dialogueUI.SetActive(false);
+        QuestActive();
+        player.GetComponent<MouseLookScript>().enabled = true;
+        player.GetComponent<PlayerMovementScript>().enabled = true;
+        
     }
     IEnumerator ExecuteAttackPattern()
     {
