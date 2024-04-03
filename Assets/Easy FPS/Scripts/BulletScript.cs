@@ -30,6 +30,8 @@ public class BulletScript : MonoBehaviour {
                 Destroy(gameObject);
             }else if(other.CompareTag("Volume")){
 
+            }else if(other.name == "Bone001"){
+
             }
             else{
                 
