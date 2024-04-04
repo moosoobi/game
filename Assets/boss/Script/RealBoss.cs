@@ -54,7 +54,7 @@ public class RealBoss : MonoBehaviour
     private bool zzz=false;
     public bool clear=false;
     public bool first=true;
-    static public float BossHp=100f;
+    public float BossHp=100f;
     public float BossMaxHp=100f;
     public Slider BossSlider;
     public GameObject BossText;
@@ -133,6 +133,7 @@ public class RealBoss : MonoBehaviour
         Monitor.SetActive(true);
         Loading.Play();
         player.GetComponent<MouseLookScript>().enabled = false;
+        player.GetComponent<PlayerMovementScript>().currentSpeed = 0;
         player.GetComponent<PlayerMovementScript>().enabled = false;
 
 
@@ -222,6 +223,10 @@ public class RealBoss : MonoBehaviour
     public void FightRobot(){
         GameObject Enemy1 = Instantiate(Leg4,SectorB.transform.position , SectorB.transform.rotation);
         GameObject Enemy2 = Instantiate(Red,SectorC.transform.position , SectorC.transform.rotation);
+
+       Enemy1.GetComponent<Leg4Robot>().Ifhit=true;
+       Enemy2.GetComponent<Leg2RobotRed>().Ifhit=true;
+        
     }
     int GetRandomNumber(int min, int max)
     {
@@ -354,6 +359,7 @@ public class RealBoss : MonoBehaviour
         light.enabled=true;
         light.color =  Color.white;
         BossSlider.gameObject.SetActive(true);
+        InitializeHealthBar();
         BossText.SetActive(true);
         touch=true;
         player.GetComponent<MouseLookScript>().enabled = true;
