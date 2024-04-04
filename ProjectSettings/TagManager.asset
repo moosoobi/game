@@ -23,6 +23,7 @@ TagManager:
   - Enemy
   - ChipText
   - Volume
+  - BossBulletSpawn
   layers:
   - Default
   - TransparentFX
