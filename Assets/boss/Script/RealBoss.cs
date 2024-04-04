@@ -18,12 +18,11 @@ public class RealBoss : MonoBehaviour
     public GameObject Lazer;
     public GameObject BlackScreen;
     public GameObject Monitor;
+    public GameObject BossBulletSpawn;
+    public GameObject BossBullet;
     public AudioSource electricsound;
     public AudioSource lazersound;
     public AudioSource warningsound;
-    public GameObject[] Bullet;
-    public float obstacleSpeed = 5f;  // 장애물 이동 속도
-    public int numberOfWaves = 5;
     private bool alive=true;
     private bool touch=false;
     public VideoPlayer Loading;
@@ -116,6 +115,8 @@ public class RealBoss : MonoBehaviour
         BlackScreen.SetActive(true);
         Monitor.SetActive(true);
         Loading.Play();
+        player.GetComponent<MouseLookScript>().enabled = false;
+        player.GetComponent<PlayerMovementScript>().enabled = false;
 
 
     }
@@ -133,8 +134,7 @@ public class RealBoss : MonoBehaviour
         npcName.text="J";
         npcDialogueBox.text=dialogue[0];
         zzz=false;
-        player.GetComponent<MouseLookScript>().enabled = false;
-        player.GetComponent<PlayerMovementScript>().enabled = false;
+        
 
 
     }
@@ -163,7 +163,7 @@ public class RealBoss : MonoBehaviour
     {
         isAttacking = true;
 
-        // 현재 공격 패턴 실행
+        
         if (currentPatternIndex < AttackLength)
         {
             
@@ -188,25 +188,22 @@ public class RealBoss : MonoBehaviour
 
     public void LazerAttack(){
         Lazer.SetActive(true);
-        
+        Invoke("DeactivateAfterDelay", 10.0f);
     }
-
+    void DeactivateAfterDelay()
+    {
+        Lazer.SetActive(false);
+    }
     void BulletAttack(){
         
 
         int randomValue = GetRandomNumber(0, 3);
-        Vector3 position=new Vector3(transform.position.x, transform.position.y, transform.position.z+5f);
-        // 장애물 생성
-        GameObject obstacle = Instantiate(Bullet[randomValue],position , Quaternion.identity);
+        Vector3 position=new Vector3(BossBulletSpawn.transform.position.x, BossBulletSpawn.transform.position.y, BossBulletSpawn.transform.position.z);
+        Quaternion rotation = Quaternion.Euler(BossBulletSpawn.transform.rotation.eulerAngles.x, Random.Range(0, 360), BossBulletSpawn.transform.rotation.eulerAngles.z);
+        GameObject obstacle = Instantiate(BossBullet,position , rotation);
         electricsound.Play();
 
-        // 장애물에 힘을 가해 발사
-        Rigidbody obstacleRb = obstacle.GetComponent<Rigidbody>();
-        if (obstacleRb != null)
-        {
-            
-            obstacleRb.velocity = new Vector3(0.0f, 0.0f, -obstacleSpeed);
-        }
+        
         
     }
     int GetRandomNumber(int min, int max)
@@ -217,23 +214,26 @@ public class RealBoss : MonoBehaviour
 
     public IEnumerator Execute(int currentPatternIndex)
     {   
-        yield return new WaitForSeconds(duration);
+        
         if(currentPatternIndex==0){
-            
-        }else if(currentPatternIndex==1){
             Text1.SetActive(true);
-            text1.text="레이저 공격 준비!";
+            text1.text=" 메인 컴퓨터가 바닥을 훑는 레이저를 발사합니다.";
             StartCoroutine(ExecuteAfterDelayText(3f));
             LazerAttack();
-            yield return new WaitForSeconds(duration);
-        }else if(currentPatternIndex==2){
+            yield return new WaitForSeconds(10.0f);
+        }else if(currentPatternIndex==1){
             Text1.SetActive(true);
-            text1.text="에너지볼 공격!";
+            text1.text="메인 컴퓨터가 강력한 에너지볼을 방출합니다.";
             StartCoroutine(ExecuteAfterDelayText(3f));
             Invoke("StopSpawningObstacles", 18f);
-            InvokeRepeating("BulletAttack", 0f, 6f);
+            InvokeRepeating("BulletAttack", 0f, 0.2f);
 
             yield return new WaitForSeconds(20f);
+        }else if(currentPatternIndex==2){
+            Text1.SetActive(true);
+            text1.text="메인 컴퓨터가 전투로봇을 호출합니다.";
+            StartCoroutine(ExecuteAfterDelayText(3f));
+            yield return new WaitForSeconds(duration);
         }
     }
     void StopSpawningObstacles()
