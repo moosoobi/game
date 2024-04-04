@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class RealBoss : MonoBehaviour
 {
-    
+    public Animator BossAni;
     public TextMeshProUGUI text1;
     public GameObject Text1;
     private int currentPatternIndex = 0; // 현재 실행 중인 공격 패턴 인덱스
@@ -20,6 +20,12 @@ public class RealBoss : MonoBehaviour
     public GameObject Monitor;
     public GameObject BossBulletSpawn;
     public GameObject BossBullet;
+    public GameObject Red;
+    public GameObject Leg2Blue;
+    public GameObject Leg4;
+    public GameObject SectorA;
+    public GameObject SectorB;
+    public GameObject SectorC;
     public AudioSource electricsound;
     public AudioSource lazersound;
     public AudioSource warningsound;
@@ -53,6 +59,7 @@ public class RealBoss : MonoBehaviour
     public Slider BossSlider;
     public GameObject BossText;
     public Light light;
+    private float temp;
 
     private void Start()
     {
@@ -64,8 +71,18 @@ public class RealBoss : MonoBehaviour
 
     void Update()
     {
+        
         if(touch){
             if(alive){
+                Vector3 directionToPlayer = player.transform.position - transform.position;
+                directionToPlayer.y = 0f; // Y축 방향은 무시 (수평 방향으로만 회전)
+                // 방향 벡터를 바탕으로 회전 값 생성
+                Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+                Vector3 euler = targetRotation.eulerAngles;
+                euler.x = -90f; // x 값을 -90도로 설정
+                euler.z += -40f; // z 값을 -40만큼 추가로 회전
+                targetRotation = Quaternion.Euler(euler);
+                transform.rotation = targetRotation;
                 if (!isAttacking)
                 {
                     // 현재 공격 패턴 실행
@@ -166,19 +183,15 @@ public class RealBoss : MonoBehaviour
         
         if (currentPatternIndex < AttackLength)
         {
-            
-
             // 공격 패턴 실행
             yield return StartCoroutine(Execute(currentPatternIndex));
-
             // 다음 패턴으로 이동
             currentPatternIndex++;
         }
         else
         {
-            // 모든 패턴이 실행된 경우 초기화 또는 다른 동작 수행
-            // 예: currentPatternIndex를 0으로 초기화
-            currentPatternIndex = 0;
+            int randomValue = GetRandomNumber(0, 3);
+            yield return StartCoroutine(Execute(randomValue));
         }
 
         isAttacking = false;
@@ -206,6 +219,10 @@ public class RealBoss : MonoBehaviour
         
         
     }
+    public void FightRobot(){
+        GameObject Enemy1 = Instantiate(Leg4,SectorB.transform.position , SectorB.transform.rotation);
+        GameObject Enemy2 = Instantiate(Red,SectorC.transform.position , SectorC.transform.rotation);
+    }
     int GetRandomNumber(int min, int max)
     {
         return Random.Range(min, max);
@@ -226,14 +243,15 @@ public class RealBoss : MonoBehaviour
             text1.text="메인 컴퓨터가 강력한 에너지볼을 방출합니다.";
             StartCoroutine(ExecuteAfterDelayText(3f));
             Invoke("StopSpawningObstacles", 18f);
-            InvokeRepeating("BulletAttack", 0f, 0.2f);
+            InvokeRepeating("BulletAttack", 0f, 9f);
 
             yield return new WaitForSeconds(20f);
         }else if(currentPatternIndex==2){
             Text1.SetActive(true);
             text1.text="메인 컴퓨터가 전투로봇을 호출합니다.";
             StartCoroutine(ExecuteAfterDelayText(3f));
-            yield return new WaitForSeconds(duration);
+            FightRobot();
+            yield return new WaitForSeconds(10.0f);
         }
     }
     void StopSpawningObstacles()
@@ -302,7 +320,8 @@ public class RealBoss : MonoBehaviour
         Renderer rend1 = Screen1.GetComponent<Renderer>();
         Renderer rend2 = Screen2.GetComponent<Renderer>();
         Renderer rend3 = Screen3.GetComponent<Renderer>();
-        
+        player.GetComponent<MouseLookScript>().enabled = false;
+        player.GetComponent<PlayerMovementScript>().enabled = false;
         rend1.material=Error1;
         rend2.material=Error2;
         rend3.material=Error1;
@@ -337,6 +356,9 @@ public class RealBoss : MonoBehaviour
         BossSlider.gameObject.SetActive(true);
         BossText.SetActive(true);
         touch=true;
+        player.GetComponent<MouseLookScript>().enabled = true;
+        player.GetComponent<PlayerMovementScript>().enabled = true;
+        BossAni.enabled=true;
     }
 
 }
