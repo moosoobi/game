@@ -227,6 +227,7 @@ public class RealBoss : MonoBehaviour
     void BulletAttack(){
         Vector3 playerDirection = (player.transform.position - BossBulletSpawn.transform.position).normalized;
         GameObject bullet = Instantiate(BossBullet, BossBulletSpawn.transform.position, BossBulletSpawn.transform.rotation);
+        bullet.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         bullet.transform.forward = playerDirection;
         electricsound.Play();
 
@@ -239,6 +240,16 @@ public class RealBoss : MonoBehaviour
 
        Enemy1.GetComponent<Leg4Robot>().Ifhit=true;
        Enemy2.GetComponent<Leg2RobotRed>().Ifhit=true;
+        
+    }
+    public void FightRobot2(){
+        GameObject Enemy1 = Instantiate(Leg4,SectorB.transform.position , SectorB.transform.rotation);
+        GameObject Enemy2 = Instantiate(Red,SectorC.transform.position , SectorC.transform.rotation);
+        GameObject Enemy3 = Instantiate(Leg2Blue,SectorA.transform.position , SectorA.transform.rotation);
+
+       Enemy1.GetComponent<Leg4Robot>().Ifhit=true;
+       Enemy2.GetComponent<Leg2RobotRed>().Ifhit=true;
+       Enemy3.GetComponent<Leg2RobotBlue>().Ifhit=true;
         
     }
     public void FixingRobot(){
@@ -303,7 +314,7 @@ public class RealBoss : MonoBehaviour
             rend1.material=Blue;
             yield return new WaitForSeconds(3.0f);
             Invoke("StopSpawningObstacles", 18f);
-            InvokeRepeating("BulletAttack", 0f, 1f);
+            InvokeRepeating("BulletAttack", 0f, 3f);
             yield return new WaitForSeconds(18f);
             rend1.material=Black;
         }else if(currentPatternIndex==5){
@@ -366,20 +377,21 @@ public class RealBoss : MonoBehaviour
             rend2.material = Yellow;
             yield return new WaitForSeconds(3.0f);
             LazerAttack();
+            Lazer.GetComponent<BossLazer>().rotationSpeed=80;
             yield return new WaitForSeconds(10.0f);
             rend2.material=Black;
         }else if(currentPatternIndex==8){
             rend1.material=Blue;
             yield return new WaitForSeconds(3.0f);
             Invoke("StopSpawningObstacles", 18f);
-            InvokeRepeating("BulletAttack", 0f, 1f);
+            InvokeRepeating("BulletAttack", 0f, 2f);
             
             yield return new WaitForSeconds(18f);
             rend1.material=Black;
         }else if(currentPatternIndex==9){
             rend3.material=Pink;
             yield return new WaitForSeconds(3.0f);
-            FightRobot();
+            FightRobot2();
             yield return new WaitForSeconds(10.0f);
             rend3.material=Black;
         }
