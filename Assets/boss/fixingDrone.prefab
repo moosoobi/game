@@ -740,9 +740,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DroneAni: {fileID: 2872124559210125274}
   Boss: {fileID: 0}
+  EnemyHittingSound: {fileID: 0}
   moveSpeed: 5
   Move: 1
   first: 1
+  Hp: 1
 --- !u!135 &4453291753237479729
 SphereCollider:
   m_ObjectHideFlags: 0

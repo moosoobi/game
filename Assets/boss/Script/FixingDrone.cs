@@ -11,7 +11,7 @@ public class FixingDrone : MonoBehaviour
     public float moveSpeed = 5f;
     public bool Move=true;
     public bool first=true;
-    public float Hp=5;
+    public float Hp=1;
     
 
     void Start()

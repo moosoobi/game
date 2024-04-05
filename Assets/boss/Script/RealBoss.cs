@@ -68,6 +68,8 @@ public class RealBoss : MonoBehaviour
     public Renderer rend3;
     private Coroutine currentCoroutine;
     public int Fixing=0;
+    public bool Under50=false;
+    public bool Under30=false;
 
     private void Start()
     {
@@ -199,8 +201,14 @@ public class RealBoss : MonoBehaviour
         }
         else
         {
-            int randomValue = GetRandomNumber(3, 6);
-            yield return StartCoroutine(Execute(randomValue));
+            if(!Under30){
+                int randomValue = GetRandomNumber(3, 6);
+                yield return StartCoroutine(Execute(randomValue));
+            }else{
+                int randomValue = GetRandomNumber(7, 10);
+                yield return StartCoroutine(Execute(randomValue));
+            }
+            
         }
 
         isAttacking = false;
@@ -306,26 +314,74 @@ public class RealBoss : MonoBehaviour
             rend3.material=Black;
         }
         else if(currentPatternIndex==6){
+            Fixing=0;
             Text1.SetActive(true);
             text1.text="메인 컴퓨터가 수리 로봇을 호출합니다. 파괴하여 수리를 중단해야 합니다.";
             StartCoroutine(ExecuteAfterDelayText(3f));
             yield return new WaitForSeconds(3.0f);
             TimerCamera.SetActive(true);
             FixingCamera.SetActive(true);
-            FixingRobot();
+            GameObject Fixing1 = Instantiate(FixingDrone,SectorA.transform.position+new Vector3(0,6,10) , SectorA.transform.rotation);
+            GameObject Fixing2 = Instantiate(FixingDrone,SectorA.transform.position+new Vector3(0,6,0) , SectorA.transform.rotation);
+            GameObject Fixing3 = Instantiate(FixingDrone,SectorA.transform.position+new Vector3(0,6,-10) , SectorA.transform.rotation);
+            GameObject Fixing4 = Instantiate(FixingDrone,SectorB.transform.position+new Vector3(10,6,-5) , SectorB.transform.rotation);
+            GameObject Fixing5 = Instantiate(FixingDrone,SectorB.transform.position+new Vector3(0,6,0) , SectorB.transform.rotation);
+            GameObject Fixing6 = Instantiate(FixingDrone,SectorB.transform.position+new Vector3(-10,6,5) , SectorB.transform.rotation);
+            GameObject Fixing7 = Instantiate(FixingDrone,SectorC.transform.position+new Vector3(10,6,5) , SectorC.transform.rotation);
+            GameObject Fixing8 = Instantiate(FixingDrone,SectorC.transform.position+new Vector3(0,6,0) , SectorC.transform.rotation);
+            GameObject Fixing9 = Instantiate(FixingDrone,SectorC.transform.position+new Vector3(-10,6,-5) , SectorC.transform.rotation);
+            GameObject Fixing10 = Instantiate(FixingDrone,SectorC.transform.position+new Vector3(-15,6,-10) , SectorC.transform.rotation);
             yield return new WaitForSeconds(20.0f);
+            if(Fixing1){Fixing1.SetActive(false);}
+            if(Fixing2){Fixing2.SetActive(false);}
+            if(Fixing3){Fixing3.SetActive(false);}
+            if(Fixing4){Fixing4.SetActive(false);}
+            if(Fixing5){Fixing5.SetActive(false);}
+            if(Fixing6){Fixing6.SetActive(false);}
+            if(Fixing7){Fixing7.SetActive(false);}
+            if(Fixing8){Fixing8.SetActive(false);}
+            if(Fixing9){Fixing9.SetActive(false);}
+            if(Fixing10){Fixing10.SetActive(false);}
             TimerCamera.SetActive(false);
             FixingCamera.SetActive(false);
             clear=true;
             if(Fixing==10){
+                Under50=true;
                 Text1.SetActive(true);
-                text1.text="성공";
-                StartCoroutine(ExecuteAfterDelayText(3f));
+                text1.text="메인 컴퓨터가 수리에 실패했습니다. 과부하로 인해 10초간 동작이 중지됩니다.";
+                StartCoroutine(ExecuteAfterDelayText(10f));
+                yield return new WaitForSeconds(10.0f);
+                touch=true;
+                
             }else{
                 Text1.SetActive(true);
-                text1.text="실패";
+                text1.text="메인 컴퓨터가 수리에 성공했습니다. 많은 양의 에너지가 공급 됩니다.";
                 StartCoroutine(ExecuteAfterDelayText(3f));
+                touch=true;
+                BossHp=70;
+
             }
+        }else if(currentPatternIndex==7){
+            
+            rend2.material = Yellow;
+            yield return new WaitForSeconds(3.0f);
+            LazerAttack();
+            yield return new WaitForSeconds(10.0f);
+            rend2.material=Black;
+        }else if(currentPatternIndex==8){
+            rend1.material=Blue;
+            yield return new WaitForSeconds(3.0f);
+            Invoke("StopSpawningObstacles", 18f);
+            InvokeRepeating("BulletAttack", 0f, 1f);
+            
+            yield return new WaitForSeconds(18f);
+            rend1.material=Black;
+        }else if(currentPatternIndex==9){
+            rend3.material=Pink;
+            yield return new WaitForSeconds(3.0f);
+            FightRobot();
+            yield return new WaitForSeconds(10.0f);
+            rend3.material=Black;
         }
     }
     void StopSpawningObstacles()
@@ -362,14 +418,24 @@ public class RealBoss : MonoBehaviour
 
         // 슬라이더에 반영
         BossSlider.value = BossHp;
-
-        if (BossHp <= 50f)
+        if(!Under50){
+            if (BossHp <= 50f)
+            {
+                touch=false;
+                StopCoroutine(currentCoroutine);
+                StartCoroutine(Execute(6));
+                clear=false;
+                
+            }
+        }
+        
+        
+        if (BossHp == 30f)
         {
-            touch=false;
-            StopCoroutine(currentCoroutine);
-            StartCoroutine(Execute(6));
-            clear=false;
-            
+            Under30=true;
+            Text1.SetActive(true);
+            text1.text="메인 컴퓨터가 2단계 보호 모드로 전환되었습니다. 더욱 강력한 에너지가 방출됩니다. ";
+            StartCoroutine(ExecuteAfterDelayText(3f));
         }
         if (BossHp <= 0f)
         {
