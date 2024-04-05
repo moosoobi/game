@@ -24,6 +24,7 @@ TagManager:
   - ChipText
   - Volume
   - BossBulletSpawn
+  - EnemyHitSound
   layers:
   - Default
   - TransparentFX

@@ -67,6 +67,7 @@ public class RealBoss : MonoBehaviour
     public Renderer rend2;
     public Renderer rend3;
     private Coroutine currentCoroutine;
+    public int Fixing=0;
 
     private void Start()
     {
@@ -74,8 +75,8 @@ public class RealBoss : MonoBehaviour
         rend1 = Screen1.GetComponent<Renderer>();//left
         rend2 = Screen2.GetComponent<Renderer>();//right
         rend3 = Screen3.GetComponent<Renderer>();//main
-
         
+         
     }
 
 
@@ -233,9 +234,16 @@ public class RealBoss : MonoBehaviour
         
     }
     public void FixingRobot(){
-        GameObject Fixing1 = Instantiate(FixingDrone,SectorA.transform.position+new Vector3(3,0,0) , SectorA.transform.rotation);
-        GameObject Fixing2 = Instantiate(FixingDrone,SectorA.transform.position , SectorA.transform.rotation);
-        GameObject Fixing3 = Instantiate(FixingDrone,SectorA.transform.position+new Vector3(-3,0,0) , SectorA.transform.rotation);
+        GameObject Fixing1 = Instantiate(FixingDrone,SectorA.transform.position+new Vector3(0,6,10) , SectorA.transform.rotation);
+        GameObject Fixing2 = Instantiate(FixingDrone,SectorA.transform.position+new Vector3(0,6,0) , SectorA.transform.rotation);
+        GameObject Fixing3 = Instantiate(FixingDrone,SectorA.transform.position+new Vector3(0,6,-10) , SectorA.transform.rotation);
+        GameObject Fixing4 = Instantiate(FixingDrone,SectorB.transform.position+new Vector3(10,6,-5) , SectorB.transform.rotation);
+        GameObject Fixing5 = Instantiate(FixingDrone,SectorB.transform.position+new Vector3(0,6,0) , SectorB.transform.rotation);
+        GameObject Fixing6 = Instantiate(FixingDrone,SectorB.transform.position+new Vector3(-10,6,5) , SectorB.transform.rotation);
+        GameObject Fixing7 = Instantiate(FixingDrone,SectorC.transform.position+new Vector3(10,6,5) , SectorC.transform.rotation);
+        GameObject Fixing8 = Instantiate(FixingDrone,SectorC.transform.position+new Vector3(0,6,0) , SectorC.transform.rotation);
+        GameObject Fixing9 = Instantiate(FixingDrone,SectorC.transform.position+new Vector3(-10,6,-5) , SectorC.transform.rotation);
+        GameObject Fixing10 = Instantiate(FixingDrone,SectorC.transform.position+new Vector3(-15,6,-10) , SectorC.transform.rotation);
         
         
     }
@@ -305,6 +313,19 @@ public class RealBoss : MonoBehaviour
             TimerCamera.SetActive(true);
             FixingCamera.SetActive(true);
             FixingRobot();
+            yield return new WaitForSeconds(20.0f);
+            TimerCamera.SetActive(false);
+            FixingCamera.SetActive(false);
+            clear=true;
+            if(Fixing==10){
+                Text1.SetActive(true);
+                text1.text="성공";
+                StartCoroutine(ExecuteAfterDelayText(3f));
+            }else{
+                Text1.SetActive(true);
+                text1.text="실패";
+                StartCoroutine(ExecuteAfterDelayText(3f));
+            }
         }
     }
     void StopSpawningObstacles()
@@ -347,6 +368,7 @@ public class RealBoss : MonoBehaviour
             touch=false;
             StopCoroutine(currentCoroutine);
             StartCoroutine(Execute(6));
+            clear=false;
             
         }
         if (BossHp <= 0f)
