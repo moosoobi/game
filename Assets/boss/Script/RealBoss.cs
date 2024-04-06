@@ -82,9 +82,7 @@ public class RealBoss : MonoBehaviour
         Loading.loopPointReached += OnVideoEnd;
         rend1 = Screen1.GetComponent<Renderer>();//left
         rend2 = Screen2.GetComponent<Renderer>();//right
-        rend3 = Screen3.GetComponent<Renderer>();//main
-        StartCoroutine(die());
-         
+        rend3 = Screen3.GetComponent<Renderer>();//main         
     }
 
 
