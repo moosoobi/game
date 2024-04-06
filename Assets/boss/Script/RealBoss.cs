@@ -38,6 +38,9 @@ public class RealBoss : MonoBehaviour
     public GameObject Screen3;
     public GameObject TimerCamera;
     public GameObject FixingCamera;
+    public GameObject NoiseVideo1;
+    public GameObject NoiseVideo2;
+    public GameObject NoiseVideo3;
     public Material Blue;
     public Material Yellow;
     public Material Pink;
@@ -49,6 +52,7 @@ public class RealBoss : MonoBehaviour
     public TextMeshProUGUI QuestText;
     public AudioSource RadioSound;
     public string[] dialogue;
+    public string[] dialogue1;
     public int curResponseTracker=0;
     public TextMeshProUGUI npcName;
     public TextMeshProUGUI npcDialogueBox;
@@ -70,32 +74,33 @@ public class RealBoss : MonoBehaviour
     public int Fixing=0;
     public bool Under50=false;
     public bool Under30=false;
+    public bool Look=false;
+    public int Stage=0;
 
     private void Start()
     {
         Loading.loopPointReached += OnVideoEnd;
         rend1 = Screen1.GetComponent<Renderer>();//left
         rend2 = Screen2.GetComponent<Renderer>();//right
-        rend3 = Screen3.GetComponent<Renderer>();//main
-        
-         
+        rend3 = Screen3.GetComponent<Renderer>();//main         
     }
 
 
     void Update()
     {
-        
+        if(Look){
+            Vector3 directionToPlayer = player.transform.position - transform.position;
+            directionToPlayer.y = 0f; // Y축 방향은 무시 (수평 방향으로만 회전)
+            // 방향 벡터를 바탕으로 회전 값 생성
+            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+            Vector3 euler = targetRotation.eulerAngles;
+            euler.x = -90f; // x 값을 -90도로 설정
+            euler.z += -40f; // z 값을 -40만큼 추가로 회전
+            targetRotation = Quaternion.Euler(euler);
+            transform.rotation = targetRotation;
+        }
         if(touch){
             if(alive){
-                Vector3 directionToPlayer = player.transform.position - transform.position;
-                directionToPlayer.y = 0f; // Y축 방향은 무시 (수평 방향으로만 회전)
-                // 방향 벡터를 바탕으로 회전 값 생성
-                Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
-                Vector3 euler = targetRotation.eulerAngles;
-                euler.x = -90f; // x 값을 -90도로 설정
-                euler.z += -40f; // z 값을 -40만큼 추가로 회전
-                targetRotation = Quaternion.Euler(euler);
-                transform.rotation = targetRotation;
                 if (!isAttacking)
                 {
                     // 현재 공격 패턴 실행
@@ -103,19 +108,31 @@ public class RealBoss : MonoBehaviour
                 }
         }
         }
+        
         if(Input.GetMouseButtonDown(0)&&isTalking==true){
                 
             ContinueConversation();          
         }
-        if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
-            EndDialogue();
+        if(Stage==0){
+            if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
+                EndDialogue();
+            }
+        }else if(Stage==1){
+            if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue1.Length){
+                EndDialogue();
+            }
         }
+        
         
         
     }
 
     public void QuestActive(){
         Text.text=Description;
+        StartCoroutine(ChangeColor());
+    }
+    public void QuestActive1(){
+        Text.text="빛나는 모니터를 확인하십시오.";
         StartCoroutine(ChangeColor());
     }
     private IEnumerator ChangeColor(){
@@ -145,14 +162,23 @@ public class RealBoss : MonoBehaviour
         player.GetComponent<MouseLookScript>().enabled = false;
         player.GetComponent<PlayerMovementScript>().currentSpeed = 0;
         player.GetComponent<PlayerMovementScript>().enabled = false;
-
+        Look=true;
 
     }
-    public void die(){
+    public IEnumerator die(){
+        Look=false;
         alive=false;
-        Text1.SetActive(true);
-        text1.text="해치웠다. 가서 해킹칩을 심자.";
-        StartCoroutine(ExecuteAfterDelayText(3f));
+        rend1.material=Black;
+        rend2.material=Black;
+        rend3.material=Black;
+        NoiseVideo1.SetActive(true);
+        NoiseVideo2.SetActive(true);
+        NoiseVideo3.SetActive(true);
+        BossAni.enabled=true;
+        BossAni.Play("death", 0, 0.0f);
+        yield return new WaitForSeconds(3.0f);
+        Stage=1;
+        StartConversation();
     }
     public void StartConversation(){
         RadioSound.Play();
@@ -160,32 +186,50 @@ public class RealBoss : MonoBehaviour
         curResponseTracker=0;
         dialogueUI.SetActive(true);
         npcName.text="J";
-        npcDialogueBox.text=dialogue[0];
+        if(Stage==0){npcDialogueBox.text=dialogue[0];}
+        if(Stage==1){npcDialogueBox.text=dialogue1[0];}
         zzz=false;
         
 
 
     }
 
+
     public void ContinueConversation(){
             curResponseTracker++;
-            if(curResponseTracker>dialogue.Length){
-                curResponseTracker=dialogue.Length;
+            if(Stage==0){
+                if(curResponseTracker>dialogue.Length){
+                    curResponseTracker=dialogue.Length;
+                }
+                else if(curResponseTracker<dialogue.Length)
+                {
+                    npcDialogueBox.text=dialogue[curResponseTracker];
+                }
+            }else if(Stage==1){
+                if(curResponseTracker>dialogue1.Length){
+                    curResponseTracker=dialogue1.Length;
+                }
+                else if(curResponseTracker<dialogue1.Length)
+                {
+                    npcDialogueBox.text=dialogue1[curResponseTracker];
+                }
             }
-            else if(curResponseTracker<dialogue.Length)
-            {
-                npcDialogueBox.text=dialogue[curResponseTracker];
-            }
+            
     }
 
     public void EndDialogue(){
         curResponseTracker=0;
         isTalking=false;
         dialogueUI.SetActive(false);
-        QuestActive();
-        player.GetComponent<MouseLookScript>().enabled = true;
-        player.GetComponent<PlayerMovementScript>().enabled = true;
-        clear=true;
+        if(Stage==0){
+            QuestActive();
+            player.GetComponent<MouseLookScript>().enabled = true;
+            player.GetComponent<PlayerMovementScript>().enabled = true;
+            clear=true;
+        }else if(Stage==1){
+            QuestActive1();
+        }
+        
     }
     IEnumerator ExecuteAttackPattern()
     {
@@ -384,7 +428,7 @@ public class RealBoss : MonoBehaviour
             rend1.material=Blue;
             yield return new WaitForSeconds(3.0f);
             Invoke("StopSpawningObstacles", 18f);
-            InvokeRepeating("BulletAttack", 0f, 2f);
+            InvokeRepeating("BulletAttack", 0f, 1f);
             
             yield return new WaitForSeconds(18f);
             rend1.material=Black;
@@ -451,15 +495,11 @@ public class RealBoss : MonoBehaviour
         }
         if (BossHp <= 0f)
         {
-            // 추가적인 처리 (보스 사망 등)
-            BossDefeated();
+            StartCoroutine(die());
         }
     }
 
-    void BossDefeated()
-    {
-        die();
-    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Attack")){
