@@ -5,11 +5,12 @@ public class BulletScript : MonoBehaviour {
 
     
 	public GameObject bloodEffect;
+    public bool Upgrade;
     public float maxSpeed = 15.0f;
 
 	void Start()
     {
-        
+        Upgrade= GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().Upgrade;
         MoveBullet();
     }
 

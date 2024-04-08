@@ -4,6 +4,10 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovementScript : MonoBehaviour {
 	
+	public int Emp=0;
+	public int FakeBody=0;
+	public int HealKit=0;
+	public bool Upgrade=false;
 	public int ChipInt=0;
 	Rigidbody rb;
 	public GameObject player;
