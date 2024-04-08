@@ -22,11 +22,7 @@ public class EvKeyPad : MonoBehaviour
     public string s="";
 
 
-    void Start()
-    {
-        UsingKey();
-        On=true;
-    }
+   
     void Update()
     {
         
