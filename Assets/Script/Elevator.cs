@@ -12,19 +12,27 @@ public class Elevator : MonoBehaviour
 
     public bool movingUp = false;
     public bool First=true;
+    public bool zzz=false;
+    public bool clear=false;
     
     public GameObject player;
 
     public TextMeshProUGUI npcName;
     public TextMeshProUGUI npcDialogueBox;
     public GameObject dialogueUI;
-  
 
-    // Update is called once per frame
+
+    
+    
+
     void Update()
     {
         if (movingUp && transform.position.y < maxHeight)
         {
+            if(First){
+                    First=false;
+                    StartCoroutine(StartConversation());
+            }
             transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
             player.transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
         }
@@ -33,10 +41,13 @@ public class Elevator : MonoBehaviour
             myDoor.Play("EleOpen", 0, 0.0f);
             movingUp=false;
         }
+
+
     }
+    /*
     void OnTriggerEnter(Collider other)
     {
-        
+            zzz=true;
             if (other.CompareTag("Player")){
                 movingUp=true;
                 if(First){
@@ -47,10 +58,10 @@ public class Elevator : MonoBehaviour
         
         
     }
-
+    */
     IEnumerator StartConversation()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(6.0f);
         dialogueUI.SetActive(true);
         npcName.text=" ";
         npcDialogueBox.text="…항상 아래에서 위를 쳐다보기만 했었는데";
@@ -64,4 +75,6 @@ public class Elevator : MonoBehaviour
 
         
     }
+
+
 }

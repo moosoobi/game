@@ -9839,8 +9839,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e3d39d01a5946499fa8b6b5dc1b00f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHittingSound: {fileID: 1603488324173094422}
   bloodEffect: {fileID: 1218997492258936526, guid: 87575a2a73b97f541a578ae39a49207f, type: 3}
+  maxSpeed: 20
 --- !u!114 &-2432893762211228943
 MonoBehaviour:
   m_ObjectHideFlags: 0

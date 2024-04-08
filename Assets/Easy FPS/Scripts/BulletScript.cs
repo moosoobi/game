@@ -5,7 +5,7 @@ public class BulletScript : MonoBehaviour {
 
     
 	public GameObject bloodEffect;
-    private float maxSpeed = 15.0f;
+    public float maxSpeed = 15.0f;
 
 	void Start()
     {
