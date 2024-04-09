@@ -6,6 +6,8 @@ using TMPro;
 public class DrLee : MonoBehaviour
 {
     public Animator LeeAni;
+    public UnityEngine.AI.NavMeshAgent navMeshAgent;
+    public bool Walking=false;
     public GameObject player;
     public string[] dialogue;
     public string[] dialogue1;
@@ -65,40 +67,28 @@ public class DrLee : MonoBehaviour
 
 
 
-    void Start()
-    {
-        LeeAni.Play("walk", 0, 0.0f);
-    }
-
     // Update is called once per frame
     void Update()
     {
-        Vector3 directionToBoss = (playerTransform.position - transform.position).normalized;
-        directionToBoss.y=0;
-        transform.Translate(Vector3.forward * ApprochSpeed * Time.deltaTime*-1);
-        Quaternion targetRotation = Quaternion.LookRotation(-directionToBoss);
-        transform.rotation = targetRotation;
         
-        /*
         if(Approch){
             Vector3 directionToPlayer = playerTransform.position - transform.position;
-            directionToPlayer.y = 0f; // Y축 방향은 무시 (수평 방향으로만 이동)
+            directionToPlayer.y = 0f; // Y축 방향은 무시 (수평 방향으로만 회전)
 
-            // 플레이어 쪽으로 정규화된 방향 벡터를 만듭니다.
-            Vector3 moveDirection = directionToPlayer.normalized;
+            // 방향 벡터를 바탕으로 회전 값을 생성합니다.
+            Quaternion targetRotation = Quaternion.LookRotation(-1*directionToPlayer);
 
-            // NPC를 플레이어 쪽으로 이동시킵니다.
-            transform.Translate(moveDirection * ApprochSpeed * Time.deltaTime);
+            // NPC의 회전을 부드럽게 설정합니다.
+            player.transform.rotation = Quaternion.Slerp(player.transform.rotation, targetRotation, Time.deltaTime);
+            navMeshAgent.SetDestination(player.transform.position);
+            if(!Walking){LeeAni.Play("walk", 0, 0.0f);Walking=true;}
+            if(Vector3.Distance(transform.position, player.transform.position)<3.0f){
+                Approch=false;
+                navMeshAgent.isStopped = true;
+                StartConversation();
+            }
         }
-        */
-        float distanceToBoss = Vector3.Distance(transform.position, playerTransform.position);
-        if (distanceToBoss <= 5.0f)
-        {
-            Approch=false;
-            LeeAni.Play("Idle", 0, 0.0f);
-            StartConversation();
-            
-        }
+        
         Chip=GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt;
         ChipIntUi.text=Chip.ToString();
         ChipIntUi.gameObject.SetActive(true);
@@ -381,7 +371,7 @@ public class DrLee : MonoBehaviour
     public void StartConversation(){
         if(!Conversation){
             drz.first=false;
-            
+            first=false;
             isTalking=true;
             curResponseTracker=0;
             dialogueUI.SetActive(true);
@@ -538,7 +528,6 @@ public class DrLee : MonoBehaviour
                 player.GetComponent<PlayerMovementScript>().enabled = false;
                 Stage=1;
                 Approch=true;
-                LeeAni.Play("walk", 0, 0.0f);
                 first=false;
             }
                
