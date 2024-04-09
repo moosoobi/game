@@ -11,6 +11,8 @@ public class DrLee : MonoBehaviour
     public string[] dialogue1;
     public string[] dialogue2;
     public string[] dialogue3;
+    public string[] dialogue4;
+    public string[] dialogue5;
     public int curResponseTracker=0;
     public TextMeshProUGUI npcName;
     public TextMeshProUGUI npcDialogueBox;
@@ -26,8 +28,10 @@ public class DrLee : MonoBehaviour
     public GameObject UiObject;
     public GameObject ShopUi;
     public GameObject Cursur;
+    public TextMeshProUGUI ChipIntUi;
     public bool Shopping;
     public bool Buying;
+    public bool IfBuy=false;
     public float moveSpeed = 500f;
     public RectTransform uiRectTransform;
     public GameObject Emp;
@@ -63,6 +67,8 @@ public class DrLee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Chip=GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt;
+        ChipIntUi.text=Chip.ToString();
         if(Input.GetMouseButtonDown(0)&&isTalking==true){
                 
             ContinueConversation();          
@@ -75,124 +81,23 @@ public class DrLee : MonoBehaviour
             if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue1.Length){
                 EndDialogue();
             }
-        }
-
-        if(Buying){
-            float currentX = uiRectTransform.anchoredPosition.x;
-            float currentY = uiRectTransform.anchoredPosition.y;
-
-            float horizontalInput = Input.GetAxis("Mouse X");
-            float verticalInput = Input.GetAxis("Mouse Y");
-
-            // 입력에 따라 이동 방향 설정
-            Vector2 moveDirection = new Vector2(horizontalInput, verticalInput);
-
-            // 현재 anchoredPosition 가져오기
-            Vector2 currentPosition = uiRectTransform.anchoredPosition;
-
-            // 입력에 따라 이동한 위치 계산
-            Vector2 newPosition = currentPosition + moveDirection*moveSpeed * Time.deltaTime;
-
-            // 새로 계산된 위치로 anchoredPosition 설정
-            uiRectTransform.anchoredPosition = newPosition;
-            if(currentY>-142f&&currentY<-82f){
-                if(currentX>-160f&&currentX<-18f){
-                    if (Input.GetMouseButtonDown(0)){
-                        Buy.SetActive(false);
-                        Buying=false;
-                        Shopping=true;
-                    }
-                }
-                if(currentX>40f&&currentX<185f){
-                    if (Input.GetMouseButtonDown(0)){
-                        Buy.SetActive(false);
-                        Buying=false;
-                        Shopping=true;
-                        if(BuyInt==0){
-                            if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt<1){
-                                UiObject.SetActive(true);
-                                UiText.text="칩이 모자랍니다.";
-                                StartCoroutine(ExecuteAfterDelayText(3f));
-                                ChipSetBuy.SetActive(false);
-                            }else{
-                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt-=1;
-                                StartConversation();
-                                Cursur.SetActive(false);
-                                Shopping=false;
-                                ChipSetBuy.SetActive(false);
-                            }
-                            
-                        }else if(BuyInt==1){
-                            if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().Upgrade==true){
-                                UiObject.SetActive(true);
-                                UiText.text="더이상은 구매할 수 없습니다.";
-                                StartCoroutine(ExecuteAfterDelayText(3f)); 
-                                UpgradeBuy.SetActive(false);
-                            }else if(Chip<4){
-                                UiObject.SetActive(true);
-                                UiText.text="칩이 모자랍니다.";
-                                StartCoroutine(ExecuteAfterDelayText(3f)); 
-                                UpgradeBuy.SetActive(false);
-                            }else{
-                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt-=4;
-                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().Upgrade=true;
-                                UpgradeBuy.SetActive(false);
-                            }
-                            
-                        }else if(BuyInt==2){
-                            if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().HealKit>=5){
-                                UiObject.SetActive(true);
-                                UiText.text="더이상은 구매할 수 없습니다.";
-                                StartCoroutine(ExecuteAfterDelayText(3f)); 
-                                HealKitBuy.SetActive(false);
-                            }else if(Chip<1){
-                                UiObject.SetActive(true);
-                                UiText.text="칩이 모자랍니다.";
-                                StartCoroutine(ExecuteAfterDelayText(3f)); 
-                                HealKitBuy.SetActive(false);
-                            }else{
-                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt-=1;
-                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().HealKit+=1;
-                                HealKitBuy.SetActive(false);
-                            }
-                        }else if(BuyInt==3){
-                            if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().FakeBody>=3){
-                                UiObject.SetActive(true);
-                                UiText.text="더이상은 구매할 수 없습니다.";
-                                StartCoroutine(ExecuteAfterDelayText(3f)); 
-                                FakeBodyBuy.SetActive(false);
-                            }else if(Chip<2){
-                                UiObject.SetActive(true);
-                                UiText.text="칩이 모자랍니다.";
-                                StartCoroutine(ExecuteAfterDelayText(3f)); 
-                                FakeBodyBuy.SetActive(false);
-                            }else{
-                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt-=1;
-                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().FakeBody+=1;
-                                FakeBodyBuy.SetActive(false);
-                            }
-                        }else if(BuyInt==4){
-                            if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().HealKit>=2){
-                                UiObject.SetActive(true);
-                                UiText.text="더이상은 구매할 수 없습니다.";
-                                StartCoroutine(ExecuteAfterDelayText(3f)); 
-                                EmpBuy.SetActive(false);
-                            }else if(Chip<3){
-                                UiObject.SetActive(true);
-                                UiText.text="칩이 모자랍니다.";
-                                StartCoroutine(ExecuteAfterDelayText(3f)); 
-                                EmpBuy.SetActive(false);
-                            }else{
-                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt-=1;
-                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().Emp+=1;
-                                EmpBuy.SetActive(false);
-                            }
-                        }
-                    }
-                }
-                
+        }else if(Stage==2){
+            if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue2.Length){
+                EndDialogue();
             }
-
+        }else if(Stage==3){
+            if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue3.Length){
+                EndDialogue();
+            }
+        }else if(Stage==4){
+            if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue4.Length){
+                EndDialogue();
+            }
+        }
+        else if(Stage==5){
+            if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue5.Length){
+                EndDialogue();
+            }
         }
         if(Shopping){
             float currentX = uiRectTransform.anchoredPosition.x;
@@ -212,7 +117,22 @@ public class DrLee : MonoBehaviour
 
             // 새로 계산된 위치로 anchoredPosition 설정
             uiRectTransform.anchoredPosition = newPosition;
-
+            if(currentX>-540f&&currentX<-440f&&currentY>-340f&&currentY<-290f){
+                if (Input.GetMouseButtonDown(0)){
+                    Buy.SetActive(false);
+                    Cursur.SetActive(false);
+                    ShopUi.SetActive(false);
+                    Shopping=false;
+                    Buying=false;
+                    if(!IfBuy){
+                        Stage=4;
+                        StartConversation();
+                    }else{
+                        Stage=5;
+                        StartConversation();
+                    }
+                }
+            }
             if(currentX>63f&&currentX<562f){
                 if(currentY>-150f&&currentY<-70f){
                     ChipSetPick.SetActive(true);
@@ -222,7 +142,7 @@ public class DrLee : MonoBehaviour
                         Buy.SetActive(true);
                         BuyInt=0;
                         Shopping=false;
-                        Buying=true;
+                        StartCoroutine(AfterBuying(0.1f));
                     }
             
                 }else{
@@ -289,6 +209,132 @@ public class DrLee : MonoBehaviour
 
             }
         }
+        if(Buying){
+            float currentX = uiRectTransform.anchoredPosition.x;
+            float currentY = uiRectTransform.anchoredPosition.y;
+
+            float horizontalInput = Input.GetAxis("Mouse X");
+            float verticalInput = Input.GetAxis("Mouse Y");
+
+            // 입력에 따라 이동 방향 설정
+            Vector2 moveDirection = new Vector2(horizontalInput, verticalInput);
+
+            // 현재 anchoredPosition 가져오기
+            Vector2 currentPosition = uiRectTransform.anchoredPosition;
+
+            // 입력에 따라 이동한 위치 계산
+            Vector2 newPosition = currentPosition + moveDirection*moveSpeed * Time.deltaTime;
+            
+            // 새로 계산된 위치로 anchoredPosition 설정
+            uiRectTransform.anchoredPosition = newPosition;
+            if(currentY>-142f&&currentY<-82f){
+                if(currentX>-160f&&currentX<-18f){
+                    if (Input.GetMouseButtonDown(0)){
+                        Buy.SetActive(false);
+                        Buying=false;
+                        Shopping=true;
+                        
+                    }
+                }
+                if(currentX>40f&&currentX<185f){
+                    if (Input.GetMouseButtonDown(0)){
+                        Buy.SetActive(false);
+                        Buying=false;
+                        
+                        if(BuyInt==0){
+                            if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt<1){
+                                UiObject.SetActive(true);
+                                UiText.text="칩이 모자랍니다.";
+                                StartCoroutine(ExecuteAfterDelayText(3f));
+                                ChipSetBuy.SetActive(false);
+                            }else{
+                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt-=1;
+                                StartConversation();
+                                Cursur.SetActive(false);
+                                Shopping=false;
+                                ChipSetBuy.SetActive(false);
+                                IfBuy=true;
+                            }
+                            
+                        }else if(BuyInt==1){
+                            if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().Upgrade==true){
+                                UiObject.SetActive(true);
+                                UiText.text="더이상은 구매할 수 없습니다.";
+                                StartCoroutine(ExecuteAfterDelayText(3f)); 
+                                UpgradeBuy.SetActive(false);
+                            }else if(Chip<4){
+                                UiObject.SetActive(true);
+                                UiText.text="칩이 모자랍니다.";
+                                StartCoroutine(ExecuteAfterDelayText(3f)); 
+                                UpgradeBuy.SetActive(false);
+                            }else{
+                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt-=4;
+                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().Upgrade=true;
+                                UpgradeBuy.SetActive(false);
+                                IfBuy=true;
+                            }
+                            
+                        }else if(BuyInt==2){
+                            if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().HealKit>=5){
+                                UiObject.SetActive(true);
+                                UiText.text="더이상은 구매할 수 없습니다.";
+                                StartCoroutine(ExecuteAfterDelayText(3f)); 
+                                HealKitBuy.SetActive(false);
+                            }else if(Chip<1){
+                                UiObject.SetActive(true);
+                                UiText.text="칩이 모자랍니다.";
+                                StartCoroutine(ExecuteAfterDelayText(3f)); 
+                                HealKitBuy.SetActive(false);
+                            }else{
+                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt-=1;
+                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().HealKit+=1;
+                                HealKitBuy.SetActive(false);
+                                IfBuy=true;
+                            }
+                        }else if(BuyInt==3){
+                            if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().FakeBody>=3){
+                                UiObject.SetActive(true);
+                                UiText.text="더이상은 구매할 수 없습니다.";
+                                StartCoroutine(ExecuteAfterDelayText(3f)); 
+                                FakeBodyBuy.SetActive(false);
+                            }else if(Chip<2){
+                                UiObject.SetActive(true);
+                                UiText.text="칩이 모자랍니다.";
+                                StartCoroutine(ExecuteAfterDelayText(3f)); 
+                                FakeBodyBuy.SetActive(false);
+                            }else{
+                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt-=1;
+                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().FakeBody+=1;
+                                FakeBodyBuy.SetActive(false);
+                                IfBuy=true;
+                            }
+                        }else if(BuyInt==4){
+                            if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().HealKit>=2){
+                                UiObject.SetActive(true);
+                                UiText.text="더이상은 구매할 수 없습니다.";
+                                StartCoroutine(ExecuteAfterDelayText(3f)); 
+                                EmpBuy.SetActive(false);
+                            }else if(Chip<3){
+                                UiObject.SetActive(true);
+                                UiText.text="칩이 모자랍니다.";
+                                StartCoroutine(ExecuteAfterDelayText(3f)); 
+                                EmpBuy.SetActive(false);
+                            }else{
+                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt-=1;
+                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().Emp+=1;
+                                EmpBuy.SetActive(false);
+                                IfBuy=true;
+                            }
+                        }
+                        Shopping=true;
+                        Cursur.SetActive(true);
+                    }
+                }
+                
+            }
+
+        }
+        
     }
 
     public void StartConversation(){
@@ -302,6 +348,8 @@ public class DrLee : MonoBehaviour
             if(Stage==1){npcDialogueBox.text=dialogue1[0];}
             if(Stage==2){npcDialogueBox.text=dialogue2[0];}
             if(Stage==3){npcDialogueBox.text=dialogue3[0];}
+            if(Stage==4){npcDialogueBox.text=dialogue4[0];}
+            if(Stage==5){npcDialogueBox.text=dialogue5[0];}
             player.GetComponent<MouseLookScript>().enabled = false;
             player.GetComponent<PlayerMovementScript>().enabled = false;
         
@@ -346,6 +394,22 @@ public class DrLee : MonoBehaviour
                 {
                     npcDialogueBox.text=dialogue3[curResponseTracker];
                 }
+            }else if(Stage==4){
+                if(curResponseTracker>dialogue4.Length){
+                    curResponseTracker=dialogue4.Length;
+                }
+                else if(curResponseTracker<dialogue4.Length)
+                {
+                    npcDialogueBox.text=dialogue4[curResponseTracker];
+                }
+            }else if(Stage==5){
+                if(curResponseTracker>dialogue5.Length){
+                    curResponseTracker=dialogue5.Length;
+                }
+                else if(curResponseTracker<dialogue5.Length)
+                {
+                    npcDialogueBox.text=dialogue5[curResponseTracker];
+                }
             }
             
     }
@@ -380,13 +444,26 @@ public class DrLee : MonoBehaviour
             if(Chip==0){Stage=2;StartConversation();}
             else{Stage=3;OpenShop();}
         }
+        if(Stage==4){
+            Cursur.SetActive(true);
+            ShopUi.SetActive(true);
+            Shopping=true;
+            Buying=false;
+            uiRectTransform.anchoredPosition = new Vector2(0, 0);
+        }
+        if(Stage==5){
+            
+            QuestActive();
+            player.GetComponent<MouseLookScript>().enabled = true;
+            player.GetComponent<PlayerMovementScript>().enabled = true;
+        }
         
         
         
         
     }
     public void QuestActive(){
-        Text.text="메인컴퓨터에 해킹프로그램을 설치하라.";
+        Text.text="건물내부로 잠입하라.";
         StartCoroutine(ChangeColor());
     }
 
@@ -419,6 +496,13 @@ public class DrLee : MonoBehaviour
         // 일정 시간만큼 대기
         yield return new WaitForSeconds(delayInSeconds);
         UiObject.SetActive(false);
+        
+    }
+    private IEnumerator AfterBuying(float delayInSeconds)
+    {
+        // 일정 시간만큼 대기
+        yield return new WaitForSeconds(delayInSeconds);
+        Buying=true;
         
     }
 }
