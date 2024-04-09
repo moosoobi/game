@@ -14,7 +14,6 @@ public class BossEle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Ele.transform.position.y);
         if(zzz&&Clear&&Ele.transform.position.y < maxHeight){
             
             Ele.transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
