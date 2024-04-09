@@ -46,7 +46,7 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _EmissiveColor: {r: 0, g: 0.3813261, b: 1, a: 1}
+    - _EmissiveColor: {r: 0, g: 1.7197808, b: 4.51, a: 4.51}
     - _EmissiveColorLDR: {r: 0, g: 0.6509804, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &4192665944424928707
