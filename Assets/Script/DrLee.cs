@@ -5,7 +5,7 @@ using TMPro;
 
 public class DrLee : MonoBehaviour
 {
-   
+    public Animator LeeAni;
     public GameObject player;
     public string[] dialogue;
     public string[] dialogue1;
@@ -22,6 +22,7 @@ public class DrLee : MonoBehaviour
     public int Chip;
     public int BuyInt=0;
     public bool Conversation=false;
+    public DrLeeZ drz;
     public TextMeshProUGUI Text;
     public TextMeshProUGUI QuestText;
     public TextMeshProUGUI UiText;
@@ -32,6 +33,11 @@ public class DrLee : MonoBehaviour
     public bool Shopping;
     public bool Buying;
     public bool IfBuy=false;
+    public bool zzz=false;
+    public bool first=true;
+    public bool Approch=false;
+    public Transform playerTransform; // 플레이어의 Transform
+    public float ApprochSpeed = 3f; // 이동 속도
     public float moveSpeed = 500f;
     public RectTransform uiRectTransform;
     public GameObject Emp;
@@ -61,14 +67,48 @@ public class DrLee : MonoBehaviour
 
     void Start()
     {
-        
+        LeeAni.Play("walk", 0, 0.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        Vector3 directionToBoss = (playerTransform.position - transform.position).normalized;
+        directionToBoss.y=0;
+        transform.Translate(Vector3.forward * ApprochSpeed * Time.deltaTime*-1);
+        Quaternion targetRotation = Quaternion.LookRotation(-directionToBoss);
+        transform.rotation = targetRotation;
+        
+        /*
+        if(Approch){
+            Vector3 directionToPlayer = playerTransform.position - transform.position;
+            directionToPlayer.y = 0f; // Y축 방향은 무시 (수평 방향으로만 이동)
+
+            // 플레이어 쪽으로 정규화된 방향 벡터를 만듭니다.
+            Vector3 moveDirection = directionToPlayer.normalized;
+
+            // NPC를 플레이어 쪽으로 이동시킵니다.
+            transform.Translate(moveDirection * ApprochSpeed * Time.deltaTime);
+        }
+        */
+        float distanceToBoss = Vector3.Distance(transform.position, playerTransform.position);
+        if (distanceToBoss <= 5.0f)
+        {
+            Approch=false;
+            LeeAni.Play("Idle", 0, 0.0f);
+            StartConversation();
+            
+        }
         Chip=GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt;
         ChipIntUi.text=Chip.ToString();
+        ChipIntUi.gameObject.SetActive(true);
+        if(isTalking==true){
+            Shopping=false;
+            Buying=false;
+        }
+        if(Input.GetMouseButtonDown(0)&&isTalking==false&&Stage==5&&!Shopping&&!Buying){
+            OpenShop();
+        }
         if(Input.GetMouseButtonDown(0)&&isTalking==true){
                 
             ContinueConversation();          
@@ -130,6 +170,7 @@ public class DrLee : MonoBehaviour
                     }else{
                         Stage=5;
                         StartConversation();
+
                     }
                 }
             }
@@ -339,13 +380,14 @@ public class DrLee : MonoBehaviour
 
     public void StartConversation(){
         if(!Conversation){
-            player.GetComponent<GunInventory>().ChangeWeapon1();
+            drz.first=false;
+            
             isTalking=true;
             curResponseTracker=0;
             dialogueUI.SetActive(true);
             npcName.text="이선생";
-            if(Stage==0){npcDialogueBox.text=dialogue[0];}
-            if(Stage==1){npcDialogueBox.text=dialogue1[0];}
+            if(Stage==0){npcDialogueBox.text=dialogue[0];player.GetComponent<GunInventory>().ChangeWeapon1();}
+            if(Stage==1){npcDialogueBox.text=dialogue1[0];player.GetComponent<GunInventory>().ChangeWeapon1();}
             if(Stage==2){npcDialogueBox.text=dialogue2[0];}
             if(Stage==3){npcDialogueBox.text=dialogue3[0];}
             if(Stage==4){npcDialogueBox.text=dialogue4[0];}
@@ -353,6 +395,9 @@ public class DrLee : MonoBehaviour
             player.GetComponent<MouseLookScript>().enabled = false;
             player.GetComponent<PlayerMovementScript>().enabled = false;
         
+        }else{
+            player.GetComponent<MouseLookScript>().enabled = true;
+            player.GetComponent<PlayerMovementScript>().enabled = true;
         }
             
 
@@ -422,6 +467,7 @@ public class DrLee : MonoBehaviour
         if(Stage==3){
             Shopping=true;
             Cursur.SetActive(true);
+            uiRectTransform.anchoredPosition = new Vector2(0, 0);
             
         }
         /*
@@ -434,11 +480,9 @@ public class DrLee : MonoBehaviour
         */
         if(Stage==2){
             QuestActive();
-            if(Stage==0){
-                QuestActive();
-                player.GetComponent<MouseLookScript>().enabled = true;
-                player.GetComponent<PlayerMovementScript>().enabled = true;
-            }
+            player.GetComponent<MouseLookScript>().enabled = true;
+            player.GetComponent<PlayerMovementScript>().enabled = true;
+            Conversation=true;
         }
         if(Stage==0||Stage==1){
             if(Chip==0){Stage=2;StartConversation();}
@@ -456,6 +500,7 @@ public class DrLee : MonoBehaviour
             QuestActive();
             player.GetComponent<MouseLookScript>().enabled = true;
             player.GetComponent<PlayerMovementScript>().enabled = true;
+            Conversation=true;
         }
         
         
@@ -479,16 +524,24 @@ public class DrLee : MonoBehaviour
         ShopUi.SetActive(true);
         Shopping=true;
         Cursur.SetActive(true);
+        player.GetComponent<MouseLookScript>().enabled = false;
+        player.GetComponent<PlayerMovementScript>().enabled = false;
+        uiRectTransform.anchoredPosition = new Vector2(0, 0);
     }
-    public void GiveChipSet(){
 
-    }
     private void OnTriggerEnter(Collider other)
     {
+        zzz=true;
         if (other.CompareTag("Attack")){
-            Stage=1;
-            StartConversation();
-            
+            if(first){
+                player.GetComponent<MouseLookScript>().enabled = false;
+                player.GetComponent<PlayerMovementScript>().enabled = false;
+                Stage=1;
+                Approch=true;
+                LeeAni.Play("walk", 0, 0.0f);
+                first=false;
+            }
+               
         }
     }
     private IEnumerator ExecuteAfterDelayText(float delayInSeconds)
@@ -504,6 +557,11 @@ public class DrLee : MonoBehaviour
         yield return new WaitForSeconds(delayInSeconds);
         Buying=true;
         
+    }
+
+    private void OnTriggerExit(Collider other){
+
+        zzz=false;
     }
 }
 

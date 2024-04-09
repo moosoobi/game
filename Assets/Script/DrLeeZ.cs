@@ -5,11 +5,19 @@ using UnityEngine;
 public class DrLeeZ : MonoBehaviour
 {
     public DrLee dr;
+    public bool first=true;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")){
-            dr.StartConversation();
+            if(first){
+                dr.StartConversation();
+                first=false;
+                
+
+                
+            }
+            
         }
     }
 }
