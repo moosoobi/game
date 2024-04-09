@@ -69,6 +69,8 @@ public class RealBoss : MonoBehaviour
     public Renderer rend1;
     public Renderer rend2;
     public Renderer rend3;
+    public Renderer rend4;
+    public Renderer rend5;
     private Coroutine currentCoroutine;
     private Coroutine currentCoroutine1;
     public int Fixing=0;
@@ -78,18 +80,34 @@ public class RealBoss : MonoBehaviour
     public bool FixingLotation=false;
     public int Stage=0;
     public PlayerHp PlayerHp;
+    public Light SpotLight;
+    public Light BossLight;
+    public Light EndingMonitorLight;
+    public GameObject Turn_Off;
+    public GameObject Glass;
+    public GameObject BossUnder;
+    public GameObject EndingVolumn;
+    public bool IfDie=false;
 
     private void Start()
     {
         Loading.loopPointReached += OnVideoEnd;
         rend1 = Screen1.GetComponent<Renderer>();//left
         rend2 = Screen2.GetComponent<Renderer>();//right
-        rend3 = Screen3.GetComponent<Renderer>();//main         
+        rend3 = Screen3.GetComponent<Renderer>();//main   
+        rend4 = Glass.GetComponent<Renderer>();
+        rend5 = BossUnder.GetComponent<Renderer>();
+        
+     
     }
 
 
     void Update()
     {
+        if(IfDie){
+            StartCoroutine(die());
+            IfDie=false;
+        }
         if(Look){
             Vector3 directionToPlayer = player.transform.position - transform.position;
             directionToPlayer.y = 0f; // Y축 방향은 무시 (수평 방향으로만 회전)
@@ -175,11 +193,18 @@ public class RealBoss : MonoBehaviour
         rend1.material=Black;
         rend2.material=Black;
         rend3.material=Black;
+        rend4.material=Black;
+        rend5.material=Black;
         NoiseVideo1.SetActive(true);
         NoiseVideo2.SetActive(true);
         NoiseVideo3.SetActive(true);
         BossAni.enabled=true;
         BossAni.Play("death", 0, 0.0f);
+        SpotLight.enabled=false;
+        BossLight.enabled=false;
+        EndingMonitorLight.enabled=true;
+        EndingVolumn.SetActive(true);
+        Turn_Off.SetActive(false);
         yield return new WaitForSeconds(3.0f);
         Stage=1;
         StartConversation();
