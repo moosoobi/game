@@ -29,6 +29,7 @@ public class PlayerHp : MonoBehaviour
     public AudioSource BarBackground;
     public int stage=0;
     public GameObject HitImage;
+    public RealBoss Boss;
 
     void Start()
     {
@@ -68,6 +69,7 @@ public class PlayerHp : MonoBehaviour
                 player.transform.position=new Vector3(351.275f, -5.2f, 432.7f);
                 player.transform.rotation=Quaternion.Euler(new Vector3(0f, 0f, 0f));
                 PlayerCurHp=300f;
+                UpdateHealth(0);
                 player.GetComponent<MouseLookScript>().enabled = true;
                 player.GetComponent<PlayerMovementScript>().enabled = true;
                 GameOver.SetActive(false);
@@ -80,6 +82,7 @@ public class PlayerHp : MonoBehaviour
                 player.transform.position=new Vector3(389.18f, -0.185f, 422.82f);
                 player.transform.rotation=Quaternion.Euler(new Vector3(0f, 0f, 0f));
                 PlayerCurHp=300f;
+                UpdateHealth(0);
                 GameOver.SetActive(false);
                 player.GetComponent<MouseLookScript>().enabled = true;
                 player.GetComponent<PlayerMovementScript>().enabled = true;
@@ -88,12 +91,15 @@ public class PlayerHp : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 Die=false;
-                player.transform.position=new Vector3(25.34f, 247.18f, 431.87f);
-                player.transform.rotation=Quaternion.Euler(new Vector3(0f, 0f, 0f));
+                player.transform.position=new Vector3(21.1f, 258.8f, 432.15f);
+                player.transform.rotation=Quaternion.Euler(new Vector3(0f, -90f, 0f));
                 PlayerCurHp=300f;
+                UpdateHealth(0);
                 GameOver.SetActive(false);
                 player.GetComponent<MouseLookScript>().enabled = true;
                 player.GetComponent<PlayerMovementScript>().enabled = true;
+                Boss.ReStart();
+                
             }
         }
         

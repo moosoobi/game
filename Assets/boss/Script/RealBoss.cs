@@ -69,25 +69,46 @@ public class RealBoss : MonoBehaviour
     public Renderer rend1;
     public Renderer rend2;
     public Renderer rend3;
+    public Renderer rend4;
+    public Renderer rend5;
     private Coroutine currentCoroutine;
+    private Coroutine currentCoroutine1;
     public int Fixing=0;
     public bool Under50=false;
     public bool Under30=false;
     public bool Look=false;
     public bool FixingLotation=false;
     public int Stage=0;
+    public PlayerHp PlayerHp;
+    public Light SpotLight;
+    public Light BossLight;
+    public Light EndingMonitorLight;
+    public GameObject Turn_Off;
+    public GameObject Glass;
+    public GameObject BossUnder;
+    public GameObject EndingVolumn;
+    public bool IfDie=false;
+    public EndingMonitor Ending;
 
     private void Start()
     {
         Loading.loopPointReached += OnVideoEnd;
         rend1 = Screen1.GetComponent<Renderer>();//left
         rend2 = Screen2.GetComponent<Renderer>();//right
-        rend3 = Screen3.GetComponent<Renderer>();//main         
+        rend3 = Screen3.GetComponent<Renderer>();//main   
+        rend4 = Glass.GetComponent<Renderer>();
+        rend5 = BossUnder.GetComponent<Renderer>();
+        
+     
     }
 
 
     void Update()
     {
+        if(IfDie){
+            StartCoroutine(die());
+            IfDie=false;
+        }
         if(Look){
             Vector3 directionToPlayer = player.transform.position - transform.position;
             directionToPlayer.y = 0f; // Y축 방향은 무시 (수평 방향으로만 회전)
@@ -173,11 +194,19 @@ public class RealBoss : MonoBehaviour
         rend1.material=Black;
         rend2.material=Black;
         rend3.material=Black;
+        rend4.material=Black;
+        rend5.material=Black;
         NoiseVideo1.SetActive(true);
         NoiseVideo2.SetActive(true);
         NoiseVideo3.SetActive(true);
         BossAni.enabled=true;
         BossAni.Play("death", 0, 0.0f);
+        SpotLight.enabled=false;
+        BossLight.enabled=false;
+        EndingMonitorLight.enabled=true;
+        EndingVolumn.SetActive(true);
+        Turn_Off.SetActive(false);
+        Ending.Clear=true;
         yield return new WaitForSeconds(3.0f);
         Stage=1;
         StartConversation();
@@ -228,6 +257,7 @@ public class RealBoss : MonoBehaviour
             player.GetComponent<MouseLookScript>().enabled = true;
             player.GetComponent<PlayerMovementScript>().enabled = true;
             clear=true;
+            PlayerHp.stage=2;
         }else if(Stage==1){
             QuestActive1();
         }
@@ -241,7 +271,7 @@ public class RealBoss : MonoBehaviour
         if (currentPatternIndex < AttackLength)
         {
             // 공격 패턴 실행
-            yield return StartCoroutine(Execute(currentPatternIndex));
+            yield return currentCoroutine1=StartCoroutine(Execute(currentPatternIndex));
             // 다음 패턴으로 이동
             currentPatternIndex++;
         }
@@ -249,10 +279,10 @@ public class RealBoss : MonoBehaviour
         {
             if(!Under30){
                 int randomValue = GetRandomNumber(3, 6);
-                yield return StartCoroutine(Execute(randomValue));
+                yield return currentCoroutine1=StartCoroutine(Execute(randomValue));
             }else{
                 int randomValue = GetRandomNumber(7, 10);
-                yield return StartCoroutine(Execute(randomValue));
+                yield return currentCoroutine1=StartCoroutine(Execute(randomValue));
             }
             
         }
@@ -501,10 +531,28 @@ public class RealBoss : MonoBehaviour
         if (BossHp <= 0f)
         {
             StartCoroutine(die());
+            StopCoroutine(currentCoroutine);
         }
     }
 
-
+    public void ReStart(){
+        first=true;
+        BossAni.enabled=false;
+        Under30=false;
+        Under50=false;
+        touch=false;
+        isAttacking=false;
+        BossSlider.gameObject.SetActive(false);
+        Look=false;
+        transform.rotation = Quaternion.Euler(new Vector3(-90, 0, +45));
+        Lazer.SetActive(false);
+        CancelInvoke("BulletAttack");
+        rend1.material=Black;
+        rend2.material=Black;
+        rend3.material=Black;
+        currentPatternIndex=0;
+        StopCoroutine(currentCoroutine);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Attack")){
@@ -557,7 +605,7 @@ public class RealBoss : MonoBehaviour
         light.color =  Color.white;
         BossSlider.gameObject.SetActive(true);
         InitializeHealthBar();
-        BossText.SetActive(true);
+        Look=true;
         touch=true;
         player.GetComponent<MouseLookScript>().enabled = true;
         player.GetComponent<PlayerMovementScript>().enabled = true;
