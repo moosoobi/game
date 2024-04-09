@@ -88,6 +88,7 @@ public class RealBoss : MonoBehaviour
     public GameObject BossUnder;
     public GameObject EndingVolumn;
     public bool IfDie=false;
+    public EndingMonitor Ending;
 
     private void Start()
     {
@@ -205,6 +206,7 @@ public class RealBoss : MonoBehaviour
         EndingMonitorLight.enabled=true;
         EndingVolumn.SetActive(true);
         Turn_Off.SetActive(false);
+        Ending.Clear=true;
         yield return new WaitForSeconds(3.0f);
         Stage=1;
         StartConversation();
