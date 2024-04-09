@@ -36,7 +36,6 @@ public class RealBoss : MonoBehaviour
     public GameObject Screen1;
     public GameObject Screen2;
     public GameObject Screen3;
-    public GameObject TimerCamera;
     public GameObject FixingCamera;
     public GameObject NoiseVideo1;
     public GameObject NoiseVideo2;
@@ -75,6 +74,7 @@ public class RealBoss : MonoBehaviour
     public bool Under50=false;
     public bool Under30=false;
     public bool Look=false;
+    public bool FixingLotation=false;
     public int Stage=0;
 
     private void Start()
@@ -95,7 +95,9 @@ public class RealBoss : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
             Vector3 euler = targetRotation.eulerAngles;
             euler.x = -90f; // x 값을 -90도로 설정
-            euler.z += -40f; // z 값을 -40만큼 추가로 회전
+            if(FixingLotation){}
+            else{euler.z += -40f;}
+            
             targetRotation = Quaternion.Euler(euler);
             transform.rotation = targetRotation;
         }
@@ -372,9 +374,10 @@ public class RealBoss : MonoBehaviour
             Fixing=0;
             Text1.SetActive(true);
             text1.text="메인 컴퓨터가 수리 로봇을 호출합니다. 파괴하여 수리를 중단해야 합니다.";
+            FixingLotation=true;
             StartCoroutine(ExecuteAfterDelayText(3f));
             yield return new WaitForSeconds(3.0f);
-            TimerCamera.SetActive(true);
+            BossAni.Play("timer", 0, 0.0f);
             FixingCamera.SetActive(true);
             GameObject Fixing1 = Instantiate(FixingDrone,SectorA.transform.position+new Vector3(0,6,10) , SectorA.transform.rotation);
             GameObject Fixing2 = Instantiate(FixingDrone,SectorA.transform.position+new Vector3(0,6,0) , SectorA.transform.rotation);
@@ -386,7 +389,7 @@ public class RealBoss : MonoBehaviour
             GameObject Fixing8 = Instantiate(FixingDrone,SectorC.transform.position+new Vector3(0,6,0) , SectorC.transform.rotation);
             GameObject Fixing9 = Instantiate(FixingDrone,SectorC.transform.position+new Vector3(-10,6,-5) , SectorC.transform.rotation);
             GameObject Fixing10 = Instantiate(FixingDrone,SectorC.transform.position+new Vector3(-15,6,-10) , SectorC.transform.rotation);
-            yield return new WaitForSeconds(20.0f);
+            yield return new WaitForSeconds(30.0f);
             if(Fixing1){Fixing1.SetActive(false);}
             if(Fixing2){Fixing2.SetActive(false);}
             if(Fixing3){Fixing3.SetActive(false);}
@@ -397,7 +400,8 @@ public class RealBoss : MonoBehaviour
             if(Fixing8){Fixing8.SetActive(false);}
             if(Fixing9){Fixing9.SetActive(false);}
             if(Fixing10){Fixing10.SetActive(false);}
-            TimerCamera.SetActive(false);
+            FixingLotation=false;
+            BossAni.Play("idle", 0, 0.0f);
             FixingCamera.SetActive(false);
             clear=true;
             if(Fixing==10){
@@ -407,6 +411,7 @@ public class RealBoss : MonoBehaviour
                 StartCoroutine(ExecuteAfterDelayText(10f));
                 yield return new WaitForSeconds(10.0f);
                 touch=true;
+                isAttacking=false;
                 
             }else{
                 Text1.SetActive(true);
@@ -414,7 +419,7 @@ public class RealBoss : MonoBehaviour
                 StartCoroutine(ExecuteAfterDelayText(3f));
                 touch=true;
                 BossHp=70;
-
+                isAttacking=false;
             }
         }else if(currentPatternIndex==7){
             
@@ -460,7 +465,7 @@ public class RealBoss : MonoBehaviour
     
     void InitializeHealthBar()
     {
-        // 최대 HP 설정
+        BossHp=100f;
         BossSlider.maxValue = BossMaxHp;
 
         // 현재 HP 설정
