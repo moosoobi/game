@@ -126,7 +126,7 @@ public class PlayerHp : MonoBehaviour
 
             // 슬라이더에 반영
             healthSlider.value = PlayerCurHp;
-            if(newHP!=0){StartCoroutine(Hit());}
+            StartCoroutine(Hit());
             // HP가 0 이하로 떨어졌을 때 처리 (예를 들어, 보스가 죽었을 때)
             if (PlayerCurHp <= 0f)
             {
