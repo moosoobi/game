@@ -145,13 +145,7 @@ public class Leg2RobotBlue : MonoBehaviour
         
 
     }
-    private IEnumerator hitting(float delayInSeconds)
-    {
-        
-        yield return new WaitForSeconds(delayInSeconds);
-        Ifhit=false;
-        
-    }
+
 
     public void Active(){
         Z=true;
@@ -240,7 +234,7 @@ public class Leg2RobotBlue : MonoBehaviour
             Hp-=1;
             EnemyHittingSound.Play();
             Ifhit=true;
-            StartCoroutine(hitting(3.0f));
+            
         }
     }
 }

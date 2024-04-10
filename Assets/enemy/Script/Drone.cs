@@ -69,19 +69,21 @@ public class Drone : MonoBehaviour
     }
     public void SpeedUp(){
         gun=GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>();
-        player.GetComponent<PlayerMovementScript>().currentSpeed=3;
+        
         gun.walkingSpeed=3;
         gun.runningSpeed=10;
+        player.GetComponent<PlayerMovementScript>().currentSpeed=3;
         DroneSlow.SetActive(false);
     }
     public void SlowDown(){
         DroneSlow.SetActive(true);
-        player.GetComponent<PlayerMovementScript>().currentSpeed=1;
         gun=GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>();
         gun.walkingSpeed=1;
         gun.runningSpeed=1;
+        player.GetComponent<PlayerMovementScript>().currentSpeed=1;
+        
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Attack")){
