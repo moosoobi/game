@@ -29,14 +29,17 @@ public class EndingMonitor : MonoBehaviour
     public bool IfTrash=false;
     public bool IfTraum=false;
     public bool First=true;
+    public bool FirstVector=true;
     public bool zzz=false;
     public bool isMoving=false;
     public float CameramoveSpeed = 2.0f; // 이동 속도
+    public float rotationSpeed = 2.0f; // 회전 속도
     public float moveSpeed = 500f;
     public AudioSource Voice1;
     public AudioSource Voice2;
     public AudioSource Pick;
     public AudioSource EndingSound;
+    private Vector3 FirstDirection;
 
     public void MonitorOn(){
         Home=true;
@@ -50,18 +53,16 @@ public class EndingMonitor : MonoBehaviour
     {
         if (isMoving)
         {
-            // 종료 지점(endingSpot)까지의 방향 벡터를 계산
-            Vector3 direction = (EndingSpot.transform.position - EndingCamera.transform.position).normalized;
             
-            // 카메라를 종료 지점 쪽으로 천천히 이동
-            EndingCamera.transform.Translate(direction * CameramoveSpeed * Time.deltaTime);
-
-            // 카메라가 종료 지점에 도달했는지 확인하고 이동을 멈춤
-            if (Vector3.Distance(EndingCamera.transform.position, EndingSpot.transform.position) < 0.1f)
+            EndingCamera.transform.position = Vector3.MoveTowards(EndingCamera.transform.position, EndingSpot.transform.position, CameramoveSpeed * Time.deltaTime);
+            Quaternion targetRotation = Quaternion.Euler(45f, -89f, 0f);
+            EndingCamera.transform.rotation = Quaternion.Slerp(EndingCamera.transform.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            
+            if (EndingCamera.transform.position == EndingSpot.transform.position && EndingCamera.transform.rotation == targetRotation)
             {
-                isMoving = false;
-                player.GetComponent<MouseLookScript>().enabled = false;
-                player.GetComponent<PlayerMovementScript>().enabled = false;
+                isMoving=false;
+                EndingImage.SetActive(true);
+                
             }
         }
         if(Clear&&zzz&&First){if(Input.GetMouseButtonDown(0)){MonitorOn();First=false;}}
