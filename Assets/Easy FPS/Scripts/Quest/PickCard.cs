@@ -6,6 +6,7 @@ using TMPro;
 public class PickCard : MonoBehaviour
 {
     public GunInventory guninventory;
+    public GameObject CardUi;
     public TextMeshProUGUI UiText;
     public GameObject UiObject;
     public bool zzz=false;
@@ -27,6 +28,7 @@ public class PickCard : MonoBehaviour
         guninventory.PositiveCard();
         UiObject.SetActive(true);
         UiText.text="카드키를 획득했다. 숫자키 4번을 눌러 손에 들 수 있다";
+        CardUi.SetActive(true);
         StartCoroutine(ExecuteAfterDelayText(3f)); 
         //StartConversation();
         }

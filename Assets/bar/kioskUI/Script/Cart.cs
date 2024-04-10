@@ -39,6 +39,7 @@ public class Cart : MonoBehaviour
     public GameObject BarCamera;
     public SuccessDoor SuccessDoorScript;
     public Kiosk kiosk;
+    public GameObject CardUi;
 
     void Update()
     {
@@ -58,6 +59,7 @@ public class Cart : MonoBehaviour
             guninventory.NegativeCard();
             guninventory.ChangeWeapon1();
             KioskUi.SetActive(false);
+            CardUi.SetActive(false);
             BarCamera.SetActive(true);
             InsertCard.SetActive(false);
             StartCoroutine(Camera());

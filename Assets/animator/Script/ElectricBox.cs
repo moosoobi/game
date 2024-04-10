@@ -11,7 +11,7 @@ public class ElectricBox : MonoBehaviour
     public bool openTrigger=true;
     public bool closeTrigger=false;
 
-
+    public GameObject KeyUi;
     public AudioSource DrawerOpen;
     public AudioSource DrawerClose;
 
@@ -70,6 +70,7 @@ public class ElectricBox : MonoBehaviour
         doorlock=true;
         guninventory.NegativeKey();
         guninventory.ChangeWeapon1();
+        KeyUi.SetActive(false);
         
     }
     public bool ReturnDoorLock(){return doorlock;}

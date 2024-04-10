@@ -9,6 +9,7 @@ public class StartCursur : MonoBehaviour
     public GameObject StartCamera;
     public GameObject StartLogo;
     public GameObject Hp;
+    public GameObject Inven;
     public GameObject Quest;
     public GameObject player;
     public GameObject OpeningVideo;
@@ -67,6 +68,7 @@ public class StartCursur : MonoBehaviour
         Quest.SetActive(true);
         Hp.SetActive(true);
         j.Starting();
+        Inven.SetActive(true);
     }
     
 }

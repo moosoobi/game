@@ -334,7 +334,7 @@ public class DrLee : MonoBehaviour
                                 StartCoroutine(ExecuteAfterDelayText(3f)); 
                                 FakeBodyBuy.SetActive(false);
                             }else{
-                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt-=1;
+                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt-=2;
                                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().FakeBody+=1;
                                 FakeBodyBuy.SetActive(false);
                                 IfBuy=true;
@@ -351,7 +351,7 @@ public class DrLee : MonoBehaviour
                                 StartCoroutine(ExecuteAfterDelayText(3f)); 
                                 EmpBuy.SetActive(false);
                             }else{
-                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt-=1;
+                                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt-=3;
                                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().Emp+=1;
                                 EmpBuy.SetActive(false);
                                 IfBuy=true;

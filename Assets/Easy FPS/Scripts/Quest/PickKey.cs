@@ -7,6 +7,7 @@ public class PickKey : MonoBehaviour
 {
     public GunInventory guninventory;
     public TextMeshProUGUI UiText;
+    public GameObject KeyUi;
     public GameObject UiObject;
     public bool zzz=false;
     public string[] dialogue;
@@ -36,6 +37,7 @@ public class PickKey : MonoBehaviour
             guninventory.PositiveKey();
             UiObject.SetActive(true);
             UiText.text="열쇠를 획득했다. 숫자키 3번을 눌러 손에 들 수 있다.";
+            KeyUi.SetActive(true);
             StartCoroutine(ExecuteAfterDelayText(2f)); 
         }
         

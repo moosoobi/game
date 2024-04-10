@@ -21,6 +21,11 @@ public class PlayerMovementScript : MonoBehaviour {
 	[Tooltip("Position of the camera inside the player")]
 	[HideInInspector]public Vector3 cameraPosition;
 	public bool IfCross=false;
+	public GameObject EmpUi;
+	
+	public GameObject HealKitUi;
+	public GameObject FakeBodyUi;
+	
 	/*
 	 * Getting the Players rigidbody component.
 	 * And grabbing the mainCamera from Players child transform.
@@ -104,6 +109,10 @@ public class PlayerMovementScript : MonoBehaviour {
 	* Update loop calling other stuff
 	*/
 	void Update(){
+		if(Emp!=0){EmpUi.SetActive(true);}
+		if(HealKit!=0){HealKitUi.SetActive(true);}
+		if(FakeBody!=0){FakeBodyUi.SetActive(true);}
+
 		/*
 		if(CanMove){
 			CanMove=false;

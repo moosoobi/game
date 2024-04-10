@@ -7,6 +7,7 @@ public class PickMap : MonoBehaviour
 {
     public GameObject map;
     public GameObject map2;
+    public GameObject MapUi;
     public bool zzz=false;
     public bool ifpick=false;
     public bool show=true;
@@ -41,6 +42,7 @@ public class PickMap : MonoBehaviour
                 Paper.Play();
                 StartCoroutine(ExecuteAfterDelayText(3f));
                 ifpick=true;
+                MapUi.SetActive(true);
                 if(!gunpickbool){
                     gunpickbool=true;
                     gunpick.QuestActive();
