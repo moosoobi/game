@@ -12,12 +12,8 @@ public class BulletScript : MonoBehaviour {
     {
         Upgrade= GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().Upgrade;
         MoveBullet();
-        Invoke("DeactivateAfterDelay", 10f);
     }
-    void DeactivateAfterDelay()
-    {
-        Destroy(gameObject);
-    }
+
 
     // 총알이 움직이는 방향으로 이동하는 함수
     private void MoveBullet()
@@ -41,7 +37,7 @@ public class BulletScript : MonoBehaviour {
 
             }
             else{
-                
+                Debug.Log(other.name);
                 Destroy(gameObject);
             }
     }

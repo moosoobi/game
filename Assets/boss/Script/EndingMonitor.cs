@@ -176,8 +176,8 @@ public class EndingMonitor : MonoBehaviour
                     Pick.Play();
                     Boss.LightOn();
                     EndingSound.Play();
-                    StartCoroutine(EndingMove());
-                    
+                    EndingCamera.SetActive(true);
+                    isMoving=true;
                 }
             }
         }
@@ -246,10 +246,5 @@ public class EndingMonitor : MonoBehaviour
         if (other.CompareTag("Player")){
             zzz=false;
         }
-    }
-    public IEnumerator EndingMove(){
-        yield return new WaitForSeconds(5.0f);
-        EndingCamera.SetActive(true);
-        isMoving=true;
     }
 }
