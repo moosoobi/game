@@ -46,6 +46,8 @@ public class RealBoss : MonoBehaviour
     public Material Error1;
     public Material Error2;
     public Material Black;
+    public Material GlassM;
+    public Material Under;
     public TextMeshProUGUI Text;
     public string Description;
     public TextMeshProUGUI QuestText;
@@ -196,14 +198,17 @@ public class RealBoss : MonoBehaviour
         EndingMonitorLight.enabled=false;
         EndingVolumn.SetActive(false);
         Turn_Off.SetActive(true);
+        rend4.material=GlassM;
+        rend5.material=Under;
     }
+    
     public IEnumerator die(){
         BossBg.Stop();
         BossSlider.gameObject.SetActive(false);
         Lazer.SetActive(false);
         CancelInvoke("BulletAttack");
         StopCoroutine(currentCoroutine);
-        isAttacking=false;
+        isAttacking=true;
         Look=false;
         alive=false;
         rend1.material=Black;

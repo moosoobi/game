@@ -96,7 +96,7 @@ public class DrLee : MonoBehaviour
             Shopping=false;
             Buying=false;
         }
-        if(Input.GetMouseButtonDown(0)&&isTalking==false&&Stage==5&&!Shopping&&!Buying){
+        if(Input.GetMouseButtonDown(0)&&isTalking==false&&Stage==5&&!Shopping&&!Buying&&zzz){
             OpenShop();
         }
         if(Input.GetMouseButtonDown(0)&&isTalking==true){
