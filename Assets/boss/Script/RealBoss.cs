@@ -179,7 +179,7 @@ public class RealBoss : MonoBehaviour
 
     public void touchboss(){
         
-        if(warningsound){warningsound.Play();}
+        
         BlackScreen.SetActive(true);
         Monitor.SetActive(true);
         Loading.Play();
@@ -187,10 +187,16 @@ public class RealBoss : MonoBehaviour
         player.GetComponent<PlayerMovementScript>().currentSpeed = 0;
         player.GetComponent<PlayerMovementScript>().enabled = false;
         Look=true;
+        StartCoroutine(ErrorEffect());
 
     }
     public IEnumerator die(){
-        BossBg.Play();
+        BossBg.Stop();
+        BossSlider.gameObject.SetActive(false);
+        Lazer.SetActive(false);
+        CancelInvoke("BulletAttack");
+        StopCoroutine(currentCoroutine);
+        isAttacking=false;
         Look=false;
         alive=false;
         rend1.material=Black;
@@ -349,7 +355,59 @@ public class RealBoss : MonoBehaviour
         return Random.Range(min, max);
     }
     
-
+    public IEnumerator ErrorEffect(){
+        yield return new WaitForSeconds(5.5f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(1.0f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        ErrorSound.Play();
+        yield return new WaitForSeconds(0.1f);
+    }
     public IEnumerator Execute(int currentPatternIndex)
     {   
         
@@ -403,6 +461,10 @@ public class RealBoss : MonoBehaviour
             rend3.material=Black;
         }
         else if(currentPatternIndex==6){
+            Lazer.SetActive(false);
+            CancelInvoke("BulletAttack");
+            StopCoroutine(currentCoroutine);
+            isAttacking=false;
             Fixing=0;
             Text1.SetActive(true);
             text1.text="메인 컴퓨터가 수리 로봇을 호출합니다. 파괴하여 수리를 중단해야 합니다.";
@@ -451,6 +513,7 @@ public class RealBoss : MonoBehaviour
                 StartCoroutine(ExecuteAfterDelayText(3f));
                 touch=true;
                 BossHp=70;
+                UpdateHealth(0);
                 isAttacking=false;
             }
         }else if(currentPatternIndex==7){
@@ -515,9 +578,14 @@ public class RealBoss : MonoBehaviour
             if (BossHp <= 50f)
             {
                 touch=false;
-                StopCoroutine(currentCoroutine);
+                
                 StartCoroutine(Execute(6));
                 clear=false;
+                Lazer.SetActive(false);
+                CancelInvoke("BulletAttack");
+                StopCoroutine(currentCoroutine);
+                isAttacking=false;
+                
                 
             }
         }
@@ -543,17 +611,18 @@ public class RealBoss : MonoBehaviour
         Under30=false;
         Under50=false;
         touch=false;
-        isAttacking=false;
         BossSlider.gameObject.SetActive(false);
         Look=false;
         transform.rotation = Quaternion.Euler(new Vector3(-90, 0, +45));
         Lazer.SetActive(false);
         CancelInvoke("BulletAttack");
+        StopCoroutine(currentCoroutine);
+        isAttacking=false;
         rend1.material=Black;
         rend2.material=Black;
         rend3.material=Black;
         currentPatternIndex=0;
-        StopCoroutine(currentCoroutine);
+        
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -572,43 +641,44 @@ public class RealBoss : MonoBehaviour
     }
     private IEnumerator MonitorBulb(){
         
+        warningsound.Play();
         player.GetComponent<MouseLookScript>().enabled = false;
         player.GetComponent<PlayerMovementScript>().enabled = false;
         rend1.material=Error1;
         rend2.material=Error2;
         rend3.material=Error1;
-        ErrorSound.Play();
+        
         yield return new WaitForSeconds(1f);
         rend1.material=Error2;
         rend2.material=Error1;
         rend3.material=Error2;
-        ErrorSound.Play();
+        
         yield return new WaitForSeconds(1f);
         rend1.material=Error1;
         rend2.material=Error2;
         rend3.material=Error1;
-        ErrorSound.Play();
+        
         yield return new WaitForSeconds(1f);
         rend1.material=Error2;
         rend2.material=Error1;
         rend3.material=Error2;
-        ErrorSound.Play();
+        
         yield return new WaitForSeconds(1f);
         rend1.material=Error1;
         rend2.material=Error2;
         rend3.material=Error1;
-        ErrorSound.Play();
+        
         yield return new WaitForSeconds(1f);
         rend1.material=Error2;
         rend2.material=Error1;
         rend3.material=Error2;
-        ErrorSound.Play();
+        
         yield return new WaitForSeconds(1f);
         light.enabled=false;
         rend1.material=Black;
         rend2.material=Black;
         rend3.material=Black;
-        BossBg.Play();
+        
         yield return new WaitForSeconds(3.0f);
         light.enabled=true;
         light.color =  Color.white;
@@ -619,6 +689,7 @@ public class RealBoss : MonoBehaviour
         player.GetComponent<MouseLookScript>().enabled = true;
         player.GetComponent<PlayerMovementScript>().enabled = true;
         BossAni.enabled=true;
+        BossBg.Play();
     }
 
 }

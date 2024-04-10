@@ -53,6 +53,9 @@ public class EnergyCore: Quest
     public Transform targetDestination7;
     public Transform targetDestination8;  
     public DrawerController Entrance;
+    public GameObject Off1;
+    public GameObject Off2;
+    public GameObject Off3;
 
 
     public float dialogueInterval = 3f; // 대화 간격 (3초)
@@ -237,6 +240,9 @@ public class EnergyCore: Quest
         // HP가 0 이하로 떨어졌을 때 처리 (예를 들어, 보스가 죽었을 때)
         if (CoreHp <= 0f)
         {
+            Off1.SetActive(false);
+            Off2.SetActive(false);
+            Off3.SetActive(false);
             Leg2RobotBlue1.Hp=0;
             Leg2RobotBlue2.Hp=0;
             Leg2RobotRed1.Hp=0;
@@ -245,6 +251,7 @@ public class EnergyCore: Quest
             Leg4Robot2.Hp=0;
             Leg4Robot3.Hp=0;
             Leg4Robot4.Hp=0;
+            healthSlider.gameObject.SetActive(false);
             UrgentSound.Stop();
             RadioSound.Play();
             stage=1;

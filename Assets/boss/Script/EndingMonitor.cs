@@ -41,7 +41,7 @@ public class EndingMonitor : MonoBehaviour
     }
     void Update()
     {
-        if(Clear&&zzz&&First){MonitorOn();First=false;}
+        if(Clear&&zzz&&First){if(Input.GetMouseButtonDown(0)){MonitorOn();First=false;}}
         float currentX = uiRectTransform.anchoredPosition.x;
         float currentY = uiRectTransform.anchoredPosition.y;
 

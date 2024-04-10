@@ -9,6 +9,7 @@ public class PlayerHp : MonoBehaviour
     public float PlayerCurHp;
     public float PlayerMaxHp;
     public Slider healthSlider;
+    public GameObject HpOver;
     public GameObject GameOver;
     public Animator Player;
     public GameObject player;
@@ -23,7 +24,7 @@ public class PlayerHp : MonoBehaviour
     public EnergyCore Energy;
     public bool first=true;
     public bool Die=false;
-    public TextMeshProUGUI Core;
+
     public Slider CorehealthSlider;
     public AudioSource UrgentSound;
     public AudioSource BarBackground;
@@ -53,9 +54,9 @@ public class PlayerHp : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 UrgentSound.Stop();
-    
+                HpOver.SetActive(true);
                 CorehealthSlider.gameObject.SetActive(false);
-                Core.gameObject.SetActive(false);
+                
                 Blue1.Respawn();
                 Blue2.Respawn();
                 Red1.Respawn();
@@ -78,6 +79,7 @@ public class PlayerHp : MonoBehaviour
         }else if(stage==1){
             if (Input.GetKeyDown(KeyCode.Return))
             {
+                HpOver.SetActive(true);
                 Die=false;
                 player.transform.position=new Vector3(389.18f, -0.185f, 422.82f);
                 player.transform.rotation=Quaternion.Euler(new Vector3(0f, 0f, 0f));
@@ -95,6 +97,7 @@ public class PlayerHp : MonoBehaviour
                 player.transform.rotation=Quaternion.Euler(new Vector3(0f, -90f, 0f));
                 PlayerCurHp=300f;
                 UpdateHealth(0);
+                HpOver.SetActive(true);
                 GameOver.SetActive(false);
                 player.GetComponent<MouseLookScript>().enabled = true;
                 player.GetComponent<PlayerMovementScript>().enabled = true;
@@ -129,6 +132,7 @@ public class PlayerHp : MonoBehaviour
             {
                 // 추가적인 처리 (보스 사망 등)
                 PlayerDefeated();
+                HpOver.SetActive(false);
                 Die=true;
             }
         }
