@@ -32,7 +32,7 @@ public class FixingDrone : MonoBehaviour
             transform.rotation = targetRotation;
         }
         float distanceToBoss = Vector3.Distance(transform.position, Boss.transform.position);
-        if (distanceToBoss <= 10.0f)
+        if (distanceToBoss <= 15.0f)
         {
             Move=false;
             if(first){DroneAni.Play("fixing_fix", 0, 0.0f);first=false;}
