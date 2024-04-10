@@ -64,6 +64,8 @@ public class StartCursur : MonoBehaviour
     private void OnVideoEnd(VideoPlayer vp)
     {
         Opening.SetActive(false);
+        Quest.SetActive(true);
+        Hp.SetActive(true);
         j.Starting();
     }
     
