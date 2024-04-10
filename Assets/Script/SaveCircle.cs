@@ -22,6 +22,8 @@ public class SaveCircle : MonoBehaviour
             if (other.CompareTag("Player")){
                 if(MUSIC){MUSIC.Clear=true;}
                 playerhp.stage=stage;
+                playerhp.PlayerCurHp=300f;
+                playerhp.UpdateHealth(0);
                 Save.SetActive(true);
                 gameObject.SetActive(false);
                 
