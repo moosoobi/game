@@ -15,6 +15,10 @@ public class EndingMonitor : MonoBehaviour
     public GameObject TraumDetail;
     public RectTransform uiRectTransform;
     public GameObject player;
+    public GameObject EndingCamera;
+    public GameObject EndingSpot;
+    public GameObject EndingImage;
+    public RealBoss Boss;
     public bool Home=false;
     public bool Clear=false;
     public bool IfVoice1=false;
@@ -26,10 +30,13 @@ public class EndingMonitor : MonoBehaviour
     public bool IfTraum=false;
     public bool First=true;
     public bool zzz=false;
+    public bool isMoving=false;
+    public float CameramoveSpeed = 2.0f; // 이동 속도
     public float moveSpeed = 500f;
     public AudioSource Voice1;
     public AudioSource Voice2;
     public AudioSource Pick;
+    public AudioSource EndingSound;
 
     public void MonitorOn(){
         Home=true;
@@ -41,6 +48,22 @@ public class EndingMonitor : MonoBehaviour
     }
     void Update()
     {
+        if (isMoving)
+        {
+            // 종료 지점(endingSpot)까지의 방향 벡터를 계산
+            Vector3 direction = (EndingSpot.transform.position - EndingCamera.transform.position).normalized;
+            
+            // 카메라를 종료 지점 쪽으로 천천히 이동
+            EndingCamera.transform.Translate(direction * CameramoveSpeed * Time.deltaTime);
+
+            // 카메라가 종료 지점에 도달했는지 확인하고 이동을 멈춤
+            if (Vector3.Distance(EndingCamera.transform.position, EndingSpot.transform.position) < 0.1f)
+            {
+                isMoving = false;
+                player.GetComponent<MouseLookScript>().enabled = false;
+                player.GetComponent<PlayerMovementScript>().enabled = false;
+            }
+        }
         if(Clear&&zzz&&First){if(Input.GetMouseButtonDown(0)){MonitorOn();First=false;}}
         float currentX = uiRectTransform.anchoredPosition.x;
         float currentY = uiRectTransform.anchoredPosition.y;
@@ -140,6 +163,7 @@ public class EndingMonitor : MonoBehaviour
                     Home=true;
                     TrashDetail.SetActive(false);
                     Pick.Play();
+                    
                 }
             }
         }
@@ -149,6 +173,10 @@ public class EndingMonitor : MonoBehaviour
                     IfTraum=false;
                     MonitorUi.SetActive(false);
                     Pick.Play();
+                    Boss.LightOn();
+                    EndingSound.Play();
+                    EndingCamera.SetActive(true);
+                    isMoving=true;
                 }
             }
         }

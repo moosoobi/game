@@ -190,6 +190,13 @@ public class RealBoss : MonoBehaviour
         StartCoroutine(ErrorEffect());
 
     }
+    public void LightOn(){
+        SpotLight.enabled=true;
+        BossLight.enabled=true;
+        EndingMonitorLight.enabled=false;
+        EndingVolumn.SetActive(false);
+        Turn_Off.SetActive(true);
+    }
     public IEnumerator die(){
         BossBg.Stop();
         BossSlider.gameObject.SetActive(false);

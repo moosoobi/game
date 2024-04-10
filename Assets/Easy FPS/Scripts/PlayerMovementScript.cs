@@ -20,7 +20,7 @@ public class PlayerMovementScript : MonoBehaviour {
 	public float jumpForce = 500;
 	[Tooltip("Position of the camera inside the player")]
 	[HideInInspector]public Vector3 cameraPosition;
-
+	public bool IfCross=false;
 	/*
 	 * Getting the Players rigidbody component.
 	 * And grabbing the mainCamera from Players child transform.

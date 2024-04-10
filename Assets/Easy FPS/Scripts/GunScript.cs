@@ -38,13 +38,14 @@ public class GunScript : MonoBehaviour {
 	public bool zcross=false;
 	public bool zcross1=true;
 	public bool talking=false;
+	public bool IfCross=false;
 
 	/*
 	 * Collection the variables upon awake that we need.
 	 */
 	void Awake(){
 
-		
+		IfCross=GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().IfCross;
 		if(cross){cross.SetActive(false);}
 		if(cross1){cross1.SetActive(false);}
 		mls = GameObject.FindGameObjectWithTag("Player").GetComponent<MouseLookScript>();
@@ -93,22 +94,24 @@ public class GunScript : MonoBehaviour {
 	void Update(){
 		currentgun=GameObject.FindGameObjectWithTag("Player").GetComponent<GunInventory>().currentGun.name;
 		
-		
-		if(cross&&cross1){
-			if(zcross1){
-				if(zcross){
-				cross.SetActive(false);
-				cross1.SetActive(true);
-				}else if(!zcross){
-					cross.SetActive(true);
+		if(IfCross){
+			if(cross&&cross1){
+				if(zcross1){
+					if(zcross){
+					cross.SetActive(false);
+					cross1.SetActive(true);
+					}else if(!zcross){
+						cross.SetActive(true);
+						cross1.SetActive(false);
+					}
+				}else{
+					cross.SetActive(false);
 					cross1.SetActive(false);
 				}
-			}else{
-				cross.SetActive(false);
-				cross1.SetActive(false);
+				
 			}
-			
 		}
+		
 		
 		Animations();
 

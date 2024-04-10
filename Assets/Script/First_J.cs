@@ -24,12 +24,11 @@ public class First_J : MonoBehaviour
 
     private int currentDialogueIndex = 0; // 현재 대화 인덱스
 
-    void Start()
+    public void Starting()
     {
         P.enabled=true;
         P.Play("CameraMoving", 0, 0.0f);
         StartCoroutine(Camera());
-        
     }
 
     // Update is called once per frame
@@ -63,7 +62,7 @@ public class First_J : MonoBehaviour
             // 다음 대화로 인덱스 증가
             currentDialogueIndex++;
         }
-
+        GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>().IfCross=true;
         Dia.EndDialogue();
         J.enabled=false;
     }
