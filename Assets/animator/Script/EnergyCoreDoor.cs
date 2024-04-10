@@ -74,9 +74,11 @@ public class EnergyCoreDoor : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
+        if (other.CompareTag("Player")){
+            zzzz=true;
+            StartCoroutine(ExecuteAfterDelay(0.5f));
+        }
         
-        zzzz=true;
-        StartCoroutine(ExecuteAfterDelay(0.5f));
         
     }
     

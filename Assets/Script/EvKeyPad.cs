@@ -20,6 +20,9 @@ public class EvKeyPad : MonoBehaviour
     public int horizontal=0;
     public int vertical=0;
     public string s="";
+    public AudioSource Button;
+    public AudioSource Up;
+    
 
 
    
@@ -40,6 +43,7 @@ public class EvKeyPad : MonoBehaviour
                     Vector2 newPosition = TriangleRect.anchoredPosition;
                     newPosition.y += 70f;
                     TriangleRect.anchoredPosition = newPosition;
+                    Button.Play();
                 }
 
                 
@@ -51,6 +55,7 @@ public class EvKeyPad : MonoBehaviour
                     Vector2 newPosition = TriangleRect.anchoredPosition;
                     newPosition.y -= 70f;
                     TriangleRect.anchoredPosition = newPosition;
+                    Button.Play();
                 }
                 
             }
@@ -61,6 +66,7 @@ public class EvKeyPad : MonoBehaviour
                     Vector2 newPosition = TriangleRect.anchoredPosition;
                     newPosition.x -= 65f;
                     TriangleRect.anchoredPosition = newPosition;
+                    Button.Play();
                 }
      
             }
@@ -71,10 +77,12 @@ public class EvKeyPad : MonoBehaviour
                     Vector2 newPosition = TriangleRect.anchoredPosition;
                     newPosition.x += 65f;
                     TriangleRect.anchoredPosition = newPosition;
+                    Button.Play();
                 }
                 
             }
             if(Input.GetKeyDown(KeyCode.Return)){
+                Button.Play();
                 Enter();
             }
 
@@ -141,7 +149,7 @@ public class EvKeyPad : MonoBehaviour
         
     }
     public void Check(){
-        if(s=="99"){DisableKey();}
+        if(s=="99"){DisableKey();Up.Play();}
         else{
             UiObject.SetActive(true);
             UiText.text="아무일도 일어나지 않습니다.";

@@ -89,6 +89,8 @@ public class RealBoss : MonoBehaviour
     public GameObject EndingVolumn;
     public bool IfDie=false;
     public EndingMonitor Ending;
+    public AudioSource ErrorSound;
+    public AudioSource BossBg;
 
     private void Start()
     {
@@ -98,7 +100,6 @@ public class RealBoss : MonoBehaviour
         rend3 = Screen3.GetComponent<Renderer>();//main   
         rend4 = Glass.GetComponent<Renderer>();
         rend5 = BossUnder.GetComponent<Renderer>();
-        
      
     }
 
@@ -189,6 +190,7 @@ public class RealBoss : MonoBehaviour
 
     }
     public IEnumerator die(){
+        BossBg.Play();
         Look=false;
         alive=false;
         rend1.material=Black;
@@ -575,31 +577,38 @@ public class RealBoss : MonoBehaviour
         rend1.material=Error1;
         rend2.material=Error2;
         rend3.material=Error1;
+        ErrorSound.Play();
         yield return new WaitForSeconds(1f);
         rend1.material=Error2;
         rend2.material=Error1;
         rend3.material=Error2;
+        ErrorSound.Play();
         yield return new WaitForSeconds(1f);
         rend1.material=Error1;
         rend2.material=Error2;
         rend3.material=Error1;
+        ErrorSound.Play();
         yield return new WaitForSeconds(1f);
         rend1.material=Error2;
         rend2.material=Error1;
         rend3.material=Error2;
+        ErrorSound.Play();
         yield return new WaitForSeconds(1f);
         rend1.material=Error1;
         rend2.material=Error2;
         rend3.material=Error1;
+        ErrorSound.Play();
         yield return new WaitForSeconds(1f);
         rend1.material=Error2;
         rend2.material=Error1;
         rend3.material=Error2;
+        ErrorSound.Play();
         yield return new WaitForSeconds(1f);
         light.enabled=false;
         rend1.material=Black;
         rend2.material=Black;
         rend3.material=Black;
+        BossBg.Play();
         yield return new WaitForSeconds(3.0f);
         light.enabled=true;
         light.color =  Color.white;

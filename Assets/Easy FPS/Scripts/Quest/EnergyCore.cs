@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class EnergyCore : Quest
+public class EnergyCore: Quest
 {
     public Vector3 targetPosition = new Vector3(8f, 413.8f, 432f);
     public GameObject Ring;
@@ -146,7 +146,7 @@ public class EnergyCore : Quest
                     
                     SecuritySound.Play();
                     healthSlider.gameObject.SetActive(true);
-                    Core.gameObject.SetActive(true);
+                    
                     first=true;
                     healthSlider.maxValue = CoreMaxHp;
                     healthSlider.value = CoreHp;

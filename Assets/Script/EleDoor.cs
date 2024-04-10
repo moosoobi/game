@@ -27,6 +27,7 @@ public class EleDoor : MonoBehaviour
     public TextMeshProUGUI Text;
     public TextMeshProUGUI QuestText;
     public AudioSource RadioSound;
+    public AudioSource LabBg;
     
     public BossEle bossele;
     private void OnTriggerEnter(Collider other)
@@ -58,6 +59,7 @@ public class EleDoor : MonoBehaviour
                 if (DrawerClose)
                 DrawerClose.Play ();
                 if(Lab){
+                    LabBg.Play();
                     StartCoroutine(StartConversation());
                 }
             }

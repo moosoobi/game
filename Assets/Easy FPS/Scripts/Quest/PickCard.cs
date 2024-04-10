@@ -41,12 +41,15 @@ public class PickCard : MonoBehaviour
     }
     public void PositiveClear(){Clear=true;kiosk.Possible=true;}
     private void OnTriggerEnter(Collider other){
-        
-        zzz=true;
+        if (other.CompareTag("Player")){
+            zzz=true;
+        }
     }
     private void OnTriggerExit(Collider other){
 
-        zzz=false;
+        if (other.CompareTag("Player")){
+            zzz=false;
+        }
     }
     private IEnumerator ExecuteAfterDelayText(float delayInSeconds)
     {

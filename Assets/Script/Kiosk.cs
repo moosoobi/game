@@ -21,6 +21,7 @@ public class Kiosk : MonoBehaviour
     public int stack=1;
     public bool Possible=false;
     public bool Clear=false;
+    
 
 
 
@@ -51,14 +52,18 @@ public class Kiosk : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        zzzz=true;
+        if (other.CompareTag("Player")){
+            zzzz=true;
+        }
         
         
     }
     private void OnTriggerExit(Collider other)
     {
         
-        zzzz=false;
+        if (other.CompareTag("Player")){
+            zzzz=false;
+        }
        
         
     }

@@ -36,7 +36,7 @@ public class MouseCursor : MonoBehaviour
     public GameObject CheckOver;
     public float moveSpeed = 5f;
     public Cart cart;
-
+    public AudioSource Pick;
 
     void Start()
     {
@@ -56,6 +56,7 @@ public class MouseCursor : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 cart.AddItem(1);
+                Pick.Play();
             }
             
         }else{
@@ -69,6 +70,7 @@ public class MouseCursor : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 cart.AddItem(2);
+                Pick.Play();
             }
             
         }else{
@@ -82,6 +84,7 @@ public class MouseCursor : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 cart.AddItem(3);
+                Pick.Play();
             }
             
         }else{
@@ -95,6 +98,7 @@ public class MouseCursor : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 cart.AddItem(4);
+                Pick.Play();
             }
             
         }else{
@@ -108,6 +112,7 @@ public class MouseCursor : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 cart.AddItem(5);
+                Pick.Play();
             }
             
         }else{
@@ -121,6 +126,7 @@ public class MouseCursor : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 cart.AddItem(6);
+                Pick.Play();
             }
             
         }else{
@@ -134,6 +140,7 @@ public class MouseCursor : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 cart.AddItem(7);
+                Pick.Play();
             }
             
         }else{
@@ -147,6 +154,7 @@ public class MouseCursor : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 cart.AddItem(8);
+                Pick.Play();
             }
             
         }else{
@@ -160,6 +168,7 @@ public class MouseCursor : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 cart.AddItem(9);
+                Pick.Play();
             }
             
         }else{
@@ -173,6 +182,7 @@ public class MouseCursor : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 cart.AddItem(10);
+                Pick.Play();
             }
             
         }else{
@@ -186,6 +196,7 @@ public class MouseCursor : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 cart.AddItem(11);
+                Pick.Play();
             }
             
         }else{
@@ -199,6 +210,7 @@ public class MouseCursor : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 cart.AddItem(12);
+                Pick.Play();
             }
             
         }else{
@@ -212,6 +224,7 @@ public class MouseCursor : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 cart.AllClear();
+                Pick.Play();
             }
             
         }else{
@@ -225,6 +238,7 @@ public class MouseCursor : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 cart.Check();
+                Pick.Play();
             }
             
         }else{

@@ -8,6 +8,7 @@ public class SaveCircle : MonoBehaviour
     public GameObject Save;
     public PlayerHp playerhp;
     public int stage;
+    public MusicStart MUSIC;
     
 
 
@@ -19,9 +20,11 @@ public class SaveCircle : MonoBehaviour
     {
         
             if (other.CompareTag("Player")){
+                if(MUSIC){MUSIC.Clear=true;}
                 playerhp.stage=stage;
                 Save.SetActive(true);
                 gameObject.SetActive(false);
+                
             }
         
         

@@ -121,14 +121,18 @@ public class Lever : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        zzzz=true;
+        if (other.CompareTag("Player")){
+            zzzz=true;
+        }
         
         
     }
     private void OnTriggerExit(Collider other)
     {
         
-        zzzz=false;
+        if (other.CompareTag("Player")){
+            zzzz=false;
+        }
        
         
     }

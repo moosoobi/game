@@ -12,6 +12,7 @@ public class pick : MonoBehaviour
     public TextMeshProUGUI UiText;
     public GameObject UiObject;
     public int stack=0;
+    public bool Clear=false;
     public GunInventory guninventory;
     
     void Awake()
@@ -20,7 +21,7 @@ public class pick : MonoBehaviour
     }
     void Update()
     {
-        if(gunpick&&zzz){
+        if(gunpick&&zzz&&Clear){
             if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
                 if(stack==0){stack++;}
                 if(gunpick.CurrentState==GunPick.QuestState.Active&&stack==1){
@@ -34,8 +35,9 @@ public class pick : MonoBehaviour
         }
     }
     private void OnTriggerEnter(Collider other){
-        
-        zzz=true;
+        if(Clear){
+            zzz=true;
+        }
     }
     private void OnTriggerExit(Collider other){
 

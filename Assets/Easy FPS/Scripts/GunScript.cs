@@ -496,7 +496,7 @@ public class GunScript : MonoBehaviour {
 	public float reloadChangeBulletsTime;
 	IEnumerator Reload_Animation(){
 		if(bulletsIHave > 0 && bulletsInTheGun < amountOfBulletsPerLoad && !reloading/* && !aiming*/){
-
+			bulletsInTheGun = 10;
 			if (reloadSound_source.isPlaying == false && reloadSound_source != null) {
 				if (reloadSound_source)
 					reloadSound_source.Play ();

@@ -8,6 +8,7 @@ public class GunPick : Quest
     public string Description;
     public bool zzz=false;
     public bool pick=false;
+    public bool Clear=false;
     public TextMeshProUGUI Text;
     public TextMeshProUGUI QuestText;
     public QuestState CurrentState;
@@ -15,6 +16,7 @@ public class GunPick : Quest
     public DialogueManager dia;
     public AudioSource QuestSound;
     public GunInventory guninventory;
+    public pick pickS;
     
 
     public GunPick(QuestState currentState)
@@ -53,6 +55,8 @@ public class GunPick : Quest
         Text.text=Description;
         StartCoroutine(ChangeColor());
         QuestSound.Play();
+        Clear=true;
+        pickS.Clear=true;
     }
     private IEnumerator ChangeColor(){
         for(int i=0;i<3;i++){
@@ -64,8 +68,10 @@ public class GunPick : Quest
     }
 
     private void OnTriggerEnter(Collider other){
+        if(Clear){
+            zzz=true;
+        }
         
-        zzz=true;
     }
     private void OnTriggerExit(Collider other){
 

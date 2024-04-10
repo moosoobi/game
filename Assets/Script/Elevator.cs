@@ -21,6 +21,7 @@ public class Elevator : MonoBehaviour
     public TextMeshProUGUI npcDialogueBox;
     public GameObject dialogueUI;
 
+    public AudioSource Arrived;
 
     
     
@@ -39,6 +40,7 @@ public class Elevator : MonoBehaviour
         if (movingUp && transform.position.y > maxHeight){
             transform.position = new Vector3(transform.position.x, maxHeight, transform.position.z);
             myDoor.Play("EleOpen", 0, 0.0f);
+            Arrived.Play();
             movingUp=false;
         }
 

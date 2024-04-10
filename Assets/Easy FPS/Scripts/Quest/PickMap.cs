@@ -29,6 +29,7 @@ public class PickMap : MonoBehaviour
     public bool isTalking=false;
     public bool Detail=false;
     public GunScript gun;
+    public AudioSource Paper;
 
     void Update()
     {
@@ -37,6 +38,7 @@ public class PickMap : MonoBehaviour
             if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
                 text1.SetActive(true);
                 Text.text="X를 누르면 지도를 확인할 수 있습니다.";
+                Paper.Play();
                 StartCoroutine(ExecuteAfterDelayText(3f));
                 ifpick=true;
                 if(!gunpickbool){
