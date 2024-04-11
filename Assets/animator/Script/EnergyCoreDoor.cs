@@ -33,7 +33,8 @@ public class EnergyCoreDoor : MonoBehaviour
     public GameObject dialogueUI;
     public GameObject player;
     public bool isTalking=false;
-    
+    public GameObject Guide;
+    public GameObject Guide1;
 
     
     void Update()
@@ -41,7 +42,8 @@ public class EnergyCoreDoor : MonoBehaviour
         
         if(zzzz){
             if (Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&openTrigger==true){
-              
+                    Guide.SetActive(false);
+                    Guide1.SetActive(false);
                     myDoor.Play(dooropen, 0, 0.0f);
                     closeTrigger=true;
                     openTrigger=false;

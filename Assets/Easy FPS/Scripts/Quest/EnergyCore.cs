@@ -6,6 +6,7 @@ using TMPro;
 
 public class EnergyCore: Quest
 {
+    public GameObject Guide;
     public Vector3 targetPosition = new Vector3(8f, 413.8f, 432f);
     public GameObject Ring;
     public GameObject Save;
@@ -180,6 +181,7 @@ public class EnergyCore: Quest
         StartCoroutine(ChangeColor());
         Ring.transform.position=targetPosition;
         Save.SetActive(true);
+        Guide.SetActive(true);
     }
     private IEnumerator ChangeColor(){
         for(int i=0;i<3;i++){
@@ -227,6 +229,7 @@ public class EnergyCore: Quest
             isTalking=false;
             dialogueUI.SetActive(false);
             QuestActive1();
+
             
         }
    
@@ -259,6 +262,7 @@ public class EnergyCore: Quest
             stage=1;
             Entrance.Clear=true;
             player.GetComponent<GunInventory>().ChangeWeapon1();
+
             StartCoroutine(StartConversation1());
 
         }

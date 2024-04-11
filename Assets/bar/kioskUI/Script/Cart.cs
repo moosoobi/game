@@ -5,7 +5,7 @@ using TMPro;
 
 public class Cart : MonoBehaviour
 {
-
+    public GameObject Guide;
     public string[] productNames;
     public int[] productPrices;
     public int index=0;
@@ -240,6 +240,7 @@ public class Cart : MonoBehaviour
         isTalking2=false;
         dialogueUI.SetActive(false);
         QuestActive();
+        Guide.SetActive(true);
         player.GetComponent<MouseLookScript>().enabled = true;
         player.GetComponent<PlayerMovementScript>().enabled = true;
     }
