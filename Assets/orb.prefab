@@ -9840,7 +9840,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodEffect: {fileID: 1218997492258936526, guid: 87575a2a73b97f541a578ae39a49207f, type: 3}
-  maxSpeed: 20
+  Upgrade: 0
+  maxSpeed: 40
 --- !u!114 &-2432893762211228943
 MonoBehaviour:
   m_ObjectHideFlags: 0

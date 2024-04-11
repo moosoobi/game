@@ -565,7 +565,7 @@ public class GunScript : MonoBehaviour {
 	*/
 	public void ZcrossOn(){
 		zcross=true;
-		StartCoroutine(Zcross());
+		//StartCoroutine(Zcross());
 	}
 	public void ZcrossOff(){
 		zcross=false;
