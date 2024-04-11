@@ -34,7 +34,7 @@ public class SaveCircle : MonoBehaviour
                 playerhp.PlayerCurHp=300f;
                 playerhp.UpdateHealth(0);
                 Save.SetActive(true);
-                gameObject.SetActive(false);
+                
                 
             }
         
@@ -45,6 +45,6 @@ public class SaveCircle : MonoBehaviour
         // 일정 시간만큼 대기
         yield return new WaitForSeconds(delayInSeconds);
         UiObject.SetActive(false);
-        
+        gameObject.SetActive(false);
     }
 }

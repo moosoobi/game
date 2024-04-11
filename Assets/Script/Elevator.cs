@@ -63,7 +63,7 @@ public class Elevator : MonoBehaviour
     */
     IEnumerator StartConversation()
     {
-        yield return new WaitForSeconds(6.0f);
+        yield return new WaitForSeconds(8.0f);
         dialogueUI.SetActive(true);
         npcName.text=" ";
         npcDialogueBox.text="…항상 아래에서 위를 쳐다보기만 했었는데";
