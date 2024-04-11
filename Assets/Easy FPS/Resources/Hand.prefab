@@ -885,14 +885,15 @@ MonoBehaviour:
   zcross: 0
   zcross1: 1
   talking: 0
+  IfCross: 0
   currentGunPosition: {x: 0, y: 0, z: 0}
   restPlacePosition: {x: -0.07, y: -0.06, z: 0.4}
   aimPlacePosition: {x: 0, y: -0.05, z: 0.29}
   gunAimTime: 0.05
   reloading: 0
-  mouseSensitvity_notAiming: 3
-  mouseSensitvity_aiming: 1
-  mouseSensitvity_running: 1
+  mouseSensitvity_notAiming: 0.5
+  mouseSensitvity_aiming: 0.5
+  mouseSensitvity_running: 0.5
   meeleAttack: 0
   aiming: 0
   mainCamera: {fileID: 0}

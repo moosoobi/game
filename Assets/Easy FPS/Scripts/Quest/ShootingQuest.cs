@@ -31,10 +31,7 @@ public class ShootingQuest : Quest
 
     public ShootingQuest(QuestState currentState)
     {
-        
-    
         CurrentState=currentState;
-        
     }
     
     void Awake()
@@ -51,7 +48,7 @@ public class ShootingQuest : Quest
                 player.GetComponent<PlayerMovementScript>().enabled = true;
                 dia.upstage();
                 CurrentState=QuestState.Completed;
-                Text.text="퀘스트 완료 npc에게 돌아가십시요.";
+                Text.text="퀘스트 완료 J에게 돌아가십시요.";
                 StartCoroutine(ChangeColor());
                 QuestSound.Play();
                 text1.SetActive(true);
@@ -119,7 +116,7 @@ public class ShootingQuest : Quest
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
-        npcName.text="주인공";
+        npcName.text=" ";
         npcDialogueBox.text=dialogue[0];
         GunImage.SetActive(true);
     }

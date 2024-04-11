@@ -83,6 +83,11 @@ public class DrLee : MonoBehaviour
             navMeshAgent.SetDestination(player.transform.position);
             if(!Walking){LeeAni.Play("walk", 0, 0.0f);Walking=true;}
             if(Vector3.Distance(transform.position, player.transform.position)<3.0f){
+                player.GetComponent<PlayerHp>().PlayerCurHp=300f;
+                player.GetComponent<PlayerHp>().UpdateHealth(0);
+                UiObject.SetActive(true);
+                UiText.text="Hp회복!";
+                StartCoroutine(ExecuteAfterDelayText(3f)); 
                 Approch=false;
                 navMeshAgent.isStopped = true;
                 StartConversation();
@@ -144,6 +149,23 @@ public class DrLee : MonoBehaviour
 
             // 입력에 따라 이동한 위치 계산
             Vector2 newPosition = currentPosition + moveDirection*moveSpeed * Time.deltaTime;
+            if (newPosition.x < -630f)
+            {
+                newPosition.x = -630f;
+            }
+            if (newPosition.x > 630f)
+            {
+                newPosition.x = 630f;
+            }
+            // y 방향으로 이동 제한
+            if (newPosition.y > 350f)
+            {
+                newPosition.y = 350f;
+            }
+            if (newPosition.y < -350f)
+            {
+                newPosition.y = -350f;
+            }
 
             // 새로 계산된 위치로 anchoredPosition 설정
             uiRectTransform.anchoredPosition = newPosition;

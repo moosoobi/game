@@ -46,9 +46,27 @@ public class StartCursur : MonoBehaviour
 
         // 입력에 따라 이동한 위치 계산
         Vector2 newPosition = currentPosition + moveDirection*moveSpeed * Time.deltaTime;
+        if (newPosition.x < -630f)
+        {
+            newPosition.x = -630f;
+        }
+        if (newPosition.x > 630f)
+        {
+            newPosition.x = 630f;
+        }
+        // y 방향으로 이동 제한
+        if (newPosition.y > 350f)
+        {
+            newPosition.y = 350f;
+        }
+        if (newPosition.y < -350f)
+        {
+            newPosition.y = -350f;
+        }
 
         // 새로 계산된 위치로 anchoredPosition 설정
         uiRectTransform.anchoredPosition = newPosition;
+        
         
         if(currentX>-60&&currentX<80&&currentY>-290&&currentY<-140){
             if(Input.GetMouseButtonDown(0)){

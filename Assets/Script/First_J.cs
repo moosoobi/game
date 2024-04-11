@@ -44,28 +44,10 @@ public class First_J : MonoBehaviour
         if (transform.position.z == 427f&&second)
         {
             second=false;
-            StartCoroutine(StartConversation());
+            Dia.StartConversation();
         }
     }
 
-    IEnumerator StartConversation()
-    {
-        Dia.StartConversation();
-        while (currentDialogueIndex < dialogues.Length)
-        {
-            // 대화 내용을 UI에 표시
-            dialogueText.text = dialogues[currentDialogueIndex];
-
-            // 대화 간격만큼 기다린 후 다음 대화로 넘어감
-            yield return new WaitForSeconds(dialogueInterval);
-
-            // 다음 대화로 인덱스 증가
-            currentDialogueIndex++;
-        }
-        GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>().IfCross=true;
-        Dia.EndDialogue();
-        J.enabled=false;
-    }
     private IEnumerator Camera()
     {
 

@@ -29,7 +29,7 @@ public class EleDoor : MonoBehaviour
     public TextMeshProUGUI QuestText;
     public AudioSource RadioSound;
     public AudioSource LabBg;
-    
+    public GameObject Click;
     
     public BossEle bossele;
     private void OnTriggerEnter(Collider other)
@@ -91,6 +91,7 @@ public class EleDoor : MonoBehaviour
     }
     IEnumerator StartConversation()
     {
+        Click.SetActive(false);
         yield return new WaitForSeconds(2.0f);
         RadioSound.Play();
         dialogueUI.SetActive(true);
@@ -107,6 +108,7 @@ public class EleDoor : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
         npcDialogueBox.text="마지막 작전 수행을 부탁하네.";
         yield return new WaitForSeconds(3.0f);
+        Click.SetActive(false);
         dialogueUI.SetActive(false);
         QuestActive();
         bossele.Clear=true;

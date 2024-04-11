@@ -112,12 +112,12 @@ public class GunInventory : MonoBehaviour {
 		/*
 		 * Keypad numbers
 		 */
-		if(Input.GetKeyDown(KeyCode.Alpha1) && currentGunCounter != 0){
+		if(Input.GetKeyDown(KeyCode.Alpha1) ){
 			switchWeaponCooldown = 0;
 			currentGunCounter = 0;
 			StartCoroutine("Spawn",currentGunCounter);
 		}
-		if(Input.GetKeyDown(KeyCode.Alpha2) && currentGunCounter != 1&&GunBool){
+		if(Input.GetKeyDown(KeyCode.Alpha2) &&GunBool){
 			switchWeaponCooldown = 0;
 			currentGunCounter = 1;
 			StartCoroutine("Spawn",currentGunCounter);

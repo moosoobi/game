@@ -10,6 +10,7 @@ public class BulletScript : MonoBehaviour {
 
 	void Start()
     {
+
         Upgrade= GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().Upgrade;
         MoveBullet();
         Invoke("DeactivateAfterDelay", 10f);
@@ -28,7 +29,7 @@ public class BulletScript : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
 
-            
+            Debug.Log(other.name);
             if(other.CompareTag("Enemy"))
             {
                 Instantiate(bloodEffect, transform.position, Quaternion.LookRotation(transform.forward));
@@ -36,6 +37,8 @@ public class BulletScript : MonoBehaviour {
             }else if(other.CompareTag("Volume")){
 
             }else if(other.name == "Bone001"){
+
+            }else if(other.name == "BoxVolumn"){
 
             }else if(other.name == "ConnerBg"){
 

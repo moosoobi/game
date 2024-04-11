@@ -6,7 +6,7 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    
+    public Animator JAni=null;
     public string name;
     public string[] dialogue;
     public string[] dialogue2;
@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
 
     public bool isTalking=false;
     private bool zzz=false;
+    public bool first=true;
 
     public int curResponseTracker=0;
     public int stage=0;
@@ -66,6 +67,7 @@ public class DialogueManager : MonoBehaviour
             if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==false){
                 StartConversation();
                 StartCoroutine(Looking());
+                
             }
             
    
@@ -76,8 +78,12 @@ public class DialogueManager : MonoBehaviour
         }
 
         if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
-                
-                if(stage==1){
+                if(stage==0){
+                    if(curResponseTracker==dialogue.Length){
+                        EndDialogue();
+                    }
+                }
+                else if(stage==1){
                     if(curResponseTracker==dialogue2.Length){
                         EndDialogue();
                     }
@@ -109,6 +115,18 @@ public class DialogueManager : MonoBehaviour
 
     public void StartConversation(){
         if(stage==4){}
+        else if(stage==0){
+            if(first){
+                first=false;
+                player.GetComponent<MouseLookScript>().enabled = false;
+                player.GetComponent<PlayerMovementScript>().enabled = false;
+                isTalking=true;
+                curResponseTracker=0;
+                dialogueUI.SetActive(true);
+                npcName.text="J";
+                npcDialogueBox.text=dialogue[0];
+            }
+        }
         else{
             player.GetComponent<MouseLookScript>().enabled = false;
             player.GetComponent<PlayerMovementScript>().enabled = false;
@@ -116,8 +134,8 @@ public class DialogueManager : MonoBehaviour
             curResponseTracker=0;
             dialogueUI.SetActive(true);
             npcName.text="J";
-            if(stage==0){}
-            else if(stage==1){npcDialogueBox.text=dialogue2[0];}
+            
+            if(stage==1){npcDialogueBox.text=dialogue2[0];}
             else if(stage==2){npcDialogueBox.text=dialogue3[0];}
             else if(stage==3){npcDialogueBox.text=dialogue4[0];}
         }
@@ -127,7 +145,14 @@ public class DialogueManager : MonoBehaviour
 
     public void ContinueConversation(){
         if(stage==0){
-                    
+                    curResponseTracker++;
+                    if(curResponseTracker>dialogue.Length){
+                        curResponseTracker=dialogue.Length;
+                    }
+                    else if(curResponseTracker<dialogue.Length)
+                    {
+                        npcDialogueBox.text=dialogue[curResponseTracker];
+                    }
         }else if(stage==1){
                     curResponseTracker++;
                     if(curResponseTracker>dialogue2.Length){
@@ -159,13 +184,15 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void EndDialogue(){
-
+        Debug.Log(1);
         player.GetComponent<MouseLookScript>().enabled = true;
         player.GetComponent<PlayerMovementScript>().enabled = true;
         isTalking=false;
         dialogueUI.SetActive(false);
         curResponseTracker=0;
+        GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>().IfCross=true;
         if(stage==0){
+            JAni.enabled=false;
             stage=1;
             UiObject.SetActive(true);
             UiText.text="마우스 좌클릭으로 오브젝트와 상호작용할 수 있습니다.";

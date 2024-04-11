@@ -16,6 +16,7 @@ public class Elevator : MonoBehaviour
     public bool clear=false;
     
     public GameObject player;
+    public GameObject Click;
 
     public TextMeshProUGUI npcName;
     public TextMeshProUGUI npcDialogueBox;
@@ -63,6 +64,7 @@ public class Elevator : MonoBehaviour
     */
     IEnumerator StartConversation()
     {
+        Click.SetActive(false);
         yield return new WaitForSeconds(8.0f);
         dialogueUI.SetActive(true);
         npcName.text=" ";
@@ -72,6 +74,7 @@ public class Elevator : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
         npcDialogueBox.text="위에서 내려다 보는 도시는 꽤 아름답네";
         yield return new WaitForSeconds(3.0f);
+        Click.SetActive(true);
         dialogueUI.SetActive(false);
 
 

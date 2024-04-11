@@ -5,6 +5,7 @@ using TMPro;
 
 public class PickMap : MonoBehaviour
 {
+    public GameObject Click;
     public GameObject map;
     public GameObject map2;
     public GameObject MapUi;
@@ -30,13 +31,15 @@ public class PickMap : MonoBehaviour
     public bool isTalking=false;
     public bool Detail=false;
     public GunScript gun;
+    public bool First=true;
     public AudioSource Paper;
 
     void Update()
     {
         
         if(zzz&&dia.stage==1){
-            if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()){
+            if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&First){
+                First=false;
                 text1.SetActive(true);
                 Text.text="X를 누르면 지도를 확인할 수 있습니다.";
                 Paper.Play();
