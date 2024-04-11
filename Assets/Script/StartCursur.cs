@@ -18,6 +18,7 @@ public class StartCursur : MonoBehaviour
     public PlayerMovementScript Move;
     public First_J j;
     public RectTransform uiRectTransform;
+    public AudioSource RoomBg;
     public float moveSpeed = 500f;
 
     /// <summary>
@@ -69,6 +70,7 @@ public class StartCursur : MonoBehaviour
         Hp.SetActive(true);
         j.Starting();
         Inven.SetActive(true);
+        RoomBg.Play();
     }
     
 }

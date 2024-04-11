@@ -177,6 +177,7 @@ public class EndingMonitor : MonoBehaviour
                     Boss.LightOn();
                     EndingSound.Play();
                     StartCoroutine(EndingMove());
+                    Cursur.SetActive(false);
                     
                 }
             }

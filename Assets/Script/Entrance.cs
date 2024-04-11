@@ -30,7 +30,7 @@ public class Entrance : MonoBehaviour
             PlayerIn=false;
         }else if(other.CompareTag("Player")&&!PlayerIn){
             StopAllAudioSources();
-            RoomBackground.Play();
+            
             PlayerIn=true;
             
         }else if(other.CompareTag("Player")&&PlayerIn&&!first){

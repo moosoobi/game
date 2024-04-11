@@ -19,6 +19,11 @@ public class Lever : MonoBehaviour
     public RectTransform TriangleRect;
     public GameObject Exit;
     public Material newMaterial; // 변경할 Material
+    public int Lever1=0;
+    public int Lever2=0;
+    public int Lever3=0;
+    public int Lever4=0;
+    public int Index=0;
     public PickCard card;
 
     
@@ -33,7 +38,7 @@ public class Lever : MonoBehaviour
     {
         if(zzzz){
         if(isFixed){
-            if(switches[0].transform.eulerAngles.x>355f&&switches[0].transform.eulerAngles.x<365f&&switches[1].transform.eulerAngles.x>35&&switches[1].transform.eulerAngles.x<45&&switches[2].transform.eulerAngles.x<285&&switches[2].transform.eulerAngles.x>275&&switches[3].transform.eulerAngles.x>315&&switches[3].transform.eulerAngles.x<325){
+            if(Lever1==1&&Lever2==0&&Lever3==3&&Lever4==2){
                 UiObject.SetActive(true);
                 UiText.text="<b>*오른쪽 비상구표지판에 무슨 변화가 생긴 것 같다.*<b>";
                 UiText.color=Color.red;
@@ -44,6 +49,11 @@ public class Lever : MonoBehaviour
                 
             }
             if(Input.GetKeyDown(KeyCode.UpArrow)){
+                if(Index==0){if(Lever1==0){Lever1=3;}Lever1+=1;if(Lever1>3)Lever1=3;}
+                else if(Index==1){if(Lever2==0){Lever2=3;}Lever2+=1;if(Lever2>3)Lever2=3;}
+                else if(Index==2){if(Lever3==0){Lever3=3;}Lever3+=1;if(Lever3>3)Lever3=3;}
+                else if(Index==3){if(Lever4==0){Lever4=3;}Lever4+=1;if(Lever4>3)Lever4=3;}
+                
                 Vector3 currentRotation = switches[horizontal].transform.eulerAngles;
                 currentRotation.x -= 40f;
                 
@@ -53,6 +63,10 @@ public class Lever : MonoBehaviour
                 switches[horizontal].transform.rotation = Quaternion.Euler(currentRotation);
             }
                 if(Input.GetKeyDown(KeyCode.DownArrow)){
+                    if(Index==0){Lever1-=1;if(Lever1<0)Lever1=0;}
+                    else if(Index==1){Lever2-=1;if(Lever2<0)Lever2=0;}
+                    else if(Index==2){Lever3-=1;if(Lever3<0)Lever3=0;}
+                    else if(Index==3){Lever4-=1;if(Lever4<0)Lever4=0;}
                     Vector3 currentRotation = switches[horizontal].transform.eulerAngles;
                     currentRotation.x += 40f;
                     
@@ -63,6 +77,8 @@ public class Lever : MonoBehaviour
                     switches[horizontal].transform.rotation = Quaternion.Euler(currentRotation);
                 }
                 if(Input.GetKeyDown(KeyCode.LeftArrow)){
+                    Index-=1;
+                    if(Index<0){Index=3;}
                     horizontal++;
                     if(horizontal>=4){horizontal=0;}
                     if(horizontal==0){TriangleRect.anchoredPosition = new Vector2(-162f, 215f);}
@@ -72,6 +88,8 @@ public class Lever : MonoBehaviour
                     
                 }
                 if(Input.GetKeyDown(KeyCode.RightArrow)){
+                    Index+=1;
+                    if(Index>3){Index=0;}
                     horizontal++;
                     if(horizontal>=4){horizontal=0;}
                     if(horizontal==0){TriangleRect.anchoredPosition = new Vector2(-162f, 215f);}
@@ -82,6 +100,7 @@ public class Lever : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0)&&electricBox.ReturnDoorLock())
         {
+            Setting();
             UiObject.SetActive(true);
             UiText.text="방향키로 조작하시오.";
             StartCoroutine(ExecuteAfterDelayText(3f)); 
@@ -117,6 +136,21 @@ public class Lever : MonoBehaviour
             }
         }
         }
+    }
+    public void Setting(){
+        Vector3 currentRotation = switches[horizontal].transform.eulerAngles;
+        horizontal=0;
+        Lever1=3;
+        Lever2=3;
+        Lever3=3;
+        Lever4=3;
+        Index=0;
+        currentRotation.x = 280f;
+        
+        switches[0].transform.rotation = Quaternion.Euler(currentRotation);
+        switches[1].transform.rotation = Quaternion.Euler(currentRotation);
+        switches[2].transform.rotation = Quaternion.Euler(currentRotation);
+        switches[3].transform.rotation = Quaternion.Euler(currentRotation);
     }
     private void OnTriggerEnter(Collider other)
     {

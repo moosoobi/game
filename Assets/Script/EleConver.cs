@@ -12,6 +12,7 @@ public class EleConver : MonoBehaviour
     public GameObject dialogueUI;
     public bool isTalking=false;
     public GameObject player;
+    public bool First=true;
     void Start()
     {
         
@@ -30,6 +31,7 @@ public class EleConver : MonoBehaviour
         }
     }
     public void StartConversation(){
+        First=false;
         player.GetComponent<MouseLookScript>().enabled = false;
         player.GetComponent<PlayerMovementScript>().enabled = false;
         isTalking=true;
@@ -63,7 +65,10 @@ public class EleConver : MonoBehaviour
 
             
             if(other.CompareTag("Player")){
-                StartConversation();
+                if(First){
+                    StartConversation();
+                }
+                
             }
     }
 }

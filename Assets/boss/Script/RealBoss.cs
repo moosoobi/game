@@ -229,6 +229,7 @@ public class RealBoss : MonoBehaviour
         Ending.Clear=true;
         yield return new WaitForSeconds(3.0f);
         Stage=1;
+        player.GetComponent<GunInventory>().ChangeWeapon1();
         StartConversation();
     }
     public void StartConversation(){

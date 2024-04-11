@@ -28,6 +28,7 @@ public class pick : MonoBehaviour
                     gunpick.pickup();
                     UiObject.SetActive(true);
                     UiText.text="2번을 눌러 총을 획득하시오.";
+                    guninventory.GunBool=true;
                     StartCoroutine(ExecuteAfterDelayText(0.5f));   
                 }
                 

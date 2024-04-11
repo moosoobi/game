@@ -11,17 +11,15 @@ public class BarNpc : MonoBehaviour
     public TextMeshProUGUI npcDialogueBox;
     public GameObject dialogueUI;
     public bool isTalking=false;
-    private bool zzz=false;
+    public bool zzz=false;
     public GunInventory guninventory;
     public bool IfRed=false;
     public GameObject player;
     void Update()
     {
+        
         if(zzz){
-            if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==true){
-                
-                ContinueConversation();          
-            }
+     
                 
                
         
@@ -29,9 +27,10 @@ public class BarNpc : MonoBehaviour
                 StartConversation();
                 
             }
-            else if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&curResponseTracker==dialogue.Length){
+            else if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==true){
                 EndDialogue();
             }
+            
         }
     }
     public void StartConversation(){
@@ -69,6 +68,7 @@ public class BarNpc : MonoBehaviour
     {    
         if (other.CompareTag("Player")){
             zzz=true;
+            
         }
     }
     private void OnTriggerExit(Collider other)
@@ -77,4 +77,5 @@ public class BarNpc : MonoBehaviour
             zzz=false;
         }
     }
+    
 }

@@ -20,7 +20,7 @@ public class GunInventory : MonoBehaviour {
 	[HideInInspector]
 	public float switchWeaponCooldown;
 	public GunInventory guninventory;
-
+	public bool GunBool=false;
 	public GunPick gunpick;
 	public bool IfKey=false;
 	public bool IfCard=false;
@@ -117,7 +117,7 @@ public class GunInventory : MonoBehaviour {
 			currentGunCounter = 0;
 			StartCoroutine("Spawn",currentGunCounter);
 		}
-		if(Input.GetKeyDown(KeyCode.Alpha2) && currentGunCounter != 1&&gunpick.ifpick()){
+		if(Input.GetKeyDown(KeyCode.Alpha2) && currentGunCounter != 1&&GunBool){
 			switchWeaponCooldown = 0;
 			currentGunCounter = 1;
 			StartCoroutine("Spawn",currentGunCounter);
