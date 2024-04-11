@@ -192,7 +192,7 @@ public class Cart : MonoBehaviour
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
-        npcName.text="주인공";
+        npcName.text=" ";
         npcDialogueBox.text=dialogue[0];
         
 
@@ -216,7 +216,7 @@ public class Cart : MonoBehaviour
         isTalking2=true;
         curResponseTracker2=0;
         dialogueUI.SetActive(true);
-        npcName.text="주인공";
+        npcName.text=" ";
         npcDialogueBox.text=dialogue2[0];
         
 

@@ -280,7 +280,9 @@ public class DrLee : MonoBehaviour
                                 ChipSetBuy.SetActive(false);
                             }else{
                                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt-=1;
+                                Stage=3;
                                 StartConversation();
+                                
                                 Cursur.SetActive(false);
                                 Shopping=false;
                                 ChipSetBuy.SetActive(false);

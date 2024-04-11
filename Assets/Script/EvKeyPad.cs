@@ -93,7 +93,7 @@ public class EvKeyPad : MonoBehaviour
     public void UsingKey(){ 
         TriangleRect.anchoredPosition = new Vector2(-66.9f, -180.6f);
         UiObject.SetActive(true);
-        UiText.text="방향키로 조작하시오.";
+        UiText.text="방향키로 움직이고 엔터로 입력하시오. ";
         Board.gameObject.SetActive(true);
         StartCoroutine(ExecuteAfterDelayText(3f)); 
         

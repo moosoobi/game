@@ -20,6 +20,7 @@ public class EleDoor : MonoBehaviour
     public bool closeTrigger=false;
     public bool Lab=false;
     public bool zzzz=false;
+    public bool first=true;
     
     public TextMeshProUGUI npcName;
     public TextMeshProUGUI npcDialogueBox;
@@ -29,12 +30,13 @@ public class EleDoor : MonoBehaviour
     public AudioSource RadioSound;
     public AudioSource LabBg;
     
+    
     public BossEle bossele;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")){
             zzzz=true;
-            if(openTrigger){
+            if(openTrigger&&!Lab){
                     myDoor.Play(dooropen, 0, 0.0f);
                     closeTrigger=true;
                     openTrigger=false;
@@ -52,13 +54,14 @@ public class EleDoor : MonoBehaviour
     {
         if (other.CompareTag("Player")){
             zzzz=false;
-            if(closeTrigger){
+            if(closeTrigger&&first){
                 myDoor.Play(doorclose, 0, 0.0f);
                 closeTrigger=false;
                 openTrigger=true;
                 if (DrawerClose)
                 DrawerClose.Play ();
                 if(Lab){
+                    first=false;
                     LabBg.Play();
                     StartCoroutine(StartConversation());
                 }

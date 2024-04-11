@@ -18,6 +18,7 @@ public class EnergyCore: Quest
     public TextMeshProUGUI npcName;
     public TextMeshProUGUI npcDialogueBox;
     public GameObject dialogueUI;
+    public GameObject player;
     public bool isTalking=false;
     private bool zzz=false;
     public bool Open=false;
@@ -130,7 +131,8 @@ public class EnergyCore: Quest
         EndDialogue();
     }
 
-    public void StartConversation1(){
+    IEnumerator StartConversation1(){
+        yield return new WaitForSeconds(3.0f);
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
@@ -256,7 +258,8 @@ public class EnergyCore: Quest
             RadioSound.Play();
             stage=1;
             Entrance.Clear=true;
-            StartConversation1();
+            player.GetComponent<GunInventory>().ChangeWeapon1();
+            StartCoroutine(StartConversation1());
 
         }
     }

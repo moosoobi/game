@@ -141,7 +141,7 @@ public class Leg2RobotRed : MonoBehaviour
             }
 
             if(FistMoving){
-                if (navMeshAgent.remainingDistance>0&&navMeshAgent.remainingDistance < 0.1f)
+                if (navMeshAgent.remainingDistance < 0.1f)
                 {
                     Red.Play("Rifle Aiming Idle", 0, 0.0f);
                     FistMoving=false;
