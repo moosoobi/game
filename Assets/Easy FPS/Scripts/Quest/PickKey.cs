@@ -41,7 +41,7 @@ public class PickKey : MonoBehaviour
             UiText.text="열쇠를 획득했다. 숫자키 3번을 눌러 손에 들 수 있다.";
             KeyUi.SetActive(true);
             Key1.SetActive(false);
-            Key2.SetActive(false);
+            Key2.SetActive(true);
             StartCoroutine(ExecuteAfterDelayText(2f)); 
         }
         

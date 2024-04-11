@@ -7,6 +7,8 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
     public Animator JAni=null;
+    public GameObject JMark;
+    public GameObject MapMark;
     public string name;
     public string[] dialogue;
     public string[] dialogue2;
@@ -117,6 +119,7 @@ public class DialogueManager : MonoBehaviour
         if(stage==4){}
         else if(stage==0){
             if(first){
+
                 first=false;
                 player.GetComponent<MouseLookScript>().enabled = false;
                 player.GetComponent<PlayerMovementScript>().enabled = false;
@@ -136,7 +139,7 @@ public class DialogueManager : MonoBehaviour
             npcName.text="J";
             
             if(stage==1){npcDialogueBox.text=dialogue2[0];}
-            else if(stage==2){npcDialogueBox.text=dialogue3[0];}
+            else if(stage==2){npcDialogueBox.text=dialogue3[0];JMark.SetActive(false);}
             else if(stage==3){npcDialogueBox.text=dialogue4[0];}
         }
         
@@ -184,7 +187,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void EndDialogue(){
-        Debug.Log(1);
+        
         player.GetComponent<MouseLookScript>().enabled = true;
         player.GetComponent<PlayerMovementScript>().enabled = true;
         isTalking=false;
@@ -192,6 +195,7 @@ public class DialogueManager : MonoBehaviour
         curResponseTracker=0;
         GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>().IfCross=true;
         if(stage==0){
+            MapMark.SetActive(true);
             JAni.enabled=false;
             stage=1;
             UiObject.SetActive(true);

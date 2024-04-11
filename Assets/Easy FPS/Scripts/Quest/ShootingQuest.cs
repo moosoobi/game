@@ -28,6 +28,8 @@ public class ShootingQuest : Quest
     public TextMeshProUGUI Text1;//uitext
     public GameObject text1;//uitext
     public ShootingCircle ShootingCircle;
+    public GameObject GunMark;
+    public GameObject JMark;
 
     public ShootingQuest(QuestState currentState)
     {
@@ -38,6 +40,7 @@ public class ShootingQuest : Quest
     {
         dia=GetComponent<DialogueManager>();
         Description="사격연습을 위해 표시해둔 공간으로 가라.";
+        
         requiredShots=3;
         currentShots=0;
     }
@@ -49,6 +52,7 @@ public class ShootingQuest : Quest
                 dia.upstage();
                 CurrentState=QuestState.Completed;
                 Text.text="퀘스트 완료 J에게 돌아가십시요.";
+                JMark.SetActive(true);
                 StartCoroutine(ChangeColor());
                 QuestSound.Play();
                 text1.SetActive(true);
@@ -119,6 +123,7 @@ public class ShootingQuest : Quest
         npcName.text=" ";
         npcDialogueBox.text=dialogue[0];
         GunImage.SetActive(true);
+        GunMark.SetActive(false);
     }
 
 

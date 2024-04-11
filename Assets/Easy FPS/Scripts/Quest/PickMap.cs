@@ -6,6 +6,8 @@ using TMPro;
 public class PickMap : MonoBehaviour
 {
     public GameObject Click;
+    public GameObject MapMark;
+    public GameObject GunMark;
     public GameObject map;
     public GameObject map2;
     public GameObject MapUi;
@@ -42,6 +44,8 @@ public class PickMap : MonoBehaviour
                 First=false;
                 text1.SetActive(true);
                 Text.text="X를 누르면 지도를 확인할 수 있습니다.";
+                MapMark.SetActive(false);
+                GunMark.SetActive(true);
                 Paper.Play();
                 StartCoroutine(ExecuteAfterDelayText(3f));
                 ifpick=true;

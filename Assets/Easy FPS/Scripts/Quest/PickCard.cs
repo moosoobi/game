@@ -21,6 +21,7 @@ public class PickCard : MonoBehaviour
     public Kiosk kiosk;
     public GameObject player;
     public GameObject Key;
+    public GameObject CardMark;
     
     void Update()
     {
@@ -30,6 +31,7 @@ public class PickCard : MonoBehaviour
         UiObject.SetActive(true);
         UiText.text="카드키를 획득했다. 숫자키 4번을 눌러 손에 들 수 있다";
         Key.SetActive(true);
+        CardMark.SetActive(false);
         CardUi.SetActive(true);
         StartCoroutine(ExecuteAfterDelayText(3f)); 
         //StartConversation();

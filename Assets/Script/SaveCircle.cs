@@ -12,6 +12,8 @@ public class SaveCircle : MonoBehaviour
     public MusicStart MUSIC;
     public TextMeshProUGUI UiText;
     public GameObject UiObject;
+    public Animator DoorAni;
+    
     
 
 
@@ -23,17 +25,23 @@ public class SaveCircle : MonoBehaviour
     {
         
             if (other.CompareTag("Player")){
+                if(stage==0){if(DoorAni){DoorAni.Play("Door2Open", 0, 0.0f);}}
                 if(MUSIC){MUSIC.Clear=true;}
                 if(stage==1){
                     UiObject.SetActive(true);
                     UiText.text="Hp회복!";
                     StartCoroutine(ExecuteAfterDelayText(3f)); 
+                    playerhp.stage=stage;
+                    playerhp.PlayerCurHp=300f;
+                    playerhp.UpdateHealth(0);
+                    Save.SetActive(true);
+                }else{
+                    Save.SetActive(true);
+                    gameObject.SetActive(false);
                 }
                 
-                playerhp.stage=stage;
-                playerhp.PlayerCurHp=300f;
-                playerhp.UpdateHealth(0);
-                Save.SetActive(true);
+                
+                
                 
                 
             }

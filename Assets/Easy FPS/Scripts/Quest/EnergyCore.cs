@@ -7,6 +7,7 @@ using TMPro;
 public class EnergyCore: Quest
 {
     public GameObject Guide;
+    public GameObject ShootGuide;
     public Vector3 targetPosition = new Vector3(8f, 413.8f, 432f);
     public GameObject Ring;
     public GameObject Save;
@@ -103,6 +104,7 @@ public class EnergyCore: Quest
     }
     IEnumerator StartConversation()
     {
+        ShootGuide.SetActive(true);
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
