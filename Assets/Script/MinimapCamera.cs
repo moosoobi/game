@@ -14,6 +14,7 @@ public class MinimapCamera : MonoBehaviour
         {
             // 플레이어의 위치를 정확히 따라가기
             transform.position = new Vector3(player.position.x, transform.position.y, player.transform.position.z);
+            transform.rotation = Quaternion.Euler(0f, player.eulerAngles.y+90f, 0f);
         }
     }
 }
