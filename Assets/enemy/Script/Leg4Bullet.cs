@@ -12,7 +12,12 @@ public class Leg4Bullet : MonoBehaviour
     void Start()
     {
         player=GameObject.FindGameObjectWithTag("Player");
+        Invoke("DeactivateAfterDelay", 10f);
         
+    }
+    void DeactivateAfterDelay()
+    {
+        Destroy(gameObject);
     }
     void Update()
     {
