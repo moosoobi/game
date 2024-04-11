@@ -9,6 +9,8 @@ public class BossEle : MonoBehaviour
     public float maxHeight;
     public GameObject Ele;
     public GameObject player;
+    public GameObject Guide;
+    public GameObject Circle;
     public float moveSpeed;
 
     // Update is called once per frame
@@ -16,7 +18,8 @@ public class BossEle : MonoBehaviour
     {
         
         if(zzz&&Clear&&Ele.transform.position.y < maxHeight){
-            
+            Guide.SetActive(false);
+            Circle.SetActive(false);
             Ele.transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
             player.transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
         }

@@ -30,8 +30,9 @@ public class EvKeyPad : MonoBehaviour
     {
         
         if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&zzz&&!On){
-            On=true;
-            UsingKey();
+            //On=true;
+            //UsingKey();
+            Ele.movingUp=true;
         }
         
         if(On){

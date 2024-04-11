@@ -93,6 +93,7 @@ public class RealBoss : MonoBehaviour
     public EndingMonitor Ending;
     public AudioSource ErrorSound;
     public AudioSource BossBg;
+    public GameObject Guide;
 
     private void Start()
     {
@@ -160,6 +161,7 @@ public class RealBoss : MonoBehaviour
     public void QuestActive1(){
         Text.text="빛나는 모니터를 확인하십시오.";
         StartCoroutine(ChangeColor());
+        Guide.SetActive(false);
     }
     private IEnumerator ChangeColor(){
         for(int i=0;i<3;i++){
@@ -281,6 +283,7 @@ public class RealBoss : MonoBehaviour
             PlayerHp.stage=2;
         }else if(Stage==1){
             QuestActive1();
+
         }
         
     }

@@ -12,6 +12,8 @@ public class EleDoor : MonoBehaviour
 
     public TextMeshProUGUI UiText;
     public GameObject UiObject;
+    public GameObject Guide;
+    public GameObject Circle;
 
     public string dooropen;
     public string doorclose;
@@ -111,6 +113,8 @@ public class EleDoor : MonoBehaviour
         Click.SetActive(false);
         dialogueUI.SetActive(false);
         QuestActive();
+        Guide.SetActive(true);
+        Circle.SetActive(true);
         bossele.Clear=true;
 
 
