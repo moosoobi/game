@@ -15,6 +15,8 @@ public class BarNpc : MonoBehaviour
     public GunInventory guninventory;
     public bool IfRed=false;
     public GameObject player;
+    public GameObject Key;
+    public GameObject Mark;
     void Update()
     {
         
@@ -29,6 +31,8 @@ public class BarNpc : MonoBehaviour
             }
             else if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==true){
                 EndDialogue();
+                if(Mark){Mark.SetActive(false);}
+                if(Key){Key.SetActive(false);}
             }
             
         }

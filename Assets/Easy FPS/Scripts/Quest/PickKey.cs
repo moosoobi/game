@@ -18,6 +18,8 @@ public class PickKey : MonoBehaviour
     public bool isTalking=false;
     public bool Detail=false;
     public GameObject player;
+    public GameObject Key1;
+    public GameObject Key2;
 
     void Update()
     {
@@ -38,6 +40,8 @@ public class PickKey : MonoBehaviour
             UiObject.SetActive(true);
             UiText.text="열쇠를 획득했다. 숫자키 3번을 눌러 손에 들 수 있다.";
             KeyUi.SetActive(true);
+            Key1.SetActive(false);
+            Key2.SetActive(false);
             StartCoroutine(ExecuteAfterDelayText(2f)); 
         }
         

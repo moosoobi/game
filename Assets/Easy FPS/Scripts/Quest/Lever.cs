@@ -25,6 +25,7 @@ public class Lever : MonoBehaviour
     public int Lever4=0;
     public int Index=0;
     public PickCard card;
+    public GameObject Key;
 
     
     void Start()
@@ -45,6 +46,7 @@ public class Lever : MonoBehaviour
                 Renderer rend = Exit.GetComponent<Renderer>();
                 rend.material = newMaterial;
                 card.PositiveClear();
+                Key.SetActive(true);
                 StartCoroutine(ExecuteAfterDelayText(3f)); 
                 
             }
@@ -79,8 +81,8 @@ public class Lever : MonoBehaviour
                 if(Input.GetKeyDown(KeyCode.LeftArrow)){
                     Index-=1;
                     if(Index<0){Index=3;}
-                    horizontal++;
-                    if(horizontal>=4){horizontal=0;}
+                    horizontal--;
+                    if(horizontal<0){horizontal=3;}
                     if(horizontal==0){TriangleRect.anchoredPosition = new Vector2(-162f, 215f);}
                     if(horizontal==1){TriangleRect.anchoredPosition = new Vector2(-52.4f, 215f);}
                     if(horizontal==2){TriangleRect.anchoredPosition = new Vector2(63f, 215f);}

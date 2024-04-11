@@ -28,6 +28,7 @@ public class ElectricBox : MonoBehaviour
     public GameObject dialogueUI;
     public bool isTalking=false;
     private bool talked=false;
+    public GameObject Key;
 
 
     
@@ -71,6 +72,7 @@ public class ElectricBox : MonoBehaviour
         guninventory.NegativeKey();
         guninventory.ChangeWeapon1();
         KeyUi.SetActive(false);
+        Key.SetActive(false);
         
     }
     public bool ReturnDoorLock(){return doorlock;}
