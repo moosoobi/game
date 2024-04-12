@@ -35,6 +35,7 @@ public class EnergyCoreDoor : MonoBehaviour
     public bool isTalking=false;
     public GameObject Guide;
     public GameObject Guide1;
+    public GameObject ShootCircle;
 
     
     void Update()
@@ -63,7 +64,8 @@ public class EnergyCoreDoor : MonoBehaviour
         }
     }
     public void QuestActive(){
-        Text2.text="에너지 증폭장치를 부숴라.";
+        ShootCircle.SetActive(true);
+        Text2.text="뒤로 이동해서 에너지 증폭장치를 부숴라.";
         StartCoroutine(ChangeColor());
     }
     private IEnumerator ChangeColor(){

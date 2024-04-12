@@ -7,6 +7,8 @@ public enum MenuStyle{
 }
 
 public class GunInventory : MonoBehaviour {
+	public GameObject player;
+	public bool CanMove=false;
 	[Tooltip("Current weapon gameObject.")]
 	public GameObject currentGun;
 	private Animator currentHAndsAnimator;
@@ -52,7 +54,11 @@ public class GunInventory : MonoBehaviour {
 	 * overcomes 0.0f. 
 	 */
 	void Update(){
-
+		if(CanMove){
+			player.GetComponent<MouseLookScript>().enabled = false;
+        	player.GetComponent<PlayerMovementScript>().enabled = false;
+			CanMove=true;
+		}
 		switchWeaponCooldown += 1 * Time.deltaTime;
 		if(switchWeaponCooldown > 1.2f && Input.GetKey(KeyCode.LeftShift) == false){
 			Create_Weapon();

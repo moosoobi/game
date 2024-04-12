@@ -479,6 +479,7 @@ public class RealBoss : MonoBehaviour
             rend3.material=Black;
         }
         else if(currentPatternIndex==6){
+            ShootGuide.SetActive(false);
             Lazer.SetActive(false);
             CancelInvoke("BulletAttack");
             StopCoroutine(currentCoroutine);
@@ -502,6 +503,7 @@ public class RealBoss : MonoBehaviour
             GameObject Fixing9 = Instantiate(FixingDrone,SectorC.transform.position+new Vector3(-10,6,-5) , SectorC.transform.rotation);
             GameObject Fixing10 = Instantiate(FixingDrone,SectorC.transform.position+new Vector3(-15,6,-10) , SectorC.transform.rotation);
             yield return new WaitForSeconds(30.0f);
+            ShootGuide.SetActive(true);
             if(Fixing1){Fixing1.SetActive(false);}
             if(Fixing2){Fixing2.SetActive(false);}
             if(Fixing3){Fixing3.SetActive(false);}

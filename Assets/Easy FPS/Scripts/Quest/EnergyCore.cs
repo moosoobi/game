@@ -60,6 +60,7 @@ public class EnergyCore: Quest
     public GameObject Off2;
     public GameObject Off3;
     public bool Circle=false;
+    public GameObject Click;
 
 
     public float dialogueInterval = 3f; // 대화 간격 (3초)
@@ -105,10 +106,12 @@ public class EnergyCore: Quest
     }
     IEnumerator StartConversation()
     {
+        player.GetComponent<PlayerMovementScript>().enabled = true;
         ShootGuide.SetActive(true);
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
+        Click.SetActive(false);
         npcName.text="J";
         npcDialogueBox.text=dialogue[0];
         Leg2RobotBlue1.SetDestination(targetDestination1);
@@ -136,7 +139,9 @@ public class EnergyCore: Quest
     }
 
     IEnumerator StartConversation1(){
+        ShootGuide.SetActive(false);
         yield return new WaitForSeconds(3.0f);
+        
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
@@ -181,7 +186,7 @@ public class EnergyCore: Quest
         StartCoroutine(ChangeColor());
     }
     public void QuestActive1(){
-        Text2.text="지도에 표시된 곳으로 가라.";
+        Text2.text="지도에 표시된 빨간 건물로 가라.";
         StartCoroutine(ChangeColor());
         Ring.transform.position=targetPosition;
         Save.SetActive(true);
@@ -223,6 +228,7 @@ public class EnergyCore: Quest
     public void EndDialogue(){
         if(stage==0){
             QuestActive();
+            Click.SetActive(true);
             curResponseTracker=0;
             isTalking=false;
             dialogueUI.SetActive(false);

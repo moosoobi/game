@@ -79,7 +79,7 @@ public class ShootingQuest : Quest
                 if(CurrentState==QuestState.Completed){
                     StartCoroutine(ChangeColor());
                     QuestSound.Play();
-                    Text.text="지도를 보고 목표지점으로 이동하시오.";
+                    Text.text="지도를 보고 노란색 건물로 이동하시오.";
                     
                 }
                 

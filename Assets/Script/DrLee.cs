@@ -63,6 +63,8 @@ public class DrLee : MonoBehaviour
     public GameObject HealKitBuy;
     public GameObject UpgradeBuy;
     public GameObject ChipSetBuy;
+    public bool MovingBool=true;
+    public bool RotiationBool=true;
     
 
 
@@ -82,7 +84,9 @@ public class DrLee : MonoBehaviour
             player.transform.rotation = Quaternion.Slerp(player.transform.rotation, targetRotation, Time.deltaTime);
             navMeshAgent.SetDestination(player.transform.position);
             if(!Walking){LeeAni.Play("walk", 0, 0.0f);Walking=true;}
-            if(Vector3.Distance(transform.position, player.transform.position)<3.0f&&player.transform.rotation == targetRotation){
+            if(player.transform.rotation == targetRotation){RotiationBool=false;}
+            if(Vector3.Distance(transform.position, player.transform.position)<5.0f){MovingBool=false;}
+            if(!MovingBool&&!RotiationBool){
                 player.GetComponent<PlayerHp>().PlayerCurHp=1000f;
                 player.GetComponent<PlayerHp>().UpdateHealth(0);
                 UiObject.SetActive(true);
