@@ -83,7 +83,7 @@ public class DrLee : MonoBehaviour
             navMeshAgent.SetDestination(player.transform.position);
             if(!Walking){LeeAni.Play("walk", 0, 0.0f);Walking=true;}
             if(Vector3.Distance(transform.position, player.transform.position)<3.0f){
-                player.GetComponent<PlayerHp>().PlayerCurHp=300f;
+                player.GetComponent<PlayerHp>().PlayerCurHp=1000f;
                 player.GetComponent<PlayerHp>().UpdateHealth(0);
                 UiObject.SetActive(true);
                 UiText.text="Hp회복!";

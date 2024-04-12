@@ -32,7 +32,7 @@ public class SaveCircle : MonoBehaviour
                     UiText.text="Hp회복!";
                     StartCoroutine(ExecuteAfterDelayText(3f)); 
                     playerhp.stage=stage;
-                    playerhp.PlayerCurHp=300f;
+                    playerhp.PlayerCurHp=1000f;
                     playerhp.UpdateHealth(0);
                     Save.SetActive(true);
                 }else{
