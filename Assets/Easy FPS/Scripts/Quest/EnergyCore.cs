@@ -59,6 +59,7 @@ public class EnergyCore: Quest
     public GameObject Off1;
     public GameObject Off2;
     public GameObject Off3;
+    public bool Circle=false;
 
 
     public float dialogueInterval = 3f; // 대화 간격 (3초)
@@ -146,7 +147,7 @@ public class EnergyCore: Quest
     private void OnTriggerEnter(Collider other)
     {    
         zzz=true;
-        if(Open){
+        if(Open&&Circle){
             if (other.CompareTag("Attack")){
                 
                 if(!first){
