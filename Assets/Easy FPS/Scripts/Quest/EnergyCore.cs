@@ -104,7 +104,7 @@ public class EnergyCore: Quest
     }
     IEnumerator StartConversation()
     {
-        
+        ShootGuide.SetActive(true);
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
@@ -176,7 +176,7 @@ public class EnergyCore: Quest
     }
     public void QuestActive(){
         Text2.text="공격하는 적들을 피해 에너지 증폭장치를 부숴라.";
-        ShootGuide.SetActive(true);
+        
         StartCoroutine(ChangeColor());
     }
     public void QuestActive1(){

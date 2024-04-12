@@ -94,6 +94,7 @@ public class RealBoss : MonoBehaviour
     public AudioSource ErrorSound;
     public AudioSource BossBg;
     public GameObject Guide;
+    public GameObject ShootGuide;
 
     private void Start()
     {
@@ -205,6 +206,7 @@ public class RealBoss : MonoBehaviour
     }
     
     public IEnumerator die(){
+        ShootGuide.SetActive(true);
         BossBg.Stop();
         BossSlider.gameObject.SetActive(false);
         Lazer.SetActive(false);
@@ -696,6 +698,7 @@ public class RealBoss : MonoBehaviour
         rend3.material=Black;
         
         yield return new WaitForSeconds(3.0f);
+        ShootGuide.SetActive(true);
         light.enabled=true;
         light.color =  Color.white;
         BossSlider.gameObject.SetActive(true);
