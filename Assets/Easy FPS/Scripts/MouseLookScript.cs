@@ -116,7 +116,7 @@ void MouseInputMovement(){
 
 	wantedCameraXRotation -= Input.GetAxis("Mouse Y") * mouseSensitvity;
 
-	wantedCameraXRotation = Mathf.Clamp(wantedCameraXRotation, bottomAngleView, topAngleView);
+	//wantedCameraXRotation = Mathf.Clamp(wantedCameraXRotation, bottomAngleView, topAngleView);
 
 }
 
@@ -127,8 +127,8 @@ void MouseInputMovement(){
  */
 void ApplyingStuff(){
 
-	currentYRotation = Mathf.SmoothDamp(currentYRotation, wantedYRotation, ref rotationYVelocity, yRotationSpeed);
-	currentCameraXRotation = Mathf.SmoothDamp(currentCameraXRotation, wantedCameraXRotation, ref cameraXVelocity, xCameraSpeed);
+	currentYRotation = wantedYRotation;
+	currentCameraXRotation = wantedCameraXRotation;
 
 	WeaponRotation();
 
