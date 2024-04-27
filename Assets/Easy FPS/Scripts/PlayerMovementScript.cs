@@ -9,6 +9,7 @@ public class PlayerMovementScript : MonoBehaviour {
 	public int HealKit=0;
 	public bool Upgrade=false;
 	public int ChipInt=0;
+	public float speed;
 	Rigidbody rb;
 	public GameObject player;
 	public bool CanMove=false;
@@ -52,38 +53,43 @@ public class PlayerMovementScript : MonoBehaviour {
 	* If player leaves keys it will deaccelerate
 	*/
 	void PlayerMovementLogic(){
-		currentSpeed = rb.velocity.magnitude;
-		horizontalMovement = new Vector2 (rb.velocity.x, rb.velocity.z);
-		if (horizontalMovement.magnitude > maxSpeed){
-			horizontalMovement = horizontalMovement.normalized;
-			horizontalMovement *= maxSpeed;    
+		float horizontalInput = 0f;
+		float verticalInput = 0f;
+		float upSpeed=rb.velocity.y;
+		if (Input.GetKey(KeyCode.A))
+        {
+            rb.velocity = transform.right * -speed;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            rb.velocity = transform.right * speed;
+        }
+		if (Input.GetKey(KeyCode.W))
+        {
+            rb.velocity = transform.forward * speed;
+        }
+		if (Input.GetKey(KeyCode.S))
+        {
+            rb.velocity = transform.forward * -speed;
+        }
+		if (Input.GetKey(KeyCode.W)&&Input.GetKey(KeyCode.A)){
+			rb.velocity = (transform.forward*speed+transform.right*-speed);
 		}
-		rb.velocity = new Vector3 (
-			horizontalMovement.x,
-			rb.velocity.y,
-			horizontalMovement.y
-		);
-		if (grounded){
-			rb.velocity = Vector3.SmoothDamp(rb.velocity,
-				new Vector3(0,rb.velocity.y,0),
-				ref slowdownV,
-				deaccelerationSpeed);
+		if (Input.GetKey(KeyCode.W)&&Input.GetKey(KeyCode.D)){
+			rb.velocity = (transform.forward*speed+transform.right*speed);
 		}
-
-		if (grounded) {
-			rb.AddRelativeForce (Input.GetAxis ("Horizontal") * accelerationSpeed * Time.deltaTime, 0, Input.GetAxis ("Vertical") * accelerationSpeed * Time.deltaTime);
-		} else {
-			rb.AddRelativeForce (Input.GetAxis ("Horizontal") * accelerationSpeed / 2 * Time.deltaTime, 0, Input.GetAxis ("Vertical") * accelerationSpeed / 2 * Time.deltaTime);
-
+		if (Input.GetKey(KeyCode.S)&&Input.GetKey(KeyCode.A)){
+			rb.velocity = (transform.forward*-speed+transform.right*-speed);
 		}
-		/*
-		 * Slippery issues fixed here
-		 */
-		if (Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0) {
-			deaccelerationSpeed = 0.5f;
-		} else {
-			deaccelerationSpeed = 0.1f;
+		if (Input.GetKey(KeyCode.S)&&Input.GetKey(KeyCode.D)){
+			rb.velocity = (transform.forward*-speed+transform.right*speed);
 		}
+		if(Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.S)||Input.GetKey(KeyCode.W)){}
+        else
+        {
+            rb.velocity = new Vector3(0, rb.velocity.y,0);
+        }
+		rb.velocity = new Vector3(rb.velocity.x, upSpeed,rb.velocity.z);
 	}
 	public bool IfJumping=false;
 	 private IEnumerator JumpSound()

@@ -41,7 +41,6 @@ public class PlayerHp : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(player.transform.position);
     if (PlayerCurHp <= 0f)
     {
         if(first){
