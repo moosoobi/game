@@ -56,6 +56,13 @@ public class PlayerMovementScript : MonoBehaviour {
 		float horizontalInput = 0f;
 		float verticalInput = 0f;
 		float upSpeed=rb.velocity.y;
+		if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+    	{
+			speed=15f;
+		}
+		else{
+			speed=5f;
+		}
 		if (Input.GetKey(KeyCode.A))
         {
             rb.velocity = transform.right * -speed;
@@ -84,12 +91,14 @@ public class PlayerMovementScript : MonoBehaviour {
 		if (Input.GetKey(KeyCode.S)&&Input.GetKey(KeyCode.D)){
 			rb.velocity = (transform.forward*-speed+transform.right*speed);
 		}
+		
 		if(Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.S)||Input.GetKey(KeyCode.W)){}
         else
         {
             rb.velocity = new Vector3(0, rb.velocity.y,0);
         }
 		rb.velocity = new Vector3(rb.velocity.x, upSpeed,rb.velocity.z);
+		
 	}
 	public bool IfJumping=false;
 	 private IEnumerator JumpSound()

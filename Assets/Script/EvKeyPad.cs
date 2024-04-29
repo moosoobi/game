@@ -129,6 +129,7 @@ public class EvKeyPad : MonoBehaviour
            
             if (other.CompareTag("Player")){
                 zzz=true;
+                Ele.movingUp=true;
             }
         
         

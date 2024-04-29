@@ -29,7 +29,7 @@ public class BulletScript : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
 
-            Debug.Log(other.name);
+            //Debug.Log(other.name);
             if(other.CompareTag("Enemy"))
             {
                 Instantiate(bloodEffect, transform.position, Quaternion.LookRotation(transform.forward));
