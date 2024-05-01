@@ -62,7 +62,7 @@ public class MouseLookScript : MonoBehaviour {
 	public float mouseSensitvity_notAiming; 
 
 	public float mouseSensitvity_aiming ;
-
+	private Coroutine currentCoroutine = null;
 /*
 * FixedUpdate()
 * If aiming set the mouse sensitvity from our variables and vice versa.
@@ -70,24 +70,32 @@ public class MouseLookScript : MonoBehaviour {
 void FixedUpdate(){
 
 	if (Input.GetKeyDown(KeyCode.LeftBracket)&&pressed){
+		if (currentCoroutine != null)
+        {
+            StopCoroutine(currentCoroutine);
+        }
 		mouseSensitvity-=0.1f;
 		sensitive-=1;
 		if(sensitive<=1){sensitive=1;mouseSensitvity=0.1f;}
 		Mouse.text="마우스감도:"+sensitive.ToString();
 		Mouse.gameObject.SetActive(true);
-		StartCoroutine(MouseText(2.0f));
+		currentCoroutine = StartCoroutine(MouseText(2.0f));
 		pressed=false;
 	}else if (Input.GetKeyUp(KeyCode.LeftBracket)&&!pressed){
 		pressed=true;
 	}
 
 	if (Input.GetKeyDown(KeyCode.RightBracket)&&pressed){
+		if (currentCoroutine != null)
+        {
+            StopCoroutine(currentCoroutine);
+        }
 		mouseSensitvity+=0.1f;
 		sensitive+=1;
 		if(sensitive>=15){sensitive=15;mouseSensitvity=1.5f;}
 		Mouse.text="마우스감도:"+sensitive.ToString();
 		Mouse.gameObject.SetActive(true);
-		StartCoroutine(MouseText(2.0f));
+		currentCoroutine = StartCoroutine(MouseText(2.0f));
 		pressed=false;
 	}else if (Input.GetKeyUp(KeyCode.RightBracket)&&!pressed){
 		pressed=true;
