@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using TMPro;
 //using UnityStandardAssets.ImageEffects;
 
 public enum GunStyles{
@@ -39,6 +40,7 @@ public class GunScript : MonoBehaviour {
 	public bool zcross1=true;
 	public bool talking=false;
 	public bool IfCross=false;
+	
 
 	/*
 	 * Collection the variables upon awake that we need.
@@ -178,9 +180,11 @@ public class GunScript : MonoBehaviour {
 	/*
 	 * Used to give our main camera different sensivity options for each gun.
 	 */
+	
+	
+	
 	void GiveCameraScriptMySensitvity(){
-		mls.mouseSensitvity_notAiming = mouseSensitvity_notAiming;
-		mls.mouseSensitvity_aiming = mouseSensitvity_aiming;
+		
 	}
 
 	/*
@@ -268,13 +272,9 @@ public class GunScript : MonoBehaviour {
 	*/
 	void LockCameraWhileMelee(){
 		if (meeleAttack) {
-			mouseSensitvity_notAiming = 2;
-			mouseSensitvity_aiming = 1.6f;
-			mouseSensitvity_running = 1;
+			
 		} else {
-			mouseSensitvity_notAiming = startLook;
-			mouseSensitvity_aiming = startAim;
-			mouseSensitvity_running = startRun;
+			
 		}
 	}
 

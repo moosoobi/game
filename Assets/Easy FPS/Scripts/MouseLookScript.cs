@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using TMPro;
 
 
 public class MouseLookScript : MonoBehaviour {
@@ -68,26 +69,47 @@ public class MouseLookScript : MonoBehaviour {
 */
 void FixedUpdate(){
 
-	/*
-	 * Reduxing mouse sensitvity if we are aiming.
-	 */
-	if(Input.GetAxis("Fire2") != 0){
-		mouseSensitvity = mouseSensitvity_aiming;
+	if (Input.GetKeyDown(KeyCode.LeftBracket)&&pressed){
+		mouseSensitvity-=0.1f;
+		sensitive-=1;
+		if(sensitive<=1){sensitive=1;mouseSensitvity=0.1f;}
+		Mouse.text="마우스감도:"+sensitive.ToString();
+		Mouse.gameObject.SetActive(true);
+		StartCoroutine(MouseText(2.0f));
+		pressed=false;
+	}else if (Input.GetKeyUp(KeyCode.LeftBracket)&&!pressed){
+		pressed=true;
 	}
-	else if(GetComponent<PlayerMovementScript>().maxSpeed > 5){
-		mouseSensitvity = mouseSensitvity_notAiming;
+
+	if (Input.GetKeyDown(KeyCode.RightBracket)&&pressed){
+		mouseSensitvity+=0.1f;
+		sensitive+=1;
+		if(sensitive>=15){sensitive=15;mouseSensitvity=1.5f;}
+		Mouse.text="마우스감도:"+sensitive.ToString();
+		Mouse.gameObject.SetActive(true);
+		StartCoroutine(MouseText(2.0f));
+		pressed=false;
+	}else if (Input.GetKeyUp(KeyCode.RightBracket)&&!pressed){
+		pressed=true;
 	}
-	else{
-		mouseSensitvity = mouseSensitvity_notAiming;
-	}
+	
+
+	
 
 
 	ApplyingStuff();
 
 
 }
-
-
+public int sensitive=5;
+public TextMeshProUGUI Mouse;
+public bool pressed=true;
+private IEnumerator MouseText(float delayInSeconds)
+{
+	// 일정 시간만큼 대기
+	yield return new WaitForSeconds(delayInSeconds);
+	Mouse.gameObject.SetActive(false);
+}
 private float rotationYVelocity, cameraXVelocity;
 [Tooltip("Speed that determines how much camera rotation will lag behind mouse movement.")]
 public float yRotationSpeed, xCameraSpeed;

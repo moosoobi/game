@@ -25,6 +25,7 @@ TagManager:
   - Volume
   - BossBulletSpawn
   - EnemyHitSound
+  - Mouse
   layers:
   - Default
   - TransparentFX
