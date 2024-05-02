@@ -23,19 +23,21 @@ public class BarNpc : MonoBehaviour
         if(zzz){
      
                 
-               
+            
         
             if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==false){
+                player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0,0);;
                 StartConversation();
                 
-            }
-            else if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==true){
+            }else if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==true){
                 EndDialogue();
                 if(Mark){Mark.SetActive(false);}
                 if(Key){Key.SetActive(true);}
             }
             
+            
         }
+        
     }
     public void StartConversation(){
         if(IfRed){npcDialogueBox.color=Color.red;}
