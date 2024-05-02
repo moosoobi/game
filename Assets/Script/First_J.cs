@@ -54,8 +54,10 @@ public class First_J : MonoBehaviour
         yield return new WaitForSeconds(5.0f);
         P.enabled=false;
         J.Play("J_Walk", 0, 0.0f);
-        
-        
+        yield return new WaitForSeconds(7.5f);
+        J.SetTrigger("talk");
+
+
     }
     /*
     private IEnumerator TvOff()
