@@ -21,10 +21,12 @@ public class Short_First : MonoBehaviour
     public string Description;
     public TextMeshProUGUI QuestText;
     public AudioSource RadioSound;
+    public GameObject Key_Detail;
     void Start()
     {
         Invoke("QuestActive", 3.0f);
-        
+        player.GetComponent<MouseLookScript>().enabled = false;
+        player.GetComponent<PlayerMovementScript>().enabled = false;
 
     }
 
@@ -44,7 +46,7 @@ public class Short_First : MonoBehaviour
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
-        npcName.text="J";
+        npcName.text=" ";
         npcDialogueBox.text=dialogue[0];
         zzz=false;
         player.GetComponent<MouseLookScript>().enabled = false;
@@ -83,6 +85,7 @@ public class Short_First : MonoBehaviour
         player.GetComponent<PlayerMovementScript>().enabled = true;
         Text.text=Description;
         StartCoroutine(ChangeColor());
+        Key_Detail.SetActive(true);
         
     }
     private IEnumerator ChangeColor(){

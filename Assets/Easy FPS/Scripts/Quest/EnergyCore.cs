@@ -61,6 +61,7 @@ public class EnergyCore: Quest
     public GameObject Off3;
     public bool Circle=false;
     public GameObject Click;
+    public bool Short=false;
 
 
     public float dialogueInterval = 3f; // 대화 간격 (3초)
@@ -164,7 +165,12 @@ public class EnergyCore: Quest
                     first=true;
                     healthSlider.maxValue = CoreMaxHp;
                     healthSlider.value = CoreHp;
-                    StartCoroutine(StartConversation());
+                    if(Short){
+
+                    }else{
+                        StartCoroutine(StartConversation());
+                    }
+                    
                     StartCoroutine(LightBlub());
                     for(int i=0;i<8;i++){
                         myDoor[i].Play(dooropen, 0, 0.0f);
@@ -186,7 +192,14 @@ public class EnergyCore: Quest
         StartCoroutine(ChangeColor());
     }
     public void QuestActive1(){
-        Text2.text="지도에 표시된 빨간 건물로 가라.";
+        Text2.text="지도의 빨간 건물로 이동하라.";
+        StartCoroutine(ChangeColor());
+        Ring.transform.position=targetPosition;
+        Save.SetActive(true);
+        Guide.SetActive(true);
+    }
+    public void QuestActive2(){
+        Text2.text="보스를 무찔러라.";
         StartCoroutine(ChangeColor());
         Ring.transform.position=targetPosition;
         Save.SetActive(true);
@@ -238,7 +251,15 @@ public class EnergyCore: Quest
             curResponseTracker=0;
             isTalking=false;
             dialogueUI.SetActive(false);
-            QuestActive1();
+            if(Short){
+                player.transform.position=new Vector3(21.1f, 258.8f, 432.15f);
+                player.transform.rotation=Quaternion.Euler(new Vector3(0f, 90f, 0f));
+                QuestActive2();
+            }else{
+                QuestActive1();
+            }
+            
+            
 
             
         }

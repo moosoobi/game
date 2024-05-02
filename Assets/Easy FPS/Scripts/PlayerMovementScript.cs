@@ -60,7 +60,7 @@ public class PlayerMovementScript : MonoBehaviour {
 		
 		if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))&&!pressing)
     	{
-			Debug.Log(1);
+			
 			
 			if(!running){
 				speed=10f;
@@ -71,7 +71,7 @@ public class PlayerMovementScript : MonoBehaviour {
 			}
 			pressing=true;
 		}else if((Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))&&pressing){
-			Debug.Log(2);
+			
 			pressing=false;
 		}
 		

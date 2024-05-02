@@ -69,36 +69,43 @@ public class MouseLookScript : MonoBehaviour {
 */
 void FixedUpdate(){
 
-	if (Input.GetKeyDown(KeyCode.LeftBracket)&&pressed){
+	if ((Input.GetKeyDown(KeyCode.Equals) || Input.GetKeyDown(KeyCode.KeypadPlus)) && pressed) // "+" 키를 누르고 있는지 확인
+	{
 		if (currentCoroutine != null)
-        {
-            StopCoroutine(currentCoroutine);
-        }
-		mouseSensitvity-=0.1f;
-		sensitive-=1;
-		if(sensitive<=1){sensitive=1;mouseSensitvity=0.1f;}
-		Mouse.text="마우스감도:"+sensitive.ToString();
+		{
+			StopCoroutine(currentCoroutine);
+		}
+		mouseSensitvity += 0.1f;
+		sensitive += 1;
+		if (sensitive >= 15) { sensitive = 15; mouseSensitvity = 1.5f; }
+		Mouse.text = "마우스감도:" + sensitive.ToString();
 		Mouse.gameObject.SetActive(true);
 		currentCoroutine = StartCoroutine(MouseText(2.0f));
-		pressed=false;
-	}else if (Input.GetKeyUp(KeyCode.LeftBracket)&&!pressed){
-		pressed=true;
+		pressed = false;
+	}
+	else if ((Input.GetKeyUp(KeyCode.Equals) || Input.GetKeyUp(KeyCode.KeypadPlus)) && !pressed) // "+" 키를 뗐는지 확인
+	{
+		pressed = true;
 	}
 
-	if (Input.GetKeyDown(KeyCode.RightBracket)&&pressed){
+	if ((Input.GetKeyDown(KeyCode.Minus) || Input.GetKeyDown(KeyCode.KeypadMinus)) && pressed) // "-" 키를 누르고 있는지 확인
+	{
 		if (currentCoroutine != null)
-        {
-            StopCoroutine(currentCoroutine);
-        }
-		mouseSensitvity+=0.1f;
-		sensitive+=1;
-		if(sensitive>=15){sensitive=15;mouseSensitvity=1.5f;}
-		Mouse.text="마우스감도:"+sensitive.ToString();
+		{
+			StopCoroutine(currentCoroutine);
+		}
+		mouseSensitvity -= 0.1f;
+		sensitive -= 1;
+		if (sensitive <= 1) { sensitive = 1; mouseSensitvity = 0.1f; }
+		Mouse.text = "마우스감도:" + sensitive.ToString();
 		Mouse.gameObject.SetActive(true);
 		currentCoroutine = StartCoroutine(MouseText(2.0f));
-		pressed=false;
-	}else if (Input.GetKeyUp(KeyCode.RightBracket)&&!pressed){
-		pressed=true;
+		pressed = false;
+		
+	}
+	else if ((Input.GetKeyUp(KeyCode.Minus) || Input.GetKeyUp(KeyCode.KeypadMinus)) && !pressed) // "-" 키를 뗐는지 확인
+	{
+		pressed = true;
 	}
 	
 

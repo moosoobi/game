@@ -26,7 +26,7 @@ public class BarNpc : MonoBehaviour
             
         
             if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==false){
-                player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0,0);;
+                player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0,0);
                 StartConversation();
                 
             }else if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==true){
@@ -44,7 +44,7 @@ public class BarNpc : MonoBehaviour
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
-        npcName.text=name;
+        npcName.text="";
         npcDialogueBox.text=dialogue[0];
         player.GetComponent<MouseLookScript>().enabled = false;
         player.GetComponent<PlayerMovementScript>().enabled = false;
