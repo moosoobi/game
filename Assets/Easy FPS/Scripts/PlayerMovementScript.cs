@@ -12,6 +12,7 @@ public class PlayerMovementScript : MonoBehaviour {
 	public float speed;
 	Rigidbody rb;
 	public GameObject player;
+	public bool running=false;
 	public bool CanMove=false;
 	[Tooltip("Current players speed")]
 	public float currentSpeed;
@@ -23,7 +24,7 @@ public class PlayerMovementScript : MonoBehaviour {
 	[HideInInspector]public Vector3 cameraPosition;
 	public bool IfCross=false;
 	public GameObject EmpUi;
-	
+	private bool pressing=false;
 	public GameObject HealKitUi;
 	public GameObject FakeBodyUi;
 	
@@ -56,13 +57,24 @@ public class PlayerMovementScript : MonoBehaviour {
 		float horizontalInput = 0f;
 		float verticalInput = 0f;
 		float upSpeed=rb.velocity.y;
-		if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+		
+		if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))&&!pressing)
     	{
-			speed=15f;
+			Debug.Log(1);
+			
+			if(!running){
+				speed=10f;
+				running=true;
+			}else{
+				speed=5f;
+				running=false;
+			}
+			pressing=true;
+		}else if((Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))&&pressing){
+			Debug.Log(2);
+			pressing=false;
 		}
-		else{
-			speed=5f;
-		}
+		
 		if (Input.GetKey(KeyCode.A))
         {
             rb.velocity = transform.right * -speed;
