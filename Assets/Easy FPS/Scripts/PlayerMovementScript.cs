@@ -13,6 +13,7 @@ public class PlayerMovementScript : MonoBehaviour {
 	Rigidbody rb;
 	public GameObject player;
 	public bool running=false;
+	public bool walking=false;
 	public bool CanMove=false;
 	[Tooltip("Current players speed")]
 	public float currentSpeed;
@@ -77,37 +78,40 @@ public class PlayerMovementScript : MonoBehaviour {
 		
 		if (Input.GetKey(KeyCode.A))
         {
-            rb.velocity = transform.right * -speed;
+            rb.velocity = transform.right * -5;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            rb.velocity = transform.right * speed;
+            rb.velocity = transform.right * 5;
         }
 		if (Input.GetKey(KeyCode.W))
         {
             rb.velocity = transform.forward * speed;
+			if(speed>=10f){running=true;}
+			else{running=false;}
         }
 		if (Input.GetKey(KeyCode.S))
         {
-            rb.velocity = transform.forward * -speed;
+            rb.velocity = transform.forward * -5;
         }
 		if (Input.GetKey(KeyCode.W)&&Input.GetKey(KeyCode.A)){
-			rb.velocity = (transform.forward*speed+transform.right*-speed);
+			rb.velocity = (transform.forward*5+transform.right*-5);
 		}
 		if (Input.GetKey(KeyCode.W)&&Input.GetKey(KeyCode.D)){
-			rb.velocity = (transform.forward*speed+transform.right*speed);
+			rb.velocity = (transform.forward*5+transform.right*5);
 		}
 		if (Input.GetKey(KeyCode.S)&&Input.GetKey(KeyCode.A)){
-			rb.velocity = (transform.forward*-speed+transform.right*-speed);
+			rb.velocity = (transform.forward*-5+transform.right*-5);
 		}
 		if (Input.GetKey(KeyCode.S)&&Input.GetKey(KeyCode.D)){
-			rb.velocity = (transform.forward*-speed+transform.right*speed);
+			rb.velocity = (transform.forward*-5+transform.right*5);
 		}
 		
-		if(Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.S)||Input.GetKey(KeyCode.W)){}
+		if(Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.S)||Input.GetKey(KeyCode.W)){walking=true;}
         else
         {
             rb.velocity = new Vector3(0, rb.velocity.y,0);
+			walking=false;
         }
 		rb.velocity = new Vector3(rb.velocity.x, upSpeed,rb.velocity.z);
 		

@@ -95,7 +95,7 @@ public class GunScript : MonoBehaviour {
 	*/
 	void Update(){
 		currentgun=GameObject.FindGameObjectWithTag("Player").GetComponent<GunInventory>().currentGun.name;
-		
+
 		if(IfCross){
 			if(cross&&cross1){
 				if(zcross1){
@@ -113,7 +113,6 @@ public class GunScript : MonoBehaviour {
 				
 			}
 		}
-		
 		
 		Animations();
 
@@ -631,6 +630,8 @@ public class GunScript : MonoBehaviour {
 
 			handsAnimator.SetFloat("walkSpeed",pmS.currentSpeed);
 			handsAnimator.SetBool("aiming", Input.GetButton("Fire2"));
+			handsAnimator.SetBool("runAni", pmS.running);
+			handsAnimator.SetBool("walkAni", pmS.walking);
 			handsAnimator.SetInteger("maxSpeed", pmS.maxSpeed);
 			if(Input.GetKeyDown(KeyCode.R) && pmS.maxSpeed < 13 && !reloading && !meeleAttack/* && !aiming*/){
 				StartCoroutine("Reload_Animation");
