@@ -157,7 +157,14 @@ public class EnergyCore: Quest
             if (other.CompareTag("Attack")){
                 
                 if(!first){
-                    
+                    Leg2RobotBlue1.SetDestination(targetDestination1);
+                    Leg2RobotBlue2.SetDestination(targetDestination2);
+                    Leg2RobotRed1.SetDestination(targetDestination3);
+                    Leg2RobotRed2.SetDestination(targetDestination4);
+                    Leg4Robot1.SetDestination(targetDestination5);
+                    Leg4Robot2.SetDestination(targetDestination6);
+                    Leg4Robot3.SetDestination(targetDestination7);
+                    Leg4Robot4.SetDestination(targetDestination8);
                     
                     SecuritySound.Play();
                     healthSlider.gameObject.SetActive(true);
@@ -199,7 +206,7 @@ public class EnergyCore: Quest
         Guide.SetActive(true);
     }
     public void QuestActive2(){
-        Text2.text="보스를 무찔러라.";
+        Text2.text="메인컴퓨터를 무찔러라.";
         StartCoroutine(ChangeColor());
         Ring.transform.position=targetPosition;
         Save.SetActive(true);

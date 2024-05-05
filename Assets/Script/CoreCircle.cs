@@ -19,18 +19,12 @@ public class CoreCircle : MonoBehaviour
     public void QuestActive(){
         Text2.text="에너지 증폭장치를 부숴라.";
         Guide1.SetActive(true);
-        StartCoroutine(ChangeColor());
-    }
-    private IEnumerator ChangeColor(){
-        for(int i=0;i<3;i++){
-            QuestText.color=new Color32(229,255,0,255);
-            yield return new WaitForSeconds(0.5f);
-            QuestText.color=new Color32(0,222,255,255);
-            yield return new WaitForSeconds(0.5f);
-            
-        }
         gameObject.SetActive(false);
+
     }
+
+        
+
     void OnTriggerEnter(Collider other)
     {
         
