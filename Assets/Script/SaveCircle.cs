@@ -7,12 +7,13 @@ public class SaveCircle : MonoBehaviour
 {
 
     public GameObject Save;
+    public GameObject Guide;
     public PlayerHp playerhp;
     public int stage;
-    public MusicStart MUSIC;
     public TextMeshProUGUI UiText;
     public GameObject UiObject;
     public Animator DoorAni;
+    public RealBoss Boss;
     
     
 
@@ -25,8 +26,11 @@ public class SaveCircle : MonoBehaviour
     {
         
             if (other.CompareTag("Player")){
-                if(stage==0){if(DoorAni){DoorAni.Play("Door2Open", 0, 0.0f);}}
-                if(MUSIC){MUSIC.Clear=true;}
+                if(stage==0){
+                    StopAllAudioSources();
+                    if(DoorAni){DoorAni.Play("Door2Open", 0, 0.0f);}
+                }
+            
                 if(stage==1){
                     UiObject.SetActive(true);
                     UiText.text="Hp회복!";
@@ -35,6 +39,11 @@ public class SaveCircle : MonoBehaviour
                     playerhp.PlayerCurHp=1000f;
                     playerhp.UpdateHealth(0);
                     Save.SetActive(true);
+                    Guide.SetActive(false);
+                    if(Boss){
+                        UiObject.SetActive(false);
+                        Boss.touchboss();
+                    }
                 }else{
                     Save.SetActive(true);
                     gameObject.SetActive(false);
@@ -47,6 +56,17 @@ public class SaveCircle : MonoBehaviour
             }
         
         
+    }
+    public void StopAllAudioSources()
+    {
+        // Scene에 있는 모든 AudioSource를 가져옵니다.
+        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+
+        // 모든 AudioSource를 반복하면서 정지시킵니다.
+        foreach (AudioSource audioSource in allAudioSources)
+        {
+            audioSource.Stop();
+        }
     }
     private IEnumerator ExecuteAfterDelayText(float delayInSeconds)
     {

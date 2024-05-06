@@ -89,7 +89,7 @@ public class PlayerMovementScript : MonoBehaviour {
             rb.velocity = transform.forward * speed;
 			if(speed>=10f){running=true;}
 			else{running=false;}
-        }
+        }else{running=false;}
 		if (Input.GetKey(KeyCode.S))
         {
             rb.velocity = transform.forward * -5;

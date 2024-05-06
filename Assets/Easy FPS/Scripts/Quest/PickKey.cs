@@ -20,6 +20,8 @@ public class PickKey : MonoBehaviour
     public GameObject player;
     public GameObject Key1;
     public GameObject Key2;
+    public GameObject Key3;
+    public BarNpc npc;
 
     void Update()
     {
@@ -41,7 +43,9 @@ public class PickKey : MonoBehaviour
             UiText.text="열쇠를 획득했다. 숫자키 3번을 눌러 손에 들 수 있다.";
             KeyUi.SetActive(true);
             Key1.SetActive(false);
-            Key2.SetActive(true);
+            Key2.SetActive(false);
+            Key3.SetActive(true);
+            npc.lock1=false;
             StartCoroutine(ExecuteAfterDelayText(2f)); 
         }
         

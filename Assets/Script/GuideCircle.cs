@@ -11,7 +11,7 @@ public class GuideCircle : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {   
-            if(Boss){}
+            if(Boss){Boss.touchboss();}
             if(Guide){Guide.SetActive(false);}
             gameObject.SetActive(false);
             

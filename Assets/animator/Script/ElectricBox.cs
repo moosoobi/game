@@ -18,18 +18,25 @@ public class ElectricBox : MonoBehaviour
     public string dooropen;
     public string doorclose;
     public bool doorlock=false;
+    public bool dooropenbool=false;
 
     public bool zzzz=false;
 
     public string[] dialogue;
+    public string[] dialogue1;
     public int curResponseTracker=0;
     public TextMeshProUGUI npcName;
     public TextMeshProUGUI npcDialogueBox;
     public GameObject dialogueUI;
     public bool isTalking=false;
     private bool talked=false;
-    public GameObject Key;
-
+    public GameObject Key1;
+    public GameObject Key2;
+    public GameObject Key3;
+    public GameObject Key4;
+    private int stage=0;
+    public GameObject player;
+    public GameObject camera;
 
     
     void Update()
@@ -38,6 +45,8 @@ public class ElectricBox : MonoBehaviour
         if(zzzz){
             if(Input.GetMouseButtonDown(0)&&guninventory.currneguniskey()){
                         Positivedoorlock();
+                        stage=1;
+                        Invoke("StartConversation", 1.0f);
                         
             }else if(Input.GetMouseButtonDown(0)&&!guninventory.currneguniskey()&&isTalking==false&&!doorlock){
                         StartConversation();    
@@ -53,7 +62,7 @@ public class ElectricBox : MonoBehaviour
             }
             
             
-            if (Input.GetMouseButtonDown(0)&&doorlock&&openTrigger){
+            if (Input.GetMouseButtonDown(0)&&dooropenbool&&openTrigger){
                 if(openTrigger){
                     myDoor.Play(dooropen, 0, 0.0f);
                     closeTrigger=true;
@@ -68,11 +77,14 @@ public class ElectricBox : MonoBehaviour
         }
     }
     public void Positivedoorlock(){
-        doorlock=true;
+        dooropenbool=true;
         guninventory.NegativeKey();
         guninventory.ChangeWeapon1();
         KeyUi.SetActive(false);
-        Key.SetActive(false);
+        Key1.SetActive(false);
+        Key2.SetActive(false);
+        Key3.SetActive(false);
+        Key4.SetActive(false);
         
     }
     public bool ReturnDoorLock(){return doorlock;}
@@ -88,30 +100,56 @@ public class ElectricBox : MonoBehaviour
         zzzz=false;
     }
     public void StartConversation(){
+        player.GetComponent<MouseLookScript>().enabled = false;
+        player.GetComponent<PlayerMovementScript>().enabled = false;
+        player.transform.position = new Vector3(354.6f, 1f, 424.16f);
+        player.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+        camera.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+        player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0,0);
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
         npcName.text="";
-        npcDialogueBox.text=dialogue[0];
+        if(stage==0){
+            npcDialogueBox.text=dialogue[0];
+        }else if(stage==1){
+            npcDialogueBox.text=dialogue1[0];
+        }
+        
         
 
     }
     public void ContinueConversation(){
             curResponseTracker++;
-            if(curResponseTracker>dialogue.Length){
-                curResponseTracker=dialogue.Length;
+            if(stage==0){
+                if(curResponseTracker>dialogue.Length){
+                    curResponseTracker=dialogue.Length;
+                }
+                else if(curResponseTracker<dialogue.Length)
+                {
+                    npcDialogueBox.text=dialogue[curResponseTracker];
+                }
+            }else if(stage==1){
+                if(curResponseTracker>dialogue1.Length){
+                    curResponseTracker=dialogue1.Length;
+                }
+                else if(curResponseTracker<dialogue1.Length)
+                {
+                    npcDialogueBox.text=dialogue1[curResponseTracker];
+                }
             }
-            else if(curResponseTracker<dialogue.Length)
-            {
-                npcDialogueBox.text=dialogue[curResponseTracker];
-            }
+            
     }
     public void EndDialogue(){
+        player.GetComponent<MouseLookScript>().enabled = true;
+        player.GetComponent<PlayerMovementScript>().enabled = true;
         curResponseTracker=0;
         isTalking=false;
         dialogueUI.SetActive(false);
+        if(stage==1){stage=2;doorlock=true;}
         
     }
+    
 
 }
 

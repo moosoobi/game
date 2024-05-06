@@ -120,6 +120,7 @@ public class Short_Lever : MonoBehaviour
                 // 플레이어의 움직임을 차단
                 player.GetComponent<MouseLookScript>().enabled = false;
                 player.GetComponent<PlayerMovementScript>().enabled = false;
+                player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0,0);
                 Triangle.SetActive(true);
                 if(horizontal>=4){horizontal=0;}
                 if(horizontal==0){TriangleRect.anchoredPosition = new Vector2(-162f, 215f);}

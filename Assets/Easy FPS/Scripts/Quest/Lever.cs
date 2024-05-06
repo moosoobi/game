@@ -112,14 +112,17 @@ public class Lever : MonoBehaviour
             {
                 // 특정 위치로 이동
                 player.transform.position = new Vector3(354.6f, 1f, 424.16f);
+                
 
                 // 특정 회전값으로 설정
                 player.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
                 camera.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
 
+
                 // 플레이어의 움직임을 차단
                 player.GetComponent<MouseLookScript>().enabled = false;
                 player.GetComponent<PlayerMovementScript>().enabled = false;
+                player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0,0);
                 Triangle.SetActive(true);
                 if(horizontal>=4){horizontal=0;}
                 if(horizontal==0){TriangleRect.anchoredPosition = new Vector2(-162f, 215f);}

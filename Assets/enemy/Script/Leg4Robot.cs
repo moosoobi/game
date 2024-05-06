@@ -150,7 +150,7 @@ public class Leg4Robot : MonoBehaviour
             }
 
             if(FistMoving){
-                if (navMeshAgent.remainingDistance>0&&navMeshAgent.remainingDistance < 0.1f)
+                if (navMeshAgent.remainingDistance>0&&navMeshAgent.remainingDistance < 0.5f)
                 {
                     Reg4.Play("4legRobot_IDLE", 0, 0.0f);
                     FistMoving=false;

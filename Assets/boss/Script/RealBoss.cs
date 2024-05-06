@@ -206,7 +206,7 @@ public class RealBoss : MonoBehaviour
     }
     
     public IEnumerator die(){
-        ShootGuide.SetActive(true);
+        ShootGuide.SetActive(false);
         BossBg.Stop();
         BossSlider.gameObject.SetActive(false);
         Lazer.SetActive(false);
@@ -241,7 +241,7 @@ public class RealBoss : MonoBehaviour
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
-        npcName.text="J";
+        npcName.text=" ";
         if(Stage==0){npcDialogueBox.text=dialogue[0];}
         if(Stage==1){npcDialogueBox.text=dialogue1[0];}
         zzz=false;
@@ -281,6 +281,7 @@ public class RealBoss : MonoBehaviour
             QuestActive();
             player.GetComponent<MouseLookScript>().enabled = true;
             player.GetComponent<PlayerMovementScript>().enabled = true;
+            ShootGuide.SetActive(true);
             clear=true;
             PlayerHp.stage=2;
         }else if(Stage==1){
@@ -700,7 +701,7 @@ public class RealBoss : MonoBehaviour
         rend3.material=Black;
         
         yield return new WaitForSeconds(3.0f);
-        ShootGuide.SetActive(true);
+        
         light.enabled=true;
         light.color =  Color.white;
         BossSlider.gameObject.SetActive(true);

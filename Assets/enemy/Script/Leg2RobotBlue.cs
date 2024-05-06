@@ -118,7 +118,7 @@ public class Leg2RobotBlue : MonoBehaviour
  
         }
             if(FistMoving){
-                if (navMeshAgent.remainingDistance < 0.1f)
+                if (navMeshAgent.remainingDistance < 0.5f)
                 {
                     Blue.Play("Great Sword Idle", 0, 0.0f);
                     FistMoving=false;

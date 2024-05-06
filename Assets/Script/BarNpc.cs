@@ -14,9 +14,11 @@ public class BarNpc : MonoBehaviour
     public bool zzz=false;
     public GunInventory guninventory;
     public bool IfRed=false;
+    public bool lock1=false;
     public GameObject player;
-    public GameObject Key;
+    public GameObject[] Key;
     public GameObject Mark;
+    
     void Update()
     {
         
@@ -25,14 +27,19 @@ public class BarNpc : MonoBehaviour
                 
             
         
-            if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==false){
+            if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==false&&!lock1){
                 player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0,0);
                 StartConversation();
                 
             }else if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==true){
                 EndDialogue();
                 if(Mark){Mark.SetActive(false);}
-                if(Key){Key.SetActive(true);}
+                if(Key.Length!=0){
+                    for(int i=0;i<Key.Length;i++){
+                        Key[i].SetActive(false);
+                    }
+                    Key[Key.Length-1].SetActive(true);
+                }
             }
             
             

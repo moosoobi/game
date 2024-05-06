@@ -31,6 +31,7 @@ public class CoreCircle : MonoBehaviour
         if (other.CompareTag("Player")){
             
             player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0,0);
+            player.GetComponent<PlayerMovementScript>().enabled = false;
             core.Circle=true;
             
             if(Short){

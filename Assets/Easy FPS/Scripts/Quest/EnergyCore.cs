@@ -113,7 +113,7 @@ public class EnergyCore: Quest
         curResponseTracker=0;
         dialogueUI.SetActive(true);
         Click.SetActive(false);
-        npcName.text="J";
+        npcName.text=" ";
         npcDialogueBox.text=dialogue[0];
         Leg2RobotBlue1.SetDestination(targetDestination1);
         Leg2RobotBlue2.SetDestination(targetDestination2);
@@ -146,7 +146,7 @@ public class EnergyCore: Quest
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
-        npcName.text="J";
+        npcName.text=" ";
         npcDialogueBox.text=dialogue1[0];
     }
 
@@ -157,6 +157,7 @@ public class EnergyCore: Quest
             if (other.CompareTag("Attack")){
                 
                 if(!first){
+                    player.GetComponent<PlayerMovementScript>().enabled = true;
                     Leg2RobotBlue1.SetDestination(targetDestination1);
                     Leg2RobotBlue2.SetDestination(targetDestination2);
                     Leg2RobotRed1.SetDestination(targetDestination3);
@@ -261,6 +262,7 @@ public class EnergyCore: Quest
             if(Short){
                 player.transform.position=new Vector3(21.1f, 258.8f, 432.15f);
                 player.transform.rotation=Quaternion.Euler(new Vector3(0f, 90f, 0f));
+                StopAllAudioSources();
                 QuestActive2();
             }else{
                 QuestActive1();
@@ -271,6 +273,17 @@ public class EnergyCore: Quest
             
         }
    
+    }
+    public void StopAllAudioSources()
+    {
+        // Scene에 있는 모든 AudioSource를 가져옵니다.
+        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+
+        // 모든 AudioSource를 반복하면서 정지시킵니다.
+        foreach (AudioSource audioSource in allAudioSources)
+        {
+            audioSource.Stop();
+        }
     }
     public void UpdateHealth(float newHP)
     {
