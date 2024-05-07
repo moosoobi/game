@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class StartCursur : MonoBehaviour
 {
@@ -68,7 +69,7 @@ public class StartCursur : MonoBehaviour
         uiRectTransform.anchoredPosition = newPosition;
         
         
-        if(currentX>-60&&currentX<80&&currentY>-290&&currentY<-140){
+        if(currentX>-390&&currentX<-130&&currentY>-220&&currentY<-90){
             if(Input.GetMouseButtonDown(0)){
                 StartCamera.SetActive(false);
                 
@@ -78,6 +79,11 @@ public class StartCursur : MonoBehaviour
                 Hp.SetActive(false);
                 Quest.SetActive(false);
                 Move.IfCross=true;
+            }
+        }
+        if(currentX>160&&currentX<440&&currentY>-220&&currentY<-90){
+            if(Input.GetMouseButtonDown(0)){
+                SceneManager.LoadScene("Short");
             }
         }
     }
