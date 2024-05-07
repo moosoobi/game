@@ -167,6 +167,7 @@ public class Leg4Robot : MonoBehaviour
 
             if(Hp<=0){
                 Die=true;
+                GetComponent<Collider>().enabled = false;
                 navMeshAgent.isStopped = true;
                 StartCoroutine(Death());
             }

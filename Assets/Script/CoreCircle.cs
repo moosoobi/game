@@ -39,11 +39,16 @@ public class CoreCircle : MonoBehaviour
                 if (DrawerOpen)
                     DrawerOpen.Play ();
                 Guide.SetActive(false);
+                Invoke("Deactivate", 10.0f);
                 QuestActive();
             }
             
         }
         
         
+    }
+    void Deactivate()
+    {
+        Guide1.SetActive(false);
     }
 }

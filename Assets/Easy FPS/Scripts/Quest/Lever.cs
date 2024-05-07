@@ -41,7 +41,7 @@ public class Lever : MonoBehaviour
         if(isFixed){
             if(Lever1==1&&Lever2==0&&Lever3==3&&Lever4==2){
                 UiObject.SetActive(true);
-                UiText.text="<b>*오른쪽 비상구표지판에 무슨 변화가 생긴 것 같다.*<b>";
+                UiText.text="<b>오른쪽 비상구표지판에 무슨 변화가 생긴 것 같다.<b>";
                 UiText.color=Color.red;
                 Renderer rend = Exit.GetComponent<Renderer>();
                 rend.material = newMaterial;

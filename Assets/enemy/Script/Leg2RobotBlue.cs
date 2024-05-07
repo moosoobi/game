@@ -137,6 +137,7 @@ public class Leg2RobotBlue : MonoBehaviour
             
             if(Hp<=0){
                 Die=true;
+                GetComponent<Collider>().enabled = false;
                 StartCoroutine(Death());
                 navMeshAgent.isStopped = true;
                 

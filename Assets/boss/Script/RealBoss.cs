@@ -206,7 +206,7 @@ public class RealBoss : MonoBehaviour
     }
     
     public IEnumerator die(){
-        ShootGuide.SetActive(false);
+        
         BossBg.Stop();
         BossSlider.gameObject.SetActive(false);
         Lazer.SetActive(false);
@@ -375,6 +375,7 @@ public class RealBoss : MonoBehaviour
     }
     
     public IEnumerator ErrorEffect(){
+        
         yield return new WaitForSeconds(5.5f);
         ErrorSound.Play();
         yield return new WaitForSeconds(1.0f);
@@ -480,14 +481,14 @@ public class RealBoss : MonoBehaviour
             rend3.material=Black;
         }
         else if(currentPatternIndex==6){
-            ShootGuide.SetActive(false);
+            
             Lazer.SetActive(false);
             CancelInvoke("BulletAttack");
             StopCoroutine(currentCoroutine);
             isAttacking=false;
             Fixing=0;
             Text1.SetActive(true);
-            text1.text="메인 컴퓨터가 수리 로봇을 호출합니다. 파괴하여 수리를 중단해야 합니다.";
+            text1.text="메인 컴퓨터가 수리 로봇을 호출합니다. 30초 이내에 수리로봇을 파괴하여 수리를 중단해야 합니다.";
             FixingLotation=true;
             StartCoroutine(ExecuteAfterDelayText(3f));
             yield return new WaitForSeconds(3.0f);
@@ -504,7 +505,7 @@ public class RealBoss : MonoBehaviour
             GameObject Fixing9 = Instantiate(FixingDrone,SectorC.transform.position+new Vector3(-10,6,-5) , SectorC.transform.rotation);
             GameObject Fixing10 = Instantiate(FixingDrone,SectorC.transform.position+new Vector3(-15,6,-10) , SectorC.transform.rotation);
             yield return new WaitForSeconds(30.0f);
-            ShootGuide.SetActive(true);
+            
             if(Fixing1){Fixing1.SetActive(false);}
             if(Fixing2){Fixing2.SetActive(false);}
             if(Fixing3){Fixing3.SetActive(false);}
@@ -661,7 +662,7 @@ public class RealBoss : MonoBehaviour
         
     }
     private IEnumerator MonitorBulb(){
-        
+        ShootGuide.SetActive(false);
         warningsound.Play();
         player.GetComponent<MouseLookScript>().enabled = false;
         player.GetComponent<PlayerMovementScript>().enabled = false;
@@ -684,23 +685,14 @@ public class RealBoss : MonoBehaviour
         rend2.material=Error1;
         rend3.material=Error2;
         
-        yield return new WaitForSeconds(1f);
-        rend1.material=Error1;
-        rend2.material=Error2;
-        rend3.material=Error1;
-        
-        yield return new WaitForSeconds(1f);
-        rend1.material=Error2;
-        rend2.material=Error1;
-        rend3.material=Error2;
+
         
         yield return new WaitForSeconds(1f);
         light.enabled=false;
         rend1.material=Black;
         rend2.material=Black;
         rend3.material=Black;
-        
-        yield return new WaitForSeconds(3.0f);
+        warningsound.Stop();
         
         light.enabled=true;
         light.color =  Color.white;

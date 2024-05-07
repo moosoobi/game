@@ -62,7 +62,7 @@ public class EnergyCore: Quest
     public bool Circle=false;
     public GameObject Click;
     public bool Short=false;
-
+    public SlidingDoor door;
 
     public float dialogueInterval = 3f; // 대화 간격 (3초)
 
@@ -207,7 +207,7 @@ public class EnergyCore: Quest
         Guide.SetActive(true);
     }
     public void QuestActive2(){
-        Text2.text="메인컴퓨터를 무찔러라.";
+        Text2.text="메인컴퓨터를 해킹하시오.";
         StartCoroutine(ChangeColor());
         Ring.transform.position=targetPosition;
         Save.SetActive(true);
@@ -310,6 +310,7 @@ public class EnergyCore: Quest
             healthSlider.gameObject.SetActive(false);
             UrgentSound.Stop();
             RadioSound.Play();
+            door.active=true;
             stage=1;
             Entrance.Clear=true;
             player.GetComponent<GunInventory>().ChangeWeapon1();

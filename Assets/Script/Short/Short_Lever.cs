@@ -33,6 +33,8 @@ public class Short_Lever : MonoBehaviour
     public TextMeshProUGUI QuestText;
     public GameObject Guide;
     public bool first=true;
+    public GameObject Help;
+    public TextMeshProUGUI HelpText;
     
     void Start()
     {
@@ -49,6 +51,12 @@ public class Short_Lever : MonoBehaviour
                 first=false;
                 BarCamera.SetActive(true);
                 StartCoroutine(Camera());
+                electricBox.doorlock=false;
+                player.GetComponent<MouseLookScript>().enabled = true;
+                player.GetComponent<PlayerMovementScript>().enabled = true;
+                Triangle.SetActive(false);
+                UiObject.SetActive(false);
+                Help.SetActive(false);
             }
             if(Input.GetKeyDown(KeyCode.UpArrow)){
                 if(Index==0){if(Lever1==0){Lever1=3;}Lever1+=1;if(Lever1>3)Lever1=3;}
@@ -110,6 +118,8 @@ public class Short_Lever : MonoBehaviour
             // 상태에 따라 플레이어 제어 여부를 조절
             if (isFixed)
             {
+                Help.SetActive(true);
+                HelpText.text=" ←→: 레버 선택 \n↑↓: 레버 조정\n좌클릭: 나가기";
                 // 특정 위치로 이동
                 player.transform.position = new Vector3(354.6f, 1f, 424.16f);
 
@@ -136,6 +146,8 @@ public class Short_Lever : MonoBehaviour
                 player.GetComponent<PlayerMovementScript>().enabled = true;
                 Triangle.SetActive(false);
                 UiObject.SetActive(false);
+                Help.SetActive(false);
+                
             }
         }
         }

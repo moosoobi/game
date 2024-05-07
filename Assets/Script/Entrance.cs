@@ -6,6 +6,7 @@ public class Entrance : MonoBehaviour
 {
     public AudioSource RoomBackground;
     public AudioSource BarBackground;
+    public SlidingDoor door;
     public First_Bar firsrbar;
     public bool PlayerIn=true;
     public bool first=true;
@@ -23,21 +24,25 @@ public class Entrance : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other){
-        if (other.CompareTag("Player")&&PlayerIn&&first){
+        if(door.active){
+            if (other.CompareTag("Player")&&PlayerIn&&first){
             StopAllAudioSources();
             BarBackground.Play();
+            door.active=false;
             firsrbar.Positivez();
             PlayerIn=false;
-        }else if(other.CompareTag("Player")&&!PlayerIn){
-            StopAllAudioSources();
-            
-            PlayerIn=true;
-            
-        }else if(other.CompareTag("Player")&&PlayerIn&&!first){
-            StopAllAudioSources();
-            BarBackground.Play();
-            PlayerIn=false;
+            }else if(other.CompareTag("Player")&&!PlayerIn){
+                StopAllAudioSources();
+                
+                PlayerIn=true;
+                
+            }else if(other.CompareTag("Player")&&PlayerIn&&!first){
+                StopAllAudioSources();
+                BarBackground.Play();
+                PlayerIn=false;
+            }
         }
+        
 
     }
 

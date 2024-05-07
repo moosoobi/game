@@ -14,14 +14,14 @@ public class SlidingDoor : MonoBehaviour
     
     public bool openTrigger=true;
     public bool closeTrigger=false;
-
+    public bool active=true;
     public bool zzzz=false;
     
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")){
             zzzz=true;
-            if(openTrigger){
+            if(openTrigger&&active){
                     myDoor.Play(dooropen, 0, 0.0f);
                     closeTrigger=true;
                     openTrigger=false;
