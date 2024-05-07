@@ -47,7 +47,7 @@ public class BarNpc : MonoBehaviour
         
     }
     public void StartConversation(){
-        if(IfRed){npcDialogueBox.color=Color.red;}
+        if(IfRed){ npcDialogueBox.color = new Color(1.0f, 92.0f / 255.0f, 1.0f); }
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
