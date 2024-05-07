@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 using TMPro;
 
 public class First_J : MonoBehaviour
@@ -10,7 +11,11 @@ public class First_J : MonoBehaviour
     public Animator P=null;
 
     public GameObject Tv_On;
-
+    public GameObject Hp;
+    public GameObject Inven;
+    public GameObject Quest;
+    public GameObject Opening;
+    public AudioSource RoomBg;
     public AudioSource Tv_Off;
 
     public DialogueManager Dia;
@@ -23,7 +28,16 @@ public class First_J : MonoBehaviour
     public float dialogueInterval = 3f; // 대화 간격 (3초)
 
     private int currentDialogueIndex = 0; // 현재 대화 인덱스
+    
 
+    void Start()
+    {
+        Quest.SetActive(true);
+        Hp.SetActive(true);
+        Starting();
+        Inven.SetActive(true);
+        RoomBg.Play();
+    }
     public void Starting()
     {
         P.enabled=true;
@@ -47,7 +61,6 @@ public class First_J : MonoBehaviour
             Dia.StartConversation();
         }
     }
-
     private IEnumerator Camera()
     {
 
