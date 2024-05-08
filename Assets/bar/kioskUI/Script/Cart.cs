@@ -58,6 +58,7 @@ public class Cart : MonoBehaviour
         if(Input.GetMouseButtonDown(0)&&curResponseTracker2==dialogue2.Length){
             EndDialogue2();
         }
+        /*
         if(Clear&&guninventory.currneguniscard()&&Input.GetMouseButtonDown(0)){
             guninventory.NegativeCard();
             guninventory.ChangeWeapon1();
@@ -68,6 +69,7 @@ public class Cart : MonoBehaviour
             StartCoroutine(Camera());
             Clear=false;
         }
+        */
     }
     private IEnumerator Camera()
     {
@@ -149,8 +151,16 @@ public class Cart : MonoBehaviour
         if(productNames[0]=="Espresso martini"&&productNames[1]=="Xrated tonic"&&productNames[2]=="Illegal"&&productNames[3]=="Tequlia sunrise"){
             Cursor.SetActive(false);
             Clear=true;
-            InsertCard.SetActive(true);
+            //InsertCard.SetActive(true);
             kiosk.Clear=true;
+            guninventory.NegativeCard();
+            guninventory.ChangeWeapon1();
+            KioskUi.SetActive(false);
+            CardUi.SetActive(false);
+            BarCamera.SetActive(true);
+            InsertCard.SetActive(false);
+            StartCoroutine(Camera());
+            Clear=false;
 
             
         }else{

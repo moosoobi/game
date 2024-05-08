@@ -7,6 +7,7 @@ using TMPro;
 public class EnergyCore: Quest
 {
     public GameObject Guide;
+    public GameObject Guide1;
     public GameObject ShootGuide;
     public Vector3 targetPosition = new Vector3(8f, 413.8f, 432f);
     public GameObject Ring;
@@ -205,6 +206,7 @@ public class EnergyCore: Quest
         Ring.transform.position=targetPosition;
         Save.SetActive(true);
         Guide.SetActive(true);
+        Guide1.SetActive(false);
     }
     public void QuestActive2(){
         Text2.text="메인컴퓨터를 해킹하시오.";

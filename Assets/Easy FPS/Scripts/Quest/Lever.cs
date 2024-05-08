@@ -51,6 +51,9 @@ public class Lever : MonoBehaviour
                 Key.SetActive(true);
                 StartCoroutine(ExecuteAfterDelayText(3f)); 
                 Help.SetActive(false);
+                player.GetComponent<MouseLookScript>().enabled = true;
+                player.GetComponent<PlayerMovementScript>().enabled = true;
+                Triangle.SetActive(false);
                 
             }
             if(Input.GetKeyDown(KeyCode.UpArrow)){

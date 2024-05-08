@@ -184,7 +184,7 @@ public class RealBoss : MonoBehaviour
 
     public void touchboss(){
         
-        
+        Turn_Off.SetActive(true);
         BlackScreen.SetActive(true);
         Monitor.SetActive(true);
         Loading.Play();
@@ -679,7 +679,8 @@ public class RealBoss : MonoBehaviour
         rend1.material=Error1;
         rend2.material=Error2;
         rend3.material=Error1;
-        
+        Text1.SetActive(true);
+        text1.text=" 메인 컴퓨터가 바닥을 훑는 레이저를 발사합니다.";
         yield return new WaitForSeconds(1f);
         rend1.material=Error2;
         rend2.material=Error1;
