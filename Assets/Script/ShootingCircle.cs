@@ -17,7 +17,7 @@ public class ShootingCircle : MonoBehaviour
     public void Shoot(){
         player.GetComponent<PlayerMovementScript>().enabled = false;
         player.GetComponent<PlayerMovementScript>().currentSpeed=0;
-        Text.text="마네킹의 머리 가슴 배를 사격하여라.";
+        Text.text="마네킹의 머리 가슴 배를 사격하십시오.";
         StartCoroutine(ChangeColor());
         Dummy1.Active=true;
         Dummy2.Active=true;

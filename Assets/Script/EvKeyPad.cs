@@ -94,7 +94,7 @@ public class EvKeyPad : MonoBehaviour
     public void UsingKey(){ 
         TriangleRect.anchoredPosition = new Vector2(-66.9f, -180.6f);
         UiObject.SetActive(true);
-        UiText.text="방향키로 움직이고 엔터로 입력하시오. ";
+        UiText.text="방향키로 움직이고 엔터키로 입력하십시오. ";
         Board.gameObject.SetActive(true);
         StartCoroutine(ExecuteAfterDelayText(3f)); 
         
@@ -154,7 +154,7 @@ public class EvKeyPad : MonoBehaviour
         if(s=="99"){DisableKey();Up.Play();}
         else{
             UiObject.SetActive(true);
-            UiText.text="아무일도 일어나지 않습니다.";
+            UiText.text="아무일도 일어나지 않는다.";
             StartCoroutine(ExecuteAfterDelayText(3f)); 
         }
     }

@@ -17,7 +17,7 @@ public class CoreCircle : MonoBehaviour
 
 
     public void QuestActive(){
-        Text2.text="에너지 증폭장치를 부숴라.";
+        Text2.text="에너지 증폭장치를 파괴하십시오.";
         Guide1.SetActive(true);
         gameObject.SetActive(false);
 

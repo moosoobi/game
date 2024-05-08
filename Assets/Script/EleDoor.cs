@@ -45,7 +45,7 @@ public class EleDoor : MonoBehaviour
                     if (DrawerOpen)
                     DrawerOpen.Play ();
                     UiObject.SetActive(true);
-                    UiText.text="키패드를 이용해 층수를 입력하시오.";
+                    UiText.text="키패드를 이용해 층수를 입력하십시오.";
                     StartCoroutine(ExecuteAfterDelayText(3f));
             }
         }
@@ -79,7 +79,7 @@ public class EleDoor : MonoBehaviour
         
     }
     public void QuestActive(){
-        Text.text="보스룸으로 올라가서 해킹칩을 심어라.";
+        Text.text="위층으로 올라가 메인컴퓨터에 해킹칩을 심으십시오.";
         StartCoroutine(ChangeColor());
     }
 

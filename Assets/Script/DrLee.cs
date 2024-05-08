@@ -526,7 +526,7 @@ public class DrLee : MonoBehaviour
         
     }
     public void QuestActive(){
-        Text.text="건물내부로 잠입하라.";
+        Text.text="건물내부로 잠입하십시오.";
         StartCoroutine(ChangeColor());
     }
 

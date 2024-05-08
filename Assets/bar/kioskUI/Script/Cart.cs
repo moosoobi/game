@@ -163,7 +163,7 @@ public class Cart : MonoBehaviour
 
     }
     public void QuestActive(){
-        Text2.text="천장에 있는 동그란 전등을 사격하라.";
+        Text2.text="천장에 있는 동그란 전등을 사격하십시오.";
         StartCoroutine(ChangeColor());
     }
     private IEnumerator ChangeColor(){

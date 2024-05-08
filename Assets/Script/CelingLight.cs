@@ -41,7 +41,7 @@ public class CelingLight : MonoBehaviour
         
     }
     public void QuestActive(){
-        Text2.text="비밀통로로 가서 에너지 증폭장치를 찾아라.";
+        Text2.text="비밀통로로 가 에너지 증폭장치를 찾으십시오.";
         StartCoroutine(ChangeColor());
     }
     private IEnumerator ChangeColor(){
