@@ -41,7 +41,7 @@ public class ShootingQuest : Quest
     void Awake()
     {
         dia=GetComponent<DialogueManager>();
-        Description="사격연습을 위해 바닥에 빛이나는 공간으로 가십시오.";
+        Description="사격연습을 위해 바닥에서 빛이 나는 위치로 이동하십시오.";
         
         requiredShots=3;
         currentShots=0;
@@ -53,7 +53,7 @@ public class ShootingQuest : Quest
                 player.GetComponent<PlayerMovementScript>().enabled = true;
                 dia.upstage();
                 CurrentState=QuestState.Completed;
-                Text.text="퀘스트 완료 J에게 돌아가십시오.";
+                Text.text="J에게 돌아가십시오.";
                 JMark.SetActive(true);
                 StartCoroutine(ChangeColor());
                 QuestSound.Play();

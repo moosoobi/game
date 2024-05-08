@@ -26,7 +26,7 @@ public class GunPick : Quest
     
     void Awake()
     {
-        Description="본부 내부를 조사하여 총을 획득하십시오.";
+        Description="주변을 조사하여 총을 획득하십시오.";
     }
     public void pickup(){
         if(CurrentState==QuestState.Active){
