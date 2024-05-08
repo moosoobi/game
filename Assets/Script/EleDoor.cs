@@ -100,7 +100,7 @@ public class EleDoor : MonoBehaviour
         npcName.text="J";
         npcDialogueBox.text="역시 평범한 사무실은 아니었네.";
         yield return new WaitForSeconds(3.0f);
-        npcDialogueBox.text="안드로이드들이 순수한 인간을 납치해간다는 소문이 사실이었어. 이곳은 납치된 자들을 인체실험한 연구소인 것 같고.";
+        npcDialogueBox.text="<color=red>안드로이드들이 순수한 인간을 납치해간다는 소문이 사실이었어.</color> 이곳은 납치된 자들을 인체실험한 연구소인 것 같고.";
         yield return new WaitForSeconds(3.0f);
         npcDialogueBox.text="아는 얼굴들이 보이는 것 같아.. 정말 끔찍하군";
         yield return new WaitForSeconds(3.0f);
