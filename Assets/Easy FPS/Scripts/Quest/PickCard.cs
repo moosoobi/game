@@ -29,7 +29,7 @@ public class PickCard : MonoBehaviour
         if(zzz&&Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==false){
         guninventory.PositiveCard();
         UiObject.SetActive(true);
-        UiText.text="카드키를 획득했다. 숫자키 4번을 눌러 손에 들 수 있다";
+        UiText.text="카드키를 획득했습니다. 숫자키 4번을 눌러 손에 들 수 있습니다";
         Key.SetActive(true);
         CardMark.SetActive(false);
         CardUi.SetActive(true);
@@ -89,7 +89,7 @@ public class PickCard : MonoBehaviour
         isTalking=false;
         dialogueUI.SetActive(false);
         UiObject.SetActive(true);
-        UiText.text="카드키를 획득했다. 숫자키 4번을 눌러 손에 들 수 있다";
+        UiText.text="카드키를 획득했습니다. 숫자키 4번을 눌러 손에 들 수 있습니다";
         StartCoroutine(ExecuteAfterDelayText(3f)); 
         player.GetComponent<MouseLookScript>().enabled = true;
         player.GetComponent<PlayerMovementScript>().enabled = true;

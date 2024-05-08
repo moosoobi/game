@@ -195,19 +195,19 @@ public class EnergyCore: Quest
             
     }
     public void QuestActive(){
-        Text2.text="공격하는 적들을 피해 에너지 증폭장치를 부숴라.";
+        Text2.text="전투로봇을 피해 에너지증폭장치를 파괴하십시오.";
         
         StartCoroutine(ChangeColor());
     }
     public void QuestActive1(){
-        Text2.text="지도의 빨간 건물로 이동하라.";
+        Text2.text="지도에 붉은 색으로 표시된 건물로 이동하십시오.";
         StartCoroutine(ChangeColor());
         Ring.transform.position=targetPosition;
         Save.SetActive(true);
         Guide.SetActive(true);
     }
     public void QuestActive2(){
-        Text2.text="메인컴퓨터를 해킹하시오.";
+        Text2.text="메인컴퓨터에게 다가가 해킹칩을 심으십시오.";
         StartCoroutine(ChangeColor());
         Ring.transform.position=targetPosition;
         Save.SetActive(true);

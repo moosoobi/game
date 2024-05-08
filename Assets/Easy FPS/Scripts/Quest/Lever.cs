@@ -43,7 +43,7 @@ public class Lever : MonoBehaviour
         if(isFixed){
             if(Lever1==1&&Lever2==0&&Lever3==3&&Lever4==2){
                 UiObject.SetActive(true);
-                UiText.text="<b>오른쪽 비상구표지판에 무슨 변화가 생긴 것 같다.<b>";
+                UiText.text="오른쪽 비상구 표지판에 변화가 생긴 것 같다.";
                 UiText.color=Color.red;
                 Renderer rend = Exit.GetComponent<Renderer>();
                 rend.material = newMaterial;
@@ -107,7 +107,7 @@ public class Lever : MonoBehaviour
         {
             Setting();
             UiObject.SetActive(true);
-            UiText.text="방향키로 조작하시오.";
+            UiText.text="방향키로 조작할 수 있습니다.";
             StartCoroutine(ExecuteAfterDelayText(3f)); 
             isFixed = !isFixed;
             // 상태에 따라 플레이어 제어 여부를 조절

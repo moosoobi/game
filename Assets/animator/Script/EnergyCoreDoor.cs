@@ -65,7 +65,7 @@ public class EnergyCoreDoor : MonoBehaviour
     }
     public void QuestActive(){
         ShootCircle.SetActive(true);
-        Text2.text="뒤로 이동해서 에너지 증폭장치를 부숴라.";
+        Text2.text="뒤로 이동하여 에너지증폭장치를 파괴하십시오.";
         StartCoroutine(ChangeColor());
     }
     private IEnumerator ChangeColor(){

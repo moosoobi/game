@@ -21,7 +21,7 @@ public class Interact1 : MonoBehaviour
         
         if(zzz&&Input.GetMouseButtonDown(0)&&!guninventory.IfHand()){
                 text1.SetActive(true);
-                Text.text="1번을 눌러 대화하십시오.";
+                Text.text="숫자키 1번을 눌러 대화할 수 있습니다.";
                 StartCoroutine(ExecuteAfterDelayText(1.5f));
             }
     }
