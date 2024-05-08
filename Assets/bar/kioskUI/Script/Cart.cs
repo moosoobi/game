@@ -20,7 +20,7 @@ public class Cart : MonoBehaviour
     public GameObject Cursor;
     public GameObject KioskUi;
     public GameObject SuccessDoor;
-
+    
     public TextMeshProUGUI QuestText;
     public TextMeshProUGUI Text2;//questtext
     public AudioSource StoneDoor;
@@ -42,6 +42,7 @@ public class Cart : MonoBehaviour
     public SuccessDoor SuccessDoorScript;
     public Kiosk kiosk;
     public GameObject CardUi;
+    public GameObject[] Key;
 
     void Update()
     {
@@ -245,6 +246,12 @@ public class Cart : MonoBehaviour
         Guide.SetActive(true);
         ShootGuide.SetActive(true);
         KioskMark.SetActive(false);
+        if(Key.Length!=0){
+            for(int i=0;i<Key.Length;i++){
+                Key[i].SetActive(false);
+            }
+            
+        }
         player.GetComponent<MouseLookScript>().enabled = true;
         player.GetComponent<PlayerMovementScript>().enabled = true;
     }

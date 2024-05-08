@@ -30,6 +30,9 @@ public class First_J : MonoBehaviour
     private int currentDialogueIndex = 0; // 현재 대화 인덱스
     
 
+    public GameObject Help;
+    public TextMeshProUGUI HelpText;
+    
     void Start()
     {
         Quest.SetActive(true);

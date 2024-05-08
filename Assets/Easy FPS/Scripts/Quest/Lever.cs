@@ -26,6 +26,8 @@ public class Lever : MonoBehaviour
     public int Index=0;
     public PickCard card;
     public GameObject Key;
+    public GameObject Help;
+    public TextMeshProUGUI HelpText;
 
     
     void Start()
@@ -48,6 +50,7 @@ public class Lever : MonoBehaviour
                 card.PositiveClear();
                 Key.SetActive(true);
                 StartCoroutine(ExecuteAfterDelayText(3f)); 
+                Help.SetActive(false);
                 
             }
             if(Input.GetKeyDown(KeyCode.UpArrow)){
@@ -110,6 +113,8 @@ public class Lever : MonoBehaviour
             // 상태에 따라 플레이어 제어 여부를 조절
             if (isFixed)
             {
+                Help.SetActive(true);
+                HelpText.text=" ←→: 레버 선택 \n↑↓: 레버 조정\n좌클릭: 나가기";
                 // 특정 위치로 이동
                 player.transform.position = new Vector3(354.6f, 1f, 424.16f);
                 
@@ -138,6 +143,7 @@ public class Lever : MonoBehaviour
                 player.GetComponent<PlayerMovementScript>().enabled = true;
                 Triangle.SetActive(false);
                 UiObject.SetActive(false);
+                Help.SetActive(false);
             }
         }
         }

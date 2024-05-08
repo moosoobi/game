@@ -35,6 +35,8 @@ public class PickMap : MonoBehaviour
     public GunScript gun;
     public bool First=true;
     public AudioSource Paper;
+    public GameObject Help;
+    public TextMeshProUGUI HelpText;
 
     void Update()
     {
@@ -42,8 +44,8 @@ public class PickMap : MonoBehaviour
         if(zzz&&dia.stage==1){
             if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&First){
                 First=false;
-                text1.SetActive(true);
-                Text.text="X를 누르면 지도를 확인할 수 있습니다.";
+                Help.SetActive(true);
+                HelpText.text="tab:지도 꺼내기\n/지도 다시넣기";
                 MapMark.SetActive(false);
                 GunMark.SetActive(true);
                 Paper.Play();
@@ -57,7 +59,7 @@ public class PickMap : MonoBehaviour
             }
         }
         if(ifpick){
-            if(Input.GetKeyDown(KeyCode.X)){
+            if(Input.GetKeyDown(KeyCode.Tab)){
                 gun=GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>();
                 if(show){
                     gun.zcross1=false;

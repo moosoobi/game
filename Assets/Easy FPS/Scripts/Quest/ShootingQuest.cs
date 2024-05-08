@@ -30,6 +30,8 @@ public class ShootingQuest : Quest
     public ShootingCircle ShootingCircle;
     public GameObject GunMark;
     public GameObject JMark;
+    public GameObject Help;
+    public TextMeshProUGUI HelpText;
 
     public ShootingQuest(QuestState currentState)
     {
@@ -123,6 +125,7 @@ public class ShootingQuest : Quest
         npcName.text=" ";
         npcDialogueBox.text=dialogue[0];
         GunImage.SetActive(true);
+
         GunMark.SetActive(false);
     }
 
@@ -148,11 +151,10 @@ public class ShootingQuest : Quest
         GunImage.SetActive(false);
         player.GetComponent<MouseLookScript>().enabled = true;
         player.GetComponent<PlayerMovementScript>().enabled = true;
-        text1.SetActive(true);
-        Text1.text="2번을 눌러 총을 들고 마우스 좌클릭하여 총을 쏠 수 있습니다.";
-        StartCoroutine(ExecuteAfterDelayText(2.0f));
         ShootingCircle.Active=true;
         ShootingCircle.gameObject.SetActive(true);
+        Help.SetActive(true);
+        HelpText.text="2번: 총 꺼내기\n좌클릭: 발사\n우클릭: 조준\nR: 장전";
     }
 
     private IEnumerator ExecuteAfterDelayText(float delayInSeconds)

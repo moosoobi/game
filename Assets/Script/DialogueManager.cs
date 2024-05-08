@@ -40,6 +40,8 @@ public class DialogueManager : MonoBehaviour
 
     public bool Look=false;
     public GameObject J;
+    public GameObject Help;
+    public TextMeshProUGUI HelpText;
     void Start()
     {
         dialogueUI.SetActive(false);
@@ -139,7 +141,7 @@ public class DialogueManager : MonoBehaviour
             npcName.text="J";
             
             if(stage==1){npcDialogueBox.text=dialogue2[0];}
-            else if(stage==2){npcDialogueBox.text=dialogue3[0];JMark.SetActive(false);}
+            else if(stage==2){npcDialogueBox.text=dialogue3[0];JMark.SetActive(false);Help.SetActive(false);}
             else if(stage==3){npcDialogueBox.text=dialogue4[0];}
         }
         
@@ -195,12 +197,10 @@ public class DialogueManager : MonoBehaviour
         curResponseTracker=0;
         GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>().IfCross=true;
         if(stage==0){
+            Help.SetActive(true);
             MapMark.SetActive(true);
             JAni.enabled=false;
             stage=1;
-            UiObject.SetActive(true);
-            UiText.text="마우스 좌클릭으로 오브젝트와 상호작용할 수 있습니다.";
-            StartCoroutine(ExecuteAfterDelayText(3f)); 
         }
         if(stage==2){stage=3;Stage1.SetActive(false);}
         if (stage == 3) { stage = 4; }

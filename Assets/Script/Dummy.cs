@@ -19,7 +19,7 @@ public class Dummy : MonoBehaviour
             GetComponent<Renderer>().material=Off_Material;
             if(side)side.GetComponent<Renderer>().material=Off_Material;
             ShutDown.Play ();
-            StartCoroutine(ChangeMaterialAfterDelay());
+            
             ifhit=true;
             mannequin.hit();
         }
