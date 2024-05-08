@@ -160,7 +160,7 @@ public class RealBoss : MonoBehaviour
         StartCoroutine(ChangeColor());
     }
     public void QuestActive1(){
-        Text.text="빛나는 모니터를 확인하십시오.";
+        Text.text="의문의 빛을 조사하십시오.";
         StartCoroutine(ChangeColor());
         Guide.SetActive(false);
     }

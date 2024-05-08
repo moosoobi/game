@@ -112,7 +112,7 @@ public class Short_Lever : MonoBehaviour
         {
             Setting();
             UiObject.SetActive(true);
-            UiText.text="방향키로 조작하시오.";
+            UiText.text="방향키로 조작할 수 있습니다.";
             StartCoroutine(ExecuteAfterDelayText(3f)); 
             isFixed = !isFixed;
             // 상태에 따라 플레이어 제어 여부를 조절
@@ -186,7 +186,7 @@ public class Short_Lever : MonoBehaviour
         
     }
     public void QuestActive(){
-        Text2.text="천장에 있는 동그란 전등을 사격하라.";
+        Text2.text="천장에 있는 동그란 전등을 사격하십시오.";
         StartCoroutine(ChangeColor());
     }
     private IEnumerator ChangeColor(){

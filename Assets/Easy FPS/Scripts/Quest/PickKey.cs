@@ -40,7 +40,7 @@ public class PickKey : MonoBehaviour
         if(Input.GetMouseButtonDown(0)&&zzz){
             guninventory.PositiveKey();
             UiObject.SetActive(true);
-            UiText.text="열쇠를 획득했다. 숫자키 3번을 눌러 손에 들 수 있다.";
+            UiText.text="열쇠를 획득했습니다. 숫자키 3번을 눌러 손에 들 수 있습니다.";
             KeyUi.SetActive(true);
             Key1.SetActive(false);
             Key2.SetActive(false);
@@ -88,7 +88,7 @@ public class PickKey : MonoBehaviour
         dialogueUI.SetActive(false);
         guninventory.PositiveKey();
         UiObject.SetActive(true);
-        UiText.text=" 열쇠를 획득했다. 숫자키 3번을 눌러 손에 들 수 있다.";
+        UiText.text=" 열쇠를 획득했습니다. 숫자키 3번을 눌러 손에 들 수 있습니다.";
         StartCoroutine(ExecuteAfterDelayText(3f)); 
     }
     private IEnumerator ExecuteAfterDelayText(float delayInSeconds)

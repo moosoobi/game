@@ -22,7 +22,7 @@ public class PickMap : MonoBehaviour
     public GunPick gunpick;
     private bool gunpickbool=false;
     public TextMeshProUGUI QuestText;
-    private string Description="책상에서 지도를 얻어라.";
+    private string Description="책상에서 지도를 획득하십시오.";
     public AudioSource QuestSound;
     public GunInventory guninventory;
     public string[] dialogue;
@@ -125,7 +125,7 @@ public class PickMap : MonoBehaviour
         zzz=false;
     }
     public void QuestActive(){
-        Text2.text="책상에서 지도를 얻어라.";
+        Text2.text="책상에서 지도를 획득하십시오.";
         StartCoroutine(ChangeColor());
         QuestSound.Play();
     }
