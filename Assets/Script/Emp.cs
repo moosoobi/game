@@ -37,7 +37,7 @@ public class Emp : MonoBehaviour
             
             if(collider.name.Contains("Blue")){collider.GetComponent<Leg2RobotBlue>().Hp=0;}
             if(collider.name.Contains("Red")){collider.GetComponent<Leg2RobotRed>().Hp=0;}
-            if(collider.name.Contains("Leg4")){collider.GetComponent<Leg4Robot>().Hp=0;}
+            if(collider.name.Contains("4leg")){collider.GetComponent<Leg4Robot>().Hp=0;}
         }
     }
 }

@@ -34285,7 +34285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 328524b766ec2e749ba29638fdf476d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 5
+  explosionRadius: 10
   damage: 50
   Detect: 0
   effect: {fileID: 420736269948377187}

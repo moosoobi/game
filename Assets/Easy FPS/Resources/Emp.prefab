@@ -893,7 +893,7 @@ MonoBehaviour:
   Upgrade: 0
   EmpPrefab: {fileID: 2282574444813529340, guid: 74b7b6bd3e9c143479214547e81adf06, type: 3}
   launchPoint: {fileID: 9041353544785723538}
-  launchSpeed: 5
+  launchSpeed: 10
   gravity: {x: 0, y: -30, z: 0}
   downwardForce: 1
   currentGunPosition: {x: 0, y: 0, z: 0}
