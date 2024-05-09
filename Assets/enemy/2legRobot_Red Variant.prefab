@@ -255,6 +255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2legRobot_Red Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6f28e91d0666587429348a08db512cb9, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1816588722248330495, guid: 6f28e91d0666587429348a08db512cb9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

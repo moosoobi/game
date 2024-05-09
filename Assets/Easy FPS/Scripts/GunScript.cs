@@ -408,8 +408,9 @@ public class GunScript : MonoBehaviour {
 	public void Throwing1(){
 		
 		Emp = Instantiate(EmpPrefab, launchPoint.position, launchPoint.rotation);
-		EmpPrefab.SetActive(false);
+		
 		rb = Emp.GetComponent<Rigidbody>();	
+		Emp.GetComponent<Emp>().Detect=true;
 		Vector3 launchDirection = launchPoint.forward*1.3f+launchPoint.up;
 		rb.velocity = launchDirection * launchSpeed;
 		press=false;
