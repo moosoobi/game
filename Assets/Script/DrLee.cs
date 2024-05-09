@@ -37,6 +37,7 @@ public class DrLee : MonoBehaviour
     public bool IfBuy=false;
     public bool zzz=false;
     public bool first=true;
+    public bool Second=true;
     public bool Approch=false;
     public Transform playerTransform; // 플레이어의 Transform
     public float ApprochSpeed = 3f; // 이동 속도
@@ -63,6 +64,7 @@ public class DrLee : MonoBehaviour
     public GameObject HealKitBuy;
     public GameObject UpgradeBuy;
     public GameObject ChipSetBuy;
+    public GameObject RoadEnemy;
     public bool MovingBool=true;
     public bool RotiationBool=true;
     
@@ -74,6 +76,7 @@ public class DrLee : MonoBehaviour
     {
         
         if(Approch){
+            Second=true;
             Vector3 directionToPlayer = playerTransform.position - transform.position;
             directionToPlayer.y = 0f; // Y축 방향은 무시 (수평 방향으로만 회전)
 
@@ -102,8 +105,9 @@ public class DrLee : MonoBehaviour
                 Approch=false;
                 navMeshAgent.isStopped = true;
                 StartConversation();
+                LeeAni.Play("Stay", 0, 0.0f);
             }
-        }
+        }else{if(Second){LeeAni.Play("Stay", 0, 0.0f);Second=false;}}
         
         Chip=GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt;
         ChipIntUi.text=Chip.ToString();
@@ -180,7 +184,7 @@ public class DrLee : MonoBehaviour
 
             // 새로 계산된 위치로 anchoredPosition 설정
             uiRectTransform.anchoredPosition = newPosition;
-            if(currentX>-540f&&currentX<-440f&&currentY>-340f&&currentY<-290f){
+            if(currentX>-570f&&currentX<-410f&&currentY>-350f&&currentY<-270f){
                 if (Input.GetMouseButtonDown(0)){
                     Buy.SetActive(false);
                     Cursur.SetActive(false);
@@ -564,6 +568,7 @@ public class DrLee : MonoBehaviour
                 Stage=1;
                 Approch=true;
                 first=false;
+                RoadEnemy.SetActive(false);
             }
                
         }

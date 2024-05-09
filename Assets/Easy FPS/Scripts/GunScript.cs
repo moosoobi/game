@@ -40,7 +40,8 @@ public class GunScript : MonoBehaviour {
 	public bool zcross1=true;
 	public bool talking=false;
 	public bool IfCross=false;
-	
+	public bool Upgrade=false;
+	private bool first=true;
 
 	/*
 	 * Collection the variables upon awake that we need.
@@ -48,6 +49,7 @@ public class GunScript : MonoBehaviour {
 	void Awake(){
 
 		IfCross=GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().IfCross;
+		
 		if(cross){cross.SetActive(false);}
 		if(cross1){cross1.SetActive(false);}
 		mls = GameObject.FindGameObjectWithTag("Player").GetComponent<MouseLookScript>();
@@ -94,6 +96,8 @@ public class GunScript : MonoBehaviour {
 	Update loop calling for methods that are descriped below where they are initiated.
 	*/
 	void Update(){
+		Upgrade=GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().Upgrade;
+		if(Upgrade){if(first){first=false;amountOfBulletsPerLoad=20;bulletsInTheGun=20;}}
 		currentgun=GameObject.FindGameObjectWithTag("Player").GetComponent<GunInventory>().currentGun.name;
 
 		if(IfCross){

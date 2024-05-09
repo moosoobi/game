@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 public enum MenuStyle{
 	horizontal,vertical
@@ -26,6 +27,12 @@ public class GunInventory : MonoBehaviour {
 	public GunPick gunpick;
 	public bool IfKey=false;
 	public bool IfCard=false;
+	public int Emp=0;
+	public int FakeBody=0;
+	public int HealKit=0;
+	public TextMeshProUGUI UiText;
+    public GameObject UiObject;
+	public PlayerHp playerhp;
 	/*
 	 * Calling the method that will update the icons of our guns if we carry any upon start.
 	 * Also will spawn a weapon upon start.
@@ -54,6 +61,10 @@ public class GunInventory : MonoBehaviour {
 	 * overcomes 0.0f. 
 	 */
 	void Update(){
+		Emp=player.GetComponent<PlayerMovementScript>().Emp;
+		FakeBody=player.GetComponent<PlayerMovementScript>().FakeBody;
+		HealKit=player.GetComponent<PlayerMovementScript>().HealKit;
+
 		if(CanMove){
 			player.GetComponent<MouseLookScript>().enabled = false;
         	player.GetComponent<PlayerMovementScript>().enabled = false;
@@ -121,11 +132,17 @@ public class GunInventory : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Alpha1) ){
 			switchWeaponCooldown = 0;
 			currentGunCounter = 0;
+			
 			StartCoroutine("Spawn",currentGunCounter);
 		}
 		if(Input.GetKeyDown(KeyCode.Alpha2) &&GunBool){
 			switchWeaponCooldown = 0;
 			currentGunCounter = 1;
+			StartCoroutine("Spawn",currentGunCounter);
+		}
+		if(Input.GetKeyDown(KeyCode.Alpha3) && currentGunCounter != 4&&Emp>0){
+			switchWeaponCooldown = 0;
+			currentGunCounter = 4;
 			StartCoroutine("Spawn",currentGunCounter);
 		}
 		if(Input.GetKeyDown(KeyCode.Alpha3) && currentGunCounter != 2&&IfKey){
@@ -138,9 +155,31 @@ public class GunInventory : MonoBehaviour {
 			currentGunCounter = 3;
 			StartCoroutine("Spawn",currentGunCounter);
 		}
+		if(Input.GetKeyDown(KeyCode.Alpha4) && currentGunCounter != 5&&FakeBody>0){
+			switchWeaponCooldown = 0;
+			currentGunCounter = 5;
+			StartCoroutine("Spawn",currentGunCounter);
+		}
+		if(Input.GetKeyDown(KeyCode.Alpha5) &&HealKit>0){
+			UiObject.SetActive(true);
+			UiText.text="Hp회복!";
+			StartCoroutine(ExecuteAfterDelayText(3f)); 
+			HealKit-=1;
+			player.GetComponent<PlayerMovementScript>().HealKit--;
+			playerhp.PlayerCurHp+=300f;
+			playerhp.UpdateHealth(0);
+			
+		}
 		
 
 	}
+	private IEnumerator ExecuteAfterDelayText(float delayInSeconds)
+    {
+        // 일정 시간만큼 대기
+        yield return new WaitForSeconds(delayInSeconds);
+        UiObject.SetActive(false);
+        
+    }
 	public void ChangeWeapon1(){
 		switchWeaponCooldown = 0;
 		StartCoroutine("Spawn",0);
@@ -150,6 +189,7 @@ public class GunInventory : MonoBehaviour {
 	 * It will check if we carry a gun and destroy it, and its then going to load a gun prefab from our Resources Folder.
 	 */
 	IEnumerator Spawn(int _redniBroj){
+		Debug.Log(currentGunCounter);
 		if (weaponChanging)
 			weaponChanging.Play ();
 		else
@@ -185,6 +225,24 @@ public class GunInventory : MonoBehaviour {
 				AssignHandsAnimator(currentGun);
 			}
 			else if(currentGun.name.Contains("Card")){
+				
+				yield return new WaitForSeconds(0.6f);//1
+				Destroy(currentGun);
+
+				GameObject resource = (GameObject) Resources.Load(gunsIHave[_redniBroj].ToString());
+				currentGun = (GameObject) Instantiate(resource, transform.position, /*gameObject.transform.rotation*/Quaternion.identity);
+				AssignHandsAnimator(currentGun);
+			}
+			else if(currentGun.name.Contains("Emp")){
+				
+				yield return new WaitForSeconds(0.6f);//1
+				Destroy(currentGun);
+
+				GameObject resource = (GameObject) Resources.Load(gunsIHave[_redniBroj].ToString());
+				currentGun = (GameObject) Instantiate(resource, transform.position, /*gameObject.transform.rotation*/Quaternion.identity);
+				AssignHandsAnimator(currentGun);
+			}
+			else if(currentGun.name.Contains("FakeBody")){
 				
 				yield return new WaitForSeconds(0.6f);//1
 				Destroy(currentGun);

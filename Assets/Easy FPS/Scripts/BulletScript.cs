@@ -12,6 +12,7 @@ public class BulletScript : MonoBehaviour {
     {
 
         Upgrade= GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().Upgrade;
+        if(Upgrade){maxSpeed=60f;}
         MoveBullet();
         Invoke("DeactivateAfterDelay", 10f);
     }

@@ -123,7 +123,7 @@ public class PlayerHp : MonoBehaviour
         if(!Die){
             // 현재 HP 갱신
             PlayerCurHp += newHP;
-
+            if(PlayerCurHp>=1000){PlayerCurHp=1000;}
             // 슬라이더에 반영
             healthSlider.value = PlayerCurHp;
             if(newHP!=0){StartCoroutine(Hit());}
