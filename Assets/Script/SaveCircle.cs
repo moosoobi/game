@@ -31,6 +31,8 @@ public class SaveCircle : MonoBehaviour
                     StopAllAudioSources();
                     UrgentSound.Play();
                     if(DoorAni){DoorAni.Play("Door2Open", 0, 0.0f);}
+                    Save.SetActive(true);
+                    gameObject.SetActive(false);
                 }
             
                 if(stage==1){
@@ -49,6 +51,7 @@ public class SaveCircle : MonoBehaviour
                 }else{
                     Save.SetActive(true);
                     gameObject.SetActive(false);
+                    
                 }
                 
                 

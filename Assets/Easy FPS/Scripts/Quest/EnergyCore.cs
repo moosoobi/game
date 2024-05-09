@@ -225,7 +225,7 @@ public class EnergyCore: Quest
     }
     private IEnumerator DoorClose(){
         yield return new WaitForSeconds(3f);
-        for(int i=0;i<9;i++){
+        for(int i=0;i<8;i++){
             myDoor[i].Play("DoorClose", 0, 0.0f);
         }
     }

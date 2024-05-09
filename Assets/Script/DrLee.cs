@@ -79,13 +79,20 @@ public class DrLee : MonoBehaviour
 
             // 방향 벡터를 바탕으로 회전 값을 생성합니다.
             Quaternion targetRotation = Quaternion.LookRotation(-1*directionToPlayer);
-
+            float angleDifference = Quaternion.Angle(player.transform.rotation, targetRotation);
+            if (angleDifference <= 5.0f)
+            {
+                RotiationBool = false;
+            }
             // NPC의 회전을 부드럽게 설정합니다.
-            player.transform.rotation = Quaternion.Slerp(player.transform.rotation, targetRotation, Time.deltaTime);
-            navMeshAgent.SetDestination(player.transform.position);
+            
+            if(MovingBool){navMeshAgent.SetDestination(player.transform.position);}
+            else{navMeshAgent.isStopped = false;}
+            if(RotiationBool){player.transform.rotation = Quaternion.Slerp(player.transform.rotation, targetRotation, Time.deltaTime);}
+            
             if(!Walking){LeeAni.Play("walk", 0, 0.0f);Walking=true;}
-            if(player.transform.rotation == targetRotation){RotiationBool=false;}
             if(Vector3.Distance(transform.position, player.transform.position)<5.0f){MovingBool=false;}
+            
             if(!MovingBool&&!RotiationBool){
                 player.GetComponent<PlayerHp>().PlayerCurHp=1000f;
                 player.GetComponent<PlayerHp>().UpdateHealth(0);

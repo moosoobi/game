@@ -28,6 +28,7 @@ public class Lever : MonoBehaviour
     public GameObject Key;
     public GameObject Help;
     public TextMeshProUGUI HelpText;
+    private bool  clear=false;
 
     
     void Start()
@@ -41,7 +42,8 @@ public class Lever : MonoBehaviour
     {
         if(zzzz){
         if(isFixed){
-            if(Lever1==1&&Lever2==0&&Lever3==3&&Lever4==2){
+            if(Lever1==1&&Lever2==0&&Lever3==3&&Lever4==2&&!clear){
+                clear=true;
                 UiObject.SetActive(true);
                 UiText.text="오른쪽 비상구 표지판에 변화가 생긴 것 같다.";
                 UiText.color=Color.red;

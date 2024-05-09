@@ -12,7 +12,6 @@ public class CoreCircle : MonoBehaviour
     public AudioSource DrawerOpen;
     public GameObject Guide;
     public GameObject Guide1;
-    public TextMeshProUGUI QuestText;
     public TextMeshProUGUI Text2;//questtext
 
 
@@ -33,6 +32,8 @@ public class CoreCircle : MonoBehaviour
             player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0,0);
             player.GetComponent<PlayerMovementScript>().enabled = false;
             core.Circle=true;
+            Guide.SetActive(false);
+            Invoke("Deactivate", 10.0f);
             
             if(Short){
                 myDoor.Play("DoorOpen", 0, 0.0f);

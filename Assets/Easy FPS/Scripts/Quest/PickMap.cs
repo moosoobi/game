@@ -45,7 +45,7 @@ public class PickMap : MonoBehaviour
             if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&First){
                 First=false;
                 Help.SetActive(true);
-                HelpText.text="tab:지도 꺼내기\n/지도 다시넣기";
+                HelpText.text="tab:지도 꺼내기,넣기";
                 MapMark.SetActive(false);
                 GunMark.SetActive(true);
                 Paper.Play();
