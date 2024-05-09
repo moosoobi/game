@@ -4,7 +4,7 @@ using TMPro;
 //using UnityStandardAssets.ImageEffects;
 
 public enum GunStyles{
-	nonautomatic,automatic,hand,nothing
+	nonautomatic,automatic,hand,nothing,emp
 }
 public class GunScript : MonoBehaviour {
 	[Tooltip("Selects type of waepon to shoot rapidly or one bullet per click.")]
@@ -42,6 +42,11 @@ public class GunScript : MonoBehaviour {
 	public bool IfCross=false;
 	public bool Upgrade=false;
 	private bool first=true;
+	public GameObject EmpPrefab; // 수류탄 프리팹
+    public Transform launchPoint; // 발사 위치
+    public float launchSpeed = 10f; // 발사 속도
+	public Vector3 gravity = Physics.gravity;
+	public float downwardForce = 10f; // 아래로 향하는 힘
 
 	/*
 	 * Collection the variables upon awake that we need.
@@ -96,6 +101,9 @@ public class GunScript : MonoBehaviour {
 	Update loop calling for methods that are descriped below where they are initiated.
 	*/
 	void Update(){
+		if(Emp){
+			rb.AddForce(gravity, ForceMode.Acceleration);
+		}
 		Upgrade=GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().Upgrade;
 		if(Upgrade){if(first){first=false;amountOfBulletsPerLoad=20;bulletsInTheGun=20;}}
 		currentgun=GameObject.FindGameObjectWithTag("Player").GetComponent<GunInventory>().currentGun.name;
@@ -384,9 +392,29 @@ public class GunScript : MonoBehaviour {
 				}
 				if (currentStyle == GunStyles.hand) {
 				}
+				if (currentStyle == GunStyles.emp) {
+					if (Input.GetButtonDown ("Fire1")&&!press) {Throwing1();press=true;}
+					
+				}
+
+
 			}
 		}
 		waitTillNextFire -= roundsPerSecond * Time.deltaTime;
+	}
+	GameObject Emp;
+	Rigidbody rb;
+	bool press=false;
+	public void Throwing1(){
+		
+		Emp = Instantiate(EmpPrefab, launchPoint.position, launchPoint.rotation);
+		EmpPrefab.SetActive(false);
+		rb = Emp.GetComponent<Rigidbody>();	
+		Vector3 launchDirection = launchPoint.forward*1.3f+launchPoint.up;
+		rb.velocity = launchDirection * launchSpeed;
+		press=false;
+		
+        
 	}
 
 
@@ -542,8 +570,12 @@ public class GunScript : MonoBehaviour {
 			HUD_bullets = GameObject.Find("HUD_bullets").GetComponent<TextMesh>();
 			HUD_bullets.text = "";
 			
+		}else if(currentStyle == GunStyles.emp){
+			HUD_bullets = GameObject.Find("HUD_bullets").GetComponent<TextMesh>();
+			HUD_bullets.text = "";
 		}
-		if (currentStyle != GunStyles.hand) {
+	
+		else{
 			if(!HUD_bullets){
 				try{
 					HUD_bullets = GameObject.Find("HUD_bullets").GetComponent<TextMesh>();
@@ -592,6 +624,7 @@ public class GunScript : MonoBehaviour {
 	 */
 	
 	void DrawCrosshair(){
+		
 		GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, fadeout_value);
 		if(Input.GetAxis("Fire2") == 0){//if not aiming draw
 			GUI.DrawTexture(new Rect(vec2(left_pos_crosshair).x + position_x(-expandValues_crosshair.x) + Screen.width/2,Screen.height/2 + vec2(left_pos_crosshair).y, vec2(size_crosshair_horizontal).x, vec2(size_crosshair_horizontal).y), vertical_crosshair);//left
