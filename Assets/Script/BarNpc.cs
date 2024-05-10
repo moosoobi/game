@@ -34,7 +34,7 @@ public class BarNpc : MonoBehaviour
             }else if(Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==true){
                 EndDialogue();
                 if(Mark){Mark.SetActive(false);}
-                if(Key.Length!=0){
+                if(Key.Length!=1){
                     for(int i=0;i<Key.Length;i++){
                         Key[i].SetActive(false);
                     }

@@ -37,6 +37,7 @@ public class Leg4Robot : MonoBehaviour
     public bool Die=false;
     public bool Ifhit=false;
     public bool IfChip=false;
+    public bool FakeBody=false;
 
     public string Walk;
     public string Shoot;
@@ -60,81 +61,85 @@ public class Leg4Robot : MonoBehaviour
 
         if(!Die){
             if(Z){
-                if(Ifhit){
-                    
-                    if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
-                        RaycastHit hit;
-                        if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
-                        {
-                            
-                            if(hit.collider.gameObject.name=="Player"){
-                                navMeshAgent.isStopped = true;
-                                Reg4.Play(Shoot, 0, 0.0f);
-                                if(!IfAttacking){Attacking();IfAttacking=true;}
-                            }
-                            else{
-                               
-                                if(!IfWalking){Walking();IfWalking=true;}
-                                navMeshAgent.SetDestination(player.transform.position);
-                            }   
-                        }
-                    }else if(Vector3.Distance(transform.position, player.transform.position)>=AttackRange){
-                       
-                        if(!IfWalking){Walking();IfWalking=true;}
-                        navMeshAgent.SetDestination(player.transform.position);
-                    }
-                }
-                else if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
-                    Vector3 directionToPlayer = player.transform.position - transform.position;
-                    directionToPlayer.y = 0f; // Y축 방향은 무시 (수평 방향으로만 회전)
-                    // 방향 벡터를 바탕으로 회전 값 생성
-                    Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
-                    // 적의 회전을 부드럽게 설정
-                    transform.rotation = targetRotation;
-                    RaycastHit hit;
-                        if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
-                        {
-                            //Debug.Log(hit.collider.gameObject.name);
-                            if(hit.collider.gameObject.name=="Player"){if(!IfAttacking){Attacking();IfAttacking=true;}}
-                            
-                        }
-                                
-                                
-                }else if(Vector3.Distance(transform.position, player.transform.position)<DetectRange){
-                    Vector3 playerToEnemy = player.transform.position - transform.position;
-                    Vector3 playerForward = transform.forward;
-                    float angle = Vector3.Angle(playerForward, playerToEnemy);
-                    //Debug.Log(angle);
-                    if(angle < 120f){
+                if(FakeBody){}
+                else{
+                        if(Ifhit){
                         
-                        RaycastHit hit;
-                        if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
-                        {
-                            if(hit.collider.gameObject.name=="Player"){
-                               
-                                if(Vector3.Distance(transform.position, player.transform.position)<DetectRange){
+                        if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
+                            RaycastHit hit;
+                            if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
+                            {
+                                
+                                if(hit.collider.gameObject.name=="Player"){
+                                    navMeshAgent.isStopped = true;
+                                    Reg4.Play(Shoot, 0, 0.0f);
+                                    if(!IfAttacking){Attacking();IfAttacking=true;}
+                                }
+                                else{
+                                
                                     if(!IfWalking){Walking();IfWalking=true;}
                                     navMeshAgent.SetDestination(player.transform.position);
-                                }else{
-                                    if (navMeshAgent.isActiveAndEnabled && navMeshAgent.isOnNavMesh)
-                                    {
-                                        navMeshAgent.isStopped = true;
-                                    }
+                                }   
+                            }
+                        }else if(Vector3.Distance(transform.position, player.transform.position)>=AttackRange){
+                        
+                            if(!IfWalking){Walking();IfWalking=true;}
+                            navMeshAgent.SetDestination(player.transform.position);
+                        }
+                    }
+                    else if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
+                        Vector3 directionToPlayer = player.transform.position - transform.position;
+                        directionToPlayer.y = 0f; // Y축 방향은 무시 (수평 방향으로만 회전)
+                        // 방향 벡터를 바탕으로 회전 값 생성
+                        Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+                        // 적의 회전을 부드럽게 설정
+                        transform.rotation = targetRotation;
+                        RaycastHit hit;
+                            if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
+                            {
+                                //Debug.Log(hit.collider.gameObject.name);
+                                if(hit.collider.gameObject.name=="Player"){if(!IfAttacking){Attacking();IfAttacking=true;}}
+                                
+                            }
+                                    
+                                    
+                    }else if(Vector3.Distance(transform.position, player.transform.position)<DetectRange){
+                        Vector3 playerToEnemy = player.transform.position - transform.position;
+                        Vector3 playerForward = transform.forward;
+                        float angle = Vector3.Angle(playerForward, playerToEnemy);
+                        //Debug.Log(angle);
+                        if(angle < 120f){
+                            
+                            RaycastHit hit;
+                            if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
+                            {
+                                if(hit.collider.gameObject.name=="Player"){
+                                
+                                    if(Vector3.Distance(transform.position, player.transform.position)<DetectRange){
+                                        if(!IfWalking){Walking();IfWalking=true;}
+                                        navMeshAgent.SetDestination(player.transform.position);
+                                    }else{
+                                        if (navMeshAgent.isActiveAndEnabled && navMeshAgent.isOnNavMesh)
+                                        {
+                                            navMeshAgent.isStopped = true;
+                                        }
 
-                                    if(!IfIdle){Idle();IfIdle=true;}
+                                        if(!IfIdle){Idle();IfIdle=true;}
+                                    }
                                 }
                             }
-                        }
-                    }else{
-                        if (navMeshAgent.isActiveAndEnabled && navMeshAgent.isOnNavMesh)
-                        {
-                            navMeshAgent.isStopped = true;
-                        }
+                        }else{
+                            if (navMeshAgent.isActiveAndEnabled && navMeshAgent.isOnNavMesh)
+                            {
+                                navMeshAgent.isStopped = true;
+                            }
 
-                        if(!IfIdle){Idle();IfIdle=true;}
-                    }
+                            if(!IfIdle){Idle();IfIdle=true;}
+                        }
+                    
+                }
+                }
                 
-            }
                 /*
                 if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
                     if(!IfAttacking){Attacking();IfAttacking=true;}
@@ -192,6 +197,12 @@ public class Leg4Robot : MonoBehaviour
         Reg4.Play(Walk, 0, 0.0f);
         FistMoving=true;
     }
+    public void FakeBody1(GameObject targetDestination){
+        FakeBody=true;
+        navMeshAgent.isStopped = false;
+        navMeshAgent.SetDestination(targetDestination.transform.position);
+        StartCoroutine(FakeBody2(5.0f));
+    }
     public void Active(){
         Z=true;
     }
@@ -241,6 +252,13 @@ public class Leg4Robot : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         transform.position=RespawnSpot.position;
         transform.rotation=RespawnSpot.rotation;
+    }
+    private IEnumerator FakeBody2(float delayInSeconds)
+    {
+        
+        yield return new WaitForSeconds(delayInSeconds);
+        FakeBody=false;
+        
     }
     private IEnumerator ExecuteAfterDelayCoolTime(float delayInSeconds)
     {

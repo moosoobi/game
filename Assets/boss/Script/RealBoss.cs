@@ -48,6 +48,7 @@ public class RealBoss : MonoBehaviour
     public Material Black;
     public Material GlassM;
     public Material Under;
+    public Material Trans;
     public TextMeshProUGUI Text;
     public string Description;
     public TextMeshProUGUI QuestText;
@@ -95,10 +96,11 @@ public class RealBoss : MonoBehaviour
     public AudioSource BossBg;
     public GameObject Guide;
     public GameObject ShootGuide;
-
+    public GameObject BossWord1;
+    public GameObject BossWord2;
     private void Start()
     {
-        Loading.loopPointReached += OnVideoEnd;
+        
         rend1 = Screen1.GetComponent<Renderer>();//left
         rend2 = Screen2.GetComponent<Renderer>();//right
         rend3 = Screen3.GetComponent<Renderer>();//main   
@@ -172,8 +174,9 @@ public class RealBoss : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
     }
-    private void OnVideoEnd(VideoPlayer vp)
+    private IEnumerator Loading1()
     {
+        yield return new WaitForSeconds(14f);
         BlackScreen.SetActive(false);
         Monitor.SetActive(false);
         rend1.material = Blue;
@@ -183,7 +186,8 @@ public class RealBoss : MonoBehaviour
     }
 
     public void touchboss(){
-        
+        BossWord1.SetActive(true);
+        BossWord2.SetActive(true);
         Turn_Off.SetActive(true);
         BlackScreen.SetActive(true);
         Monitor.SetActive(true);
@@ -193,6 +197,7 @@ public class RealBoss : MonoBehaviour
         player.GetComponent<PlayerMovementScript>().enabled = false;
         Look=true;
         StartCoroutine(ErrorEffect());
+        StartCoroutine(Loading1());
 
     }
     public void LightOn(){
@@ -216,6 +221,7 @@ public class RealBoss : MonoBehaviour
         Look=false;
         alive=false;
         rend1.material=Black;
+        
         rend2.material=Black;
         rend3.material=Black;
         rend4.material=Black;
@@ -223,6 +229,8 @@ public class RealBoss : MonoBehaviour
         NoiseVideo1.SetActive(true);
         NoiseVideo2.SetActive(true);
         NoiseVideo3.SetActive(true);
+        BossWord1.SetActive(false);
+        BossWord2.SetActive(false);
         BossAni.enabled=true;
         BossAni.Play("death", 0, 0.0f);
         SpotLight.enabled=false;
@@ -433,52 +441,65 @@ public class RealBoss : MonoBehaviour
         
         if(currentPatternIndex==0){
             Text1.SetActive(true);
+            rend1.material=Trans;
+            NoiseVideo1.SetActive(true);
             text1.text=" 메인 컴퓨터가 바닥을 훑는 레이저를 발사합니다.";
-            rend2.material = Yellow;
             yield return new WaitForSeconds(3.0f);
             StartCoroutine(ExecuteAfterDelayText(3f));
             LazerAttack();
             yield return new WaitForSeconds(10.0f);
-            rend2.material=Black;
+            NoiseVideo1.SetActive(false);
+            rend1.material=Blue;
+            
         }else if(currentPatternIndex==1){
             Text1.SetActive(true);
+            rend2.material=Trans;
+            NoiseVideo2.SetActive(true);
             text1.text="메인 컴퓨터가 강력한 에너지볼을 방출합니다.";
-            rend1.material=Blue;
             yield return new WaitForSeconds(3.0f);
             StartCoroutine(ExecuteAfterDelayText(3f));
             Invoke("StopSpawningObstacles", 18f);
             InvokeRepeating("BulletAttack", 0f, 1f);
             
             yield return new WaitForSeconds(18f);
-            rend1.material=Black;
+            NoiseVideo2.SetActive(false);
+            rend2.material=Yellow;
         }else if(currentPatternIndex==2){
             Text1.SetActive(true);
             text1.text="메인 컴퓨터가 전투로봇을 호출합니다.";
-            rend3.material=Pink;
+            rend3.material=Trans;
+            NoiseVideo3.SetActive(true);
             yield return new WaitForSeconds(3.0f);
             StartCoroutine(ExecuteAfterDelayText(3f));
             FightRobot();
             yield return new WaitForSeconds(10.0f);
-            rend3.material=Black;
+            NoiseVideo3.SetActive(false);
+            rend3.material=Pink;
         }else if(currentPatternIndex==3){
-            rend2.material = Yellow;
+            rend1.material=Trans;
+            NoiseVideo1.SetActive(true);
             yield return new WaitForSeconds(3.0f);
             LazerAttack();
             yield return new WaitForSeconds(10.0f);
-            rend2.material=Black;
-        }else if(currentPatternIndex==4){
+            NoiseVideo1.SetActive(false);
             rend1.material=Blue;
+        }else if(currentPatternIndex==4){
+            rend2.material=Trans;
+            NoiseVideo2.SetActive(true);
             yield return new WaitForSeconds(3.0f);
             Invoke("StopSpawningObstacles", 18f);
             InvokeRepeating("BulletAttack", 0f, 3f);
             yield return new WaitForSeconds(18f);
-            rend1.material=Black;
+            NoiseVideo2.SetActive(false);
+            rend2.material=Yellow;
         }else if(currentPatternIndex==5){
-            rend3.material=Pink;
+            rend3.material=Trans;
+            NoiseVideo3.SetActive(true);
             yield return new WaitForSeconds(3.0f);
             FightRobot();
             yield return new WaitForSeconds(10.0f);
-            rend3.material=Black;
+            NoiseVideo3.SetActive(false);
+            rend3.material=Pink;
         }
         else if(currentPatternIndex==6){
             
@@ -539,27 +560,33 @@ public class RealBoss : MonoBehaviour
                 isAttacking=false;
             }
         }else if(currentPatternIndex==7){
+            rend1.material=Blue;
+            NoiseVideo1.SetActive(true);
             
-            rend2.material = Yellow;
             yield return new WaitForSeconds(3.0f);
             LazerAttack();
             Lazer.GetComponent<BossLazer>().rotationSpeed=80;
             yield return new WaitForSeconds(10.0f);
-            rend2.material=Black;
-        }else if(currentPatternIndex==8){
+            NoiseVideo1.SetActive(false);
             rend1.material=Blue;
+        }else if(currentPatternIndex==8){
+            rend2.material=Yellow;
+            NoiseVideo2.SetActive(true);
             yield return new WaitForSeconds(3.0f);
             Invoke("StopSpawningObstacles", 18f);
             InvokeRepeating("BulletAttack", 0f, 1f);
             
             yield return new WaitForSeconds(18f);
-            rend1.material=Black;
+            NoiseVideo2.SetActive(false);
+            rend2.material=Yellow;
         }else if(currentPatternIndex==9){
             rend3.material=Pink;
+            NoiseVideo3.SetActive(true);
             yield return new WaitForSeconds(3.0f);
             FightRobot2();
             yield return new WaitForSeconds(10.0f);
-            rend3.material=Black;
+            NoiseVideo3.SetActive(false);
+            rend3.material=Pink;
         }
     }
     void StopSpawningObstacles()
@@ -590,41 +617,43 @@ public class RealBoss : MonoBehaviour
     }
     public void UpdateHealth(float newHP)
     {
+        if(clear){
+                // 현재 HP 갱신
+            BossHp += newHP;
 
-        // 현재 HP 갱신
-        BossHp += newHP;
-
-        // 슬라이더에 반영
-        BossSlider.value = BossHp;
-        if(!Under50){
-            if (BossHp <= 50f)
+            // 슬라이더에 반영
+            BossSlider.value = BossHp;
+            if(!Under50){
+                if (BossHp <= 50f)
+                {
+                    touch=false;
+                    
+                    StartCoroutine(Execute(6));
+                    clear=false;
+                    Lazer.SetActive(false);
+                    CancelInvoke("BulletAttack");
+                    StopCoroutine(currentCoroutine);
+                    isAttacking=false;
+                    
+                    
+                }
+            }
+            
+            
+            if (BossHp == 30f)
             {
-                touch=false;
-                
-                StartCoroutine(Execute(6));
-                clear=false;
-                Lazer.SetActive(false);
-                CancelInvoke("BulletAttack");
+                Under30=true;
+                Text1.SetActive(true);
+                text1.text="메인 컴퓨터가 2단계 보호 모드로 전환되었습니다. 더욱 강력한 에너지가 방출됩니다. ";
+                StartCoroutine(ExecuteAfterDelayText(3f));
+            }
+            if (BossHp <= 0f)
+            {
+                StartCoroutine(die());
                 StopCoroutine(currentCoroutine);
-                isAttacking=false;
-                
-                
             }
         }
         
-        
-        if (BossHp == 30f)
-        {
-            Under30=true;
-            Text1.SetActive(true);
-            text1.text="메인 컴퓨터가 2단계 보호 모드로 전환되었습니다. 더욱 강력한 에너지가 방출됩니다. ";
-            StartCoroutine(ExecuteAfterDelayText(3f));
-        }
-        if (BossHp <= 0f)
-        {
-            StartCoroutine(die());
-            StopCoroutine(currentCoroutine);
-        }
     }
 
     public void ReStart(){
@@ -640,9 +669,9 @@ public class RealBoss : MonoBehaviour
         CancelInvoke("BulletAttack");
         StopCoroutine(currentCoroutine);
         isAttacking=false;
-        rend1.material=Black;
-        rend2.material=Black;
-        rend3.material=Black;
+        rend1.material=Blue;
+        rend2.material=Yellow;
+        rend3.material=Pink;
         currentPatternIndex=0;
         
     }
@@ -690,9 +719,9 @@ public class RealBoss : MonoBehaviour
         
         yield return new WaitForSeconds(1f);
         light.enabled=false;
-        rend1.material=Black;
-        rend2.material=Black;
-        rend3.material=Black;
+        rend1.material=Blue;
+        rend2.material=Yellow;
+        rend3.material=Pink;
         warningsound.Stop();
         
         light.enabled=true;

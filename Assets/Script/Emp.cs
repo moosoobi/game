@@ -5,7 +5,6 @@ using UnityEngine;
 public class Emp : MonoBehaviour
 {
     public float explosionRadius = 5f; // 폭발 범위
-    public int damage = 50; // 입힐 데미지
     public bool Detect=false;
     public GameObject effect;
 
@@ -38,6 +37,8 @@ public class Emp : MonoBehaviour
             if(collider.name.Contains("Blue")){collider.GetComponent<Leg2RobotBlue>().Hp=0;}
             if(collider.name.Contains("Red")){collider.GetComponent<Leg2RobotRed>().Hp=0;}
             if(collider.name.Contains("4leg")){collider.GetComponent<Leg4Robot>().Hp=0;}
+            if(collider.name.Contains("boss_rig2")){collider.GetComponent<RealBoss>().UpdateHealth(-5f);}
+            if(collider.name.Contains("fixingDrone")){collider.GetComponent<FixingDrone>().UpdateHealth(-1f);}
         }
     }
 }

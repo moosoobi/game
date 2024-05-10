@@ -4,7 +4,7 @@ using TMPro;
 //using UnityStandardAssets.ImageEffects;
 
 public enum GunStyles{
-	nonautomatic,automatic,hand,nothing,emp
+	nonautomatic,automatic,hand,nothing,emp,fakebody
 }
 public class GunScript : MonoBehaviour {
 	[Tooltip("Selects type of waepon to shoot rapidly or one bullet per click.")]
@@ -382,18 +382,37 @@ public class GunScript : MonoBehaviour {
 			if(!talking){
 				if (currentStyle == GunStyles.nonautomatic) {
 				if (Input.GetButtonDown ("Fire1")) {
-					ShootMethod ();
+					
+					if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().running==false){
+						ShootMethod ();
+					}
 				}
 				}
 				if (currentStyle == GunStyles.automatic) {
 					if (Input.GetButton ("Fire1")) {
-						ShootMethod ();
+						if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().running==false){
+							ShootMethod ();
+						}
 					}
 				}
 				if (currentStyle == GunStyles.hand) {
 				}
 				if (currentStyle == GunStyles.emp) {
-					if (Input.GetButtonDown ("Fire1")&&!press) {Throwing1();press=true;}
+					if (Input.GetButtonDown ("Fire1")&&!press) {
+						GameObject.FindGameObjectWithTag("Player").GetComponent<GunInventory>().ChangeWeapon2();
+						Throwing1();
+						press=true;
+						GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().Emp--;
+					}
+					
+				}
+				if (currentStyle == GunStyles.fakebody) {
+					if (Input.GetButtonDown ("Fire1")&&!press) {
+						GameObject.FindGameObjectWithTag("Player").GetComponent<GunInventory>().ChangeWeapon2();
+						Throwing2();
+						press=true;
+						GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().FakeBody--;
+					}
 					
 				}
 
@@ -414,7 +433,19 @@ public class GunScript : MonoBehaviour {
 		Vector3 launchDirection = launchPoint.forward*1.3f+launchPoint.up;
 		rb.velocity = launchDirection * launchSpeed;
 		press=false;
+		gameObject.SetActive(false);
+        
+	}
+	public void Throwing2(){
 		
+		Emp = Instantiate(EmpPrefab, launchPoint.position, launchPoint.rotation);
+		
+		rb = Emp.GetComponent<Rigidbody>();	
+		Emp.GetComponent<FakeBody>().Detect=true;
+		Vector3 launchDirection = launchPoint.forward*1.3f+launchPoint.up;
+		rb.velocity = launchDirection * launchSpeed;
+		press=false;
+		gameObject.SetActive(false);
         
 	}
 

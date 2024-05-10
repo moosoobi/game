@@ -44,9 +44,9 @@ public class EleDoor : MonoBehaviour
                     openTrigger=false;
                     if (DrawerOpen)
                     DrawerOpen.Play ();
-                    UiObject.SetActive(true);
-                    UiText.text="키패드를 이용해 층수를 입력하십시오.";
-                    StartCoroutine(ExecuteAfterDelayText(3f));
+                    //UiObject.SetActive(true);
+                    //UiText.text="키패드를 이용해 층수를 입력하십시오.";
+                    //StartCoroutine(ExecuteAfterDelayText(3f));
             }
         }
         
