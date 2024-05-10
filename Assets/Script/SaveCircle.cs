@@ -48,7 +48,21 @@ public class SaveCircle : MonoBehaviour
                         UiObject.SetActive(false);
                         Boss.touchboss();
                     }
-                }else{
+                }if(stage==2){
+                    UiObject.SetActive(true);
+                    UiText.text="Hp회복!";
+                    StartCoroutine(ExecuteAfterDelayText(3f)); 
+                    playerhp.stage=stage;
+                    playerhp.PlayerCurHp=1000f;
+                    playerhp.UpdateHealth(0);
+                    Save.SetActive(true);
+                    Guide.SetActive(false);
+                    if(Boss){
+                        UiObject.SetActive(false);
+                        Boss.touchboss();
+                    }
+                }
+                else{
                     Save.SetActive(true);
                     gameObject.SetActive(false);
                     
