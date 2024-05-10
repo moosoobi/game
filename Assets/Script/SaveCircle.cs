@@ -43,7 +43,7 @@ public class SaveCircle : MonoBehaviour
                     playerhp.PlayerCurHp=1000f;
                     playerhp.UpdateHealth(0);
                     Save.SetActive(true);
-                    Guide.SetActive(false);
+                    
                     if(Boss){
                         UiObject.SetActive(false);
                         Boss.touchboss();

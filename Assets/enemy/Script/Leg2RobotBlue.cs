@@ -29,6 +29,7 @@ public class Leg2RobotBlue : MonoBehaviour
     public bool back=true;
     public bool Ifhit=false;
     public bool IfChip=false;
+    public bool FakeBody=false;
 
     public string Walk;
     public string Slash;
@@ -54,7 +55,9 @@ public class Leg2RobotBlue : MonoBehaviour
         
         if(!Die){
             if(Z){
-                if(Ifhit){
+                if(FakeBody){}
+                else{
+                    if(Ifhit){
                      if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
                         RaycastHit hit;
                         if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
@@ -115,6 +118,8 @@ public class Leg2RobotBlue : MonoBehaviour
                     }
                 
             }
+            }
+                
  
         }
             if(FistMoving){
@@ -147,7 +152,12 @@ public class Leg2RobotBlue : MonoBehaviour
 
     }
 
-
+    public void FakeBody1(GameObject targetDestination){
+        FakeBody=true;
+        navMeshAgent.isStopped = false;
+        navMeshAgent.SetDestination(targetDestination.transform.position);
+        StartCoroutine(FakeBody2(5.0f));
+    }
     public void Active(){
         Z=true;
     }
@@ -216,6 +226,13 @@ public class Leg2RobotBlue : MonoBehaviour
         yield return new WaitForSeconds(delayInSeconds);
         Z=true;
         IfAttacking=false;
+        
+    }
+    private IEnumerator FakeBody2(float delayInSeconds)
+    {
+        
+        yield return new WaitForSeconds(delayInSeconds);
+        FakeBody=false;
         
     }
     private IEnumerator Death()

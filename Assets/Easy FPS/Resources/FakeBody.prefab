@@ -876,7 +876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a804723bdccf04fca985e160ab5f88d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentStyle: 4
+  currentStyle: 5
   mls: {fileID: 0}
   walkingSpeed: 4
   runningSpeed: 10
@@ -889,10 +889,10 @@ MonoBehaviour:
   talking: 0
   IfCross: 0
   Upgrade: 0
-  EmpPrefab: {fileID: 291775342184409416}
+  EmpPrefab: {fileID: 1631188957230394682, guid: a72d1bc81dcfb644388f3aed1f98947f, type: 3}
   launchPoint: {fileID: 7214968844136621675}
-  launchSpeed: 5
-  gravity: {x: 0, y: -30, z: 0}
+  launchSpeed: 15
+  gravity: {x: 0, y: -10, z: 0}
   downwardForce: 10
   currentGunPosition: {x: 0, y: 0, z: 0}
   restPlacePosition: {x: -0.07, y: -0.06, z: 0.4}

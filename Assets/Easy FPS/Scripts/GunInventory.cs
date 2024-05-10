@@ -184,6 +184,11 @@ public class GunInventory : MonoBehaviour {
 		switchWeaponCooldown = 0;
 		StartCoroutine("Spawn",0);
 	}
+	public void ChangeWeapon2(){
+		switchWeaponCooldown = 0;
+		currentGunCounter = 1;
+		StartCoroutine("Spawn",currentGunCounter);
+	}
 	/*
 	 * This method is called from Create_Weapon() upon pressing arrow up/down or scrolling the mouse wheel,
 	 * It will check if we carry a gun and destroy it, and its then going to load a gun prefab from our Resources Folder.

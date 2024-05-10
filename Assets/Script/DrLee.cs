@@ -569,6 +569,7 @@ public class DrLee : MonoBehaviour
                 Approch=true;
                 first=false;
                 RoadEnemy.SetActive(false);
+                Debug.Log(1);
             }
                
         }

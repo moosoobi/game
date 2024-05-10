@@ -98,7 +98,7 @@ public class RealBoss : MonoBehaviour
 
     private void Start()
     {
-        Loading.loopPointReached += OnVideoEnd;
+        
         rend1 = Screen1.GetComponent<Renderer>();//left
         rend2 = Screen2.GetComponent<Renderer>();//right
         rend3 = Screen3.GetComponent<Renderer>();//main   
@@ -172,8 +172,9 @@ public class RealBoss : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
     }
-    private void OnVideoEnd(VideoPlayer vp)
+    private IEnumerator Loading1()
     {
+        yield return new WaitForSeconds(14f);
         BlackScreen.SetActive(false);
         Monitor.SetActive(false);
         rend1.material = Blue;
@@ -193,6 +194,7 @@ public class RealBoss : MonoBehaviour
         player.GetComponent<PlayerMovementScript>().enabled = false;
         Look=true;
         StartCoroutine(ErrorEffect());
+        StartCoroutine(Loading1());
 
     }
     public void LightOn(){
@@ -590,41 +592,43 @@ public class RealBoss : MonoBehaviour
     }
     public void UpdateHealth(float newHP)
     {
+        if(clear){
+                // 현재 HP 갱신
+            BossHp += newHP;
 
-        // 현재 HP 갱신
-        BossHp += newHP;
-
-        // 슬라이더에 반영
-        BossSlider.value = BossHp;
-        if(!Under50){
-            if (BossHp <= 50f)
+            // 슬라이더에 반영
+            BossSlider.value = BossHp;
+            if(!Under50){
+                if (BossHp <= 50f)
+                {
+                    touch=false;
+                    
+                    StartCoroutine(Execute(6));
+                    clear=false;
+                    Lazer.SetActive(false);
+                    CancelInvoke("BulletAttack");
+                    StopCoroutine(currentCoroutine);
+                    isAttacking=false;
+                    
+                    
+                }
+            }
+            
+            
+            if (BossHp == 30f)
             {
-                touch=false;
-                
-                StartCoroutine(Execute(6));
-                clear=false;
-                Lazer.SetActive(false);
-                CancelInvoke("BulletAttack");
+                Under30=true;
+                Text1.SetActive(true);
+                text1.text="메인 컴퓨터가 2단계 보호 모드로 전환되었습니다. 더욱 강력한 에너지가 방출됩니다. ";
+                StartCoroutine(ExecuteAfterDelayText(3f));
+            }
+            if (BossHp <= 0f)
+            {
+                StartCoroutine(die());
                 StopCoroutine(currentCoroutine);
-                isAttacking=false;
-                
-                
             }
         }
         
-        
-        if (BossHp == 30f)
-        {
-            Under30=true;
-            Text1.SetActive(true);
-            text1.text="메인 컴퓨터가 2단계 보호 모드로 전환되었습니다. 더욱 강력한 에너지가 방출됩니다. ";
-            StartCoroutine(ExecuteAfterDelayText(3f));
-        }
-        if (BossHp <= 0f)
-        {
-            StartCoroutine(die());
-            StopCoroutine(currentCoroutine);
-        }
     }
 
     public void ReStart(){
