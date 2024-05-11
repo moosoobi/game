@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Room.unity
     guid: a04c349ca1b80fc4cb46d9693e341dd8
   - enabled: 1
-    path: Assets/Scenes/Boss.unity
-    guid: b54f211b4de949d4ba3fc925b1986315
+    path: Assets/Scenes/Short.unity
+    guid: 595a2b2674f1a3d49a363fb5e74b507d
   m_configObjects: {}

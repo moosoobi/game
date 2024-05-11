@@ -383,16 +383,18 @@ public class GunScript : MonoBehaviour {
 				if (currentStyle == GunStyles.nonautomatic) {
 				if (Input.GetButtonDown ("Fire1")) {
 					
-					if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().running==false){
-						ShootMethod ();
+					if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().running==true){
+						GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().running=false;
 					}
+					ShootMethod ();
 				}
 				}
 				if (currentStyle == GunStyles.automatic) {
 					if (Input.GetButton ("Fire1")) {
-						if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().running==false){
-							ShootMethod ();
+						if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().running==true){
+							GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().running=false;
 						}
+						ShootMethod ();
 					}
 				}
 				if (currentStyle == GunStyles.hand) {

@@ -12,12 +12,9 @@ public class StartCursur : MonoBehaviour
     public GameObject Hp;
     public GameObject Inven;
     public GameObject Quest;
-    public GameObject player;
     public GameObject OpeningVideo;
     public GameObject Opening;
     public VideoPlayer videoPlayer;
-    public PlayerMovementScript Move;
-    public First_J j;
     public RectTransform uiRectTransform;
     public AudioSource RoomBg;
     public float moveSpeed = 500f;
@@ -28,9 +25,6 @@ public class StartCursur : MonoBehaviour
     /// </summary>
     void Start()
     {
-        player.GetComponent<MouseLookScript>().enabled = false;
-        player.GetComponent<PlayerMovementScript>().enabled = false;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<MouseLookScript>();
         videoPlayer.loopPointReached += OnVideoEnd;
     }
     void Update()
@@ -78,7 +72,7 @@ public class StartCursur : MonoBehaviour
                 StartLogo.SetActive(false);
                 Hp.SetActive(false);
                 Quest.SetActive(false);
-                Move.IfCross=true;
+                
             }
         }
         if(currentX>160&&currentX<440&&currentY>-220&&currentY<-90){
@@ -92,7 +86,7 @@ public class StartCursur : MonoBehaviour
         Opening.SetActive(false);
         Quest.SetActive(true);
         Hp.SetActive(true);
-        j.Starting();
+        
         Inven.SetActive(true);
         RoomBg.Play();
     }
