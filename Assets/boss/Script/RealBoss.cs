@@ -196,9 +196,21 @@ public class RealBoss : MonoBehaviour
         player.GetComponent<PlayerMovementScript>().currentSpeed = 0;
         player.GetComponent<PlayerMovementScript>().enabled = false;
         Look=true;
+        StopAllAudioSources();
         StartCoroutine(ErrorEffect());
         StartCoroutine(Loading1());
 
+    }
+    public void StopAllAudioSources()
+    {
+        // Scene에 있는 모든 AudioSource를 가져옵니다.
+        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+
+        // 모든 AudioSource를 반복하면서 정지시킵니다.
+        foreach (AudioSource audioSource in allAudioSources)
+        {
+            audioSource.Stop();
+        }
     }
     public void LightOn(){
         SpotLight.enabled=true;

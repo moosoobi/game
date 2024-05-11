@@ -565,11 +565,12 @@ public class DrLee : MonoBehaviour
             if(first){
                 player.GetComponent<MouseLookScript>().enabled = false;
                 player.GetComponent<PlayerMovementScript>().enabled = false;
+                player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0,0);
                 Stage=1;
                 Approch=true;
                 first=false;
                 RoadEnemy.SetActive(false);
-                Debug.Log(1);
+                
             }
                
         }
