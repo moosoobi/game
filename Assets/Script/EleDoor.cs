@@ -32,6 +32,7 @@ public class EleDoor : MonoBehaviour
     public AudioSource RadioSound;
     public AudioSource LabBg;
     public GameObject Click;
+    public AudioSource QuestSound;
     
     public BossEle bossele;
     private void OnTriggerEnter(Collider other)
@@ -84,6 +85,7 @@ public class EleDoor : MonoBehaviour
     }
 
     private IEnumerator ChangeColor(){
+        QuestSound.Play();
         for(int i=0;i<3;i++){
             QuestText.color=new Color32(229,255,0,255);
             yield return new WaitForSeconds(0.5f);

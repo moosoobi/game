@@ -38,6 +38,8 @@ public class PickMap : MonoBehaviour
     public GameObject Help;
     public TextMeshProUGUI HelpText;
 
+
+
     void Update()
     {
         
@@ -127,9 +129,9 @@ public class PickMap : MonoBehaviour
     public void QuestActive(){
         Text2.text="책상에서 지도를 획득하십시오.";
         StartCoroutine(ChangeColor());
-        QuestSound.Play();
     }
     private IEnumerator ChangeColor(){
+        QuestSound.Play();
         for(int i=0;i<3;i++){
             QuestText.color=new Color32(229,255,0,255);
             yield return new WaitForSeconds(0.5f);

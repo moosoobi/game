@@ -62,11 +62,6 @@ public class SaveCircle : MonoBehaviour
                         Boss.touchboss();
                     }
                 }
-                else{
-                    Save.SetActive(true);
-                    gameObject.SetActive(false);
-                    
-                }
                 
                 
                 

@@ -67,6 +67,7 @@ public class DrLee : MonoBehaviour
     public GameObject RoadEnemy;
     public bool MovingBool=true;
     public bool RotiationBool=true;
+    public AudioSource QuestSound;
     
 
 
@@ -542,6 +543,7 @@ public class DrLee : MonoBehaviour
     }
 
     private IEnumerator ChangeColor(){
+        QuestSound.Play();
         for(int i=0;i<3;i++){
             QuestText.color=new Color32(229,255,0,255);
             yield return new WaitForSeconds(0.5f);

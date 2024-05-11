@@ -13,6 +13,7 @@ public class EnergyCoreDoor : MonoBehaviour
     public AudioSource DrawerOpen;
     public AudioSource DrawerClose;
     public AudioSource RadioSound;
+    public AudioSource QuestSound;
 
     public string dooropen;
     public string doorclose;
@@ -69,6 +70,7 @@ public class EnergyCoreDoor : MonoBehaviour
         StartCoroutine(ChangeColor());
     }
     private IEnumerator ChangeColor(){
+        QuestSound.Play();
         for(int i=0;i<3;i++){
             QuestText.color=new Color32(229,255,0,255);
             yield return new WaitForSeconds(0.5f);
