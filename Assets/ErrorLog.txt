@@ -1,3 +1,41 @@
 Error Log - 2024-05-11 오후 10:06:00
 Error Log - 2024-05-11 오후 10:18:49
 Error Log - 2024-05-11 오후 10:23:29
+Error Log - 2024-05-11 오후 11:56:53
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Chip.OnTriggerEnter (UnityEngine.Collider other) (at Assets/enemy/Script/Chip.cs:34)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Chip.OnTriggerEnter (UnityEngine.Collider other) (at Assets/enemy/Script/Chip.cs:34)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Chip.OnTriggerEnter (UnityEngine.Collider other) (at Assets/enemy/Script/Chip.cs:34)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Chip.OnTriggerEnter (UnityEngine.Collider other) (at Assets/enemy/Script/Chip.cs:35)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Chip.OnTriggerEnter (UnityEngine.Collider other) (at Assets/enemy/Script/Chip.cs:35)
+
+
+Error Log - 2024-05-11 오후 11:59:08
+Error Log - 2024-05-12 오전 12:01:39
+Error Log - 2024-05-12 오전 12:02:46
+Error Log - 2024-05-12 오전 12:04:24
+Error Log - 2024-05-12 오전 12:05:46
+Error Log - 2024-05-12 오전 12:10:43
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+DialogueManager.EndDialogue () (at Assets/Script/DialogueManager.cs:206)
+DialogueManager.Update () (at Assets/Script/DialogueManager.cs:98)
+
+
+Error Log - 2024-05-12 오전 12:12:00
+Error Log - 2024-05-12 오전 12:29:29
+Error Log - 2024-05-12 오전 12:30:59
+Error Log - 2024-05-12 오전 12:34:37

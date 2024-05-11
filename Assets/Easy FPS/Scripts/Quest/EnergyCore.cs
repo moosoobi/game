@@ -64,6 +64,7 @@ public class EnergyCore: Quest
     public GameObject Click;
     public bool Short=false;
     public SlidingDoor door;
+    public AudioSource QuestSound;
 
     public float dialogueInterval = 3f; // 대화 간격 (3초)
 
@@ -216,6 +217,7 @@ public class EnergyCore: Quest
         Guide.SetActive(true);
     }
     private IEnumerator ChangeColor(){
+        QuestSound.Play();
         for(int i=0;i<3;i++){
             QuestText.color=new Color32(229,255,0,255);
             yield return new WaitForSeconds(0.5f);

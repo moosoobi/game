@@ -21,11 +21,12 @@ TagManager:
   - PlayerAttack30
   - Area
   - Enemy
-  - ChipText
   - Volume
   - BossBulletSpawn
   - EnemyHitSound
   - Mouse
+  - Undefined
+  - ChipText
   layers:
   - Default
   - TransparentFX

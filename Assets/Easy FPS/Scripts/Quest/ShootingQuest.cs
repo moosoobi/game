@@ -80,7 +80,6 @@ public class ShootingQuest : Quest
             
                 if(CurrentState==QuestState.Completed){
                     StartCoroutine(ChangeColor());
-                    QuestSound.Play();
                     Text.text="지도에 노란색으로 표시된 건물로 이동하십시오.";
                     
                 }
@@ -104,11 +103,12 @@ public class ShootingQuest : Quest
     }
     public void QuestActive(){
         
-        QuestSound.Play();
+        
         StartConversation();
 
     }
     private IEnumerator ChangeColor(){
+        
         for(int i=0;i<3;i++){
             QuestText.color=new Color32(229,255,0,255);
             yield return new WaitForSeconds(0.5f);
@@ -143,6 +143,7 @@ public class ShootingQuest : Quest
 
 
     public void EndDialogue(){
+        QuestSound.Play();
         curResponseTracker=0;
         Text.text=Description;
         StartCoroutine(ChangeColor());

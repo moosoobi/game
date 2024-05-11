@@ -14,7 +14,9 @@ public class Chip : MonoBehaviour
     void Start()
     {
         player=GameObject.FindGameObjectWithTag("Player");
-        
+        ChipObj=GameObject.FindGameObjectWithTag("ChipText");
+        ChipTextScript=GameObject.FindGameObjectWithTag("ChipText").GetComponent<ChipText>();
+        ChipText=ChipObj.GetComponent<TextMeshProUGUI>();
         
     }
 
@@ -30,9 +32,6 @@ public class Chip : MonoBehaviour
             if(player){
                 player.GetComponent<PlayerMovementScript>().UpChip();
             }
-            ChipObj=GameObject.FindGameObjectWithTag("ChipText");
-            ChipTextScript=GameObject.FindGameObjectWithTag("ChipText").GetComponent<ChipText>();
-            ChipText=ChipObj.GetComponent<TextMeshProUGUI>();
             ChipText.enabled=true;
             ChipText.text="칩셋획득: "+player.GetComponent<PlayerMovementScript>().ChipInt+" 개";
             ChipTextScript.Active();

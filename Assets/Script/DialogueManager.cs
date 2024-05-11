@@ -42,6 +42,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject J;
     public GameObject Help;
     public TextMeshProUGUI HelpText;
+    public AudioSource QuestSound;
     void Start()
     {
         dialogueUI.SetActive(false);
@@ -202,7 +203,7 @@ public class DialogueManager : MonoBehaviour
             JAni.enabled=false;
             stage=1;
         }
-        if(stage==2){stage=3;Stage1.SetActive(false);}
+        if(stage==2){stage=3;QuestSound.Play();Stage1.SetActive(false);}
         if (stage == 3) { stage = 4; }
 
         if (!pickmapbool){

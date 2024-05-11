@@ -13,6 +13,7 @@ public class PlayerMovementScript : MonoBehaviour {
 	Rigidbody rb;
 	public GameObject player;
 	public bool running=false;
+	public bool runbool=false;
 	public bool walking=false;
 	public bool CanMove=false;
 	[Tooltip("Current players speed")]
@@ -63,12 +64,12 @@ public class PlayerMovementScript : MonoBehaviour {
     	{
 			
 			
-			if(!running){
-				speed=10f;
-				running=true;
+			if(!runbool){
+				
+				runbool=true;
 			}else{
-				speed=5f;
-				running=false;
+				
+				runbool=false;
 			}
 			pressing=true;
 		}else if((Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))&&pressing){
@@ -86,9 +87,10 @@ public class PlayerMovementScript : MonoBehaviour {
         }
 		if (Input.GetKey(KeyCode.W))
         {
-            rb.velocity = transform.forward * speed;
-			if(speed>=10f){running=true;}
-			else{running=false;}
+            
+			if(runbool){running=true;speed=10f;}
+			else{speed=5f;running=false;}
+			rb.velocity = transform.forward * speed;
         }else{running=false;}
 		if (Input.GetKey(KeyCode.S))
         {

@@ -102,6 +102,7 @@ public class RealBoss : MonoBehaviour
     public GameObject ShootGuide;
     public GameObject BossWord1;
     public GameObject BossWord2;
+    public AudioSource QuestSound;
     private void Start()
     {
         
@@ -172,6 +173,7 @@ public class RealBoss : MonoBehaviour
         Guide.SetActive(false);
     }
     private IEnumerator ChangeColor(){
+        QuestSound.Play();
         for(int i=0;i<3;i++){
             QuestText.color=new Color32(229,255,0,255);
             yield return new WaitForSeconds(0.5f);

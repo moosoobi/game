@@ -17,6 +17,7 @@ public class CelingLight : MonoBehaviour
     public TextMeshProUGUI QuestText;
     public TextMeshProUGUI Text2;//questtext
     public GameObject stage2;
+    public AudioSource QuestSound;
 
     public void LightOff()
     {
@@ -45,6 +46,7 @@ public class CelingLight : MonoBehaviour
         StartCoroutine(ChangeColor());
     }
     private IEnumerator ChangeColor(){
+        QuestSound.Play();
         for(int i=0;i<3;i++){
             QuestText.color=new Color32(229,255,0,255);
             yield return new WaitForSeconds(0.5f);
