@@ -28,6 +28,7 @@ public class ShootingCircle : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             QuestText.color=new Color32(0,222,255,255);
             yield return new WaitForSeconds(0.5f);
+            gameObject.SetActive(false);
         }
     }
 

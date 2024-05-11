@@ -108,7 +108,7 @@ public class Lever : MonoBehaviour
                     if(horizontal==3){TriangleRect.anchoredPosition = new Vector2(176.2f, 215f);}
                 }
         }
-        if (Input.GetMouseButtonDown(0)&&electricBox.ReturnDoorLock())
+        if (Input.GetMouseButtonDown(0)&&electricBox.ReturnDoorLock()&&!clear)
         {
             Setting();
             UiObject.SetActive(true);

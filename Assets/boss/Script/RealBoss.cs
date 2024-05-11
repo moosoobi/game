@@ -33,9 +33,11 @@ public class RealBoss : MonoBehaviour
     private bool alive=true;
     private bool touch=false;
     public VideoPlayer Loading;
+    public VideoPlayer TimerVideo;
     public GameObject Screen1;
     public GameObject Screen2;
     public GameObject Screen3;
+    public GameObject Timer1;
     public GameObject FixingCamera;
     public GameObject NoiseVideo1;
     public GameObject NoiseVideo2;
@@ -49,6 +51,7 @@ public class RealBoss : MonoBehaviour
     public Material GlassM;
     public Material Under;
     public Material Trans;
+    public Material Timer;
     public TextMeshProUGUI Text;
     public string Description;
     public TextMeshProUGUI QuestText;
@@ -74,6 +77,7 @@ public class RealBoss : MonoBehaviour
     public Renderer rend3;
     public Renderer rend4;
     public Renderer rend5;
+    public Renderer rend6;
     private Coroutine currentCoroutine;
     private Coroutine currentCoroutine1;
     public int Fixing=0;
@@ -106,6 +110,7 @@ public class RealBoss : MonoBehaviour
         rend3 = Screen3.GetComponent<Renderer>();//main   
         rend4 = Glass.GetComponent<Renderer>();
         rend5 = BossUnder.GetComponent<Renderer>();
+        rend6 = Timer1.GetComponent<Renderer>();
      
     }
 
@@ -525,7 +530,8 @@ public class RealBoss : MonoBehaviour
             FixingLotation=true;
             StartCoroutine(ExecuteAfterDelayText(3f));
             yield return new WaitForSeconds(3.0f);
-            BossAni.Play("timer", 0, 0.0f);
+            TimerVideo.Play();
+            rend6.material=Timer;
             FixingCamera.SetActive(true);
             GameObject Fixing1 = Instantiate(FixingDrone,SectorA.transform.position+new Vector3(0,6,10) , SectorA.transform.rotation);
             GameObject Fixing2 = Instantiate(FixingDrone,SectorA.transform.position+new Vector3(0,6,0) , SectorA.transform.rotation);
@@ -538,7 +544,7 @@ public class RealBoss : MonoBehaviour
             GameObject Fixing9 = Instantiate(FixingDrone,SectorC.transform.position+new Vector3(-10,6,-5) , SectorC.transform.rotation);
             GameObject Fixing10 = Instantiate(FixingDrone,SectorC.transform.position+new Vector3(-15,6,-10) , SectorC.transform.rotation);
             yield return new WaitForSeconds(30.0f);
-            
+            rend6.material=Black;
             if(Fixing1){Fixing1.SetActive(false);}
             if(Fixing2){Fixing2.SetActive(false);}
             if(Fixing3){Fixing3.SetActive(false);}
@@ -684,6 +690,7 @@ public class RealBoss : MonoBehaviour
         rend1.material=Blue;
         rend2.material=Yellow;
         rend3.material=Pink;
+        rend1.material=Black;
         currentPatternIndex=0;
         
     }

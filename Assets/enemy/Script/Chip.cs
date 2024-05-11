@@ -15,7 +15,7 @@ public class Chip : MonoBehaviour
     {
         player=GameObject.FindGameObjectWithTag("Player");
         ChipObj=GameObject.FindGameObjectWithTag("ChipText");
-        ChipText=GameObject.FindGameObjectWithTag("ChipText").GetComponent<TextMeshProUGUI>();
+        ChipText=ChipObj.GetComponent<TextMeshProUGUI>();
         ChipTextScript=GameObject.FindGameObjectWithTag("ChipText").GetComponent<ChipText>();
         
     }
