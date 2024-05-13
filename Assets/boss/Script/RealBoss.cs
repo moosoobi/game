@@ -236,6 +236,8 @@ public class RealBoss : MonoBehaviour
         Lazer.SetActive(false);
         CancelInvoke("BulletAttack");
         StopCoroutine(currentCoroutine);
+        StopCoroutine(currentCoroutine1);
+        Text1.SetActive(false);
         isAttacking=true;
         Look=false;
         alive=false;
@@ -268,7 +270,7 @@ public class RealBoss : MonoBehaviour
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
-        npcName.text=" ";
+        npcName.text="J";
         if(Stage==0){npcDialogueBox.text=dialogue[0];}
         if(Stage==1){npcDialogueBox.text=dialogue1[0];}
         zzz=false;
@@ -525,6 +527,8 @@ public class RealBoss : MonoBehaviour
             Lazer.SetActive(false);
             CancelInvoke("BulletAttack");
             StopCoroutine(currentCoroutine);
+            StopCoroutine(currentCoroutine1);
+
             isAttacking=false;
             Fixing=0;
             Text1.SetActive(true);
@@ -572,7 +576,7 @@ public class RealBoss : MonoBehaviour
                 
             }else{
                 Text1.SetActive(true);
-                text1.text="메인 컴퓨터가 수리에 성공했습니다. 많은 양의 에너지가 공급 됩니다.";
+                text1.text="메인 컴퓨터가 수리에 성공했습니다. 메인컴퓨터가 체력을 회복합니다.";
                 StartCoroutine(ExecuteAfterDelayText(3f));
                 touch=true;
                 BossHp=70;
@@ -653,6 +657,8 @@ public class RealBoss : MonoBehaviour
                     Lazer.SetActive(false);
                     CancelInvoke("BulletAttack");
                     StopCoroutine(currentCoroutine);
+                    StopCoroutine(currentCoroutine1);
+                    Text1.SetActive(false);
                     isAttacking=false;
                     
                     
@@ -671,6 +677,8 @@ public class RealBoss : MonoBehaviour
             {
                 StartCoroutine(die());
                 StopCoroutine(currentCoroutine);
+                StopCoroutine(currentCoroutine1);
+                Text1.SetActive(false);
             }
         }
         
@@ -688,6 +696,8 @@ public class RealBoss : MonoBehaviour
         Lazer.SetActive(false);
         CancelInvoke("BulletAttack");
         StopCoroutine(currentCoroutine);
+        StopCoroutine(currentCoroutine1);
+        Text1.SetActive(false);
         isAttacking=false;
         rend1.material=Blue;
         rend2.material=Yellow;

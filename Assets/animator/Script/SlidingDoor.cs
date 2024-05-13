@@ -36,7 +36,7 @@ public class SlidingDoor : MonoBehaviour
     {
         if (other.CompareTag("Player")){
             zzzz=false;
-            if(closeTrigger){
+            if(closeTrigger&&active){
                 myDoor.Play(doorclose, 0, 0.0f);
                 closeTrigger=false;
                 openTrigger=true;

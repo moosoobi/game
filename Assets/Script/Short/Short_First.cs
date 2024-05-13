@@ -22,6 +22,7 @@ public class Short_First : MonoBehaviour
     public TextMeshProUGUI QuestText;
     public AudioSource RadioSound;
     public GameObject Key_Detail;
+    public AudioSource QuestSound;
     void Start()
     {
         Invoke("QuestActive", 3.0f);
@@ -89,6 +90,7 @@ public class Short_First : MonoBehaviour
         
     }
     private IEnumerator ChangeColor(){
+        QuestSound.Play();
         for(int i=0;i<3;i++){
             QuestText.color=new Color32(229,255,0,255);
             yield return new WaitForSeconds(0.5f);

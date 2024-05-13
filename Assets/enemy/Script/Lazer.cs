@@ -8,7 +8,7 @@ public class Lazer : MonoBehaviour
 
     public GameObject Player;
     public GameObject prefabToClone;
-
+    public GameObject Obj;
     public bool IfHit=false;
 
     public float raycastDistance = 0.2f;
@@ -40,7 +40,7 @@ public class Lazer : MonoBehaviour
     void DestroyBullet()
     {
         // 총알을 파괴
-        Destroy(gameObject);
+        Destroy(Obj);
     }
 
 

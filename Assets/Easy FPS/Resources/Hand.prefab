@@ -885,8 +885,13 @@ MonoBehaviour:
   zcross: 0
   zcross1: 1
   talking: 0
-  IfCross: 0
-  runAni: 0
+  IfCross: 1
+  Upgrade: 0
+  EmpPrefab: {fileID: 0}
+  launchPoint: {fileID: 0}
+  launchSpeed: 10
+  gravity: {x: 0, y: -30, z: 0}
+  downwardForce: 10
   currentGunPosition: {x: 0, y: 0, z: 0}
   restPlacePosition: {x: -0.07, y: -0.06, z: 0.4}
   aimPlacePosition: {x: 0, y: -0.05, z: 0.29}

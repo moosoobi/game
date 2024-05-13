@@ -35,7 +35,7 @@ public class First_J : MonoBehaviour
     
     void Start()
     {
-        Quest.SetActive(true);
+        //Quest.SetActive(true);
         Hp.SetActive(true);
         Starting();
         Inven.SetActive(true);

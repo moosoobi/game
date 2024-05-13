@@ -98,11 +98,7 @@ public class DrLee : MonoBehaviour
             if(Vector3.Distance(transform.position, player.transform.position)<5.0f){MovingBool=false;}
             
             if(!MovingBool&&!RotiationBool){
-                player.GetComponent<PlayerHp>().PlayerCurHp=1000f;
-                player.GetComponent<PlayerHp>().UpdateHealth(0);
-                UiObject.SetActive(true);
-                UiText.text="Hp회복!";
-                StartCoroutine(ExecuteAfterDelayText(3f)); 
+                
                 Approch=false;
                 navMeshAgent.isStopped = true;
                 StartConversation();
@@ -302,7 +298,11 @@ public class DrLee : MonoBehaviour
                         Buy.SetActive(false);
                         Buying=false;
                         Shopping=true;
-                        
+                        EmpBuy.SetActive(false);
+                        FakeBodyBuy.SetActive(false);
+                        HealKitBuy.SetActive(false);
+                        UpgradeBuy.SetActive(false);
+                        ChipSetBuy.SetActive(false);
                     }
                 }
                 if(currentX>40f&&currentX<185f){
@@ -310,6 +310,7 @@ public class DrLee : MonoBehaviour
                         Buy.SetActive(false);
                         Buying=false;
                         
+
                         if(BuyInt==0){
                             if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().ChipInt<1){
                                 UiObject.SetActive(true);
@@ -513,6 +514,11 @@ public class DrLee : MonoBehaviour
             player.GetComponent<MouseLookScript>().enabled = true;
             player.GetComponent<PlayerMovementScript>().enabled = true;
             Conversation=true;
+            player.GetComponent<PlayerHp>().PlayerCurHp=1000f;
+            player.GetComponent<PlayerHp>().UpdateHealth(0);
+            UiObject.SetActive(true);
+            UiText.text="Hp회복!";
+            StartCoroutine(ExecuteAfterDelayText(3f)); 
         }
         if(Stage==0||Stage==1){
             if(Chip==0){Stage=2;StartConversation();}
@@ -531,6 +537,11 @@ public class DrLee : MonoBehaviour
             player.GetComponent<MouseLookScript>().enabled = true;
             player.GetComponent<PlayerMovementScript>().enabled = true;
             Conversation=true;
+            player.GetComponent<PlayerHp>().PlayerCurHp=1000f;
+            player.GetComponent<PlayerHp>().UpdateHealth(0);
+            UiObject.SetActive(true);
+            UiText.text="Hp회복!";
+            StartCoroutine(ExecuteAfterDelayText(3f)); 
         }
         
         

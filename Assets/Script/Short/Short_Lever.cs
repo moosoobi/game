@@ -35,7 +35,8 @@ public class Short_Lever : MonoBehaviour
     public bool first=true;
     public GameObject Help;
     public TextMeshProUGUI HelpText;
-    
+    public AudioSource QuestSound;
+    private bool clear=false;
     void Start()
     {
         
@@ -48,15 +49,18 @@ public class Short_Lever : MonoBehaviour
         if(zzzz){
         if(isFixed){
             if(Lever1==1&&Lever2==0&&Lever3==3&&Lever4==2&&first){
+                clear=true;
                 first=false;
                 BarCamera.SetActive(true);
                 StartCoroutine(Camera());
                 electricBox.doorlock=false;
+                electricBox.clear=true;
                 player.GetComponent<MouseLookScript>().enabled = true;
                 player.GetComponent<PlayerMovementScript>().enabled = true;
                 Triangle.SetActive(false);
                 UiObject.SetActive(false);
                 Help.SetActive(false);
+                QuestActive();
             }
             if(Input.GetKeyDown(KeyCode.UpArrow)){
                 if(Index==0){if(Lever1==0){Lever1=3;}Lever1+=1;if(Lever1>3)Lever1=3;}
@@ -108,7 +112,7 @@ public class Short_Lever : MonoBehaviour
                     if(horizontal==3){TriangleRect.anchoredPosition = new Vector2(176.2f, 215f);}
                 }
         }
-        if (Input.GetMouseButtonDown(0)&&electricBox.ReturnDoorLock())
+        if (Input.GetMouseButtonDown(0)&&electricBox.ReturnDoorLock()&&!clear)
         {
             Setting();
             UiObject.SetActive(true);
@@ -186,10 +190,12 @@ public class Short_Lever : MonoBehaviour
         
     }
     public void QuestActive(){
-        Text2.text="천장에 있는 동그란 전등을 사격하십시오.";
+        Text2.text="비밀 통로로 가서 에너지 증폭장치를 찾으시오.";
         StartCoroutine(ChangeColor());
     }
+
     private IEnumerator ChangeColor(){
+        QuestSound.Play();
         for(int i=0;i<3;i++){
             QuestText.color=new Color32(229,255,0,255);
             yield return new WaitForSeconds(0.5f);

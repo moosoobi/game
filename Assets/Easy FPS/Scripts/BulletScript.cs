@@ -43,9 +43,13 @@ public class BulletScript : MonoBehaviour {
 
             }else if(other.name == "ConnerBg"){
 
+            }else if(other.name == "Box009"){
+
+            }else if(other.name == "DrLeeZ"){
+
             }
             else{
-                
+                Debug.Log(other.name);
                 Destroy(gameObject);
             }
     }

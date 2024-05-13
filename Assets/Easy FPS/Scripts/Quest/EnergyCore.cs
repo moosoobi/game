@@ -39,6 +39,7 @@ public class EnergyCore: Quest
     public GunScript Gun;
     public Light[] light;
     public Animator[] myDoor=null;
+    public Animator[] barnpc=null;
     public string dooropen;
     public Leg2RobotBlue Leg2RobotBlue1;
     public Leg2RobotBlue Leg2RobotBlue2;
@@ -115,7 +116,7 @@ public class EnergyCore: Quest
         curResponseTracker=0;
         dialogueUI.SetActive(true);
         Click.SetActive(false);
-        npcName.text=" ";
+        npcName.text="J";
         npcDialogueBox.text=dialogue[0];
         Leg2RobotBlue1.SetDestination(targetDestination1);
         Leg2RobotBlue2.SetDestination(targetDestination2);
@@ -148,7 +149,7 @@ public class EnergyCore: Quest
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
-        npcName.text=" ";
+        npcName.text="J";
         npcDialogueBox.text=dialogue1[0];
     }
 
@@ -210,7 +211,7 @@ public class EnergyCore: Quest
         Guide1.SetActive(false);
     }
     public void QuestActive2(){
-        Text2.text="메인컴퓨터에게 다가가 해킹칩을 심으십시오.";
+        Text2.text="메인컴퓨터에게 다가가 해킹칩을 심으십시오. ";
         StartCoroutine(ChangeColor());
         Ring.transform.position=targetPosition;
         Save.SetActive(true);
@@ -318,7 +319,11 @@ public class EnergyCore: Quest
             stage=1;
             Entrance.Clear=true;
             player.GetComponent<GunInventory>().ChangeWeapon1();
-
+            if(!Short){
+                for(int i=0;i<barnpc.Length;i++){
+                    barnpc[i].enabled=false;
+                }
+            }
             StartCoroutine(StartConversation1());
 
         }

@@ -28,7 +28,7 @@ public class Entrance : MonoBehaviour
             if (other.CompareTag("Player")&&PlayerIn&&first){
             StopAllAudioSources();
             BarBackground.Play();
-            door.active=false;
+            
             firsrbar.Positivez();
             PlayerIn=false;
             }else if(other.CompareTag("Player")&&!PlayerIn){

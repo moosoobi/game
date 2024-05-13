@@ -26,7 +26,7 @@ public class pick : MonoBehaviour
                 if(stack==0){stack++;}
                 if(gunpick.CurrentState==GunPick.QuestState.Active&&stack==1){
                     gunpick.pickup();
-                    UiObject.SetActive(true);
+                    //UiObject.SetActive(true);
                     UiText.text="숫자키 2번을 눌러 총을 들 수 있습니다.";
                     guninventory.GunBool=true;
                     StartCoroutine(ExecuteAfterDelayText(0.5f));   

@@ -124,7 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727608f414a94c740aed5ce2f40d9cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
   prefabToClone: {fileID: 977274148092092791}
+  Obj: {fileID: 7038143750954130294}
   IfHit: 0
   raycastDistance: 0.5
 --- !u!1 &1474653985583848437
@@ -247,7 +249,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727608f414a94c740aed5ce2f40d9cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
   prefabToClone: {fileID: 1474653985583848437}
+  Obj: {fileID: 0}
   IfHit: 0
   raycastDistance: 0.5
 --- !u!1 &4257608894000758402

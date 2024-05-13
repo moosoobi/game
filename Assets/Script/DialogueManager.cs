@@ -43,6 +43,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject Help;
     public TextMeshProUGUI HelpText;
     public AudioSource QuestSound;
+    public GameObject Quest1;
     void Start()
     {
         dialogueUI.SetActive(false);
@@ -198,9 +199,11 @@ public class DialogueManager : MonoBehaviour
         curResponseTracker=0;
         GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>().IfCross=true;
         if(stage==0){
+            player.GetComponent<PlayerMovementScript>().IfCross=true;
             Help.SetActive(true);
             MapMark.SetActive(true);
-            JAni.enabled=false;
+            //JAni.Play("Stay", 0, 0.0f);
+            Quest1.SetActive(true);
             stage=1;
         }
         if(stage==2){stage=3;QuestSound.Play();Stage1.SetActive(false);}

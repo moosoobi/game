@@ -45,8 +45,7 @@ public class Lever : MonoBehaviour
             if(Lever1==1&&Lever2==0&&Lever3==3&&Lever4==2&&!clear){
                 clear=true;
                 UiObject.SetActive(true);
-                UiText.text="오른쪽 비상구 표지판에 변화가 생긴 것 같다.";
-                UiText.color=Color.red;
+                UiText.text="<color=#FF5CFF>오른쪽 비상구 표지판에 변화가 생긴 것 같다.</color>";
                 Renderer rend = Exit.GetComponent<Renderer>();
                 rend.material = newMaterial;
                 card.PositiveClear();

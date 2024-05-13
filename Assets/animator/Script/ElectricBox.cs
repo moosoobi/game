@@ -38,12 +38,13 @@ public class ElectricBox : MonoBehaviour
     private int stage=0;
     public GameObject player;
     public GameObject camera;
+    public bool clear=false;
 
     
     void Update()
     {
         
-        if(zzzz){
+        if(zzzz&&!clear){
             if(Input.GetMouseButtonDown(0)&&guninventory.currneguniskey()){
                         Positivedoorlock();
                         stage=1;
@@ -86,7 +87,6 @@ public class ElectricBox : MonoBehaviour
         Key2.SetActive(false);
         Key3.SetActive(false);
         Key4.SetActive(false);
-        if(Key5){Key5.SetActive(true);}
         
     }
     public bool ReturnDoorLock(){return doorlock;}

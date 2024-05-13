@@ -112,7 +112,7 @@ public class EleDoor : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
         npcDialogueBox.text="마지막 작전 수행을 부탁하네.";
         yield return new WaitForSeconds(3.0f);
-        Click.SetActive(false);
+        Click.SetActive(true);
         dialogueUI.SetActive(false);
         QuestActive();
         Guide.SetActive(true);

@@ -39,3 +39,121 @@ Error Log - 2024-05-12 오전 12:12:00
 Error Log - 2024-05-12 오전 12:29:29
 Error Log - 2024-05-12 오전 12:30:59
 Error Log - 2024-05-12 오전 12:34:37
+Error Log - 2024-05-13 오후 3:27:25
+Error Log - 2024-05-13 오후 3:37:55
+Error Log - 2024-05-13 오후 3:38:12
+Error Log - 2024-05-13 오후 3:38:27
+Error Log - 2024-05-13 오후 3:46:11
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+Short_Lever+<ChangeColor>d__37.MoveNext () (at Assets/Script/Short/Short_Lever.cs:196)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <17484a9af6b944dea5cd9be4dbb0da2c>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Short_Lever:QuestActive() (at Assets/Script/Short/Short_Lever.cs:192)
+Short_Lever:Update() (at Assets/Script/Short/Short_Lever.cs:61)
+
+
+Error Log - 2024-05-13 오후 6:18:09
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+RealBoss+<ChangeColor>d__100.MoveNext () (at Assets/boss/Script/RealBoss.cs:176)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <17484a9af6b944dea5cd9be4dbb0da2c>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+RealBoss:QuestActive() (at Assets/boss/Script/RealBoss.cs:168)
+RealBoss:EndDialogue() (at Assets/boss/Script/RealBoss.cs:308)
+RealBoss:Update() (at Assets/boss/Script/RealBoss.cs:154)
+
+
+Error Log - 2024-05-13 오후 6:25:05
+Error: Coroutine couldn't be started because the the game object 'ShootingCircle (1)' is inactive!
+UnityEngine.MonoBehaviour:StartCoroutine (System.Collections.IEnumerator)
+CoreCircle:QuestActive () (at Assets/Script/CoreCircle.cs:23)
+CoreCircle:OnTriggerEnter (UnityEngine.Collider) (at Assets/Script/CoreCircle.cs:54)
+
+
+Error Log - 2024-05-13 오후 6:35:16
+Error Log - 2024-05-13 오후 6:46:37
+Error Log - 2024-05-13 오후 6:56:24
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerExit (UnityEngine.Collider other) (at Assets/Script/z.cs:24)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/z.cs:13)
+
+
+Error Log - 2024-05-13 오후 6:59:10
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/z.cs:13)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerExit (UnityEngine.Collider other) (at Assets/Script/z.cs:24)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/z.cs:13)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerExit (UnityEngine.Collider other) (at Assets/Script/z.cs:24)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/z.cs:13)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerExit (UnityEngine.Collider other) (at Assets/Script/z.cs:24)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/z.cs:13)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerExit (UnityEngine.Collider other) (at Assets/Script/z.cs:24)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/z.cs:13)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerExit (UnityEngine.Collider other) (at Assets/Script/z.cs:24)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/z.cs:13)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerExit (UnityEngine.Collider other) (at Assets/Script/z.cs:24)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/z.cs:13)
+
+
+Error Log - 2024-05-13 오후 7:02:05
+Error Log - 2024-05-13 오후 7:07:38
+Error Log - 2024-05-13 오후 7:24:50
+Error Log - 2024-05-13 오후 7:26:15
+Error Log - 2024-05-13 오후 7:31:59
+Error Log - 2024-05-13 오후 7:32:22
+Error Log - 2024-05-13 오후 7:33:14
+Error Log - 2024-05-13 오후 7:35:51
+Error Log - 2024-05-13 오후 7:36:04
+Error Log - 2024-05-13 오후 7:36:21
+Error Log - 2024-05-13 오후 8:00:10
+Error Log - 2024-05-13 오후 8:21:35
+Error Log - 2024-05-13 오후 8:25:08
+Error Log - 2024-05-13 오후 8:26:15
+Error Log - 2024-05-13 오후 8:28:42
+Error Log - 2024-05-13 오후 8:30:00
+Error Log - 2024-05-13 오후 8:32:49
+Error Log - 2024-05-13 오후 8:34:37
+Error Log - 2024-05-13 오후 8:36:01
+Error Log - 2024-05-13 오후 8:42:50
