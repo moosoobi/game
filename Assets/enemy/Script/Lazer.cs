@@ -40,7 +40,7 @@ public class Lazer : MonoBehaviour
     void DestroyBullet()
     {
         // 총알을 파괴
-        Destroy(Obj);
+        Destroy(gameObject);
     }
 
 

@@ -251,7 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   prefabToClone: {fileID: 1474653985583848437}
-  Obj: {fileID: 0}
+  Obj: {fileID: 7038143750954130294}
   IfHit: 0
   raycastDistance: 0.5
 --- !u!1 &4257608894000758402
@@ -674,6 +674,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6467134196206672085}
+  - component: {fileID: 6192732254037250483}
   m_Layer: 0
   m_Name: Lazer
   m_TagString: Untagged
@@ -697,3 +698,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6192732254037250483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7038143750954130294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3188da6efc4004a8a85a1a14142697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

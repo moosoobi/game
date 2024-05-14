@@ -118,6 +118,7 @@ public class RealBoss : MonoBehaviour
 
     void Update()
     {
+        
         if(IfDie){
             StartCoroutine(die());
             IfDie=false;
@@ -334,10 +335,18 @@ public class RealBoss : MonoBehaviour
         else
         {
             if(!Under30){
-                int randomValue = GetRandomNumber(3, 6);
+                int randomValue=0;
+                if(currentPatternIndex%3==0){randomValue=3;}
+                else if(currentPatternIndex%3==1){randomValue=4;}
+                else if(currentPatternIndex%3==2){randomValue=5;}
+                currentPatternIndex++;
                 yield return currentCoroutine1=StartCoroutine(Execute(randomValue));
             }else{
-                int randomValue = GetRandomNumber(7, 10);
+                int randomValue=0;
+                if(currentPatternIndex%3==0){randomValue=7;}
+                else if(currentPatternIndex%3==1){randomValue=8;}
+                else if(currentPatternIndex%3==2){randomValue=9;}
+                currentPatternIndex++;
                 yield return currentCoroutine1=StartCoroutine(Execute(randomValue));
             }
             
@@ -474,6 +483,18 @@ public class RealBoss : MonoBehaviour
             
         }else if(currentPatternIndex==1){
             Text1.SetActive(true);
+            text1.text="메인 컴퓨터가 전투로봇을 호출합니다.";
+            rend3.material=Trans;
+            NoiseVideo3.SetActive(true);
+            yield return new WaitForSeconds(3.0f);
+            StartCoroutine(ExecuteAfterDelayText(3f));
+            FightRobot();
+            yield return new WaitForSeconds(10.0f);
+            NoiseVideo3.SetActive(false);
+            rend3.material=Pink;
+            
+        }else if(currentPatternIndex==2){
+            Text1.SetActive(true);
             rend2.material=Trans;
             NoiseVideo2.SetActive(true);
             text1.text="메인 컴퓨터가 강력한 에너지볼을 방출합니다.";
@@ -485,17 +506,6 @@ public class RealBoss : MonoBehaviour
             yield return new WaitForSeconds(18f);
             NoiseVideo2.SetActive(false);
             rend2.material=Yellow;
-        }else if(currentPatternIndex==2){
-            Text1.SetActive(true);
-            text1.text="메인 컴퓨터가 전투로봇을 호출합니다.";
-            rend3.material=Trans;
-            NoiseVideo3.SetActive(true);
-            yield return new WaitForSeconds(3.0f);
-            StartCoroutine(ExecuteAfterDelayText(3f));
-            FightRobot();
-            yield return new WaitForSeconds(10.0f);
-            NoiseVideo3.SetActive(false);
-            rend3.material=Pink;
         }else if(currentPatternIndex==3){
             rend1.material=Trans;
             NoiseVideo1.SetActive(true);
@@ -505,6 +515,15 @@ public class RealBoss : MonoBehaviour
             NoiseVideo1.SetActive(false);
             rend1.material=Blue;
         }else if(currentPatternIndex==4){
+            rend3.material=Trans;
+            NoiseVideo3.SetActive(true);
+            yield return new WaitForSeconds(3.0f);
+            FightRobot();
+            yield return new WaitForSeconds(10.0f);
+            NoiseVideo3.SetActive(false);
+            rend3.material=Pink;
+            
+        }else if(currentPatternIndex==5){
             rend2.material=Trans;
             NoiseVideo2.SetActive(true);
             yield return new WaitForSeconds(3.0f);
@@ -513,14 +532,6 @@ public class RealBoss : MonoBehaviour
             yield return new WaitForSeconds(18f);
             NoiseVideo2.SetActive(false);
             rend2.material=Yellow;
-        }else if(currentPatternIndex==5){
-            rend3.material=Trans;
-            NoiseVideo3.SetActive(true);
-            yield return new WaitForSeconds(3.0f);
-            FightRobot();
-            yield return new WaitForSeconds(10.0f);
-            NoiseVideo3.SetActive(false);
-            rend3.material=Pink;
         }
         else if(currentPatternIndex==6){
             
@@ -568,9 +579,9 @@ public class RealBoss : MonoBehaviour
             if(Fixing==10){
                 Under50=true;
                 Text1.SetActive(true);
-                text1.text="메인 컴퓨터가 수리에 실패했습니다. 과부하로 인해 10초간 동작이 중지됩니다.";
-                StartCoroutine(ExecuteAfterDelayText(10f));
-                yield return new WaitForSeconds(10.0f);
+                text1.text="메인 컴퓨터가 수리에 실패했습니다. 과부하로 인해 5초간 동작이 중지됩니다.";
+                StartCoroutine(ExecuteAfterDelayText(5f));
+                yield return new WaitForSeconds(5.0f);
                 touch=true;
                 isAttacking=false;
                 
@@ -594,6 +605,15 @@ public class RealBoss : MonoBehaviour
             NoiseVideo1.SetActive(false);
             rend1.material=Blue;
         }else if(currentPatternIndex==8){
+            rend3.material=Pink;
+            NoiseVideo3.SetActive(true);
+            yield return new WaitForSeconds(3.0f);
+            FightRobot2();
+            yield return new WaitForSeconds(10.0f);
+            NoiseVideo3.SetActive(false);
+            rend3.material=Pink;
+        }else if(currentPatternIndex==9){
+            
             rend2.material=Yellow;
             NoiseVideo2.SetActive(true);
             yield return new WaitForSeconds(3.0f);
@@ -603,14 +623,6 @@ public class RealBoss : MonoBehaviour
             yield return new WaitForSeconds(18f);
             NoiseVideo2.SetActive(false);
             rend2.material=Yellow;
-        }else if(currentPatternIndex==9){
-            rend3.material=Pink;
-            NoiseVideo3.SetActive(true);
-            yield return new WaitForSeconds(3.0f);
-            FightRobot2();
-            yield return new WaitForSeconds(10.0f);
-            NoiseVideo3.SetActive(false);
-            rend3.material=Pink;
         }
     }
     void StopSpawningObstacles()
