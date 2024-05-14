@@ -670,7 +670,7 @@ public class RealBoss : MonoBehaviour
             {
                 Under30=true;
                 Text1.SetActive(true);
-                text1.text="메인 컴퓨터가 2단계 보호 모드로 전환되었습니다. 더욱 강력한 에너지가 방출됩니다. ";
+                text1.text="메인 컴퓨터가 2단계 보호 모드로 전환됩니다. 더욱 강력한 에너지가 방출됩니다. ";
                 StartCoroutine(ExecuteAfterDelayText(3f));
             }
             if (BossHp <= 0f)
