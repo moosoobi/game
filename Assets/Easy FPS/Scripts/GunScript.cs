@@ -377,11 +377,11 @@ public class GunScript : MonoBehaviour {
 	public void Talking(){talking=true;}
 	public void NotTalking(){talking=false;}
 	void Shooting(){
-
+		bool Possible=GameObject.FindGameObjectWithTag("Player").GetComponent<GunInventory>().Possible;
 		if (!meeleAttack) {
 			if(!talking){
 				if (currentStyle == GunStyles.nonautomatic) {
-				if (Input.GetButtonDown ("Fire1")) {
+				if (Input.GetButtonDown ("Fire1")&&Possible==true) {
 					
 					if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().running==true){
 						GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().runbool=false;
@@ -389,7 +389,7 @@ public class GunScript : MonoBehaviour {
 					ShootMethod ();
 				}
 				}
-				if (currentStyle == GunStyles.automatic) {
+				if (currentStyle == GunStyles.automatic&&Possible==true) {
 					if (Input.GetButton ("Fire1")) {
 						if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().running==true){
 							GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().runbool=false;

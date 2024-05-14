@@ -44,15 +44,7 @@ public class EnergyCoreDoor : MonoBehaviour
         
         if(zzzz){
             if (Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&openTrigger==true){
-                    Guide.SetActive(false);
-                    Guide1.SetActive(false);
-                    myDoor.Play(dooropen, 0, 0.0f);
-                    closeTrigger=true;
-                    openTrigger=false;
-                    if (DrawerOpen)
-                    DrawerOpen.Play ();
-                    StartCoroutine(ExecuteAfterDelay(1f));
-                    StartConversation();
+                    
             }
         }
         if(Input.GetMouseButtonDown(0)&&isTalking==true){
@@ -64,9 +56,20 @@ public class EnergyCoreDoor : MonoBehaviour
             QuestActive();
         }
     }
+    public void CoreCircle(){
+        Guide.SetActive(false);
+        Guide1.SetActive(false);
+        myDoor.Play(dooropen, 0, 0.0f);
+        closeTrigger=true;
+        openTrigger=false;
+        if (DrawerOpen)
+        DrawerOpen.Play ();
+        StartCoroutine(ExecuteAfterDelay(1f));
+        StartConversation();
+    }
     public void QuestActive(){
         ShootCircle.SetActive(true);
-        Text2.text="뒤로 이동하여 에너지증폭장치를 파괴하십시오.";
+        Text2.text="에너지증폭장치를 파괴하십시오.";
         StartCoroutine(ChangeColor());
     }
     private IEnumerator ChangeColor(){
@@ -96,7 +99,7 @@ public class EnergyCoreDoor : MonoBehaviour
         zzzz=false;
     }
     public void StartConversation(){
-        player.GetComponent<MouseLookScript>().enabled = false;
+        player.GetComponent<GunInventory>().Possible=false;
         player.GetComponent<PlayerMovementScript>().enabled = false;
         RadioSound.Play();
         isTalking=true;
@@ -118,8 +121,7 @@ public class EnergyCoreDoor : MonoBehaviour
             }
     }
     public void EndDialogue(){
-        player.GetComponent<MouseLookScript>().enabled = true;
-        player.GetComponent<PlayerMovementScript>().enabled = true;
+        player.GetComponent<GunInventory>().Possible=true;
         curResponseTracker=0;
         isTalking=false;
         dialogueUI.SetActive(false);

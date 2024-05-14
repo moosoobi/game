@@ -173,3 +173,12 @@ BarNpc.Update () (at Assets/Script/BarNpc.cs:41)
 
 
 Error Log - 2024-05-15 오전 1:32:54
+Error Log - 2024-05-15 오전 1:48:14
+Error Log - 2024-05-15 오전 1:53:01
+Exception: NullReferenceException: Object reference not set to an instance of an object
+LongCoreCircle.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/LongCoreCircle.cs:46)
+
+
+Error Log - 2024-05-15 오전 1:53:49
+Error Log - 2024-05-15 오전 1:59:37
+Error Log - 2024-05-15 오전 2:01:39
