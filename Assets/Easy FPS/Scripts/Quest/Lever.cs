@@ -29,7 +29,7 @@ public class Lever : MonoBehaviour
     public GameObject Help;
     public TextMeshProUGUI HelpText;
     private bool  clear=false;
-
+    public GameObject Key1;
     
     void Start()
     {
@@ -55,6 +55,7 @@ public class Lever : MonoBehaviour
                 player.GetComponent<MouseLookScript>().enabled = true;
                 player.GetComponent<PlayerMovementScript>().enabled = true;
                 Triangle.SetActive(false);
+                Key1.SetActive(false);
                 
             }
             if(Input.GetKeyDown(KeyCode.UpArrow)){

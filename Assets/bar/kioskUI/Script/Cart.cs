@@ -12,6 +12,7 @@ public class Cart : MonoBehaviour
     public int[] productPrices;
     public int index=0;
     public int TotalPrice=0;
+    public int Stack=0;
     public TextMeshProUGUI CartName;
     public TextMeshProUGUI CartPrice;
     public TextMeshProUGUI OrderAmount;
@@ -27,13 +28,16 @@ public class Cart : MonoBehaviour
     public AudioSource RadioSound;
     public string[] dialogue;
     public string[] dialogue2;
+    public string[] dialogue3;
     public int curResponseTracker=0;
     public int curResponseTracker2=0;
+    public int curResponseTracker3=0;
     public TextMeshProUGUI npcName;
     public TextMeshProUGUI npcDialogueBox;
     public GameObject dialogueUI;
     public bool isTalking=false;
     public bool isTalking2=false;
+    public bool isTalking3=false;
     private bool talked=false;
     public bool Clear=false;
     public GunInventory guninventory;
@@ -53,11 +57,17 @@ public class Cart : MonoBehaviour
         if(Input.GetMouseButtonDown(0)&&isTalking2==true){
             ContinueConversation2();          
         }
+        if(Input.GetMouseButtonDown(0)&&isTalking3==true){
+            ContinueConversation();          
+        }
         if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue.Length){
             EndDialogue();
         }
         if(Input.GetMouseButtonDown(0)&&curResponseTracker2==dialogue2.Length){
             EndDialogue2();
+        }
+        if(Input.GetMouseButtonDown(0)&&curResponseTracker3==dialogue3.Length){
+            EndDialogue3();
         }
         /*
         if(Clear&&guninventory.currneguniscard()&&Input.GetMouseButtonDown(0)){
@@ -169,7 +179,15 @@ public class Cart : MonoBehaviour
             KioskUi.SetActive(false);
             player.GetComponent<MouseLookScript>().enabled = true;
             player.GetComponent<PlayerMovementScript>().enabled = true;
-            StartConversation();
+            Stack++;
+            if(Stack==1){
+                StartConversation();
+            }else if(Stack>1){
+                Stack=2;
+                StartConversation3();
+            }
+            
+            
         }
 
     }
@@ -213,7 +231,17 @@ public class Cart : MonoBehaviour
         
 
     }
+    public void StartConversation3(){
+        isTalking3=true;
+        curResponseTracker3=0;
+        dialogueUI.SetActive(true);
+        npcName.text=" ";
+        npcDialogueBox.text=dialogue3[0];
+        
+
+    }
     public void ContinueConversation(){
+        if(Stack==1){
             curResponseTracker++;
             if(curResponseTracker>dialogue.Length){
                 curResponseTracker=dialogue.Length;
@@ -222,10 +250,25 @@ public class Cart : MonoBehaviour
             {
                 npcDialogueBox.text=dialogue[curResponseTracker];
             }
+        }else if(Stack>1){
+            curResponseTracker3++;
+            if(curResponseTracker3>dialogue3.Length){
+                curResponseTracker3=dialogue3.Length;
+            }
+            else if(curResponseTracker3<dialogue3.Length)
+            {
+                npcDialogueBox.text=dialogue3[curResponseTracker3];
+            }
+        }
     }
     public void EndDialogue(){
         curResponseTracker=0;
         isTalking=false;
+        dialogueUI.SetActive(false);
+    }
+    public void EndDialogue3(){
+        curResponseTracker3=0;
+        isTalking3=false;
         dialogueUI.SetActive(false);
     }
     public void StartConversation2(){
@@ -268,5 +311,5 @@ public class Cart : MonoBehaviour
         player.GetComponent<MouseLookScript>().enabled = true;
         player.GetComponent<PlayerMovementScript>().enabled = true;
     }
-    public bool IsTalking(){return isTalking==false&&isTalking2==false;}
+    public bool IsTalking(){return isTalking==false&&isTalking2==false&&isTalking3==false;}
 }

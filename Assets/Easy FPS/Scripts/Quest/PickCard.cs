@@ -26,7 +26,7 @@ public class PickCard : MonoBehaviour
     void Update()
     {
         
-        if(zzz&&Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==false){
+        if(zzz&&Input.GetMouseButtonDown(0)&&guninventory.IfHand()&&isTalking==false&&Clear){
         guninventory.PositiveCard();
         UiObject.SetActive(true);
         UiText.text="카드키를 획득했습니다. 숫자키 4번을 눌러 손에 들 수 있습니다";

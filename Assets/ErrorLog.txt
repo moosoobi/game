@@ -164,3 +164,12 @@ Error Log - 2024-05-14 오후 10:09:26
 Error Log - 2024-05-14 오후 10:35:01
 Error Log - 2024-05-14 오후 10:37:24
 Error Log - 2024-05-14 오후 10:58:47
+Error Log - 2024-05-15 오전 1:00:33
+Error Log - 2024-05-15 오전 1:03:36
+Error Log - 2024-05-15 오전 1:08:26
+Error Log - 2024-05-15 오전 1:30:53
+Exception: IndexOutOfRangeException: Index was outside the bounds of the array.
+BarNpc.Update () (at Assets/Script/BarNpc.cs:41)
+
+
+Error Log - 2024-05-15 오전 1:32:54

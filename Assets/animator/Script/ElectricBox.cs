@@ -33,8 +33,6 @@ public class ElectricBox : MonoBehaviour
     public GameObject Key1;
     public GameObject Key2;
     public GameObject Key3;
-    public GameObject Key4;
-    public GameObject Key5;
     private int stage=0;
     public GameObject player;
     public GameObject camera;
@@ -86,7 +84,7 @@ public class ElectricBox : MonoBehaviour
         Key1.SetActive(false);
         Key2.SetActive(false);
         Key3.SetActive(false);
-        Key4.SetActive(false);
+        
         
     }
     public bool ReturnDoorLock(){return doorlock;}

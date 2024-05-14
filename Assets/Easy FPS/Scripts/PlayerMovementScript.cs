@@ -117,6 +117,23 @@ public class PlayerMovementScript : MonoBehaviour {
         }
 		rb.velocity = new Vector3(rb.velocity.x, upSpeed,rb.velocity.z);
 		
+		if(running){
+			if (!_runSound.isPlaying) {
+				_walkSound.Stop ();
+				_runSound.Play ();
+			}
+				
+		}
+		else if(walking){
+			if (!_walkSound.isPlaying) {
+							_walkSound.Play ();
+							_runSound.Stop ();
+			}
+		}else{
+			_walkSound.Stop();
+			_runSound.Stop();
+		}
+		
 	}
 	public bool IfJumping=false;
 	 private IEnumerator JumpSound()
@@ -167,6 +184,7 @@ public class PlayerMovementScript : MonoBehaviour {
 	* Checks if player is grounded and plays the sound accorindlgy to his speed
 	*/
 	void WalkingSound(){
+		/*
 		if (_walkSound && _runSound) {
 			if (RayCastGrounded ()) { //for walk sounsd using this because suraface is not straigh			
 				if (currentSpeed > 1) {
@@ -197,7 +215,7 @@ public class PlayerMovementScript : MonoBehaviour {
 		} else {
 			print ("Missing walk and running sounds.");
 		}
-
+	*/
 	}
 	/*
 	* Raycasts down to check if we are grounded along the gorunded method() because if the
