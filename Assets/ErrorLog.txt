@@ -509,3 +509,19 @@ SaveCircle.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/SaveCir
 
 Error Log - 2024-05-15 오후 4:23:48
 Error Log - 2024-05-15 오후 10:06:01
+Error Log - 2024-05-15 오후 10:19:03
+Error Log - 2024-05-15 오후 10:20:58
+Exception: UnassignedReferenceException: The variable Wanted of EnergyCore has not been assigned.
+You probably need to assign the Wanted variable of the EnergyCore script in the inspector.
+EnergyCore.EndDialogue () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:294)
+EnergyCore.Update () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:108)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerExit (UnityEngine.Collider other) (at Assets/Script/z.cs:24)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/z.cs:13)
+
+
