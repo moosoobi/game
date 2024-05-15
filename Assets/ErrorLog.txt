@@ -438,3 +438,18 @@ Error Log - 2024-05-15 오후 2:11:12
 Error Log - 2024-05-15 오후 2:12:34
 Error Log - 2024-05-15 오후 2:15:23
 Error Log - 2024-05-15 오후 2:28:13
+Error Log - 2024-05-15 오후 2:34:19
+Error Log - 2024-05-15 오후 2:39:01
+Error Log - 2024-05-15 오후 2:40:01
+Error Log - 2024-05-15 오후 3:03:20
+Error Log - 2024-05-15 오후 3:06:15
+Error Log - 2024-05-15 오후 3:13:25
+Error Log - 2024-05-15 오후 3:16:58
+Error: Assets\boss\Script\EndingMonitor.cs(252,24): error CS0161: 'EndingMonitor.EndingMove()': not all code paths return a value
+
+
+Error: Assets\boss\Script\EndingMonitor.cs(252,24): error CS0161: 'EndingMonitor.EndingMove()': not all code paths return a value
+
+
+Error Log - 2024-05-15 오후 3:19:58
+Error Log - 2024-05-15 오후 3:24:52

@@ -18,6 +18,7 @@ public class StartCursur : MonoBehaviour
     public RectTransform uiRectTransform;
     public AudioSource RoomBg;
     public AudioSource StartBg;
+    public AudioSource Click;
     public float moveSpeed = 500f;
 
     /// <summary>
@@ -68,6 +69,7 @@ public class StartCursur : MonoBehaviour
         
         if(currentX>-390&&currentX<-130&&currentY>-220&&currentY<-90){
             if(Input.GetMouseButtonDown(0)){
+                Click.Play();
                 StartCamera.SetActive(false);
                 StartBg.Stop();
                 OpeningVideo.SetActive(true);
@@ -80,6 +82,7 @@ public class StartCursur : MonoBehaviour
         }
         if(currentX>160&&currentX<440&&currentY>-220&&currentY<-90){
             if(Input.GetMouseButtonDown(0)){
+                Click.Play();
                 SceneManager.LoadScene("Short");
             }
         }

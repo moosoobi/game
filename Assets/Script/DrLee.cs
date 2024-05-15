@@ -69,6 +69,7 @@ public class DrLee : MonoBehaviour
     public bool RotiationBool=true;
     public AudioSource QuestSound;
     public AudioSource DialogueSound;
+    public AudioSource Click;
     
 
 
@@ -184,6 +185,7 @@ public class DrLee : MonoBehaviour
             uiRectTransform.anchoredPosition = newPosition;
             if(currentX>-570f&&currentX<-410f&&currentY>-350f&&currentY<-270f){
                 if (Input.GetMouseButtonDown(0)){
+                    Click.Play();
                     Buy.SetActive(false);
                     Cursur.SetActive(false);
                     ShopUi.SetActive(false);
@@ -204,6 +206,7 @@ public class DrLee : MonoBehaviour
                     ChipSetPick.SetActive(true);
                     ChipSetDetail.SetActive(true);
                     if (Input.GetMouseButtonDown(0)){
+                        Click.Play();
                         ChipSetBuy.SetActive(true);
                         Buy.SetActive(true);
                         BuyInt=0;
@@ -219,6 +222,7 @@ public class DrLee : MonoBehaviour
                     UpgradePick.SetActive(true);
                     UpgradeDetail.SetActive(true);
                     if (Input.GetMouseButtonDown(0)){
+                        Click.Play();
                         UpgradeBuy.SetActive(true);
                         Buy.SetActive(true);
                         BuyInt=1;
@@ -233,6 +237,7 @@ public class DrLee : MonoBehaviour
                     HealKitPick.SetActive(true);
                     HealKitDetail.SetActive(true);
                     if (Input.GetMouseButtonDown(0)){
+                        Click.Play();
                         HealKitBuy.SetActive(true);
                 
                         Buy.SetActive(true);
@@ -248,6 +253,7 @@ public class DrLee : MonoBehaviour
                     FakeBodyPick.SetActive(true);
                     FakeBodyDetail.SetActive(true);
                     if (Input.GetMouseButtonDown(0)){
+                        Click.Play();
                         FakeBodyBuy.SetActive(true);
                         Buy.SetActive(true);
                         BuyInt=3;
@@ -262,6 +268,7 @@ public class DrLee : MonoBehaviour
                     EmpPick.SetActive(true);
                     EmpDetail.SetActive(true);
                     if (Input.GetMouseButtonDown(0)){
+                        Click.Play();
                         EmpBuy.SetActive(true);
                         Buy.SetActive(true);
                         BuyInt=4;
@@ -296,6 +303,7 @@ public class DrLee : MonoBehaviour
             if(currentY>-142f&&currentY<-82f){
                 if(currentX>-160f&&currentX<-18f){
                     if (Input.GetMouseButtonDown(0)){
+                        Click.Play();
                         Buy.SetActive(false);
                         Buying=false;
                         Shopping=true;
@@ -308,6 +316,7 @@ public class DrLee : MonoBehaviour
                 }
                 if(currentX>40f&&currentX<185f){
                     if (Input.GetMouseButtonDown(0)){
+                        Click.Play();
                         Buy.SetActive(false);
                         Buying=false;
                         

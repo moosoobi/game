@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndingMonitor : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class EndingMonitor : MonoBehaviour
     public GameObject EnergyDetail;
     public GameObject TrashDetail;
     public GameObject TraumDetail;
+    public GameObject EndingEnemy;
     public RectTransform uiRectTransform;
     public GameObject player;
     public GameObject EndingCamera;
@@ -54,14 +56,15 @@ public class EndingMonitor : MonoBehaviour
         if (isMoving)
         {
             
-            EndingCamera.transform.position = Vector3.MoveTowards(EndingCamera.transform.position, EndingSpot.transform.position, CameramoveSpeed * Time.deltaTime);
-            Quaternion targetRotation = Quaternion.Euler(45f, -89f, 0f);
+            //EndingCamera.transform.position = Vector3.MoveTowards(EndingCamera.transform.position, EndingSpot.transform.position, CameramoveSpeed * Time.deltaTime);
+            Quaternion targetRotation = Quaternion.Euler(0f, -90f, 0f);
             EndingCamera.transform.rotation = Quaternion.Slerp(EndingCamera.transform.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             
-            if (EndingCamera.transform.position == EndingSpot.transform.position && EndingCamera.transform.rotation == targetRotation)
+            if (EndingCamera.transform.rotation == targetRotation)
             {
                 isMoving=false;
-                EndingImage.SetActive(true);
+                StartCoroutine(EndingLogo());
+                
                 
             }
         }
@@ -175,7 +178,7 @@ public class EndingMonitor : MonoBehaviour
                     MonitorUi.SetActive(false);
                     Pick.Play();
                     Boss.LightOn();
-                    EndingSound.Play();
+                    
                     StartCoroutine(EndingMove());
                     Cursur.SetActive(false);
                     
@@ -248,8 +251,16 @@ public class EndingMonitor : MonoBehaviour
             zzz=false;
         }
     }
-    public IEnumerator EndingMove(){
+    public IEnumerator EndingLogo(){
+        yield return new WaitForSeconds(2.0f);
+        EndingImage.SetActive(true);
         yield return new WaitForSeconds(5.0f);
+        SceneManager.LoadScene("Opening");
+
+    }
+    public IEnumerator EndingMove(){
+        EndingEnemy.SetActive(true);
+        yield return new WaitForSeconds(1.0f);
         EndingCamera.SetActive(true);
         isMoving=true;
     }

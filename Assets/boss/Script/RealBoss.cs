@@ -104,6 +104,7 @@ public class RealBoss : MonoBehaviour
     public GameObject ShootGuide;
     public GameObject BossWord1;
     public GameObject BossWord2;
+    
     public AudioSource QuestSound;
     public AudioSource DialogueSound;
     private void Start()
