@@ -544,7 +544,9 @@ public class RealBoss : MonoBehaviour
             CancelInvoke("BulletAttack");
             StopCoroutine(currentCoroutine);
             StopCoroutine(currentCoroutine1);
-
+            rend1.material=Blue;
+            rend2.material=Yellow;
+            rend3.material=Pink;
             isAttacking=false;
             Fixing=0;
             Text1.SetActive(false);

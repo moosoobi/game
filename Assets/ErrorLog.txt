@@ -454,3 +454,49 @@ Error: Assets\boss\Script\EndingMonitor.cs(252,24): error CS0161: 'EndingMonitor
 Error Log - 2024-05-15 오후 3:19:58
 Error Log - 2024-05-15 오후 3:24:52
 Error Log - 2024-05-15 오후 3:35:02
+Error Log - 2024-05-15 오후 4:05:31
+Exception: UnassignedReferenceException: The variable LabDetail of EndingMonitor has not been assigned.
+You probably need to assign the LabDetail variable of the EndingMonitor script in the inspector.
+EndingMonitor.Update () (at Assets/boss/Script/EndingMonitor.cs:131)
+
+
+Exception: UnassignedReferenceException: The variable LabDetail of EndingMonitor has not been assigned.
+You probably need to assign the LabDetail variable of the EndingMonitor script in the inspector.
+EndingMonitor.Update () (at Assets/boss/Script/EndingMonitor.cs:131)
+
+
+Exception: UnassignedReferenceException: The variable LabDetail of EndingMonitor has not been assigned.
+You probably need to assign the LabDetail variable of the EndingMonitor script in the inspector.
+EndingMonitor.Update () (at Assets/boss/Script/EndingMonitor.cs:131)
+
+
+Exception: UnassignedReferenceException: The variable LabDetail of EndingMonitor has not been assigned.
+You probably need to assign the LabDetail variable of the EndingMonitor script in the inspector.
+EndingMonitor.Update () (at Assets/boss/Script/EndingMonitor.cs:131)
+
+
+Exception: UnassignedReferenceException: The variable LabDetail of EndingMonitor has not been assigned.
+You probably need to assign the LabDetail variable of the EndingMonitor script in the inspector.
+EndingMonitor.Update () (at Assets/boss/Script/EndingMonitor.cs:131)
+
+
+Exception: UnassignedReferenceException: The variable LabDetail of EndingMonitor has not been assigned.
+You probably need to assign the LabDetail variable of the EndingMonitor script in the inspector.
+EndingMonitor.Update () (at Assets/boss/Script/EndingMonitor.cs:131)
+
+
+Exception: UnassignedReferenceException: The variable LabDetail of EndingMonitor has not been assigned.
+You probably need to assign the LabDetail variable of the EndingMonitor script in the inspector.
+EndingMonitor.Update () (at Assets/boss/Script/EndingMonitor.cs:131)
+
+
+Exception: UnassignedReferenceException: The variable LabDetail of EndingMonitor has not been assigned.
+You probably need to assign the LabDetail variable of the EndingMonitor script in the inspector.
+EndingMonitor.Update () (at Assets/boss/Script/EndingMonitor.cs:131)
+
+
+Exception: UnassignedReferenceException: The variable LabDetail of EndingMonitor has not been assigned.
+You probably need to assign the LabDetail variable of the EndingMonitor script in the inspector.
+EndingMonitor.Update () (at Assets/boss/Script/EndingMonitor.cs:131)
+
+
