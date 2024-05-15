@@ -508,3 +508,4 @@ SaveCircle.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/SaveCir
 
 
 Error Log - 2024-05-15 오후 4:23:48
+Error Log - 2024-05-15 오후 10:06:01
