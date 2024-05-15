@@ -7,13 +7,15 @@ public class EndingMonitor : MonoBehaviour
 {
     public GameObject Cursur;
     public GameObject MonitorUi;
-    public GameObject MemberDetail;
-    public GameObject Voice1Detail;
     public GameObject NewMedicineDetail;
-    public GameObject Voice2Detail;
-    public GameObject EnergyDetail;
     public GameObject TrashDetail;
     public GameObject TraumDetail;
+    public GameObject Papa1;
+    public GameObject Papa2;
+    public GameObject Papa3;
+    public GameObject Papa4;
+    public GameObject Papa5;
+    public GameObject Papa6;
     public GameObject LabDetail;
     public GameObject EndingEnemy;
     public RectTransform uiRectTransform;
@@ -32,6 +34,12 @@ public class EndingMonitor : MonoBehaviour
     public bool IfTrash=false;
     public bool IfTraum=false;
     public bool IfLab=false;
+    public bool IfPapa1=false;
+    public bool IfPapa2=false;
+    public bool IfPapa3=false;
+    public bool IfPapa4=false;
+    public bool IfPapa5=false;
+    public bool IfPapa6=false;
     public bool First=true;
     public bool FirstVector=true;
     public bool zzz=false;
@@ -85,7 +93,24 @@ public class EndingMonitor : MonoBehaviour
 
         // 입력에 따라 이동한 위치 계산
         Vector2 newPosition = currentPosition + moveDirection*moveSpeed * Time.deltaTime;
-
+        if (newPosition.x < -630f)
+            {
+                newPosition.x = -630f;
+            }
+            if (newPosition.x > 630f)
+            {
+                newPosition.x = 630f;
+            }
+            // y 방향으로 이동 제한
+            if (newPosition.y > 350f)
+            {
+                newPosition.y = 350f;
+            }
+            if (newPosition.y < -350f)
+            {
+                newPosition.y = -350f;
+            }
+    
         // 새로 계산된 위치로 anchoredPosition 설정
         uiRectTransform.anchoredPosition = newPosition;
         if(Home){
@@ -137,15 +162,56 @@ public class EndingMonitor : MonoBehaviour
             }
         }
         if(IfTrash){
-            if(currentX>-230&&currentX<-160&&currentY>50&&currentY<120){
+            if(currentX>-220&&currentX<-160&&currentY>60&&currentY<120){
                 if(Input.GetMouseButtonDown(0)){
-                    IfTraum=true;
-                    IfTrash=false;
-                    Home=false;
-                    TraumDetail.SetActive(true);
+                    Papa1.SetActive(true);
                     Pick.Play();
+                    IfPapa1=true;
+                    IfTrash=false;
+                    
                 }
             }
+            if(currentX>-20&&currentX<40&&currentY>60&&currentY<120){
+                if(Input.GetMouseButtonDown(0)){
+                    Papa2.SetActive(true);
+                    Pick.Play();
+                    IfPapa2=true;
+                    IfTrash=false;
+                }
+            }
+            if(currentX>180&&currentX<240&&currentY>60&&currentY<120){
+                if(Input.GetMouseButtonDown(0)){
+                    Papa3.SetActive(true);
+                    Pick.Play();
+                    IfPapa3=true;
+                    IfTrash=false;
+                }
+            }
+            if(currentX>-220&&currentX<-160&&currentY>-40&&currentY<20){
+                if(Input.GetMouseButtonDown(0)){
+                    Papa4.SetActive(true);
+                    Pick.Play();
+                    IfPapa4=true;
+                    IfTrash=false;
+                }
+            }
+            if(currentX>-120&&currentX<-60&&currentY>-40&&currentY<20){
+                if(Input.GetMouseButtonDown(0)){
+                    Papa5.SetActive(true);
+                    Pick.Play();
+                    IfPapa5=true;
+                    IfTrash=false;
+                }
+            }
+            if(currentX>80&&currentX<140&&currentY>-40&&currentY<20){
+                if(Input.GetMouseButtonDown(0)){
+                    Papa6.SetActive(true);
+                    Pick.Play();
+                    IfPapa6=true;
+                    IfTrash=false;
+                }
+            }
+            /*
             if(currentX>265&&currentX<290&&currentY>150&&currentY<175){
                 if(Input.GetMouseButtonDown(0)){
                     IfTrash=false;
@@ -155,6 +221,7 @@ public class EndingMonitor : MonoBehaviour
                     
                 }
             }
+            */
         }
         /*
         if(IfTraum){
@@ -199,6 +266,118 @@ public class EndingMonitor : MonoBehaviour
                     IfLab=false;
                     Home=true;
                     Pick.Play();
+                }
+            }
+        }
+        if(IfPapa1){
+            if(currentX>420&&currentX<490&&currentY>-80&&currentY<60){
+                if(Input.GetMouseButtonDown(0)){
+                    IfPapa1=false;
+                    IfPapa2=true;
+                    Papa2.SetActive(true);
+                    Papa1.SetActive(false);
+                    Pick.Play();
+                }
+            }
+        }
+        else if(IfPapa2){
+            if(currentX>-470&&currentX<-400&&currentY>-80&&currentY<60){
+                if(Input.GetMouseButtonDown(0)){
+                    IfPapa2=false;
+                    IfPapa1=true;
+                    Papa2.SetActive(false);
+                    Papa1.SetActive(true);
+                    Pick.Play();
+                }
+            }
+            if(currentX>420&&currentX<490&&currentY>-80&&currentY<60){
+                if(Input.GetMouseButtonDown(0)){
+                    IfPapa3=true;
+                    IfPapa2=false;
+                    Papa3.SetActive(true);
+                    Papa2.SetActive(false);
+                    Pick.Play();
+                }
+            }
+        }
+        else if(IfPapa3){
+            if(currentX>-470&&currentX<-400&&currentY>-80&&currentY<60){
+                if(Input.GetMouseButtonDown(0)){
+                    IfPapa3=false;
+                    IfPapa2=true;
+                    Papa2.SetActive(true);
+                    Papa3.SetActive(false);
+                    Pick.Play();
+                }
+            }
+            if(currentX>420&&currentX<490&&currentY>-80&&currentY<60){
+                if(Input.GetMouseButtonDown(0)){
+                    IfPapa3=false;
+                    IfPapa4=true;
+                    Papa4.SetActive(true);
+                    Papa3.SetActive(false);
+                    Pick.Play();
+                }
+            }
+        }
+        else if(IfPapa4){
+            if(currentX>-470&&currentX<-400&&currentY>-80&&currentY<60){
+                if(Input.GetMouseButtonDown(0)){
+                    IfPapa4=false;
+                    IfPapa3=true;
+                    Papa3.SetActive(true);
+                    Papa4.SetActive(false);
+                    Pick.Play();
+                }
+            }
+            if(currentX>420&&currentX<490&&currentY>-80&&currentY<60){
+                if(Input.GetMouseButtonDown(0)){
+                    IfPapa4=false;
+                    IfPapa5=true;
+                    Papa5.SetActive(true);
+                    Papa4.SetActive(false);
+                    Pick.Play();
+                }
+            }
+        }
+        else if(IfPapa5){
+            if(currentX>-470&&currentX<-400&&currentY>-80&&currentY<60){
+                if(Input.GetMouseButtonDown(0)){
+                    IfPapa5=false;
+                    IfPapa4=true;
+                    Papa4.SetActive(true);
+                    Papa5.SetActive(false);
+                    Pick.Play();
+                }
+            }
+            if(currentX>420&&currentX<490&&currentY>-80&&currentY<60){
+                if(Input.GetMouseButtonDown(0)){
+                    IfPapa5=false;
+                    IfPapa6=true;
+                    Papa6.SetActive(true);
+                    Papa5.SetActive(false);
+                    Pick.Play();
+                }
+            }
+        }
+        else if(IfPapa6){
+            if(currentX>-470&&currentX<-400&&currentY>-80&&currentY<60){
+                if(Input.GetMouseButtonDown(0)){
+                    IfPapa6=false;
+                    IfPapa5=true;
+                    Papa5.SetActive(true);
+                    Papa6.SetActive(false);
+                    Pick.Play();
+                }
+            }
+            if(currentX>445&&currentX<480&&currentY>250&&currentY<280){
+                if(Input.GetMouseButtonDown(0)){
+                    MonitorUi.SetActive(false);
+                    Pick.Play();
+                    Boss.LightOn();
+                    
+                    StartCoroutine(EndingMove());
+                    Cursur.SetActive(false);
                 }
             }
         }
