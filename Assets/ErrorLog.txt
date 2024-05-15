@@ -500,3 +500,11 @@ You probably need to assign the LabDetail variable of the EndingMonitor script i
 EndingMonitor.Update () (at Assets/boss/Script/EndingMonitor.cs:131)
 
 
+Error Log - 2024-05-15 오후 4:22:14
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+SaveCircle.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/SaveCircle.cs:31)
+
+
+Error Log - 2024-05-15 오후 4:23:48

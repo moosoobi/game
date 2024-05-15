@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RealBoss : MonoBehaviour
 {
@@ -97,6 +98,7 @@ public class RealBoss : MonoBehaviour
     public GameObject BossUnder;
     public GameObject EndingVolumn;
     public bool IfDie=false;
+    public bool Short=false;
     public EndingMonitor Ending;
     public AudioSource ErrorSound;
     public AudioSource BossBg;
@@ -104,7 +106,7 @@ public class RealBoss : MonoBehaviour
     public GameObject ShootGuide;
     public GameObject BossWord1;
     public GameObject BossWord2;
-    
+    public GameObject EndingImage;
     public AudioSource QuestSound;
     public AudioSource DialogueSound;
     private void Start()
@@ -261,8 +263,12 @@ public class RealBoss : MonoBehaviour
         BossAni.Play("death", 0, 0.0f);
         SpotLight.enabled=false;
         BossLight.enabled=false;
-        EndingMonitorLight.enabled=true;
-        EndingVolumn.SetActive(true);
+        if(Short){}
+        else{
+            EndingMonitorLight.enabled=true;
+            EndingVolumn.SetActive(true);
+        }
+        
         Turn_Off.SetActive(false);
         Ending.Clear=true;
         yield return new WaitForSeconds(3.0f);
@@ -320,10 +326,19 @@ public class RealBoss : MonoBehaviour
             clear=true;
             PlayerHp.stage=2;
         }else if(Stage==1){
-            QuestActive1();
+            if(Short){StartCoroutine(EndingLogo());}
+            else{QuestActive1();}
+            
 
         }
         
+    }
+    public IEnumerator EndingLogo(){
+        yield return new WaitForSeconds(2.0f);
+        EndingImage.SetActive(true);
+        yield return new WaitForSeconds(5.0f);
+        SceneManager.LoadScene("Opening");
+
     }
     IEnumerator ExecuteAttackPattern()
     {
