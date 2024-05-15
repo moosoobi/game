@@ -453,3 +453,4 @@ Error: Assets\boss\Script\EndingMonitor.cs(252,24): error CS0161: 'EndingMonitor
 
 Error Log - 2024-05-15 오후 3:19:58
 Error Log - 2024-05-15 오후 3:24:52
+Error Log - 2024-05-15 오후 3:35:02
