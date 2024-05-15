@@ -10,6 +10,8 @@ public class RealBoss : MonoBehaviour
     public Animator BossAni;
     public TextMeshProUGUI text1;
     public GameObject Text1;
+    public TextMeshProUGUI text2;
+    public GameObject Text2;
     private int currentPatternIndex = 0; // 현재 실행 중인 공격 패턴 인덱스
     private bool isAttacking = false; // 현재 공격 중인지 여부
     public float duration=5f;
@@ -544,10 +546,11 @@ public class RealBoss : MonoBehaviour
 
             isAttacking=false;
             Fixing=0;
-            Text1.SetActive(true);
-            text1.text="메인 컴퓨터가 수리 로봇을 호출합니다. 30초 이내에 수리로봇을 파괴하여 수리를 중단해야 합니다.";
+            Text1.SetActive(false);
+            Text2.SetActive(true);
+            text2.text="메인 컴퓨터가 수리 로봇을 호출합니다. \n30초 이내에 수리로봇을 파괴하여 수리를 중단해야 합니다.";
             FixingLotation=true;
-            StartCoroutine(ExecuteAfterDelayText(3f));
+            StartCoroutine(ExecuteAfterDelayText1(3f));
             yield return new WaitForSeconds(3.0f);
             TimerVideo.Play();
             rend6.material=Timer;
@@ -580,17 +583,17 @@ public class RealBoss : MonoBehaviour
             clear=true;
             if(Fixing==10){
                 Under50=true;
-                Text1.SetActive(true);
-                text1.text="메인 컴퓨터가 수리에 실패했습니다. 과부하로 인해 5초간 동작이 중지됩니다.";
-                StartCoroutine(ExecuteAfterDelayText(5f));
+                Text2.SetActive(true);
+                text2.text="메인 컴퓨터가 수리에 실패했습니다. \n과부하로 인해 5초간 동작이 중지됩니다.";
+                StartCoroutine(ExecuteAfterDelayText1(5f));
                 yield return new WaitForSeconds(5.0f);
                 touch=true;
                 isAttacking=false;
                 
             }else{
-                Text1.SetActive(true);
-                text1.text="메인 컴퓨터가 수리에 성공했습니다. 메인컴퓨터가 체력을 회복합니다.";
-                StartCoroutine(ExecuteAfterDelayText(3f));
+                Text2.SetActive(true);
+                text2.text="메인 컴퓨터가 수리에 성공했습니다. \n메인컴퓨터가 체력을 회복합니다.";
+                StartCoroutine(ExecuteAfterDelayText1(3f));
                 touch=true;
                 BossHp=70;
                 UpdateHealth(0);
@@ -637,6 +640,12 @@ public class RealBoss : MonoBehaviour
         // 일정 시간만큼 대기
         yield return new WaitForSeconds(delayInSeconds);
         Text1.SetActive(false);
+    }
+    private IEnumerator ExecuteAfterDelayText1(float delayInSeconds)
+    {
+        // 일정 시간만큼 대기
+        yield return new WaitForSeconds(delayInSeconds);
+        Text2.SetActive(false);
     }
     private IEnumerator ExecuteAfterDelay(float delayInSeconds)
     {

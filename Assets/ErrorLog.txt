@@ -371,3 +371,63 @@ Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
 
 
 Error Log - 2024-05-15 오후 12:25:19
+Error Log - 2024-05-15 오후 12:50:34
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+Short_First.ContinueConversation () (at Assets/Script/Short/Short_First.cs:72)
+Short_First.Update () (at Assets/Script/Short/Short_First.cs:39)
+
+
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+Short_First.ContinueConversation () (at Assets/Script/Short/Short_First.cs:72)
+Short_First.Update () (at Assets/Script/Short/Short_First.cs:39)
+
+
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+Short_First.ContinueConversation () (at Assets/Script/Short/Short_First.cs:72)
+Short_First.Update () (at Assets/Script/Short/Short_First.cs:39)
+
+
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+Short_First.ContinueConversation () (at Assets/Script/Short/Short_First.cs:72)
+Short_First.Update () (at Assets/Script/Short/Short_First.cs:39)
+
+
+Error Log - 2024-05-15 오후 12:51:07
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+RealBoss.ContinueConversation () (at Assets/boss/Script/RealBoss.cs:286)
+RealBoss.Update () (at Assets/boss/Script/RealBoss.cs:152)
+
+
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+RealBoss.ContinueConversation () (at Assets/boss/Script/RealBoss.cs:286)
+RealBoss.Update () (at Assets/boss/Script/RealBoss.cs:152)
+
+
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+RealBoss.ContinueConversation () (at Assets/boss/Script/RealBoss.cs:286)
+RealBoss.Update () (at Assets/boss/Script/RealBoss.cs:152)
+
+
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+RealBoss.ContinueConversation () (at Assets/boss/Script/RealBoss.cs:286)
+RealBoss.Update () (at Assets/boss/Script/RealBoss.cs:152)
+
+
+Error Log - 2024-05-15 오후 12:52:08
+Error Log - 2024-05-15 오후 12:59:22
