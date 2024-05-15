@@ -17,6 +17,7 @@ public class BarNpc : MonoBehaviour
     public bool lock1=false;
     public GameObject player;
     public GameObject[] Key;
+    public AudioSource DialogueSound;
     
     
     void Update()
@@ -47,6 +48,7 @@ public class BarNpc : MonoBehaviour
         
     }
     public void StartConversation(){
+        DialogueSound.Play();
         if(IfRed){ npcDialogueBox.color = new Color(1.0f, 92.0f / 255.0f, 1.0f); }
         isTalking=true;
         curResponseTracker=0;
@@ -70,6 +72,7 @@ public class BarNpc : MonoBehaviour
             }
         }
     public void EndDialogue(){
+        DialogueSound.Play();
         if(IfRed){npcDialogueBox.color=Color.white;}
         isTalking=false;
         dialogueUI.SetActive(false);

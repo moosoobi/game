@@ -14,6 +14,7 @@ public class ElectricBox : MonoBehaviour
     public GameObject KeyUi;
     public AudioSource DrawerOpen;
     public AudioSource DrawerClose;
+    public AudioSource DialogueSound;
 
     public string dooropen;
     public string doorclose;
@@ -100,6 +101,7 @@ public class ElectricBox : MonoBehaviour
         zzzz=false;
     }
     public void StartConversation(){
+        DialogueSound.Play();
         player.GetComponent<MouseLookScript>().enabled = false;
         player.GetComponent<PlayerMovementScript>().enabled = false;
         player.transform.position = new Vector3(354.6f, 1f, 424.16f);
@@ -121,6 +123,7 @@ public class ElectricBox : MonoBehaviour
     }
     public void ContinueConversation(){
             curResponseTracker++;
+            DialogueSound.Play();
             if(stage==0){
                 if(curResponseTracker>dialogue.Length){
                     curResponseTracker=dialogue.Length;
@@ -141,6 +144,7 @@ public class ElectricBox : MonoBehaviour
             
     }
     public void EndDialogue(){
+        DialogueSound.Play();
         player.GetComponent<MouseLookScript>().enabled = true;
         player.GetComponent<PlayerMovementScript>().enabled = true;
         curResponseTracker=0;

@@ -16,6 +16,7 @@ public class LongCoreCircle : MonoBehaviour
     public TextMeshProUGUI QuestText;
     public AudioSource QuestSound;
     public EnergyCoreDoor door;
+    private bool first=true;
 
     public void QuestActive(){
         Text2.text="에너지 증폭장치를 파괴하십시오.";
@@ -37,15 +38,15 @@ public class LongCoreCircle : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         
-        if (other.CompareTag("Player")){
-            
+        if (other.CompareTag("Player")&&first){
+            first=false;
             player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0,0);
             player.GetComponent<PlayerMovementScript>().enabled = false;
             core.Circle=true;
             //Guide.SetActive(false);
             door.CoreCircle();
             //Invoke("Deactivate", 10.0f);
-            
+            gameObject.SetActive(false);
             if(Short){
                 myDoor.Play("DoorOpen", 0, 0.0f);
                 if (DrawerOpen)

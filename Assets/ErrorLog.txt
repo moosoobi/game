@@ -528,3 +528,26 @@ UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
 SaveCircle.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/SaveCircle.cs:31)
 
 
+Error Log - 2024-05-16 오전 1:21:58
+Error Log - 2024-05-16 오전 1:22:49
+Error Log - 2024-05-16 오전 1:29:56
+Error Log - 2024-05-16 오전 1:33:25
+Error Log - 2024-05-16 오전 1:34:41
+Error Log - 2024-05-16 오전 1:37:35
+Exception: UnassignedReferenceException: The variable Wanted of EnergyCore has not been assigned.
+You probably need to assign the Wanted variable of the EnergyCore script in the inspector.
+EnergyCore.EndDialogue () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:296)
+EnergyCore+<StartConversation>d__68.MoveNext () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:149)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <17484a9af6b944dea5cd9be4dbb0da2c>:0)
+
+
+Exception: UnassignedReferenceException: The variable Wanted of EnergyCore has not been assigned.
+You probably need to assign the Wanted variable of the EnergyCore script in the inspector.
+EnergyCore.EndDialogue () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:296)
+EnergyCore.Update () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:108)
+
+
+Error Log - 2024-05-16 오전 1:39:03
+Error Log - 2024-05-16 오전 1:44:02
+Error Log - 2024-05-16 오전 1:49:11
+Error Log - 2024-05-16 오전 1:57:12

@@ -254,10 +254,11 @@ public class EnergyCore: Quest
             zzz=false;
     }
     public void ContinueConversation(){
-        DialogueSound.Play();
+        
         if(stage==0){
             
         }else if(stage==1){
+            DialogueSound.Play();
             curResponseTracker++;
             if(curResponseTracker>dialogue1.Length){
                 curResponseTracker=dialogue1.Length;
@@ -267,6 +268,7 @@ public class EnergyCore: Quest
                 npcDialogueBox.text=dialogue1[curResponseTracker];
             }
         }else if(stage==2){
+            DialogueSound.Play();
             curResponseTracker++;
             if(curResponseTracker>dialogue2.Length){
                 curResponseTracker=dialogue2.Length;

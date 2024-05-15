@@ -38,7 +38,7 @@ public class EnergyCoreDoor : MonoBehaviour
     public GameObject Guide;
     public GameObject Guide1;
     public GameObject ShootCircle;
-
+    public GameObject ShootGuide;
     
     void Update()
     {
@@ -69,7 +69,8 @@ public class EnergyCoreDoor : MonoBehaviour
         StartConversation();
     }
     public void QuestActive(){
-        ShootCircle.SetActive(true);
+        //ShootCircle.SetActive(true);
+        ShootGuide.SetActive(true);
         Text2.text="에너지증폭장치를 파괴하십시오.";
         StartCoroutine(ChangeColor());
     }

@@ -22,6 +22,7 @@ public class PickCard : MonoBehaviour
     public GameObject player;
     public GameObject Key;
     public GameObject CardMark;
+    public AudioSource Chip;
     
     void Update()
     {
@@ -33,6 +34,7 @@ public class PickCard : MonoBehaviour
         Key.SetActive(true);
         CardMark.SetActive(false);
         CardUi.SetActive(true);
+        Chip.Play();
         StartCoroutine(ExecuteAfterDelayText(3f)); 
         //StartConversation();
         }

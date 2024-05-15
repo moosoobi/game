@@ -278,17 +278,15 @@ public class Cart : MonoBehaviour
         isTalking2=true;
         curResponseTracker2=0;
         dialogueUI.SetActive(true);
-        npcName.text=" ";
+        RadioSound.Play();
+        npcName.text="J";
         npcDialogueBox.text=dialogue2[0];
         
 
     }
     public void ContinueConversation2(){
         DialogueSound.Play();
-            if(curResponseTracker2==1){
-                npcName.text="J";
-                RadioSound.Play();
-            }
+            
             curResponseTracker2++;
             if(curResponseTracker2>dialogue2.Length){
                 curResponseTracker2=dialogue2.Length;
