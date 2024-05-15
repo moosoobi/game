@@ -14,6 +14,7 @@ public class ShootingQuest : Quest
     public TextMeshProUGUI QuestText;
     public DialogueManager dia;
     public AudioSource QuestSound;
+    public AudioSource DialogueSound;
     public GunInventory guninventory;
     public string[] dialogue;
     public string[] dialogue2;
@@ -132,6 +133,7 @@ public class ShootingQuest : Quest
 
     public void ContinueConversation(){
             curResponseTracker++;
+            DialogueSound.Play();
             if(curResponseTracker>dialogue.Length){
                 curResponseTracker=dialogue.Length;
             }

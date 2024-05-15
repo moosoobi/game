@@ -23,6 +23,7 @@ public class Short_First : MonoBehaviour
     public AudioSource RadioSound;
     public GameObject Key_Detail;
     public AudioSource QuestSound;
+    public AudioSource DialogueSound;
     void Start()
     {
         Invoke("QuestActive", 3.0f);
@@ -68,6 +69,7 @@ public class Short_First : MonoBehaviour
     }
 
     public void ContinueConversation(){
+            DialogueSound.Play();
             curResponseTracker++;
             if(curResponseTracker>dialogue.Length){
                 curResponseTracker=dialogue.Length;

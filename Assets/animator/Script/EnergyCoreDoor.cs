@@ -14,6 +14,7 @@ public class EnergyCoreDoor : MonoBehaviour
     public AudioSource DrawerClose;
     public AudioSource RadioSound;
     public AudioSource QuestSound;
+    public AudioSource DialogueSound;
 
     public string dooropen;
     public string doorclose;
@@ -111,6 +112,7 @@ public class EnergyCoreDoor : MonoBehaviour
 
     }
     public void ContinueConversation(){
+            DialogueSound.Play();
             curResponseTracker++;
             if(curResponseTracker>dialogue.Length){
                 curResponseTracker=dialogue.Length;

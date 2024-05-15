@@ -68,6 +68,7 @@ public class DrLee : MonoBehaviour
     public bool MovingBool=true;
     public bool RotiationBool=true;
     public AudioSource QuestSound;
+    public AudioSource DialogueSound;
     
 
 
@@ -437,6 +438,7 @@ public class DrLee : MonoBehaviour
 
 
     public void ContinueConversation(){
+            DialogueSound.Play();
             curResponseTracker++;
             if(Stage==0){
                 if(curResponseTracker>dialogue.Length){

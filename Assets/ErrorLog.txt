@@ -182,3 +182,192 @@ LongCoreCircle.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/Lon
 Error Log - 2024-05-15 오전 1:53:49
 Error Log - 2024-05-15 오전 1:59:37
 Error Log - 2024-05-15 오전 2:01:39
+Error Log - 2024-05-15 오전 11:10:38
+Error Log - 2024-05-15 오전 11:14:04
+Error Log - 2024-05-15 오전 11:15:03
+Error Log - 2024-05-15 오후 12:23:46
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+Leg2RobotBlue.Update () (at Assets/enemy/Script/Leg2RobotBlue.cs:147)
+
+
+Error Log - 2024-05-15 오후 12:25:19

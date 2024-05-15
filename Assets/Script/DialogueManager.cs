@@ -43,6 +43,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject Help;
     public TextMeshProUGUI HelpText;
     public AudioSource QuestSound;
+    public AudioSource DialogueSound;
     public GameObject Quest1;
     void Start()
     {
@@ -151,6 +152,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void ContinueConversation(){
+        DialogueSound.Play();
         if(stage==0){
                     curResponseTracker++;
                     if(curResponseTracker>dialogue.Length){

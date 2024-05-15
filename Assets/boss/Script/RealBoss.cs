@@ -103,6 +103,7 @@ public class RealBoss : MonoBehaviour
     public GameObject BossWord1;
     public GameObject BossWord2;
     public AudioSource QuestSound;
+    public AudioSource DialogueSound;
     private void Start()
     {
         
@@ -282,6 +283,7 @@ public class RealBoss : MonoBehaviour
 
 
     public void ContinueConversation(){
+            DialogueSound.Play();
             curResponseTracker++;
             if(Stage==0){
                 if(curResponseTracker>dialogue.Length){

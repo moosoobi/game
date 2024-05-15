@@ -13,6 +13,7 @@ public class EleConver : MonoBehaviour
     public bool isTalking=false;
     public GameObject player;
     public bool First=true;
+    public AudioSource DialogueSound;
     void Start()
     {
         
@@ -41,7 +42,7 @@ public class EleConver : MonoBehaviour
         npcDialogueBox.text=dialogue[0];
     }
     public void ContinueConversation(){
-        
+        DialogueSound.Play();
         curResponseTracker++;
         if(curResponseTracker>dialogue.Length){
             curResponseTracker=dialogue.Length;

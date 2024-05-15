@@ -30,6 +30,7 @@ public class Leg2RobotBlue : MonoBehaviour
     public bool Ifhit=false;
     public bool IfChip=false;
     public bool FakeBody=false;
+    public bool Script=false;
 
     public string Walk;
     public string Slash;
@@ -45,6 +46,8 @@ public class Leg2RobotBlue : MonoBehaviour
     public LayerMask obstacleLayer; 
     
     public EnemyDeath EnemyDeath;
+
+    public EnergyCore Core;
 
     void Start()
     {
@@ -141,6 +144,7 @@ public class Leg2RobotBlue : MonoBehaviour
             }
             
             if(Hp<=0){
+                if(Script){Core.Script();}
                 Die=true;
                 GetComponent<Collider>().enabled = false;
                 StartCoroutine(Death());

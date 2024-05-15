@@ -16,6 +16,7 @@ public class EnergyCore: Quest
     public EnergyCoreDoor Door;
     public string[] dialogue;
     public string[] dialogue1;
+    public string[] dialogue2;
     public int stage=0;
     public int curResponseTracker=0;
     public TextMeshProUGUI npcName;
@@ -63,9 +64,11 @@ public class EnergyCore: Quest
     public GameObject Off3;
     public bool Circle=false;
     public GameObject Click;
+    public GameObject Wanted;
     public bool Short=false;
     public SlidingDoor door;
     public AudioSource QuestSound;
+    public AudioSource DialogueSound;
 
     public float dialogueInterval = 3f; // 대화 간격 (3초)
 
@@ -102,6 +105,10 @@ public class EnergyCore: Quest
             }
         }else if(stage==1){
             if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue1.Length){
+                EndDialogue();
+            }
+        }else if(stage==2){
+            if(Input.GetMouseButtonDown(0)&&curResponseTracker==dialogue2.Length){
                 EndDialogue();
             }
         }
@@ -151,6 +158,16 @@ public class EnergyCore: Quest
         dialogueUI.SetActive(true);
         npcName.text="J";
         npcDialogueBox.text=dialogue1[0];
+    }
+    public void StartConversation2(){
+        player.GetComponent<GunInventory>().Possible=false;
+        RadioSound.Play();
+        isTalking=true;
+        curResponseTracker=0;
+        dialogueUI.SetActive(true);
+        npcName.text="J";
+        npcDialogueBox.text=dialogue2[0];
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -237,6 +254,7 @@ public class EnergyCore: Quest
             zzz=false;
     }
     public void ContinueConversation(){
+        DialogueSound.Play();
         if(stage==0){
             
         }else if(stage==1){
@@ -247,6 +265,15 @@ public class EnergyCore: Quest
             else if(curResponseTracker<dialogue1.Length)
             {
                 npcDialogueBox.text=dialogue1[curResponseTracker];
+            }
+        }else if(stage==2){
+            curResponseTracker++;
+            if(curResponseTracker>dialogue2.Length){
+                curResponseTracker=dialogue2.Length;
+            }
+            else if(curResponseTracker<dialogue2.Length)
+            {
+                npcDialogueBox.text=dialogue2[curResponseTracker];
             }
         }
      
@@ -264,6 +291,7 @@ public class EnergyCore: Quest
             curResponseTracker=0;
             isTalking=false;
             dialogueUI.SetActive(false);
+            Wanted.SetActive(true);
             if(Short){
                 player.transform.position=new Vector3(21.1f, 258.8f, 432.15f);
                 player.transform.rotation=Quaternion.Euler(new Vector3(0f, 90f, 0f));
@@ -276,9 +304,15 @@ public class EnergyCore: Quest
             
 
             
+        }else if(stage==2){
+            player.GetComponent<GunInventory>().Possible=true;
+            curResponseTracker=0;
+            isTalking=false;
+            dialogueUI.SetActive(false);
         }
    
     }
+    public void Script(){stage=2;StartConversation2();}
     public void StopAllAudioSources()
     {
         // Scene에 있는 모든 AudioSource를 가져옵니다.

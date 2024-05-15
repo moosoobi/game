@@ -48,6 +48,7 @@ public class Cart : MonoBehaviour
     public GameObject CardUi;
     public GameObject[] Key;
     public AudioSource QuestSound;
+    public AudioSource DialogueSound;
 
     void Update()
     {
@@ -241,7 +242,9 @@ public class Cart : MonoBehaviour
 
     }
     public void ContinueConversation(){
+        DialogueSound.Play();
         if(Stack==1){
+            
             curResponseTracker++;
             if(curResponseTracker>dialogue.Length){
                 curResponseTracker=dialogue.Length;
@@ -281,6 +284,7 @@ public class Cart : MonoBehaviour
 
     }
     public void ContinueConversation2(){
+        DialogueSound.Play();
             if(curResponseTracker2==1){
                 npcName.text="J";
                 RadioSound.Play();

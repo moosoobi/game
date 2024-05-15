@@ -20,6 +20,7 @@ public class First_Bar : MonoBehaviour
     public bool first=true;
     public GameObject player;
     public AudioSource QuestSound;
+    public AudioSource DialogueSound;
     public void QuestActive(){
         Text.text=Description;
         StartCoroutine(ChangeColor());
@@ -67,6 +68,7 @@ public class First_Bar : MonoBehaviour
     }
 
     public void ContinueConversation(){
+            DialogueSound.Play();
             curResponseTracker++;
             if(curResponseTracker>dialogue.Length){
                 curResponseTracker=dialogue.Length;
