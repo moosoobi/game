@@ -520,3 +520,12 @@ Error Log - 2024-05-16 오전 12:15:25
 Error Log - 2024-05-16 오전 12:16:17
 Error Log - 2024-05-16 오전 12:21:40
 Error Log - 2024-05-16 오전 12:21:55
+Error Log - 2024-05-16 오전 1:22:29
+Error Log - 2024-05-16 오전 1:24:44
+Error Log - 2024-05-16 오전 1:29:25
+Exception: UnassignedReferenceException: The variable Wanted of EnergyCore has not been assigned.
+You probably need to assign the Wanted variable of the EnergyCore script in the inspector.
+EnergyCore.EndDialogue () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:294)
+EnergyCore.Update () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:108)
+
+
