@@ -17,6 +17,7 @@ public class StartCursur : MonoBehaviour
     public VideoPlayer videoPlayer;
     public RectTransform uiRectTransform;
     public AudioSource RoomBg;
+    public AudioSource StartBg;
     public float moveSpeed = 500f;
 
     /// <summary>
@@ -26,9 +27,11 @@ public class StartCursur : MonoBehaviour
     void Start()
     {
         videoPlayer.loopPointReached += OnVideoEnd;
+        
     }
     void Update()
     {
+        
         float currentX = uiRectTransform.anchoredPosition.x;
         float currentY = uiRectTransform.anchoredPosition.y;
 
@@ -66,7 +69,7 @@ public class StartCursur : MonoBehaviour
         if(currentX>-390&&currentX<-130&&currentY>-220&&currentY<-90){
             if(Input.GetMouseButtonDown(0)){
                 StartCamera.SetActive(false);
-                
+                StartBg.Stop();
                 OpeningVideo.SetActive(true);
                 Cursur.SetActive(false);
                 StartLogo.SetActive(false);

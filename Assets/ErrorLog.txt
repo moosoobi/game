@@ -431,3 +431,10 @@ RealBoss.Update () (at Assets/boss/Script/RealBoss.cs:152)
 
 Error Log - 2024-05-15 오후 12:52:08
 Error Log - 2024-05-15 오후 12:59:22
+Error Log - 2024-05-15 오후 1:46:58
+Error Log - 2024-05-15 오후 2:08:03
+Error Log - 2024-05-15 오후 2:09:08
+Error Log - 2024-05-15 오후 2:11:12
+Error Log - 2024-05-15 오후 2:12:34
+Error Log - 2024-05-15 오후 2:15:23
+Error Log - 2024-05-15 오후 2:28:13

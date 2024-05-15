@@ -27,6 +27,7 @@ TagManager:
   - Mouse
   - Undefined
   - ChipText
+  - ChipSound
   layers:
   - Default
   - TransparentFX

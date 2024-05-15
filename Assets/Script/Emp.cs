@@ -7,6 +7,7 @@ public class Emp : MonoBehaviour
     public float explosionRadius = 5f; // 폭발 범위
     public bool Detect=false;
     public GameObject effect;
+    public AudioSource EmpSound;
 
     void Update()
     {
@@ -20,6 +21,7 @@ public class Emp : MonoBehaviour
         // 수류탄 주변에 있는 적을 감지합니다.
         DetectEnemies();
         effect.SetActive(true);
+        EmpSound.Play();
         // 수류탄을 제거합니다.
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);

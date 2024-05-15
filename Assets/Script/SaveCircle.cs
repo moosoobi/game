@@ -15,6 +15,7 @@ public class SaveCircle : MonoBehaviour
     public Animator DoorAni;
     public RealBoss Boss;
     public AudioSource UrgentSound;
+    public AudioSource SaveSound;
     
     
 
@@ -27,6 +28,7 @@ public class SaveCircle : MonoBehaviour
     {
         
             if (other.CompareTag("Player")){
+                SaveSound.Play();
                 if(stage==0){
                     StopAllAudioSources();
                     UrgentSound.Play();

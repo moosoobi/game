@@ -69,7 +69,7 @@ public class EnergyCore: Quest
     public SlidingDoor door;
     public AudioSource QuestSound;
     public AudioSource DialogueSound;
-
+    public AudioSource ConnerBg;
     public float dialogueInterval = 3f; // 대화 간격 (3초)
 
 
@@ -309,6 +309,7 @@ public class EnergyCore: Quest
             curResponseTracker=0;
             isTalking=false;
             dialogueUI.SetActive(false);
+            ConnerBg.Play();
         }
    
     }
