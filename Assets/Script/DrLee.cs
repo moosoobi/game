@@ -585,6 +585,7 @@ public class DrLee : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         zzz=true;
+        StartCoroutine(Afterz());
         if (other.CompareTag("Attack")){
             if(first){
                 player.GetComponent<MouseLookScript>().enabled = false;
@@ -611,6 +612,13 @@ public class DrLee : MonoBehaviour
         // 일정 시간만큼 대기
         yield return new WaitForSeconds(delayInSeconds);
         Buying=true;
+        
+    }
+    private IEnumerator Afterz()
+    {
+        // 일정 시간만큼 대기
+        yield return new WaitForSeconds(3.0f);
+        zzz=false;
         
     }
 
