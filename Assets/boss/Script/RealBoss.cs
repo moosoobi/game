@@ -109,6 +109,8 @@ public class RealBoss : MonoBehaviour
     public GameObject EndingImage;
     public AudioSource QuestSound;
     public AudioSource DialogueSound;
+    public GameObject EndingVi;
+    public VideoPlayer EndingPlayer;
     private void Start()
     {
         
@@ -335,7 +337,8 @@ public class RealBoss : MonoBehaviour
     }
     public IEnumerator EndingLogo(){
         yield return new WaitForSeconds(2.0f);
-        EndingImage.SetActive(true);
+        EndingVi.SetActive(true);
+        EndingPlayer.Play();
         yield return new WaitForSeconds(5.0f);
         SceneManager.LoadScene("Opening");
 

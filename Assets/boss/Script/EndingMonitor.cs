@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class EndingMonitor : MonoBehaviour
 {
@@ -22,7 +23,8 @@ public class EndingMonitor : MonoBehaviour
     public GameObject player;
     public GameObject EndingCamera;
     public GameObject EndingSpot;
-    public GameObject EndingImage;
+    public GameObject EndingVi;
+    public VideoPlayer EndingPlayer;
     public RealBoss Boss;
     public bool Home=false;
     public bool Clear=false;
@@ -397,14 +399,16 @@ public class EndingMonitor : MonoBehaviour
     }
     public IEnumerator EndingLogo(){
         yield return new WaitForSeconds(2.0f);
-        EndingImage.SetActive(true);
+        EndingVi.SetActive(true);
+        EndingPlayer.Play();
         yield return new WaitForSeconds(5.0f);
         SceneManager.LoadScene("Opening");
 
     }
     public IEnumerator EndingMove(){
         EndingEnemy.SetActive(true);
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
+        
         EndingCamera.SetActive(true);
         isMoving=true;
     }
