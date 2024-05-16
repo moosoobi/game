@@ -694,3 +694,94 @@ Error Log - 2024-05-16 오후 11:40:39
 Error Log - 2024-05-16 오후 11:46:57
 Error Log - 2024-05-16 오후 11:53:26
 Error Log - 2024-05-16 오후 11:56:00
+Error Log - 2024-05-17 오전 12:10:20
+Error Log - 2024-05-17 오전 12:11:53
+Error Log - 2024-05-17 오전 12:12:07
+Error Log - 2024-05-17 오전 12:30:23
+Error Log - 2024-05-17 오전 12:37:02
+Error Log - 2024-05-17 오전 12:40:33
+Exception: ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+System.Collections.Generic.List`1[T].get_Item (System.Int32 index) (at <605bf8b31fcb444b85176da963870aa7>:0)
+GunInventory+<Spawn>d__28.MoveNext () (at Assets/Easy FPS/Scripts/GunInventory.cs:210)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <17484a9af6b944dea5cd9be4dbb0da2c>:0)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/z.cs:13)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerExit (UnityEngine.Collider other) (at Assets/Script/z.cs:24)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/z.cs:13)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerExit (UnityEngine.Collider other) (at Assets/Script/z.cs:24)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/z.cs:13)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerExit (UnityEngine.Collider other) (at Assets/Script/z.cs:24)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/z.cs:13)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerExit (UnityEngine.Collider other) (at Assets/Script/z.cs:24)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/z.cs:13)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerExit (UnityEngine.Collider other) (at Assets/Script/z.cs:24)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/z.cs:13)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerExit (UnityEngine.Collider other) (at Assets/Script/z.cs:24)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/z.cs:13)
+
+
+Error Log - 2024-05-17 오전 12:42:24
+Exception: NullReferenceException: Object reference not set to an instance of an object
+z.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Script/z.cs:13)
+
+
+Exception: NullReferenceException: routine is null
+UnityEngine.MonoBehaviour.StopCoroutine (UnityEngine.Coroutine routine) (at <17484a9af6b944dea5cd9be4dbb0da2c>:0)
+RealBoss+<Execute>d__130.MoveNext () (at Assets/boss/Script/RealBoss.cs:595)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <17484a9af6b944dea5cd9be4dbb0da2c>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+RealBoss:UpdateHealth(Single) (at Assets/boss/Script/RealBoss.cs:736)
+Emp:DetectEnemies() (at Assets/Script/Emp.cs:42)
+<ExplodeAfterDelay>d__5:MoveNext() (at Assets/Script/Emp.cs:22)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+
+Exception: NullReferenceException: routine is null
+UnityEngine.MonoBehaviour.StopCoroutine (UnityEngine.Coroutine routine) (at <17484a9af6b944dea5cd9be4dbb0da2c>:0)
+RealBoss.UpdateHealth (System.Single newHP) (at Assets/boss/Script/RealBoss.cs:740)
+Emp.DetectEnemies () (at Assets/Script/Emp.cs:42)
+Emp+<ExplodeAfterDelay>d__5.MoveNext () (at Assets/Script/Emp.cs:22)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <17484a9af6b944dea5cd9be4dbb0da2c>:0)
+
+
+Error Log - 2024-05-17 오전 12:45:22
+Error Log - 2024-05-17 오전 12:56:35

@@ -33,6 +33,7 @@ public class GunInventory : MonoBehaviour {
 	public TextMeshProUGUI UiText;
     public GameObject UiObject;
 	public PlayerHp playerhp;
+	
 	/*
 	 * Calling the method that will update the icons of our guns if we carry any upon start.
 	 * Also will spawn a weapon upon start.

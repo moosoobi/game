@@ -16,6 +16,7 @@ public class SaveCircle : MonoBehaviour
     public RealBoss Boss;
     public AudioSource UrgentSound;
     public AudioSource SaveSound;
+    public bool Short;
     
     
 
@@ -38,14 +39,14 @@ public class SaveCircle : MonoBehaviour
                 }
             
                 if(stage==1){
-                    /*
+                    
                     UiObject.SetActive(true);
                     UiText.text="Hp회복!";
                     StartCoroutine(ExecuteAfterDelayText(3f)); 
                     playerhp.stage=stage;
                     playerhp.PlayerCurHp=1000f;
                     playerhp.UpdateHealth(0);
-                    */
+                    
                     Save.SetActive(true);
                     
                     if(Boss){

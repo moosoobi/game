@@ -6,6 +6,7 @@ public class GuideCircle : MonoBehaviour
 {
     public GameObject Guide;
     public RealBoss Boss;
+    public PlayerHp Hp;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,6 +14,7 @@ public class GuideCircle : MonoBehaviour
         {   
             if(Boss){Boss.touchboss();}
             if(Guide){Guide.SetActive(false);}
+            if(Hp){Hp.stage=2;}
             gameObject.SetActive(false);
             
         }

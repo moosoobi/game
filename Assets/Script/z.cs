@@ -10,10 +10,10 @@ public class z : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        gun=GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>();
+        
         if (other.CompareTag("Player"))
         {   
-            
+            gun=GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>();
             if(gun){gun.ZcrossOn();}
             
         }
@@ -21,9 +21,10 @@ public class z : MonoBehaviour
     
     void OnTriggerExit(Collider other)
     {
-        gun=GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>();
+        
         if (other.CompareTag("Player"))
         {   
+            gun=GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>();
             if(gun){gun.ZcrossOff();}
         }
     }

@@ -81,7 +81,7 @@ public class PlayerHp : MonoBehaviour
             {
                 HpOver.SetActive(true);
                 Die=false;
-                player.transform.position=new Vector3(389.18f, -0.185f, 422.82f);
+                player.transform.position=new Vector3(386f, 0.7f, 413.8f);
                 player.transform.rotation=Quaternion.Euler(new Vector3(0f, 0f, 0f));
                 PlayerCurHp=1000f;
                 UpdateHealth(0);

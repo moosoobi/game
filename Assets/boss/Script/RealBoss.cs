@@ -766,6 +766,9 @@ public class RealBoss : MonoBehaviour
     }
 
     public void ReStart(){
+        DetectEnemies();
+        BossHp=100;
+        BossBg.Stop();
         first=true;
         BossAni.enabled=false;
         Under30=false;
