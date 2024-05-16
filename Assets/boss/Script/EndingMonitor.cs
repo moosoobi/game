@@ -130,7 +130,7 @@ public class EndingMonitor : MonoBehaviour
         // 새로 계산된 위치로 anchoredPosition 설정
         uiRectTransform.anchoredPosition = newPosition;
         if(Home){
-            if(currentX>-450&&currentX<-380&&currentY>-250&&currentY<-170){
+            if(currentX>-520&&currentX<-420&&currentY>-290&&currentY<-170){
                 if(Input.GetMouseButtonDown(0)){
                 IfTrash=true;
                 Home=false;
@@ -143,8 +143,8 @@ public class EndingMonitor : MonoBehaviour
             if(currentY>30&&currentY<110){
                 
             }
-            else if(currentY>140&&currentY<230){
-                if(currentX>-420&&currentX<-350){
+            else if(currentY>160&&currentY<290){
+                if(currentX>-520&&currentX<-420){
                     if(Input.GetMouseButtonDown(0)){
                         Home=false;
                         IfTraum=true;
@@ -158,7 +158,7 @@ public class EndingMonitor : MonoBehaviour
                     }
                     
                 }
-                else if(currentX>-210&&currentX<-120){
+                else if(currentX>-250&&currentX<-150){
                     if(Input.GetMouseButtonDown(0)){
                         NewMedicineDetail.SetActive(true);
                         IfNewMedicine=true;
@@ -167,7 +167,7 @@ public class EndingMonitor : MonoBehaviour
                     }
                     
                 }
-                else if(currentX>-110&&currentX<-10){
+                else if(currentX>-120&&currentX<-20){
                     if(Input.GetMouseButtonDown(0)){
                         LabDetail.SetActive(true);
                         IfLab=true;
@@ -178,7 +178,7 @@ public class EndingMonitor : MonoBehaviour
             }
         }
         if(IfTrash){
-            if(currentX>-220&&currentX<-160&&currentY>60&&currentY<120){
+            if(currentX>-270&&currentX<-185&&currentY>40&&currentY<140){
                 if(Input.GetMouseButtonDown(0)){
                     Papa1.SetActive(true);
                     Pick.Play();
@@ -187,7 +187,7 @@ public class EndingMonitor : MonoBehaviour
                     
                 }
             }
-            if(currentX>-20&&currentX<40&&currentY>60&&currentY<120){
+            if(currentX>-30&&currentX<60&&currentY>40&&currentY<140){
                 if(Input.GetMouseButtonDown(0)){
                     Papa2.SetActive(true);
                     Pick.Play();
@@ -195,7 +195,7 @@ public class EndingMonitor : MonoBehaviour
                     IfTrash=false;
                 }
             }
-            if(currentX>180&&currentX<240&&currentY>60&&currentY<120){
+            if(currentX>210&&currentX<300&&currentY>40&&currentY<140){
                 if(Input.GetMouseButtonDown(0)){
                     Papa3.SetActive(true);
                     Pick.Play();
@@ -203,7 +203,7 @@ public class EndingMonitor : MonoBehaviour
                     IfTrash=false;
                 }
             }
-            if(currentX>-220&&currentX<-160&&currentY>-40&&currentY<20){
+            if(currentX>-270&&currentX<-185&&currentY>-100&&currentY<0){
                 if(Input.GetMouseButtonDown(0)){
                     Papa4.SetActive(true);
                     Pick.Play();
@@ -211,7 +211,7 @@ public class EndingMonitor : MonoBehaviour
                     IfTrash=false;
                 }
             }
-            if(currentX>-120&&currentX<-60&&currentY>-40&&currentY<20){
+            if(currentX>-150&&currentX<-55&&currentY>-100&&currentY<0){
                 if(Input.GetMouseButtonDown(0)){
                     Papa5.SetActive(true);
                     Pick.Play();
@@ -219,7 +219,7 @@ public class EndingMonitor : MonoBehaviour
                     IfTrash=false;
                 }
             }
-            if(currentX>80&&currentX<140&&currentY>-40&&currentY<20){
+            if(currentX>100&&currentX<180&&currentY>-100&&currentY<00){
                 if(Input.GetMouseButtonDown(0)){
                     Papa6.SetActive(true);
                     Pick.Play();
@@ -266,7 +266,7 @@ public class EndingMonitor : MonoBehaviour
             }
         }
         if(IfNewMedicine){
-            if(currentX>230&&currentX<260&&currentY>280&&currentY<300){
+            if(currentX>230&&currentX<265&&currentY>280&&currentY<310){
                 if(Input.GetMouseButtonDown(0)){
                     NewMedicineDetail.SetActive(false);
                     IfNewMedicine=false;
@@ -276,7 +276,7 @@ public class EndingMonitor : MonoBehaviour
             }
         }
         if(IfLab){
-            if(currentX>420&&currentX<455&&currentY>180&&currentY<210){
+            if(currentX>460&&currentX<500&&currentY>200&&currentY<230){
                 if(Input.GetMouseButtonDown(0)){
                     LabDetail.SetActive(false);
                     IfLab=false;
@@ -286,7 +286,7 @@ public class EndingMonitor : MonoBehaviour
             }
         }
         if(IfPapa1){
-            if(currentX>420&&currentX<490&&currentY>-80&&currentY<60){
+            if(currentX>490&&currentX<560&&currentY>-50&&currentY<30){
                 if(Input.GetMouseButtonDown(0)){
                     IfPapa1=false;
                     IfPapa2=true;
@@ -297,7 +297,7 @@ public class EndingMonitor : MonoBehaviour
             }
         }
         else if(IfPapa2){
-            if(currentX>-470&&currentX<-400&&currentY>-80&&currentY<60){
+            if(currentX>-550&&currentX<-480&&currentY>-50&&currentY<30){
                 if(Input.GetMouseButtonDown(0)){
                     IfPapa2=false;
                     IfPapa1=true;
@@ -306,7 +306,7 @@ public class EndingMonitor : MonoBehaviour
                     Pick.Play();
                 }
             }
-            if(currentX>420&&currentX<490&&currentY>-80&&currentY<60){
+            if(currentX>490&&currentX<560&&currentY>-50&&currentY<30){
                 if(Input.GetMouseButtonDown(0)){
                     IfPapa3=true;
                     IfPapa2=false;
@@ -317,7 +317,7 @@ public class EndingMonitor : MonoBehaviour
             }
         }
         else if(IfPapa3){
-            if(currentX>-470&&currentX<-400&&currentY>-80&&currentY<60){
+            if(currentX>-550&&currentX<-480&&currentY>-50&&currentY<30){
                 if(Input.GetMouseButtonDown(0)){
                     IfPapa3=false;
                     IfPapa2=true;
@@ -326,7 +326,7 @@ public class EndingMonitor : MonoBehaviour
                     Pick.Play();
                 }
             }
-            if(currentX>420&&currentX<490&&currentY>-80&&currentY<60){
+            if(currentX>490&&currentX<560&&currentY>-50&&currentY<30){
                 if(Input.GetMouseButtonDown(0)){
                     IfPapa3=false;
                     IfPapa4=true;
@@ -337,7 +337,7 @@ public class EndingMonitor : MonoBehaviour
             }
         }
         else if(IfPapa4){
-            if(currentX>-470&&currentX<-400&&currentY>-80&&currentY<60){
+            if(currentX>-550&&currentX<-480&&currentY>-50&&currentY<30){
                 if(Input.GetMouseButtonDown(0)){
                     IfPapa4=false;
                     IfPapa3=true;
@@ -346,7 +346,7 @@ public class EndingMonitor : MonoBehaviour
                     Pick.Play();
                 }
             }
-            if(currentX>420&&currentX<490&&currentY>-80&&currentY<60){
+            if(currentX>490&&currentX<560&&currentY>-50&&currentY<30){
                 if(Input.GetMouseButtonDown(0)){
                     IfPapa4=false;
                     IfPapa5=true;
@@ -357,7 +357,7 @@ public class EndingMonitor : MonoBehaviour
             }
         }
         else if(IfPapa5){
-            if(currentX>-470&&currentX<-400&&currentY>-80&&currentY<60){
+            if(currentX>-550&&currentX<-480&&currentY>-50&&currentY<30){
                 if(Input.GetMouseButtonDown(0)){
                     IfPapa5=false;
                     IfPapa4=true;
@@ -366,7 +366,7 @@ public class EndingMonitor : MonoBehaviour
                     Pick.Play();
                 }
             }
-            if(currentX>420&&currentX<490&&currentY>-80&&currentY<60){
+            if(currentX>490&&currentX<560&&currentY>-50&&currentY<30){
                 if(Input.GetMouseButtonDown(0)){
                     IfPapa5=false;
                     IfPapa6=true;
@@ -377,7 +377,7 @@ public class EndingMonitor : MonoBehaviour
             }
         }
         else if(IfPapa6){
-            if(currentX>-470&&currentX<-400&&currentY>-80&&currentY<60){
+            if(currentX>-550&&currentX<-480&&currentY>-50&&currentY<30){
                 if(Input.GetMouseButtonDown(0)){
                     IfPapa6=false;
                     IfPapa5=true;
@@ -386,7 +386,7 @@ public class EndingMonitor : MonoBehaviour
                     Pick.Play();
                 }
             }
-            if(currentX>445&&currentX<480&&currentY>250&&currentY<280){
+            if(currentX>540&&currentX<575&&currentY>295&&currentY<330){
                 if(Input.GetMouseButtonDown(0)){
                     MonitorUi.SetActive(false);
                     Pick.Play();
