@@ -1059,3 +1059,15 @@ UnityEngine.UIElements.UIEventRegistration.UpdateSchedulers () (at <e66f217a64a7
 UnityEditor.RetainedMode.UpdateSchedulers () (at <8ad9ecbe25e14b10b6dde783af6e4aa2>:0)
 
 
+Error Log - 2024-05-17 오전 3:46:31
+Exception: NullReferenceException: Object reference not set to an instance of an object
+RealBoss.UpdateHealth (System.Single newHP) (at Assets/boss/Script/RealBoss.cs:731)
+RealBoss.OnTriggerEnter (UnityEngine.Collider other) (at Assets/boss/Script/RealBoss.cs:806)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+RealBoss+<MonitorBulb>d__140.MoveNext () (at Assets/boss/Script/RealBoss.cs:848)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <17484a9af6b944dea5cd9be4dbb0da2c>:0)
+
+
+Error Log - 2024-05-17 오전 3:48:42
