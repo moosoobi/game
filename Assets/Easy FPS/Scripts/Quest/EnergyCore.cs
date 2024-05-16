@@ -69,6 +69,7 @@ public class EnergyCore: Quest
     public GameObject Bubble2;
     public GameObject Bubble3;
     public GameObject Bubble4;
+    public GameObject Bubble5;
     public bool Short=false;
     public SlidingDoor door;
     public AudioSource QuestSound;
@@ -372,6 +373,7 @@ public class EnergyCore: Quest
                 Bubble2.SetActive(false);
                 Bubble3.SetActive(false);
                 Bubble4.SetActive(false);
+                Bubble5.SetActive(false);
             }
             
             StartCoroutine(StartConversation1());

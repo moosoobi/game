@@ -79,6 +79,7 @@ public class StartCursur : MonoBehaviour
                 StartLogo.SetActive(false);
                 Hp.SetActive(false);
                 Quest.SetActive(false);
+                StartCoroutine(Loading1());
                 
             }
         }
