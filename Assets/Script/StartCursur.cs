@@ -89,6 +89,11 @@ public class StartCursur : MonoBehaviour
             }
         }
     }
+    private IEnumerator Loading1(){
+
+        yield return new WaitForSeconds(40f);
+        SceneManager.LoadScene("Room");
+    }
     private void OnVideoEnd(VideoPlayer vp)
     {
         Opening.SetActive(false);
