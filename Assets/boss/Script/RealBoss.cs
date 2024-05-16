@@ -300,6 +300,7 @@ public class RealBoss : MonoBehaviour
         curResponseTracker=0;
         dialogueUI.SetActive(true);
         npcName.text="J";
+        if(Short){npcName.text=" ";}
         if(Stage==0){npcDialogueBox.text=dialogue[0];}
         if(Stage==1){npcDialogueBox.text=dialogue1[0];}
         zzz=false;
@@ -767,6 +768,9 @@ public class RealBoss : MonoBehaviour
 
     public void ReStart(){
         DetectEnemies();
+        Fixing=0;
+        second=true;
+        ShootGuide.SetActive(true);
         BossHp=100;
         BossBg.Stop();
         first=true;

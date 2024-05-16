@@ -30,7 +30,7 @@ public class EnergyCore: Quest
     public AudioSource SecuritySound;
     public AudioSource RadioSound;
     public AudioSource UrgentSound;
-    static public float CoreHp=30f;
+    public float CoreHp=30f;
     public float CoreMaxHp=30f;
     public TextMeshProUGUI Core;
     public TextMeshProUGUI QuestText;

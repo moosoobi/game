@@ -31,6 +31,7 @@ public class Lever : MonoBehaviour
     private bool  clear=false;
     public GameObject Key1;
     public AudioSource LeverSound;
+    public AudioSource LightOff;
     
     void Start()
     {
@@ -57,6 +58,7 @@ public class Lever : MonoBehaviour
                 player.GetComponent<PlayerMovementScript>().enabled = true;
                 Triangle.SetActive(false);
                 Key1.SetActive(false);
+                LightOff.Play();
                 
             }
             if(Input.GetKeyDown(KeyCode.UpArrow)){
