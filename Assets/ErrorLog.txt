@@ -554,3 +554,98 @@ Error Log - 2024-05-16 오전 1:49:11
 Error Log - 2024-05-16 오전 1:57:12
 Error Log - 2024-05-16 오후 3:55:46
 Error Log - 2024-05-16 오후 4:04:42
+Error Log - 2024-05-16 오후 4:58:44
+Error Log - 2024-05-16 오후 5:06:58
+Error Log - 2024-05-16 오후 5:07:51
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+EnergyCore.ContinueConversation () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:261)
+EnergyCore.Update () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:99)
+
+
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+EnergyCore.ContinueConversation () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:261)
+EnergyCore.Update () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:99)
+
+
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+EnergyCore.ContinueConversation () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:261)
+EnergyCore.Update () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:99)
+
+
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+EnergyCore.ContinueConversation () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:261)
+EnergyCore.Update () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:99)
+
+
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+EnergyCore.ContinueConversation () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:261)
+EnergyCore.Update () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:99)
+
+
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+EnergyCore.ContinueConversation () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:261)
+EnergyCore.Update () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:99)
+
+
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+EnergyCore.ContinueConversation () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:261)
+EnergyCore.Update () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:99)
+
+
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+EnergyCore.ContinueConversation () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:261)
+EnergyCore.Update () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:99)
+
+
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+EnergyCore.ContinueConversation () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:261)
+EnergyCore.Update () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:99)
+
+
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+EnergyCore.ContinueConversation () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:261)
+EnergyCore.Update () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:99)
+
+
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+EnergyCore.ContinueConversation () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:261)
+EnergyCore.Update () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:99)
+
+
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+EnergyCore.ContinueConversation () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:261)
+EnergyCore.Update () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:99)
+
+
+Error Log - 2024-05-16 오후 5:10:26
+Exception: UnassignedReferenceException: The variable Wanted of EnergyCore has not been assigned.
+You probably need to assign the Wanted variable of the EnergyCore script in the inspector.
+EnergyCore.EndDialogue () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:296)
+EnergyCore.Update () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:108)
+
+
+Error Log - 2024-05-16 오후 5:12:11

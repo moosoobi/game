@@ -293,13 +293,14 @@ public class EnergyCore: Quest
             curResponseTracker=0;
             isTalking=false;
             dialogueUI.SetActive(false);
-            Wanted.SetActive(true);
+            
             if(Short){
                 player.transform.position=new Vector3(21.1f, 258.8f, 432.15f);
                 player.transform.rotation=Quaternion.Euler(new Vector3(0f, 90f, 0f));
                 StopAllAudioSources();
                 QuestActive2();
             }else{
+                Wanted.SetActive(true);
                 QuestActive1();
             }
             
