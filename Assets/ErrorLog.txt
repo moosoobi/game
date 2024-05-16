@@ -649,3 +649,18 @@ EnergyCore.Update () (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:108)
 
 
 Error Log - 2024-05-16 오후 5:12:11
+Error Log - 2024-05-16 오후 5:54:36
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+Short_Lever.Update () (at Assets/Script/Short/Short_Lever.cs:82)
+
+
+Exception: ArgumentNullException: Value cannot be null.
+Parameter name: source
+UnityEngine.AudioSource.Play () (at <efb7e59e5c484ab286ad2daa19aa9184>:0)
+Short_Lever.Update () (at Assets/Script/Short/Short_Lever.cs:82)
+
+
+Error Log - 2024-05-16 오후 5:56:38
+Error Log - 2024-05-16 오후 6:12:37

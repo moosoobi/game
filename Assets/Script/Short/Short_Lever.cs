@@ -36,6 +36,7 @@ public class Short_Lever : MonoBehaviour
     public GameObject Help;
     public TextMeshProUGUI HelpText;
     public AudioSource QuestSound;
+    public AudioSource Lever;
     private bool clear=false;
     void Start()
     {
@@ -63,6 +64,7 @@ public class Short_Lever : MonoBehaviour
                 QuestActive();
             }
             if(Input.GetKeyDown(KeyCode.UpArrow)){
+                Lever.Play();
                 if(Index==0){if(Lever1==0){Lever1=3;}Lever1+=1;if(Lever1>3)Lever1=3;}
                 else if(Index==1){if(Lever2==0){Lever2=3;}Lever2+=1;if(Lever2>3)Lever2=3;}
                 else if(Index==2){if(Lever3==0){Lever3=3;}Lever3+=1;if(Lever3>3)Lever3=3;}
@@ -77,6 +79,7 @@ public class Short_Lever : MonoBehaviour
                 switches[horizontal].transform.rotation = Quaternion.Euler(currentRotation);
             }
                 if(Input.GetKeyDown(KeyCode.DownArrow)){
+                    Lever.Play();
                     if(Index==0){Lever1-=1;if(Lever1<0)Lever1=0;}
                     else if(Index==1){Lever2-=1;if(Lever2<0)Lever2=0;}
                     else if(Index==2){Lever3-=1;if(Lever3<0)Lever3=0;}
@@ -91,6 +94,7 @@ public class Short_Lever : MonoBehaviour
                     switches[horizontal].transform.rotation = Quaternion.Euler(currentRotation);
                 }
                 if(Input.GetKeyDown(KeyCode.LeftArrow)){
+                    Lever.Play();
                     Index-=1;
                     if(Index<0){Index=3;}
                     horizontal--;
@@ -102,6 +106,7 @@ public class Short_Lever : MonoBehaviour
                     
                 }
                 if(Input.GetKeyDown(KeyCode.RightArrow)){
+                    Lever.Play();
                     Index+=1;
                     if(Index>3){Index=0;}
                     horizontal++;

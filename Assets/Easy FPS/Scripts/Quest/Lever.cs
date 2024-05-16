@@ -30,6 +30,7 @@ public class Lever : MonoBehaviour
     public TextMeshProUGUI HelpText;
     private bool  clear=false;
     public GameObject Key1;
+    public AudioSource LeverSound;
     
     void Start()
     {
@@ -59,6 +60,7 @@ public class Lever : MonoBehaviour
                 
             }
             if(Input.GetKeyDown(KeyCode.UpArrow)){
+                LeverSound.Play();
                 if(Index==0){Lever1=3;}
                 else if(Index==1){Lever2=3;}
                 else if(Index==2){Lever3=3;}
@@ -73,6 +75,7 @@ public class Lever : MonoBehaviour
                 switches[horizontal].transform.rotation = Quaternion.Euler(currentRotation);
             }
                 if(Input.GetKeyDown(KeyCode.DownArrow)){
+                    LeverSound.Play();
                     if(Index==0){Lever1-=1;if(Lever1<0)Lever1=0;}
                     else if(Index==1){Lever2-=1;if(Lever2<0)Lever2=0;}
                     else if(Index==2){Lever3-=1;if(Lever3<0)Lever3=0;}
@@ -87,6 +90,7 @@ public class Lever : MonoBehaviour
                     switches[horizontal].transform.rotation = Quaternion.Euler(currentRotation);
                 }
                 if(Input.GetKeyDown(KeyCode.LeftArrow)){
+                    LeverSound.Play();
                     Index-=1;
                     if(Index<0){Index=3;}
                     horizontal--;
@@ -98,6 +102,7 @@ public class Lever : MonoBehaviour
                     
                 }
                 if(Input.GetKeyDown(KeyCode.RightArrow)){
+                    LeverSound.Play();
                     Index+=1;
                     if(Index>3){Index=0;}
                     horizontal++;

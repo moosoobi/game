@@ -12,6 +12,7 @@ public class Stage2 : MonoBehaviour
     public TextMeshProUGUI npcDialogueBox;
     public GameObject dialogueUI;
     public GameObject player;
+    public AudioSource DialogueSound;
     public bool isTalking=false;
 
 
@@ -36,6 +37,7 @@ public class Stage2 : MonoBehaviour
 
     }
     public void ContinueConversation(){
+            DialogueSound.Play();
             curResponseTracker++;
             if(curResponseTracker>dialogue.Length){
                 curResponseTracker=dialogue.Length;

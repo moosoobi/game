@@ -65,6 +65,10 @@ public class EnergyCore: Quest
     public bool Circle=false;
     public GameObject Click;
     public GameObject Wanted;
+    public GameObject Bubble1;
+    public GameObject Bubble2;
+    public GameObject Bubble3;
+    public GameObject Bubble4;
     public bool Short=false;
     public SlidingDoor door;
     public AudioSource QuestSound;
@@ -159,7 +163,9 @@ public class EnergyCore: Quest
         npcName.text="J";
         npcDialogueBox.text=dialogue1[0];
     }
-    public void StartConversation2(){
+    IEnumerator StartConversation2(){
+        player.GetComponent<GunInventory>().ChangeWeapon1();
+        yield return new WaitForSeconds(3.0f);
         player.GetComponent<GunInventory>().Possible=false;
         RadioSound.Play();
         isTalking=true;
@@ -316,7 +322,7 @@ public class EnergyCore: Quest
         }
    
     }
-    public void Script(){stage=2;StartConversation2();}
+    public void Script(){stage=2;StartCoroutine(StartConversation2());}
     public void StopAllAudioSources()
     {
         // Scene에 있는 모든 AudioSource를 가져옵니다.
@@ -361,7 +367,12 @@ public class EnergyCore: Quest
                 for(int i=0;i<barnpc.Length;i++){
                     barnpc[i].enabled=false;
                 }
+                Bubble1.SetActive(false);
+                Bubble2.SetActive(false);
+                Bubble3.SetActive(false);
+                Bubble4.SetActive(false);
             }
+            
             StartCoroutine(StartConversation1());
 
         }
