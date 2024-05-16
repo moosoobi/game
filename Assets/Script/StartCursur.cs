@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class StartCursur : MonoBehaviour
 {
-    public GameObject Cursur;
+    public GameObject Cursur1;
     public GameObject StartCamera;
     public GameObject StartLogo;
     public GameObject Hp;
@@ -28,6 +28,8 @@ public class StartCursur : MonoBehaviour
     void Start()
     {
         videoPlayer.loopPointReached += OnVideoEnd;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         
     }
     void Update()
@@ -73,7 +75,7 @@ public class StartCursur : MonoBehaviour
                 StartCamera.SetActive(false);
                 StartBg.Stop();
                 OpeningVideo.SetActive(true);
-                Cursur.SetActive(false);
+                Cursur1.SetActive(false);
                 StartLogo.SetActive(false);
                 Hp.SetActive(false);
                 Quest.SetActive(false);
