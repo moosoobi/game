@@ -665,3 +665,18 @@ Short_Lever.Update () (at Assets/Script/Short/Short_Lever.cs:82)
 Error Log - 2024-05-16 오후 5:56:38
 Error Log - 2024-05-16 오후 6:12:37
 Error Log - 2024-05-16 오후 6:35:00
+Error Log - 2024-05-16 오후 6:46:13
+Exception: NullReferenceException: Object reference not set to an instance of an object
+RealBoss.DetectEnemies () (at Assets/boss/Script/RealBoss.cs:457)
+RealBoss+<die>d__114.MoveNext () (at Assets/boss/Script/RealBoss.cs:266)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at <17484a9af6b944dea5cd9be4dbb0da2c>:0)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+RealBoss:UpdateHealth(Single) (at Assets/boss/Script/RealBoss.cs:755)
+RealBoss:OnTriggerEnter(Collider) (at Assets/boss/Script/RealBoss.cs:795)
+
+
+Error Log - 2024-05-16 오후 6:51:52
+Error Log - 2024-05-16 오후 6:54:40
+Error Log - 2024-05-16 오후 6:59:51
+Error Log - 2024-05-16 오후 7:03:07
+Error Log - 2024-05-16 오후 7:08:20

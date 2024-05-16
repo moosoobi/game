@@ -83,6 +83,7 @@ public class RealBoss : MonoBehaviour
     public Renderer rend6;
     private Coroutine currentCoroutine;
     private Coroutine currentCoroutine1;
+    private Coroutine currentCoroutine2;
     public int Fixing=0;
     public bool Under50=false;
     public bool Under30=false;
@@ -112,6 +113,7 @@ public class RealBoss : MonoBehaviour
     public AudioSource DialogueSound;
     public GameObject EndingVi;
     public VideoPlayer EndingPlayer;
+    public float explosionRadius = 5f;
     private void Start()
     {
         
@@ -128,9 +130,12 @@ public class RealBoss : MonoBehaviour
     void Update()
     {
         if(Fixing==10&&second){
+            clear=true;
+            rend6.material=Black;
             second=false;
             StopCoroutine(currentCoroutine);
             StopCoroutine(currentCoroutine1);
+            StopCoroutine(currentCoroutine2);
             Under50=true;
             Text2.SetActive(true);
             text2.text="메인 컴퓨터가 수리에 실패했습니다. \n과부하로 인해 5초간 동작이 중지됩니다.";
@@ -262,7 +267,7 @@ public class RealBoss : MonoBehaviour
         Look=false;
         alive=false;
         rend1.material=Black;
-        
+        DetectEnemies();
         rend2.material=Black;
         rend3.material=Black;
         rend4.material=Black;
@@ -276,7 +281,7 @@ public class RealBoss : MonoBehaviour
         BossAni.Play("death", 0, 0.0f);
         SpotLight.enabled=false;
         BossLight.enabled=false;
-        if(Short){}
+        if(Short){player.GetComponent<MouseLookScript>().enabled = false;}
         else{
             EndingMonitorLight.enabled=true;
             EndingVolumn.SetActive(true);
@@ -440,6 +445,22 @@ public class RealBoss : MonoBehaviour
         GameObject Fixing10 = Instantiate(FixingDrone,SectorC.transform.position+new Vector3(-15,6,-10) , SectorC.transform.rotation);
         
         
+    }
+    public void DetectEnemies()
+    {
+        // 수류탄 주변에 있는 적을 감지합니다.
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+
+        // 감지된 적에게 데미지를 입힙니다.
+        foreach (Collider collider in colliders)
+        {
+            
+            if(collider.name.Contains("Blue")){collider.GetComponent<Leg2RobotBlue>().Hp=0;}
+            if(collider.name.Contains("Red")){collider.GetComponent<Leg2RobotRed>().Hp=0;}
+            if(collider.name.Contains("4leg")){collider.GetComponent<Leg4Robot>().Hp=0;}
+            
+            if(collider.name.Contains("fixingDrone")){collider.GetComponent<FixingDrone>().UpdateHealth(-1f);}
+        }
     }
     int GetRandomNumber(int min, int max)
     {
@@ -712,7 +733,7 @@ public class RealBoss : MonoBehaviour
                 {
                     touch=false;
                     currentPatternIndex++;
-                    StartCoroutine(Execute(6));
+                    currentCoroutine2=StartCoroutine(Execute(6));
                     clear=false;
                     Lazer.SetActive(false);
                     CancelInvoke("BulletAttack");
