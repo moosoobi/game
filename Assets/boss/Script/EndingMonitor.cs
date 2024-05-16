@@ -53,15 +53,29 @@ public class EndingMonitor : MonoBehaviour
     public AudioSource Voice2;
     public AudioSource Pick;
     public AudioSource EndingSound;
+    public AudioSource EndingMonitorSound;
     private Vector3 FirstDirection;
 
     public void MonitorOn(){
+        StopAllAudioSources();
+        EndingMonitorSound.Play();
         Home=true;
         MonitorUi.SetActive(true);
         Cursur.SetActive(true);
         player.GetComponent<MouseLookScript>().enabled = false;
         player.GetComponent<PlayerMovementScript>().enabled = false;
         uiRectTransform.anchoredPosition = new Vector2(0, 0);
+    }
+    void StopAllAudioSources()
+    {
+        // Scene에 있는 모든 AudioSource를 가져옵니다.
+        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+
+        // 모든 AudioSource를 반복하면서 정지시킵니다.
+        foreach (AudioSource audioSource in allAudioSources)
+        {
+            audioSource.Stop();
+        }
     }
     void Update()
     {
@@ -376,8 +390,9 @@ public class EndingMonitor : MonoBehaviour
                 if(Input.GetMouseButtonDown(0)){
                     MonitorUi.SetActive(false);
                     Pick.Play();
-                    Boss.LightOn();
                     
+                    StopAllAudioSources();
+                    EndingSound.Play();
                     StartCoroutine(EndingMove());
                     Cursur.SetActive(false);
                 }
@@ -398,7 +413,8 @@ public class EndingMonitor : MonoBehaviour
         }
     }
     public IEnumerator EndingLogo(){
-        yield return new WaitForSeconds(2.0f);
+        
+        yield return new WaitForSeconds(3.5f);
         EndingVi.SetActive(true);
         EndingPlayer.Play();
         yield return new WaitForSeconds(5.0f);
@@ -407,8 +423,9 @@ public class EndingMonitor : MonoBehaviour
     }
     public IEnumerator EndingMove(){
         EndingEnemy.SetActive(true);
-        yield return new WaitForSeconds(2.0f);
-        
+        yield return new WaitForSeconds(3.5f);
+        Debug.Log(1);
+        Boss.LightOn();
         EndingCamera.SetActive(true);
         isMoving=true;
     }

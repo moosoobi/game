@@ -33,7 +33,8 @@ public class GunInventory : MonoBehaviour {
 	public TextMeshProUGUI UiText;
     public GameObject UiObject;
 	public PlayerHp playerhp;
-	
+	public AudioSource HealKitSound;
+
 	/*
 	 * Calling the method that will update the icons of our guns if we carry any upon start.
 	 * Also will spawn a weapon upon start.
@@ -169,6 +170,7 @@ public class GunInventory : MonoBehaviour {
 			player.GetComponent<PlayerMovementScript>().HealKit--;
 			playerhp.PlayerCurHp+=300f;
 			playerhp.UpdateHealth(0);
+			HealKitSound.Play();
 			
 		}
 		

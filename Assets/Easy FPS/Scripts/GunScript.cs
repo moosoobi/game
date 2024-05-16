@@ -47,7 +47,7 @@ public class GunScript : MonoBehaviour {
     public float launchSpeed = 10f; // 발사 속도
 	public Vector3 gravity = Physics.gravity;
 	public float downwardForce = 10f; // 아래로 향하는 힘
-
+	public AudioSource ThrowingSound;
 	/*
 	 * Collection the variables upon awake that we need.
 	 */
@@ -427,7 +427,7 @@ public class GunScript : MonoBehaviour {
 	Rigidbody rb;
 	bool press=false;
 	public void Throwing1(){
-		
+		ThrowingSound.Play();
 		Emp = Instantiate(EmpPrefab, launchPoint.position, launchPoint.rotation);
 		
 		rb = Emp.GetComponent<Rigidbody>();	
@@ -439,7 +439,7 @@ public class GunScript : MonoBehaviour {
         
 	}
 	public void Throwing2(){
-		
+		ThrowingSound.Play();
 		Emp = Instantiate(EmpPrefab, launchPoint.position, launchPoint.rotation);
 		
 		rb = Emp.GetComponent<Rigidbody>();	

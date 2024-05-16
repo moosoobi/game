@@ -161,6 +161,7 @@ public class EnergyCore: Quest
         curResponseTracker=0;
         dialogueUI.SetActive(true);
         npcName.text="J";
+        if(Short){npcName.text=" ";}
         npcDialogueBox.text=dialogue1[0];
     }
     IEnumerator StartConversation2(){
