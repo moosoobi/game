@@ -808,3 +808,13 @@ Error Log - 2024-05-17 오전 2:45:08
 Error Log - 2024-05-17 오전 2:46:15
 Error Log - 2024-05-17 오전 2:47:49
 Error Log - 2024-05-17 오전 2:48:45
+Error Log - 2024-05-17 오전 2:54:25
+Error Log - 2024-05-17 오전 2:58:50
+Exception: NullReferenceException: Object reference not set to an instance of an object
+EnergyCore.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:197)
+
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+EnergyCore.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Easy FPS/Scripts/Quest/EnergyCore.cs:197)
+
+
