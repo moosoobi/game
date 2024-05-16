@@ -101,6 +101,7 @@ public class RealBoss : MonoBehaviour
     public bool IfDie=false;
     public bool Short=false;
     private bool second=true;
+    private bool third=true;
     public EndingMonitor Ending;
     public AudioSource ErrorSound;
     public AudioSource BossBg;
@@ -143,10 +144,7 @@ public class RealBoss : MonoBehaviour
             StartCoroutine(Robot10());
             isAttacking=false;
         }
-        if(IfDie){
-            StartCoroutine(die());
-            IfDie=false;
-        }
+
         if(Look){
             Vector3 directionToPlayer = player.transform.position - transform.position;
             directionToPlayer.y = 0f; // Y축 방향은 무시 (수평 방향으로만 회전)
@@ -757,10 +755,14 @@ public class RealBoss : MonoBehaviour
             }
             if (BossHp <= 0f)
             {
-                StartCoroutine(die());
-                StopCoroutine(currentCoroutine);
-                StopCoroutine(currentCoroutine1);
-                Text1.SetActive(false);
+                if(third){
+                    third=false;
+                    StartCoroutine(die());
+                    StopCoroutine(currentCoroutine);
+                    StopCoroutine(currentCoroutine1);
+                    Text1.SetActive(false);
+                }
+                
             }
         }
         
