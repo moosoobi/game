@@ -241,7 +241,7 @@ public class Leg4Robot : MonoBehaviour
         FistMoving=false;
         Die=false;
         Reg4.Play("4legRobot_IDLE", 0, 0.0f);
-        Hp=5;
+        Hp=2;
         Ifhit=false;
 
         transform.position=RespawnSpot.position;
@@ -252,6 +252,17 @@ public class Leg4Robot : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         transform.position=RespawnSpot.position;
         transform.rotation=RespawnSpot.rotation;
+        Z=false;
+        navMeshAgent.isStopped = true;
+        yield return new WaitForSeconds(0.5f);
+        Z=false;
+        navMeshAgent.isStopped = true;
+        yield return new WaitForSeconds(0.5f);
+        Z=false;
+        navMeshAgent.isStopped = true;
+        yield return new WaitForSeconds(0.5f);
+        Z=false;
+        navMeshAgent.isStopped = true;
     }
     private IEnumerator FakeBody2(float delayInSeconds)
     {

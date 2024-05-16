@@ -382,9 +382,10 @@ public class EnergyCore: Quest
             myDoor[i].Play("DoorClose", 0, 0.0f);
             Door.openTrigger=true;
         }
-        Open=false;
+        
         CoreHp=30.0f;
         first=false;
+        Open=true;
         UpdateHealth(0);
     }
     private IEnumerator LightBlub(){

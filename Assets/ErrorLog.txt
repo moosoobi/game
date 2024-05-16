@@ -689,3 +689,7 @@ PlayerHp.Update () (at Assets/enemy/Script/PlayerHp.cs:68)
 Error Log - 2024-05-16 오후 11:09:21
 Error Log - 2024-05-16 오후 11:14:58
 Error Log - 2024-05-16 오후 11:16:46
+Error Log - 2024-05-16 오후 11:37:49
+Error Log - 2024-05-16 오후 11:40:39
+Error Log - 2024-05-16 오후 11:46:57
+Error Log - 2024-05-16 오후 11:53:26

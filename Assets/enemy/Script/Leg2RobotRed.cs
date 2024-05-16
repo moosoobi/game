@@ -231,7 +231,7 @@ public class Leg2RobotRed : MonoBehaviour
         FistMoving=false;
         Die=false;
         Red.Play("Rifle Aiming Idle", 0, 0.0f);
-        Hp=5;
+        Hp=2;
         transform.position=RespawnSpot.position;
         transform.rotation=RespawnSpot.rotation;
         Ifhit=false;
@@ -241,6 +241,17 @@ public class Leg2RobotRed : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         transform.position=RespawnSpot.position;
         transform.rotation=RespawnSpot.rotation;
+        Z=false;
+        navMeshAgent.isStopped = true;
+        yield return new WaitForSeconds(0.5f);
+        Z=false;
+        navMeshAgent.isStopped = true;
+        yield return new WaitForSeconds(0.5f);
+        Z=false;
+        navMeshAgent.isStopped = true;
+        yield return new WaitForSeconds(0.5f);
+        Z=false;
+        navMeshAgent.isStopped = true;
     }
     private IEnumerator FakeBody2(float delayInSeconds)
     {

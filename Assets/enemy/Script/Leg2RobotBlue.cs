@@ -206,7 +206,7 @@ public class Leg2RobotBlue : MonoBehaviour
         Die=false;
         back=true;
         Blue.Play("Great Sword Idle", 0, 0.0f);
-        Hp=5;
+        Hp=2;
         transform.position=RespawnSpot.position;
         transform.rotation=RespawnSpot.rotation;
         StartCoroutine(RespawnSpotMove());
@@ -215,6 +215,17 @@ public class Leg2RobotBlue : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         transform.position=RespawnSpot.position;
         transform.rotation=RespawnSpot.rotation;
+        Z=false;
+        navMeshAgent.isStopped = true;
+        yield return new WaitForSeconds(0.5f);
+        Z=false;
+        navMeshAgent.isStopped = true;
+        yield return new WaitForSeconds(0.5f);
+        Z=false;
+        navMeshAgent.isStopped = true;
+        yield return new WaitForSeconds(0.5f);
+        Z=false;
+        navMeshAgent.isStopped = true;
     }
     private IEnumerator ExecuteAfterDelayCoolTime(float delayInSeconds)
     {
