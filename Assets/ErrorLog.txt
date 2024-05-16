@@ -664,3 +664,4 @@ Short_Lever.Update () (at Assets/Script/Short/Short_Lever.cs:82)
 
 Error Log - 2024-05-16 오후 5:56:38
 Error Log - 2024-05-16 오후 6:12:37
+Error Log - 2024-05-16 오후 6:35:00

@@ -99,6 +99,7 @@ public class RealBoss : MonoBehaviour
     public GameObject EndingVolumn;
     public bool IfDie=false;
     public bool Short=false;
+    private bool second=true;
     public EndingMonitor Ending;
     public AudioSource ErrorSound;
     public AudioSource BossBg;
@@ -126,7 +127,17 @@ public class RealBoss : MonoBehaviour
 
     void Update()
     {
-        
+        if(Fixing==10&&second){
+            second=false;
+            StopCoroutine(currentCoroutine);
+            StopCoroutine(currentCoroutine1);
+            Under50=true;
+            Text2.SetActive(true);
+            text2.text="메인 컴퓨터가 수리에 실패했습니다. \n과부하로 인해 5초간 동작이 중지됩니다.";
+            StartCoroutine(ExecuteAfterDelayText1(5f));
+            StartCoroutine(Robot10());
+            isAttacking=false;
+        }
         if(IfDie){
             StartCoroutine(die());
             IfDie=false;
@@ -674,6 +685,11 @@ public class RealBoss : MonoBehaviour
         yield return new WaitForSeconds(delayInSeconds);
         
     }
+    private IEnumerator Robot10(){
+        touch=false;
+        yield return new WaitForSeconds(5.0f);
+        touch=true;
+    }
     
     void InitializeHealthBar()
     {
@@ -695,7 +711,7 @@ public class RealBoss : MonoBehaviour
                 if (BossHp <= 50f)
                 {
                     touch=false;
-                    
+                    currentPatternIndex++;
                     StartCoroutine(Execute(6));
                     clear=false;
                     Lazer.SetActive(false);
