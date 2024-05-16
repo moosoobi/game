@@ -67,9 +67,9 @@ public class PlayerHp : MonoBehaviour
                 Leg4.Respawn();
                 Energy.Respawn();
                 Die=false;
-                player.transform.position=new Vector3(351.275f, -5.2f, 432.7f);
-                player.transform.rotation=Quaternion.Euler(new Vector3(0f, 0f, 0f));
-                PlayerCurHp=300f;
+                player.transform.position=new Vector3(371f, -3.85f, 432.7f);
+                player.transform.rotation=Quaternion.Euler(new Vector3(0f, 90f, 0f));
+                PlayerCurHp=1000f;
                 UpdateHealth(0);
                 player.GetComponent<MouseLookScript>().enabled = true;
                 player.GetComponent<PlayerMovementScript>().enabled = true;
@@ -83,7 +83,7 @@ public class PlayerHp : MonoBehaviour
                 Die=false;
                 player.transform.position=new Vector3(389.18f, -0.185f, 422.82f);
                 player.transform.rotation=Quaternion.Euler(new Vector3(0f, 0f, 0f));
-                PlayerCurHp=300f;
+                PlayerCurHp=1000f;
                 UpdateHealth(0);
                 GameOver.SetActive(false);
                 player.GetComponent<MouseLookScript>().enabled = true;
@@ -95,7 +95,7 @@ public class PlayerHp : MonoBehaviour
                 Die=false;
                 player.transform.position=new Vector3(21.1f, 258.8f, 432.15f);
                 player.transform.rotation=Quaternion.Euler(new Vector3(0f, -90f, 0f));
-                PlayerCurHp=300f;
+                PlayerCurHp=1000f;
                 UpdateHealth(0);
                 HpOver.SetActive(true);
                 GameOver.SetActive(false);

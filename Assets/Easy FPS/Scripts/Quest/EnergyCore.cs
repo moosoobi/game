@@ -378,7 +378,7 @@ public class EnergyCore: Quest
         }
     }
     public void Respawn(){
-        for(int i=0;i<10;i++){
+        for(int i=0;i<8;i++){
             myDoor[i].Play("DoorClose", 0, 0.0f);
             Door.openTrigger=true;
         }
