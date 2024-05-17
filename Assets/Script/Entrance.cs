@@ -39,7 +39,8 @@ public class Entrance : MonoBehaviour
             }else if(other.CompareTag("Player")&&PlayerIn&&!first){
                 StopAllAudioSources();
                 if(Short){
-                BarBackground.Play();}
+                //BarBackground.Play();
+                }
                 PlayerIn=false;
             }
         }

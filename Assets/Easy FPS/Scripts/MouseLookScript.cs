@@ -11,6 +11,7 @@ public class MouseLookScript : MonoBehaviour {
 	 * Hiding the cursor.
 	 */
 	void Awake(){
+		
 		Cursor.lockState = CursorLockMode.Locked;
 		myCamera = GameObject.FindGameObjectWithTag("MainCamera").transform;
 	}
@@ -157,11 +158,7 @@ void MouseInputMovement(){
 
 }
 
-/*
- * Smoothing the wanted movement.
- * Calling the waeponRotation form here, we are rotating the waepon from this script.
- * Applying the camera wanted rotation to its transform.
- */
+
 void ApplyingStuff(){
 
 	currentYRotation = wantedYRotation;
