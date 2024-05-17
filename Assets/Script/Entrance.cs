@@ -10,7 +10,7 @@ public class Entrance : MonoBehaviour
     public First_Bar firsrbar;
     public bool PlayerIn=true;
     public bool first=true;
-
+    public bool Short=false;
     void StopAllAudioSources()
     {
         // Scene에 있는 모든 AudioSource를 가져옵니다.
@@ -38,7 +38,8 @@ public class Entrance : MonoBehaviour
                 
             }else if(other.CompareTag("Player")&&PlayerIn&&!first){
                 StopAllAudioSources();
-                BarBackground.Play();
+                if(Short){
+                BarBackground.Play();}
                 PlayerIn=false;
             }
         }

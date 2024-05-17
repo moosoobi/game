@@ -89,7 +89,7 @@ public class Short_First : MonoBehaviour
         Text.text=Description;
         StartCoroutine(ChangeColor());
         Key_Detail.SetActive(true);
-        
+        player.GetComponent<PlayerMovementScript>().IfCross=true;
     }
     private IEnumerator ChangeColor(){
         QuestSound.Play();

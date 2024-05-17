@@ -391,7 +391,7 @@ public class DrLee : MonoBehaviour
                                 IfBuy=true;
                             }
                         }else if(BuyInt==4){
-                            if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().HealKit>=2){
+                            if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().Emp>=2){
                                 UiObject.SetActive(true);
                                 UiText.text="더이상은 구매할 수 없습니다.";
                                 StartCoroutine(ExecuteAfterDelayText(3f)); 

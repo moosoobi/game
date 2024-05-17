@@ -37,6 +37,7 @@ public class Short_Lever : MonoBehaviour
     public TextMeshProUGUI HelpText;
     public AudioSource QuestSound;
     public AudioSource Lever;
+    public GameObject Key6;
     private bool clear=false;
     void Start()
     {
@@ -50,6 +51,7 @@ public class Short_Lever : MonoBehaviour
         if(zzzz){
         if(isFixed){
             if(Lever1==1&&Lever2==0&&Lever3==3&&Lever4==2&&first){
+                Key6.SetActive(false);
                 clear=true;
                 first=false;
                 BarCamera.SetActive(true);
