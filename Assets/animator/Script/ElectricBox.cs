@@ -44,10 +44,11 @@ public class ElectricBox : MonoBehaviour
     {
         
         if(zzzz&&!clear){
-            if(Input.GetMouseButtonDown(0)&&guninventory.currneguniskey()){
+            if(Input.GetMouseButtonDown(0)&&guninventory.currneguniskey()&&stage==0){
                         Positivedoorlock();
                         stage=1;
-                        Invoke("StartConversation", 1.0f);
+                        StartConversation();
+                        //Invoke("StartConversation", 1.0f);
                         
             }else if(Input.GetMouseButtonDown(0)&&!guninventory.currneguniskey()&&isTalking==false&&!doorlock){
                         StartConversation();    
