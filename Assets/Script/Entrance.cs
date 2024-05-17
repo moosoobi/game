@@ -26,18 +26,18 @@ public class Entrance : MonoBehaviour
     private void OnTriggerEnter(Collider other){
         if(door.active){
             if (other.CompareTag("Player")&&PlayerIn&&first){
-            StopAllAudioSources();
-            BarBackground.Play();
+            //StopAllAudioSources();
+            //BarBackground.Play();
             
             firsrbar.Positivez();
             PlayerIn=false;
             }else if(other.CompareTag("Player")&&!PlayerIn){
-                StopAllAudioSources();
+                //StopAllAudioSources();
                 
                 PlayerIn=true;
                 
             }else if(other.CompareTag("Player")&&PlayerIn&&!first){
-                StopAllAudioSources();
+                //StopAllAudioSources();
                 if(Short){
                 //BarBackground.Play();
                 }

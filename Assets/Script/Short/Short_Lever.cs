@@ -67,10 +67,10 @@ public class Short_Lever : MonoBehaviour
             }
             if(Input.GetKeyDown(KeyCode.UpArrow)){
                 Lever.Play();
-                if(Index==0){if(Lever1==0){Lever1=3;}Lever1+=1;if(Lever1>3)Lever1=3;}
-                else if(Index==1){if(Lever2==0){Lever2=3;}Lever2+=1;if(Lever2>3)Lever2=3;}
-                else if(Index==2){if(Lever3==0){Lever3=3;}Lever3+=1;if(Lever3>3)Lever3=3;}
-                else if(Index==3){if(Lever4==0){Lever4=3;}Lever4+=1;if(Lever4>3)Lever4=3;}
+                if(Index==0){Lever1=3;}
+                else if(Index==1){Lever2=3;}
+                else if(Index==2){Lever3=3;}
+                else if(Index==3){Lever4=3;}
                 
                 Vector3 currentRotation = switches[horizontal].transform.eulerAngles;
                 currentRotation.x -= 40f;
