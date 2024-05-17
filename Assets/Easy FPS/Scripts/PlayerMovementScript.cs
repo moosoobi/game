@@ -8,6 +8,7 @@ public class PlayerMovementScript : MonoBehaviour {
 	public int FakeBody=0;
 	public int HealKit=0;
 	public bool Upgrade=false;
+	public bool Short=false;
 	public int ChipInt=0;
 	public float speed;
 	Rigidbody rb;

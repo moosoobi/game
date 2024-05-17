@@ -92,6 +92,7 @@ public class Short_First : MonoBehaviour
         player.GetComponent<MouseLookScript>().isrotation=true;
         player.GetComponent<MouseLookScript>().wantedYRotation=-90f;
         player.GetComponent<MouseLookScript>().wantedCameraXRotation=0f;
+        player.GetComponent<GunInventory>().ChangeWeapon1();
         Key_Detail.SetActive(true);
         player.GetComponent<PlayerMovementScript>().IfCross=true;
     }

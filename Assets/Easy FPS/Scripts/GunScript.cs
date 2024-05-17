@@ -41,6 +41,7 @@ public class GunScript : MonoBehaviour {
 	public bool talking=false;
 	public bool IfCross=false;
 	public bool Upgrade=false;
+	public bool Short=false;
 	private bool first=true;
 	public GameObject EmpPrefab; // 수류탄 프리팹
     public Transform launchPoint; // 발사 위치
@@ -106,6 +107,8 @@ public class GunScript : MonoBehaviour {
 		}
 		Upgrade=GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().Upgrade;
 		if(Upgrade){if(first){first=false;amountOfBulletsPerLoad=20;bulletsInTheGun=20;}}
+		Short=GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>().Short;
+		if(Short){if(first){first=false;amountOfBulletsPerLoad=15;bulletsInTheGun=15;}}
 		currentgun=GameObject.FindGameObjectWithTag("Player").GetComponent<GunInventory>().currentGun.name;
 
 		if(IfCross){
@@ -262,10 +265,11 @@ public class GunScript : MonoBehaviour {
 	* User inputs meele attack with Q in keyboard start the coroutine for animation and damage attack.
 	*/
 	void MeeleAttack(){	
-
+		/*
 		if(Input.GetKeyDown(KeyCode.Q) && !meeleAttack){			
 			StartCoroutine("AnimationMeeleAttack");
 		}
+		*/
 	}
 	/*
 	* Sets meele animation to play.

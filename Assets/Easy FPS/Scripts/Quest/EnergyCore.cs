@@ -203,7 +203,7 @@ public class EnergyCore: Quest
                     healthSlider.maxValue = CoreMaxHp;
                     healthSlider.value = CoreHp;
                     if(Short){
-
+                        StartCoroutine(DoorClose());
                     }else{
                         StartCoroutine(StartConversation());
                     }
