@@ -99,6 +99,7 @@ public class EnergyCore: Quest
     {
         
         
+        
 
         if(Input.GetMouseButtonDown(0)&&isTalking==true){
             ContinueConversation();
@@ -305,7 +306,8 @@ public class EnergyCore: Quest
             
             if(Short){
                 player.transform.position=new Vector3(21.1f, 258.8f, 432.15f);
-                player.transform.rotation=Quaternion.Euler(new Vector3(0f, 90f, 0f));
+                player.GetComponent<MouseLookScript>().wantedYRotation=-90f;
+                player.GetComponent<MouseLookScript>().wantedCameraXRotation=0f;
                 StopAllAudioSources();
                 QuestActive2();
             }else{

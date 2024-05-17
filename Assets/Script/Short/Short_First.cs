@@ -28,9 +28,9 @@ public class Short_First : MonoBehaviour
     void Start()
     {
         Invoke("QuestActive", 3.0f);
-
+        player.transform.rotation=Quaternion.Euler(new Vector3(0f, -90f, 0f));
         player.GetComponent<PlayerMovementScript>().enabled = false;
-
+        player.GetComponent<MouseLookScript>().isrotation=false;
     }
 
     void Update()
@@ -89,7 +89,9 @@ public class Short_First : MonoBehaviour
         player.GetComponent<PlayerMovementScript>().enabled = true;
         Text.text=Description;
         StartCoroutine(ChangeColor());
-       
+        player.GetComponent<MouseLookScript>().isrotation=true;
+        player.GetComponent<MouseLookScript>().wantedYRotation=-90f;
+        player.GetComponent<MouseLookScript>().wantedCameraXRotation=0f;
         Key_Detail.SetActive(true);
         player.GetComponent<PlayerMovementScript>().IfCross=true;
     }

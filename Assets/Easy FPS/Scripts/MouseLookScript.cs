@@ -7,6 +7,7 @@ public class MouseLookScript : MonoBehaviour {
 
 	[HideInInspector]
 	public Transform myCamera;
+	public bool isrotation=true;
 	/*
 	 * Hiding the cursor.
 	 */
@@ -113,7 +114,7 @@ void FixedUpdate(){
 	
 
 
-	ApplyingStuff();
+	if(isrotation){ApplyingStuff();}
 
 
 }
