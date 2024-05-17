@@ -48,6 +48,9 @@ public class BulletScript : MonoBehaviour {
             }else if(other.name == "DrLeeZ"){
 
             }
+            else if(other.name == "slidingDoor_bar"){
+
+            }
             else{
                 Debug.Log(other.name);
                 Destroy(gameObject);

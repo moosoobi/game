@@ -293,6 +293,7 @@ public class RealBoss : MonoBehaviour
         StartConversation();
     }
     public void StartConversation(){
+        player.GetComponent<GunInventory>().Possible=false;
         RadioSound.Play();
         isTalking=true;
         curResponseTracker=0;
@@ -332,6 +333,7 @@ public class RealBoss : MonoBehaviour
     }
 
     public void EndDialogue(){
+        player.GetComponent<GunInventory>().Possible=true;
         curResponseTracker=0;
         isTalking=false;
         dialogueUI.SetActive(false);

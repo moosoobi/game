@@ -46,9 +46,11 @@ public class Cart : MonoBehaviour
     public SuccessDoor SuccessDoorScript;
     public Kiosk kiosk;
     public GameObject CardUi;
+    public GameObject stage2;
     public GameObject[] Key;
     public AudioSource QuestSound;
     public AudioSource DialogueSound;
+    
 
     void Update()
     {
@@ -173,6 +175,7 @@ public class Cart : MonoBehaviour
             InsertCard.SetActive(false);
             StartCoroutine(Camera());
             Clear=false;
+            stage2.SetActive(true);
 
             
         }else{

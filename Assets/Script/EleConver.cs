@@ -35,6 +35,7 @@ public class EleConver : MonoBehaviour
         First=false;
         player.GetComponent<MouseLookScript>().enabled = false;
         player.GetComponent<PlayerMovementScript>().enabled = false;
+        player.GetComponent<GunInventory>().Possible=false;
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
@@ -55,6 +56,7 @@ public class EleConver : MonoBehaviour
      
     }
     public void EndDialogue(){
+        player.GetComponent<GunInventory>().Possible=true;
         player.GetComponent<MouseLookScript>().enabled = true;
         player.GetComponent<PlayerMovementScript>().enabled = true;
         isTalking=false;

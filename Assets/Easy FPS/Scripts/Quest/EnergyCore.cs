@@ -156,8 +156,8 @@ public class EnergyCore: Quest
 
     IEnumerator StartConversation1(){
         ShootGuide.SetActive(false);
-        yield return new WaitForSeconds(5.0f);
-        
+        yield return new WaitForSeconds(3.0f);
+        player.GetComponent<GunInventory>().Possible=false;
         isTalking=true;
         curResponseTracker=0;
         dialogueUI.SetActive(true);
@@ -167,7 +167,7 @@ public class EnergyCore: Quest
     }
     IEnumerator StartConversation2(){
         player.GetComponent<GunInventory>().ChangeWeapon1();
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(3.0f);
         player.GetComponent<GunInventory>().Possible=false;
         RadioSound.Play();
         isTalking=true;
@@ -289,6 +289,7 @@ public class EnergyCore: Quest
      
     }
     public void EndDialogue(){
+        player.GetComponent<GunInventory>().Possible=true;
         if(stage==0){
             QuestActive();
             Click.SetActive(true);
