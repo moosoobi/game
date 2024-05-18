@@ -12,6 +12,7 @@ public class EnergyCore: Quest
     public Vector3 targetPosition = new Vector3(8f, 413.8f, 432f);
     public GameObject Ring;
     public GameObject Save;
+    public GameObject Save1;
     public QuestState CurrentState;
     public EnergyCoreDoor Door;
     public string[] dialogue;
@@ -233,6 +234,7 @@ public class EnergyCore: Quest
         StartCoroutine(ChangeColor());
         Ring.transform.position=targetPosition;
         Save.SetActive(true);
+        Save1.SetActive(true);
         Guide.SetActive(true);
         Guide1.SetActive(false);
     }
