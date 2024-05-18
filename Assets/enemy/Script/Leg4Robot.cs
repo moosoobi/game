@@ -230,7 +230,7 @@ public class Leg4Robot : MonoBehaviour
     }
 
     public void Respawn(){
-
+        GetComponent<Collider>().enabled = true;
         gameObject.SetActive(true);
         navMeshAgent.isStopped = true;
         Attack=false;

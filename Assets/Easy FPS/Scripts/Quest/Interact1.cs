@@ -23,6 +23,7 @@ public class Interact1 : MonoBehaviour
                 text1.SetActive(true);
                 Text.text="숫자키 1번을 눌러 대화할 수 있습니다.";
                 StartCoroutine(ExecuteAfterDelayText(1.5f));
+                
             }
     }
     private IEnumerator ExecuteAfterDelayText(float delayInSeconds)
@@ -31,12 +32,14 @@ public class Interact1 : MonoBehaviour
         yield return new WaitForSeconds(delayInSeconds);
         text1.SetActive(false);
     }
-    private void OnTriggerEnter(Collider other){
+    private void OnTriggerStay(Collider other){
         
         zzz=true;
+        StartCoroutine(AfterZ());
     }
-    private void OnTriggerExit(Collider other){
-
+    private IEnumerator AfterZ(){
+        yield return new WaitForSeconds(1.0f);
         zzz=false;
     }
+
 }

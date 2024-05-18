@@ -65,13 +65,17 @@ public class Leg2RobotBlue : MonoBehaviour
                         RaycastHit hit;
                         if (Physics.Raycast(transform.position+Vector3.up *0.5f, player.transform.position- transform.position, out hit, raycastDistance,~obstacleLayer))
                         {
-                            //Debug.Log(hit.collider.gameObject.name);
+                            Debug.Log(hit.collider.gameObject.name);
                             if(hit.collider.gameObject.name=="Player"){if(!IfAttacking){Attacking();IfAttacking=true;}}
                             else{if(!IfWalking){Walking();IfWalking=true;}
-                                    navMeshAgent.SetDestination(player.transform.position);}   
+                                    navMeshAgent.SetDestination(player.transform.position);
+                                    navMeshAgent.isStopped = false;
+                                    }   
                         }
                      }else{if(!IfWalking){Walking();IfWalking=true;}
-                                    navMeshAgent.SetDestination(player.transform.position);}
+                                    navMeshAgent.SetDestination(player.transform.position);
+                                    Debug.Log(1);
+                        }
                 }
                 else if(Vector3.Distance(transform.position, player.transform.position)<AttackRange){
                     Vector3 directionToPlayer = player.transform.position - transform.position;
@@ -194,6 +198,7 @@ public class Leg2RobotBlue : MonoBehaviour
         IfAttacking=false;
     }
     public void Respawn(){
+        GetComponent<Collider>().enabled = true;
         gameObject.SetActive(true);
         navMeshAgent.isStopped = true;
         Attack=false;

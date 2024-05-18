@@ -136,7 +136,7 @@ public class GunScript : MonoBehaviour {
 		PositionGun();
 
 		Shooting();
-		MeeleAttack();
+		
 		LockCameraWhileMelee ();
 
 		Sprint(); //iff we have the gun you sprint from here, if we are gunless then its called from movement script

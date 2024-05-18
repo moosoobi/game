@@ -221,6 +221,7 @@ public class Leg2RobotRed : MonoBehaviour
         IfAttacking=false;
     }
     public void Respawn(){
+        GetComponent<Collider>().enabled = true;
         gameObject.SetActive(true);
         navMeshAgent.isStopped = true;
         Attack=false;
