@@ -263,6 +263,12 @@ public class Leg4Robot : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Z=false;
         navMeshAgent.isStopped = true;
+        yield return new WaitForSeconds(0.5f);
+        Z=false;
+        navMeshAgent.isStopped = true;
+        yield return new WaitForSeconds(0.5f);
+        Z=false;
+        navMeshAgent.isStopped = true;
     }
     private IEnumerator FakeBody2(float delayInSeconds)
     {

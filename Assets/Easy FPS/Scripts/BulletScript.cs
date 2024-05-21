@@ -56,6 +56,12 @@ public class BulletScript : MonoBehaviour {
             }
             else if(other.name == "Leg2"){
 
+            }else if(other.name == "barentrance_collider"){
+
+            }else if(other.name == "BarBarrier"){
+
+            }else if(other.name == "Sliding_z"){
+
             }
             else{
                 Debug.Log(other.name);
